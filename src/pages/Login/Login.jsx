@@ -7,6 +7,7 @@ import { useErrorLogin } from "../../hooks/useErrorLogin";
 import { useAuth } from "../../context/authContext";
 
 export const Login = () => {
+  const { user } = useAuth();
   const { register, handleSubmit } = useForm();
   const { login, setUser } = useAuth();
   const navigate = useNavigate();
@@ -32,11 +33,12 @@ export const Login = () => {
   }, []);
 
   if (successfulLogin) {
-    console.log("succesfullogin");
-    if (res?.data?.user?.check == false) {
+    console.log("succesfullogin", res);
+    if (data?.user?.check == false) {
       return <Navigate to="/verifyCode" />;
     } else {
-      switch (res.data.user.interestedIn) {
+      console.log(res.data.user)
+      switch (data?.user?.interestedIn) {
         case "motogp":
           <Navigate to="/motogp" />;
           break;

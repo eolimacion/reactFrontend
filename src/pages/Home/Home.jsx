@@ -1,13 +1,13 @@
+import { useAuth } from '../../context/authContext';
 import './Home.css'
 import { Link, useNavigate } from "react-router-dom";
 
-export const Home = ({isLogged}) => {
+export const Home = () => {
+  const { user } = useAuth();
   const navigate = useNavigate();
-  const handleClick = () => {
-    if (!isLogged){
-      navigate("/login");
-    }
-  }
+
+
+
   return (
     <>
     <div className="containerGeneral">
@@ -39,7 +39,7 @@ export const Home = ({isLogged}) => {
     
     <div className="picturesHome">
     <figure className="dataHome">
-      <Link to={isLogged ? "/fifa" : "/login"} onClick={handleClick}>
+      <Link to={user.interestedIn == 'fifa' ? '/fifa' : '/login'}>
       <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
       </Link>
       <h3 className="titlePictureFifa">FIFA</h3>

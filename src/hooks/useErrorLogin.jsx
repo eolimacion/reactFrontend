@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 export const useErrorLogin = (res, setRes, login, setSuccessfulLogin) => {
 console.log(res, "Respuesta en useLoginError")
     if (res?.status == 200) {
+        console.log(res.data)
         const updatedUser = {
           token: res.data.token,
           name: res.data.user.name,
@@ -18,6 +19,7 @@ console.log(res, "Respuesta en useLoginError")
         const userString = JSON.stringify(updatedUser);
         login(userString);
         setSuccessfulLogin(() => true);
+        setRes(() => ({}))
     
         Swal.fire({
           icon: "success",
