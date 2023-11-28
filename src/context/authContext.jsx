@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
   });
 
 
-  const [deleteUser, setDeleteUser] = useState(false)
+  const [isDeletedUser, setIsDeletedUser] = useState(false)
 
   const [allUser, setAllUser] = useState({
     data: {
