@@ -12,28 +12,28 @@ export const Home = ({isLogged}) => {
     <>
     <div className="containerGeneral">
     <div className="divTextoHome">
-    <h1 className="titleHome">Bienvenido a nuestra App Deportiva</h1>
+    <h1 className="titleHome">Welcome to our Sports App!</h1>
     <p className="textHomeWelcome">
-    Descubre el apasionante mundo del fútbol, MotoGP y powerlifting en nuestra aplicación fácil de usar. 
-    Regístrate en segundos y explora tres emocionantes secciones personalizadas según tus intereses.
+    Discover the exciting world of soccer, MotoGP and Powerlifting in our easy-to-use app. 
+    Register in seconds and explore three exciting sections customized to your interests.
     </p>
-    <h1 className="titlePassion">Tu Pasión, Tu Experiencia:</h1>
+    <h1 className="titlePassion">Your Passion, Your Experience:</h1>
     <p className="textHomePassion">
-    Sumérgete en el fútbol, la velocidad de MotoGP y la potencia del powerlifting con solo unos clics. 
-    Crea tu equipo ideal, sigue a tus jugadores, pilotos o levantadores de pesas favoritos.
+    Immerse yourself in soccer, the speed of MotoGP and the power of Powerlifting with just a few clicks. 
+    Create your ideal team, follow your favorite players, pilots or weightlifters.
     </p>
-    <h1 className="titlePersonalize">Personaliza y Comparte:</h1>
+    <h1 className="titlePersonalize">Personalize and Share:</h1>
     <p className="textHomePersonalize">
-    Crea tu once inicial favorito, crea tu podium de MotoGP y crea tus marcas de powerlifting. 
-    Interactúa con otros fans, da "likes" a tus favoritos y comparte tus logros. 
-    Nuestra aplicación no solo sigue eventos, sino que también conecta comunidades apasionadas.
+    Create your favorite starting eleven, create your MotoGP podium and create your powerlifting records. 
+    Interact with other fans, like your favorites and share your achievements. 
+    Our app not only follows events, but also connects passionate communities.
 
-    nuestro espacio es perfecto para conectarte con personas que comparten tu entusiasmo.
+    Our space is perfect for connecting with people who share your enthusiasm.
     </p>
-    <h1 className="titleEnterNow">Entra ahora: </h1>
+    <h1 className="titleEnterNow">Enter now:</h1>
     <p className="textHomeEnterNow">
-    Vive la emoción con cada toque. Entra en nuestra app y sé parte de una comunidad donde la pasión se encuentra con la tecnología. 
-    ¡Tu experiencia personalizada en fútbol, MotoGP y powerlifting te espera!
+    Live the emotion with every touch. Enter our app and be part of a community where passion meets technology. 
+    Your personalized soccer, MotoGP and powerlifting experience awaits you!
     </p>
     </div>
     
