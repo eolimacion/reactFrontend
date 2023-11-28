@@ -1,148 +1,109 @@
-.todo-form{
+.allForm {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
   }
   
-  
-  .parrafoLogin {
-    margin-bottom: 40px;
-  }
-  
-  #imagen {
-    display: block;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .form-wrap {
-    margin-top: 2rem;
-    background: #f7fffa;
-    padding: 15px 25px 30px;
-    color: #333;
-    border-radius: 5px;
-    width: 400px;
-  background-color: var(--color-verde);
-  }
-  
-  .form-wrap h1,
-  .form-wrap p {
+  .formMain {
+    background-color: var(--color-primario) ;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
     text-align: center;
   }
   
-  .form-wrap .form-group {
-    margin-top: 15px;
+  .formGroup {
+    margin-bottom: 20px;
   }
   
-  .form-wrap .form-group label {
-    color: black;
-    font-weight: normal;
-  }
-  
-  .form-wrap .form-group input {
+  .inputUser,
+  .inputForm {
     width: 100%;
     padding: 10px;
-    border: #ddd 1px solid;
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: inherit;
-    caret-color: var(--color-naranja-habilitado);
-    border: solid 2px var(--color-naranja-habilitado);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
   
-  .form-wrap .form-group input:focus {
-    outline-color: var(--color-naranja-deshabilitado);
+  .customPlaceholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    color: #555;
   }
   
-  .form-wrap .btn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 25px;
-    background:var(--color-naranja-habilitado) !important;
-    color: #fff;
-    cursor: pointer;
-    border:var(--color-naranja-habilitado) 1px solid;
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: inherit;
+  .inputUser:focus + .customPlaceholder,
+  .inputForm:focus + .customPlaceholder {
+    font-size: 12px;
+    top: -10px;
+    left: 5px;
+    color: #ffffff;
   }
   
-  .form-wrap .btn:hover {
-    background: #37a08e;
-    color: #f4f4f4;
+  .gender {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
   }
   
-  .form-wrap .btn:focus {
-    outline-color: var(--color-naranja-habilitado);
-  }
-  
-  .form-wrap .bottom-text {
-    line-height: 1.4;
-    margin-top: 15px;
-  }
-  
-  .form-wrap .bottom-text a:hover {
-    text-decoration: underline;
-  }
-  
-  .parrafoLogin {
-    text-align: center;
-    margin-top: 15px;
-  }
-  
-  footer a {
-    color: #49c1a2;
-  }
-  
-  footer a:hover {
-    color: var(--color-naranja-deshabilitado);
-  }
-  
-  .btn:disabled {
-    background-color: navajowhite;
-  }
-  
-  input[type="radio"] {
+  .gender input[type="radio"] {
     display: none;
   }
   
-  .sexo {
-    display: flex;
-    flex-wrap: no-wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  .labelRadio {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilo cuando el botón está seleccionado */
+  .gender input[type="radio"]:checked + .labelRadio,.interested input[type="radio"]:checked + .labelRadio {
+    background-color:var(--color-boton);
+    color: #fff;
+    border: 1px solid #2f7a67;
+  }
+  
+  .btnContainer {
     margin-top: 20px;
   }
   
-  .sexo .hombre {
-    border-radius: 3px 0 0 3px;
-    color: black !important;
-  }
-  .sexo .mujer {
-    border-radius: 0 3px 3px 0;
-    color: black !important;
-  }
-  
-  .label-radio {
-    background:var(--color-naranja-deshabilitado);
-    color: black;
-    padding: 10px;
-    text-align: center;
-    width: 49.5%;
+  .btn {
+    padding: 10px 20px;
+    color:var(--color-texto-boton);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
   }
   
-  input[type="radio"]:checked + .label-radio {
-    background: var(--color-naranja-habilitado);
-    color: #fff !important;
+  .btn:disabled {
+    cursor: not-allowed;
   }
   
-  
+  .bottomText {
+    margin-top: 20px;
+    color: var(color-text-boton);
+  }
   
   .anchorCustom {
-    color:black;
-    font-weight: bold;
+    color: var(--color-enlace);
+
+  }
+  
+  .footerForm {
+    margin-top: 20px;
+  }
+  
+  .loginParagraph {
+    color: var(--color-texto-destacado)
   }
   

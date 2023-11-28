@@ -10,11 +10,14 @@
   --color-h3: #e67e22;
   --color-h4: #3498db;
   --color-p: #34495e;
+  --color-texto-destacado: #047cf5;
   --color-enlace: #000000;
   --color-enlace-hover: #2773b8;
   --color-contenedor: #2ecc71;
   --color-boton: #e74c3c;
+  --color-texto-boton: #000000;
   --color-botondes: #e74c3c;
+  --color-textbotondes: #ffffff;
   --color-boton-hover: #c0392b;
 }
 *{

@@ -37,102 +37,146 @@ const customFormData = {
     return <Navigate to="/verifyCode" />;
   }
   return (
-    <div className="todo-form">
-      <div className="form-wrap">
-        <h1>Sign Up</h1>
-        <p>Champion Within, Victories Begin</p>
-        <form onSubmit={handleSubmit(formSubmit)}>
-          <div className="user_container form-group">
+    <div className="allForm register">
+    <div className="formMain">
+      <h1>Sign Up</h1>
+      <p>Champion Within, Victories Begin</p>
+      <form onSubmit={handleSubmit(formSubmit)}>
+        <div className="userInfo formGroup">
+          <input
+            className="inputUser"
+            type="text"
+            id="name"
+            name="name"
+            autoComplete="false"
+            {...register("name", { required: true })}
+          />
+          <label htmlFor="name" className="customPlaceholder">
+            Username
+          </label>
+        </div>
+        
+        <div className="passwordInfo formGroup">
+          <input
+            className="inputForm"
+            type="password"
+            id="password"
+            name="password"
+            autoComplete="false"
+            {...register("password", { required: true })}
+          />
+          <label htmlFor="password" className="customPlaceholder">
+            Password
+          </label>
+        </div>
+
+        <div className="emailInfo formGroup">
+          <input
+            className="inputForm"
+            type="email"
+            id="email"
+            name="email"
+            autoComplete="false"
+            {...register("email", { required: true })}
+          />
+          <label htmlFor="email" className="customPlaceholder">
+            E-mail
+          </label>
+          <div className="interest">
+<input
+  type="radio"
+  name="interest"
+  id="futbol"
+  value="futbol"
+  {...register("interestedIn")}
+/>
+<label htmlFor="futbol" className="labelRadio">
+  FIFA
+</label>
+
+<input
+  type="radio"
+  name="interest"
+  id="motogp"
+  value="motogp"
+  {...register("interestedIn")}
+/>
+<label htmlFor="motogp" className="labelRadio ">
+  Moto GP
+</label>
+<input
+  type="radio"
+  name="interest"
+  id="powerlifting"
+  value="powerlifting"
+  {...register("interestedIn")}
+/>
+<label htmlFor="powerlifting" className="labelRadio ">
+  Powerlifting
+</label>
+</div>
+
+
+          <div className="gender">
             <input
-              className="input_user"
-              type="text"
-              id="name"
-              name="name"
-              autoComplete="false"
-              {...register("name", { required: true })}
+              type="radio"
+              name="gender"
+              id="male"
+              value="male"
+              {...register("gender")}
             />
-            <label htmlFor="custom-input" className="custom-placeholder">
-              Username
+            <label htmlFor="male" className="labelRadio male">
+              Male
+            </label>
+            
+            <input
+              type="radio"
+              name="gender"
+              id="female"
+              value="female"
+              {...register("gender")}
+            />
+            <label htmlFor="female" className="labelRadio female">
+              Female
             </label>
           </div>
-          <div className="password_container form-group">
-            <input
-              className="input_user"
-              type="password"
-              id="password"
-              name="password"
-              autoComplete="false"
-              {...register("password", { required: true })}
-            />
-            <label htmlFor="custom-input" className="custom-placeholder">
-              Password
-            </label>
-          </div>
+        </div>
 
-          <div className="email_container form-group">
-            <input
-              className="input_user"
-              type="email"
-              id="email"
-              name="email"
-              autoComplete="false"
-              {...register("email", { required: true })}
-            />
-            <label htmlFor="custom-input" className="custom-placeholder">
-              E-mail
-            </label>
-
-            <div className="sexo">
-              <input
-                type="radio"
-                name="sexo"
-                id="hombre"
-                value="hombre"
-                {...register("gender")}
-              />
-              
-              <label htmlFor="hombre" className="label-radio hombre">
-                Hombre
-              </label>
-              <input
-                type="radio"
-                name="sexo"
-                id="mujer"
-                value="mujer"
-                {...register("gender")}
-              />
-              <label htmlFor="mujer" className="label-radio mujer">
-                Mujer
-              </label>
-            </div>
-
-          
-          </div>
-
-          <div className="btn_container">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? "#49c1a388" : "#2f7a67" }}
-            >
-              Register
-            </button>
-          </div>
-          <p className="bottom-text">
-            <small>
-              By clicking the Sign Up button, you agree to our{" "}
-              <Link className="anchorCustom">Terms & Conditions</Link> and{" "}
-              <Link className="anchorCustom">Privacy Policy</Link>.
-            </small>
-          </p>
-        </form>
-      </div>
-      <div className="footerForm">
-        <p className="parrafoLogin">
-          Already have an account? <Link to="/login">Login Here</Link>
+        <div className="btnContainer">
+          <button
+            className="btn"
+            type="submit"
+            disabled={send}
+            style={{ background: send ? "#49c1a388" : "#2f7a67" }}
+          >
+            Register
+          </button>
+        </div>
+        
+        <p className="bottomText">
+          <small>
+            By clicking the Sign Up button, you agree to our{" "}
+            <Link to="/terms" className="anchorCustom">
+              Terms & Conditions
+            </Link>{" "}
+            and{" "}
+            <Link to="/privacy" className="anchorCustom">
+              Privacy Policy
+            </Link>
+            .
+          </small>
         </p>
-      </div>
+      </form>
     </div>
+
+    <div className="footerForm">
+      <p className="loginParagraph">
+        Already have an account? <Link to="/login">Login Here</Link>
+      </p>
+    </div>
+  </div>
+
   );
 };
+
+
