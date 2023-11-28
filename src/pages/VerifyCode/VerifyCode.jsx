@@ -108,7 +108,7 @@ export const VerifyCode = () => {
   return (
     <>
       <div className="allForm">
-        <div className="formMain">
+        <div className="form">
         <h1 className="formTitle">Verify your code 👌</h1>
         <p>Write the code sent to your email</p>
         <form onSubmit={handleSubmit(formSubmit)}>
