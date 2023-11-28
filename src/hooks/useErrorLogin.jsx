@@ -7,9 +7,9 @@ console.log(res, "Respuesta en useLoginError")
         const updatedUser = {
           token: res.data.token,
           name: res.data.user.name,
-          userEmail: res.data.user.userEmail,
+          email: res.data.user.email,
           image: res.data.user.image,
-          isVerified: res.data.user.isVerified,
+          check: res.data.user.check,
           _id: res.data.user._id,
           role: res.data.user.role,
           interestedIn: res.data.user.interestedIn, 
