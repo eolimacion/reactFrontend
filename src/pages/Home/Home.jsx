@@ -1,9 +1,16 @@
 import './Home.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export const Home = () => {
+export const Home = ({isLogged}) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    if (!isLogged){
+      navigate("/login");
+    }
+  }
   return (
     <>
+    <div className="divTextoHome">
     <h1 className="titleHome">Bienvenido a nuestra App Deportiva</h1>
     <p className="textHomeWelcome">
     Descubre el apasionante mundo del fútbol, MotoGP y powerlifting en nuestra aplicación fácil de usar. 
@@ -27,24 +34,25 @@ export const Home = () => {
     Vive la emoción con cada toque. Entra en nuestra app y sé parte de una comunidad donde la pasión se encuentra con la tecnología. 
     ¡Tu experiencia personalizada en fútbol, MotoGP y powerlifting te espera!
     </p>
+    </div>
     <div className="picturesHome">
     <figure className="dataHome">
-      <Link to="/fifa">
-      <img src=""/>
+      <Link to={isLogged ? "/fifa" : "/login"} onClick={handleClick}>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
       </Link>
       <h3 className="titlePictureFifa">FIFA</h3>
     </figure>
     
     <figure className="dataHome">
-      <Link to="/motogp">
-      <img src=""/>
+      <Link to={isLogged ? "/motogp" : "/login"} onClick={handleClick}>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
       </Link>
       <h3 className="titlePictureMotoGP">MOTO GP</h3>
     </figure>
 
     <figure className="dataHome">
-      <Link to="/powerlifting">
-      <img src=""/>
+      <Link to={isLogged ? "/powerlifting" : "/login"} onClick={handleClick}>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
       </Link>
       <h3 className="titlePicturepOWERlIFTING">POWER LIFTING</h3>
     </figure>
