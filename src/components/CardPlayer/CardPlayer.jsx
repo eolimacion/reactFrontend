@@ -1,35 +1,49 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../context/authContext";
+import { getUsersFavLifters, getUsersFavPlayers, getUsersFavRiders } from "../../services/user.service";
 
-export const CardPlayer = () => {
+export const CardPlayer = ({ controller }) => {
   const { user } = useAuth()
-  const [ favPlayers, setFavPlayers ] = useState()
-  const [ favRiders, setFavRiders ] = useState()
-  const [ favLifters, setFavLifters ] = useState()
+  const [ prueba, setPrueba ] = useState()
 
 
-  const printCardPlayer = async () => {
+  const printCardItem = async () => {
     switch (controller) {
       case "getFavPlayers":
         const resFavPlayers = await getUsersFavPlayers(user._id)
-        setFavPlayers(resFavPlayers.data)
-        return favPlayers
+        return resFavPlayers.data
 
       case "getFavRiders":
         const resFavRiders = await getUsersFavRiders(user._id)
-        setFavRiders(resFavRiders.data)
-        return favRiders
+        return resFavRiders.data
 
       case "getFavLifters":
         const resFavLifters = await getUsersFavLifters(user._id)
-        setFavLifters(resFavLifters.data)
-        return favLifters
+        return resFavLifters.data
     
       default:
         break;
     }
   }
+
+  useEffect(() => {
+    const getData = async () => {
+      setPrueba(await printCardItem())
+    }
+    getData()
+  }, [])
+
+  console.log("estoy pintando esto: " + prueba)
   return (
-    <div>CardPlayer</div>
+    <>
+      {prueba && prueba.map((item) => {
+        return (
+          <section className="singleItemCard" key={item._id}>
+            <img className="singleItemImg" src={item.image} alt={item.name} />
+            <h2 className="singleItemName">{item.name}</h2>
+          </section>
+        )
+      })}
+    </>
   )
 }

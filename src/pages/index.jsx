@@ -11,6 +11,7 @@ export * from './NotFound/NotFound'
 export * from './Profile/Profile'
 export * from './Register/Register'
 export * from './VerifyCode/VerifyCode'
+export * from './ProfileFavorites/ProfileFavorites'
 
 //!!POWERLIFTING
 export * from './Powerlifting/Powerlifting'

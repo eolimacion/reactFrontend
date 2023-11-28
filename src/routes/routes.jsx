@@ -15,6 +15,7 @@ import {
   Players,
   Powerlifting,
   Profile,
+  ProfileFavorites,
   Register,
   Riders,
   Teams,
@@ -101,8 +102,22 @@ export const router = createBrowserRouter([
             element: <EditProfile />,
           },
           {
-            path: "/profile/changePassword",
-            element: <ChangePassword />,
+            path: "/profile/favourites",
+            element: <ProfileFavorites />,
+            children: [
+              {
+                path: "/profile/favourites/FIFA",
+                element: <EditProfile />,
+              },
+              {
+                path: "/profile/favourites/MotoGP",
+                element: <EditProfile />,
+              },
+              {
+                path: "/profile/favourites/PowerLifting",
+                element: <EditProfile />,
+              },
+            ]
           },
         ],
       },

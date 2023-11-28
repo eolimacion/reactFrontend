@@ -5,6 +5,7 @@ import { APIuser } from "./serviceApiUser.config";
     
     //! -------------------> Get Fav Players [User]
     export const getUsersFavPlayers = async (userId) => {
+      console.log("HE ENTRADOOOOOOO")
       return APIuser.get(`/users/favPlayers/${userId}`, {
         headers: {
           Authorization: `Bearer ${updateToken()}`,
