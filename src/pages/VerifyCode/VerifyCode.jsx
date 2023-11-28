@@ -114,7 +114,7 @@ export const VerifyCode = () => {
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="formGroup">
             <input
-              className="input_user"
+              className="inputForm"
               type="text"
               id="name"
               name="name"
@@ -125,9 +125,9 @@ export const VerifyCode = () => {
               Registration code
             </label>
           </div>
-
-          <div className="btn">
-            <button
+<div className="botonesResend">
+<div >
+            <button 
               id="btnCheck"
               className="btn"
               type="submit"
@@ -137,7 +137,7 @@ export const VerifyCode = () => {
               Verify Code
             </button>
           </div>
-          <div className="btn">
+          <div >
             <button
               id="btnResend"
               className="btn"
@@ -148,6 +148,8 @@ export const VerifyCode = () => {
               Resend Code
             </button>
           </div>
+</div>
+          
 
           <p className="bottom-text">
             <small>
