@@ -78,16 +78,19 @@ const editProfileFormSubmit = async (formData) =>{
   }).then(async (result) => {
     if (result.isConfirmed) {
       const inputFile = document.getElementById("file-upload").files;
-      console.log(inputFile, inputFile[0])
-
+      console.log(inputFile, inputFile[0], "holaaaaa")
+//!FIX ------------------------------------------------------- NO COGE LA IMAGEN
       if (inputFile.length != 0) {  // mismo customFormData que en el login
+
         const customFormData = {
-          ...formData,
-          image: inputFile[0],
-        };
+        ...formData,
+        image: inputFile[0],
+      };
+
+        console.log('entrooooo foto nueva', customFormData)
 
         setSendEdit(true);
-        setResEdit(await updateUser(customFormData));
+        setResEdit( await updateUser(customFormData));
         setSendEdit(false);
       } else {
         const customFormData = {
@@ -120,10 +123,6 @@ useEffect(() =>{
 
 //! ---- estados de navegacion
 
-
-
-
-console.log(user.name)
 
 
 
@@ -224,7 +223,7 @@ console.log(user.name)
     </div>    
 
     
-        <div className='form-login form'>
+        {/* <div className='form-login form'>
         <div className="form-wrap">
         <h3>Change your password</h3>
         <form onSubmit={handleSubmit(changePasswordFormSubmit)}>
@@ -284,7 +283,7 @@ console.log(user.name)
       </div>
         <button className='btn btn-delete' onClick={()=> useDeleteUser(setUser, setIsDeletedUser)}>
         Delete account
-      </button>
+      </button> */}
       {/* </div> */}
   </>
   )

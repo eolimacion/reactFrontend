@@ -13,6 +13,8 @@ export * from './Register/Register'
 export * from './VerifyCode/VerifyCode'
 export * from './ProfileFavorites/ProfileFavorites'
 export * from './FavGallery/FavGallery'
+export * from './UserProfileData/UserProfileData'
+export * from './AccountSettings/AccountSettings'
 
 //!!POWERLIFTING
 export * from './Powerlifting/Powerlifting'

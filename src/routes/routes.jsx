@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import {
   About,
+  AccountSettings,
   ChangePassword,
   Circuits,
   Dashboard,
@@ -19,6 +20,7 @@ import {
   Register,
   Riders,
   Teams,
+  UserProfileData,
   VerifyCode,
   Weight,
 } from "../pages/index";
@@ -99,17 +101,29 @@ export const router = createBrowserRouter([
         element: <Profile />,
         children: [
           {
-            path: "/profile/edit",
-            element: <EditProfile />,
+            path: "/profile/user",
+            element: <UserProfileData />,
           },
           {
             path: "/profile/favourites",
             element: <FavoritesNav/>,
+            children: [
+              {
+                path: "/profile/favourites/:sport",
+                element: <FavGallery />,
+              },
+
+            ]
           },
           {
-            path: "/profile/favourites/:sport",
-            element: <FavGallery />,
+            path: "/profile/edit",
+            element: <EditProfile />,
           },
+          {
+            path: "/profile/settings",
+            element: <AccountSettings />,
+          },
+
         ],
       },
 

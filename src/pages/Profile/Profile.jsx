@@ -12,7 +12,6 @@ export const Profile = () => {
      <div className='divOutletProfile'>
       <Outlet />
       </div>
-      <UserProfileData />
     </div>
   )
 }

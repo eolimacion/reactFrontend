@@ -4,7 +4,7 @@ export const useErrorLogin = (res, setRes, login, setSuccessfulLogin) => {
 console.log(res, "Respuesta en useLoginError")
     if (res?.status == 200) {
         console.log(res.data)
-        const updatedUser = {
+        const updatedUser = {     //! ----- gender ?
           token: res.data.token,
           name: res.data.user.name,
           email: res.data.user.email,

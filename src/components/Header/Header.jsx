@@ -47,7 +47,7 @@ export const Header = () => {
             Logout
               </div>
              
-                <NavLink className="profileCircle" to ="/profile">
+                <NavLink className="profileCircle" to ="/profile/user">
                   <img
                     //cambia a la imagen del user
                     className="profileCircle"
