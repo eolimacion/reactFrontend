@@ -10,7 +10,8 @@ console.log(res, "Respuesta en useLoginError")
           image: res.data.user.image,
           isVerified: res.data.user.isVerified,
           _id: res.data.user._id,
-          role: res.data.user.role
+          role: res.data.user.role,
+          interestedIn: res.data.user.interestedIn, 
         };
         console.log(updatedUser)
     
@@ -20,7 +21,7 @@ console.log(res, "Respuesta en useLoginError")
     
         Swal.fire({
           icon: "success",
-          title: "Welcome back to DAMtabase",
+          title: "Welcome back to the sports paradise.",
           text: "Succesfully logged in.",
           showConfirmButton: false,
           timer: 1500,
@@ -28,7 +29,7 @@ console.log(res, "Respuesta en useLoginError")
       }
     
     
-      if (res?.response?.data?.includes("User not found.")) {
+      if (res?.response?.data?.includes("User not found")) {
         setRes(() => ({}));
         Swal.fire({
           icon: "error",
@@ -40,7 +41,7 @@ console.log(res, "Respuesta en useLoginError")
       }
     
     
-      if (res?.response?.data?.includes("Password is incorrect.")) {
+      if (res?.response?.data?.includes("password is incorrect (does not match)")) {
         Swal.fire({
           icon: "error",
           title: "Oops...",
