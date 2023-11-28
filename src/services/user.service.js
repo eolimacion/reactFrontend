@@ -42,7 +42,7 @@ import { APIuser } from "./serviceApiUser.config";
  //! ------------------------- REGISTER ----------------------------------
 
 export const registerUser = async (formData) => {
-  return APIuser.post("/registerUtil", formData, {
+  return APIuser.post("/users/registerRedirect", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   })
     .then((res) => res)
@@ -108,7 +108,7 @@ export const changePasswordAuth = async (formData) => {
 //! -------------------------- UPDATE USER ------------------------------
 
 export const updateUser = async (formData) => {
-  return APIuser.patch("/update/update", formData, {
+  return APIuser.patch("users/update/update", formData, {
     headers: {
       Authorization: `Bearer ${updateToken()}`,
     },

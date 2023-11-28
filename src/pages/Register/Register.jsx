@@ -3,9 +3,11 @@ import "./Register.css";
 import { useForm } from "react-hook-form";
 import { Link, Navigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
-// import { registerUser } from "../../services/user.service";
 import { useEffect, useState } from "react";
-// import { useErrorRegister } from "../../hooks/useErrorRegister";
+import { registerUser } from "../../services/user.service";
+import { UploadFile } from "../../components";
+import { useErrorRegister } from "../../hooks/useErrorRegister";
+
 
 export const Register = () => {
   // allUser es la respuesta completa del 200 del service de registro
@@ -16,14 +18,43 @@ export const Register = () => {
   const [okRegister, setRegisterOk] = useState(false);
 
   const formSubmit = async (formData) => {
-    const customFormData = {
-      ...formData,
-    };
+    const inputFile = document.getElementById("file-upload").files;
 
-    setSend(true);
-    setRes(await registerUser(customFormData));
-    setSend(false);
+    if (inputFile.length != 0) {
+      // si es diferente a cero quiere decir que tenemos una imagen
+      const customFormData = {
+        ...formData,
+        image: inputFile[0],
+      };
+
+      setSend(true);
+      setRes(await registerUser(customFormData));
+      setSend(false);
+    } else {
+      // en este caso no hay imagen y nos quedamos con lo que tenemos en el form data
+      const customFormData = {
+        ...formData,
+      };
+
+      setSend(true);
+      setRes(await registerUser(customFormData));
+      setSend(false);
+    }
   };
+  useEffect(() => {
+    useErrorRegister(res, setRegisterOk, setRes);
+    //si es un 200 llama a la funcion puente
+    if (res?.status == 200) bridgeData("ALLUSER");
+  }, [res]);
+  //este useEffect nos da un console para ver que esta pasando.Lo dejo comentado para futuras pruebas
+  useEffect(() => {
+    console.log("😍", allUser);
+  }, [allUser]);
+
+  if (okRegister) {
+    //si todo esta ok navega a la pagina del codigo
+    return <Navigate to="/verifyCode" />;
+  }
 
   if (okRegister) {
     //si todo esta ok navega a la pagina del codigo
@@ -34,7 +65,7 @@ export const Register = () => {
       <div className="formMain">
         <h1 className="formTitle">Sign Up</h1>
         <p>Champion Within, Victories Begin</p>
-        <form onSubmit={handleSubmit(formSubmit)}>
+        <form className="form" onSubmit={handleSubmit(formSubmit)}>
           <div className="userInfo formGroup">
             <input
               className="inputUser"
@@ -80,7 +111,7 @@ export const Register = () => {
                 type="radio"
                 name="interest"
                 id="futbol"
-                value="futbol"
+                value="fifa"
                 {...register("interestedIn")}
               />
               <label htmlFor="futbol" className="labelRadio">
@@ -133,7 +164,7 @@ export const Register = () => {
               </label>
             </div>
           </div>
-
+          <UploadFile />
           <div className="btnContainer">
             <button
               className="btn"
