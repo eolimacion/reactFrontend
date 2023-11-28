@@ -4,10 +4,13 @@ import {
   ChangePassword,
   Dashboard,
   EditProfile,
+  FIFA,
   ForgotPassword,
   Home,
   Login,
+  MotoGP,
   NotFound,
+  Powerlifting,
   Profile,
   Register,
   VerifyCode,
@@ -42,6 +45,18 @@ export const router = createBrowserRouter([
       {
         path: "/forgotPassword",
         element: <ForgotPassword />,
+      },
+      {
+        path: "/motogp",
+        element: <MotoGP />,
+      },
+      {
+        path: "/fifa",
+        element: <FIFA />,
+      },
+      {
+        path: "/powerlifting",
+        element: <Powerlifting />,
       },
       {
         path: "/dashboard",
