@@ -15,7 +15,7 @@ export const useDeleteUser = (setUser, setDeleteUser) => {
       
           if (result.isConfirmed) {
             const res = await deleteUser();
-      console.log(res)
+           console.log(res)
             switch (res.status) {
               case 200:
                 Swal.fire({

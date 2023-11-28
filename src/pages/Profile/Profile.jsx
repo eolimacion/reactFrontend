@@ -1,6 +1,7 @@
 import './Profile.css'
 import { NavProfile } from '../../components/index'
 import { Outlet } from "react-router-dom"
+import { UserProfileData } from '../UserProfileData/UserProfileData'
 
 export const Profile = () => {
   return (
@@ -11,6 +12,7 @@ export const Profile = () => {
      <div className='divOutletProfile'>
       <Outlet />
       </div>
+      <UserProfileData />
     </div>
   )
 }

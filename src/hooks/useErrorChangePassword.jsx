@@ -3,7 +3,7 @@ import Swal from "sweetalert2/dist/sweetalert2.all.js";
 export const useErrorChangePassword = (res, setRes, setUser) => {
 console.log(res)
   //!----------------- 200: updateUser: true,
-  if (res?.data?.update.toString() == "true") {
+  if (res?.data?.updateUser?.toString() == "true") {
     setUser(() => null);
     localStorage.removeItem("user");
     setRes(() => ({}));
@@ -15,7 +15,7 @@ console.log(res)
     });
   }
   //!------------------200: updateUser: false,
-  if (res?.data?.update?.toString() == "false") {
+  if (res?.data?.updateUser?.toString() == "false") {
     setRes(() => ({}));
     return Swal.fire({
       icon: "error",
@@ -27,7 +27,7 @@ console.log(res)
   }
 
   //! -----------------404: 'password dont match'
-  if (res?.response?.data?.includes("Passwords do not match")) {
+  if (res?.response?.data?.includes("password does not match")) {
     console.log("password");
     setRes(() => ({}));
     return Swal.fire({
@@ -39,7 +39,7 @@ console.log(res)
   }
 
   //! -----------------404: general
-  if (res?.response?.data?.includes('Password is not strong enough')) {
+  if (res?.response?.data?.includes('Invalid password')) {
     setRes(() => ({}));
     return Swal.fire({
       icon: "error",
