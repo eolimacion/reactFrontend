@@ -4,9 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const { user } = useAuth();
-  const navigate = useNavigate();
-
-
 
   return (
     <>
@@ -39,21 +36,21 @@ export const Home = () => {
     
     <div className="picturesHome">
     <figure className="dataHome">
-      <Link to={user.interestedIn == 'fifa' ? '/fifa' : '/login'}>
+      <Link to={user ? '/fifa' : '/login'}>
       <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
       </Link>
       <h3 className="titlePictureFifa">FIFA</h3>
     </figure>
     
     <figure className="dataHome">
-      <Link to={isLogged ? "/motogp" : "/login"} onClick={handleClick}>
+      <Link to={user ? '/motogp' : '/login'}>
       <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
       </Link>
       <h3 className="titlePictureMotoGP">MOTO GP</h3>
     </figure>
 
     <figure className="dataHome">
-      <Link to={isLogged ? "/powerlifting" : "/login"} onClick={handleClick}>
+      <Link to={user ? '/powerlifting' : '/login'}>
       <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
       </Link>
       <h3 className="titlePicturePowerLifting">POWER LIFTING</h3>
