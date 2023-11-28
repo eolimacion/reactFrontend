@@ -2,18 +2,24 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   About,
   ChangePassword,
+  Circuits,
   Dashboard,
   EditProfile,
   FIFA,
   ForgotPassword,
   Home,
+  Lifters,
   Login,
   MotoGP,
   NotFound,
+  Players,
   Powerlifting,
   Profile,
   Register,
+  Riders,
+  Teams,
   VerifyCode,
+  Weight,
 } from "../pages/index";
 import App from "../App";
 
@@ -55,6 +61,30 @@ export const router = createBrowserRouter([
         element: <FIFA />,
       },
       {
+        path: "/motogp/riders",
+        element: <Riders />,
+      },
+      {
+        path: "/motogp/circuits",
+        element: <Circuits/>,
+      },
+      {
+        path: "/fifa/players",
+        element: <Players/>,
+      },
+      {
+        path: "/fifa/teams",
+        element: <Teams/>,
+      },
+      {
+        path: "/powerlifting/lifters",
+        element: <Lifters/>,
+      },
+      {
+        path: "/powerlifting/weight",
+        element: <Weight/>,
+      },
+      {
         path: "/powerlifting",
         element: <Powerlifting />,
       },
@@ -84,3 +114,5 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
+     

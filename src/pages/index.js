@@ -1,3 +1,5 @@
+
+
 export * from './About/About'
 export * from './ChangePassword/ChangePassword'
 export * from './Dashboard/Dashboard'
@@ -9,6 +11,16 @@ export * from './NotFound/NotFound'
 export * from './Profile/Profile'
 export * from './Register/Register'
 export * from './VerifyCode/VerifyCode'
+
+//!!POWERLIFTING
 export * from './Powerlifting/Powerlifting'
-export * from './MotoGP/MotoGP'
+export * from './Powerlifting/Lifters/Lifters'
+export * from './Powerlifting/Weight/Weight'
+//!!FIFA
 export * from './FIFA/FIFA'
+export * from './FIFA/Players/Players'
+export * from './FIFA/Teams/Teams'
+//!!MOTO GP
+export * from './MotoGP/MotoGP'
+export * from './MotoGP/Riders/Riders'
+export * from './MotoGP/Circuits/Circuits'

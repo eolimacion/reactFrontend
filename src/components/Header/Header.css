@@ -1,6 +1,6 @@
 .main-header {
-  background-color: grey;
-  color: white;
+  background-color:var(--color-secundario);
+  color: var(--color-p);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +37,7 @@ strong {
 }
 
 .nav-links a {
-  color: white;
+  color: var(--color-enlace);
   text-decoration: none;
 }
 
@@ -79,7 +79,7 @@ strong {
 header a {
   position: relative;
   text-decoration: none;
-  color: #333;
+  color: var(--color-enlace);
 }
 
 header a::after {
@@ -90,7 +90,7 @@ header a::after {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #006400;
+  background-color: var(--enlace-hover);
   transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -105,66 +105,23 @@ header a:hover::after {
 }
 
 .especiales a {
-  background-color: #006400;
+  background-color:var(--color-boton);
   border-radius: 10px;
   padding: 0 10px;
   margin: 0 5px;
 }
 
 .especiales a:hover {
-  background-color: rgb(207, 223, 63);
-  color: black;
+  background-color:var(--color-boton-hover);
+  color: var(--color-p)
 }
 
 .profileCircle {
   max-width: 50px;
 }
 
-.mensaje-registro,
-.mensaje-registro p {
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
-  background-color: #b8d610;
-  color: rgb(0, 0, 0);
-}
-
-
-
-.mensajeyboton {
-  display: flex;
-  justify-content: space-around;
-align-items: center;
-  gap: 20vw;
-  background-color: #b7d609;
-  animation: parpadeo 1s infinite ease-in-out;
-  color: black;
-}
-
-.mensajeyboton a {
-  color: rgb(0, 0, 0);
-  font-size: 1.2rem;
-  text-decoration: underline;
-  font-weight: bold;
-}
-.cierre{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 0, 0, 0);
-  border-radius: 50%;
-}
-
-
-.mensajeyboton span {
-  position: relative;
-color: red;
-  width: 20px;
-  height: 20px;
-}
-
 .nombre-vecino {
-  background-color: rgba(255, 0, 0, 0);
+  background-color: rgba(211, 31, 31, 0);
   width: 50vw;
   min-width: 300px;
   max-width: 500px;
