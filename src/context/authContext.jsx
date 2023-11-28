@@ -10,6 +10,8 @@ export const AuthContextProvider = ({ children }) => {
   });
 
 
+  const [isDeletedUser, setIsDeletedUser] = useState(false)
+
   const [allUser, setAllUser] = useState({
     data: {
       confirmationCode: "",
