@@ -34,10 +34,6 @@ export const Header = () => {
           </NavLink>
           <img src="" className="nombre-vecino"></img>
           <div id="iniciarayuda">
-            <div className="contacto">
-              <span className="material-symbols-outlined">contact_support</span>
-              Support
-            </div>
             {user == null && (
               <NavLink to="/login" className="logate">
                 <span className="material-symbols-outlined">passkey</span>
@@ -65,9 +61,10 @@ export const Header = () => {
           </div>
         </div>
         <div className="nav-links">
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/fifa">FIFA</NavLink>
-          <a href="/powerlifting">Powerlifting</a>
-          <a href="/motogp">Moto GP</a>
+          <NavLink to="/motogp">Moto GP</NavLink>
+          <NavLink to="/powerlifting">Powerlifting</NavLink>
           {user !== null && (
             <div className="especiales">
           

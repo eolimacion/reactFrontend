@@ -1,9 +1,9 @@
 footer {
-    height: 8vh;
-    width: 100vh;
+    background-color:var(--color-secundario);
+    color: var(--color-p);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .linkAboutFooter {

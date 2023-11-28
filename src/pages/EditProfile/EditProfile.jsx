@@ -15,20 +15,60 @@ import { useDeleteUser } from '../../hooks/useDeleteUser';
 export const EditProfile = () => {
 //! ---- estados
 
-const [res, setRes] = useState({});
+const [resPassword, setResPassword] = useState({});
 const [send, setSend] = useState(false);
 
 //! ----- hooks
 
-const { setUser, setDeleteUser } = useAuth();
+   const { setUser, setIsDeletedUser, user, } = useAuth();
     const { handleSubmit, register } = useForm();
 
 
 //! ---- funcion datos del formulario
 
+const changePasswordFormSubmit = (formData) => {
+  const { password, newPassword, confirmPassword } = formData;
 
+  if (newPassword == confirmPassword) {
+    Swal.fire({
+      title: "Change password?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "rgb(73, 193, 162)",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+      cancelButtonText: "Cancel,"
+    }).then(async (resPassword
+  ult) => {
+      if (resPassword
+    ult.isConfirmed) {
+        setSend(true);
+        setResPassword
+    (await changePasswordAuth({ password, newPassword }));
+        setSend(false);
+      }
+    });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Passwords do not match",
+      text: "Your password and confirmation password must match",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+};
 
 //! ----- useEffect
+
+
+useEffect(() =>{
+  console.log(resPassword
+)
+  useErrorUpdate(resPassword
+, setResPassword
+, logout)
+  }, [resPassword])
 
 
 
