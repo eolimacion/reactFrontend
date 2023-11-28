@@ -36,25 +36,21 @@ export const Login = () => {
     if (res?.data?.user.check == false) {
       return <Navigate to="/verifyCode" />;
     } else {
-      console.log(res.data.user)
-      console.log(res?.data?.user?.interestedIn)
+      console.log(res.data.user);
+      console.log(res?.data?.user?.interestedIn);
       switch (res?.data?.user?.interestedIn) {
         case "motogp":
           console.log("Vrumm vrumm");
-          <Navigate to="/motogp" />;
-          break;
+          return <Navigate to="/motogp" />;
         case "powerlifting":
           console.log("Me gusta la proteina");
-          <Navigate to="/powerlifting" />;
-          break;
+          return <Navigate to="/powerlifting" />;
         case "fifa":
           console.log("Soy un fifote");
-          <Navigate to="/fifa" />
-          break;
+          return <Navigate to="/fifa" />;
         default:
           console.log("Default");
-          <Navigate to="/"/>
-          break;
+          return <Navigate to="/" />;
       }
     }
   }
@@ -62,28 +58,34 @@ export const Login = () => {
   return (
     <>
       <div className="allForm">
-      
-        <form  className="formMain" onSubmit={handleSubmit(formSubmit)}>
+        <form className="formMain" onSubmit={handleSubmit(formSubmit)}>
           <h1 className="formTitle">Log In!</h1>
-          <label className="placeHolder" htmlFor="email">Email</label>
+          <label className="placeHolder" htmlFor="email">
+            Email
+          </label>
           <input
+            className="InputForm"
             type="email"
             id="userEmail"
             name="userEmail"
             autoComplete="false"
             {...register("email", { required: true })}
           />
-            <label className="placeHolder" htmlFor="password">Password</label>
+          <label className="placeHolder" htmlFor="password">
+            Password
+          </label>
           <input
+            className="InputForm"
             type="password"
             id="password"
             name="password"
             autoComplete="false"
             {...register("password", { required: true })}
           />
-        
+
           <div className="btn">
-            <button className="btn"
+            <button
+              className="btn"
               type="submit"
               disabled={isSent}
               style={{
