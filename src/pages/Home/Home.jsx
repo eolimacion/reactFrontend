@@ -37,22 +37,22 @@ export const Home = ({isLogged}) => {
     </div>
     <div className="picturesHome">
     <figure className="dataHome">
-      <Link to={isLogged ? "/fifa" : "/login"}>
-      <img src=""/>
+      <Link to={isLogged ? "/fifa" : "/login"} onClick={handleClick}>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
       </Link>
       <h3 className="titlePictureFifa">FIFA</h3>
     </figure>
     
     <figure className="dataHome">
-      <Link to={isLogged ? "/motogp" : "/login"}>
-      <img src=""/>
+      <Link to={isLogged ? "/motogp" : "/login"} onClick={handleClick}>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
       </Link>
       <h3 className="titlePictureMotoGP">MOTO GP</h3>
     </figure>
 
     <figure className="dataHome">
-      <Link to={isLogged ? "/powerlifting" : "/login"}>
-      <img src=""/>
+      <Link to={isLogged ? "/powerlifting" : "/login"} onClick={handleClick}>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
       </Link>
       <h3 className="titlePicturepOWERlIFTING">POWER LIFTING</h3>
     </figure>
