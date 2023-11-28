@@ -10,6 +10,7 @@ import Swal from "sweetalert2/dist/sweetalert2.all.js";
 import { useErrorChangePassword } from '../../hooks/useErrorChangePassword';
 import { useErrorUpdate } from '../../hooks/useErrorUpdate';
 import { useDeleteUser } from '../../hooks/useDeleteUser';
+import { changePasswordAuth } from '../../services/user.service';
 
 
 export const EditProfile = () => {
@@ -20,7 +21,7 @@ const [send, setSend] = useState(false);
 
 //! ----- hooks
 
-   const { setUser, setIsDeletedUser, user, } = useAuth();
+   const { setUser, setIsDeletedUser, user, logout } = useAuth();
     const { handleSubmit, register } = useForm();
 
 
@@ -38,13 +39,11 @@ const changePasswordFormSubmit = (formData) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes",
       cancelButtonText: "Cancel,"
-    }).then(async (resPassword
-  ult) => {
-      if (resPassword
-    ult.isConfirmed) {
+    }).then(async (resPassword) => {
+      if (resPassword.isConfirmed) {
+
         setSend(true);
-        setResPassword
-    (await changePasswordAuth({ password, newPassword }));
+        setResPassword( await changePasswordAuth({ password, newPassword }));
         setSend(false);
       }
     });
@@ -63,11 +62,8 @@ const changePasswordFormSubmit = (formData) => {
 
 
 useEffect(() =>{
-  console.log(resPassword
-)
-  useErrorUpdate(resPassword
-, setResPassword
-, logout)
+  console.log(resPassword)
+  useErrorUpdate(resPassword, setResPassword, logout)
   }, [resPassword])
 
 

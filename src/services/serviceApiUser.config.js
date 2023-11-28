@@ -1,5 +1,5 @@
 import axios from "axios"
-import { updateToken } from "../utils"
+import { updateToken } from "../utils/updateToken"
 
 const APIHeaders = {
   Accept: "application/json",
