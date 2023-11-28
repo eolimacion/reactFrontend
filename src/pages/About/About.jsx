@@ -3,8 +3,8 @@ import './About.css'
 export const About = () => {
   return (
     <>
-      <h1 className="titleAbout">ABOUT US: </h1>
       <div className="divAbout">
+      <h1 className="titleAbout">ABOUT US: </h1>
         <p className="textAbout1">
         Somos un equipo apasionado que ha creado esta aplicación para unir a los amantes del fútbol, MotoGP y powerlifting en un solo lugar. 
         Nos esforzamos por ofrecer una experiencia única y personalizada para cada usuario.

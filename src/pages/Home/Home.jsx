@@ -10,6 +10,7 @@ export const Home = ({isLogged}) => {
   }
   return (
     <>
+    <div className="containerGeneral">
     <div className="divTextoHome">
     <h1 className="titleHome">Bienvenido a nuestra App Deportiva</h1>
     <p className="textHomeWelcome">
@@ -35,27 +36,29 @@ export const Home = ({isLogged}) => {
     ¡Tu experiencia personalizada en fútbol, MotoGP y powerlifting te espera!
     </p>
     </div>
+    
     <div className="picturesHome">
     <figure className="dataHome">
       <Link to={isLogged ? "/fifa" : "/login"} onClick={handleClick}>
-      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
       </Link>
       <h3 className="titlePictureFifa">FIFA</h3>
     </figure>
     
     <figure className="dataHome">
       <Link to={isLogged ? "/motogp" : "/login"} onClick={handleClick}>
-      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
       </Link>
       <h3 className="titlePictureMotoGP">MOTO GP</h3>
     </figure>
 
     <figure className="dataHome">
       <Link to={isLogged ? "/powerlifting" : "/login"} onClick={handleClick}>
-      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701074902/ahorrar_tctk8v.png"/>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
       </Link>
-      <h3 className="titlePicturepOWERlIFTING">POWER LIFTING</h3>
+      <h3 className="titlePicturePowerLifting">POWER LIFTING</h3>
     </figure>
+    </div>
     </div>
     </>
   )

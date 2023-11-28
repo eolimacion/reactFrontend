@@ -1,22 +1,40 @@
+.containerGeneral{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .divTextoHome{
     text-align: center;
     margin: 20px;
 }
 
-.titleHome 
-.titlePassion
-.titlePersonalize
-.titleEnterNow{
-    font-size: 24px;
-    margin-bottom: 10px;
+.titleHome{
+  font-size: 24px;
+    margin: 10px 0;
+}
+.titlePassion{
+  font-size: 24px;
+    margin: 10px 0;
+}
+.titlePersonalize{
+  font-size: 24px;
+    margin: 10px 0;
 }
 
-.textHomeWelcome
-.textHomePassion
-.textHomePersonalize
+.titleEnterNow{
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.textHomeWelcome,
+.textHomePassion,
+.textHomePersonalize,
 .textHomeEnterNow{
     font-size: 18px;
     line-height: 1.5;
+    margin: 10px 0;
 }
 
 .picturesHome {
@@ -26,12 +44,13 @@
   }
   
 .dataHome {
+  flex-direction: column;
     text-align: center;
   }
   
 .titlePictureFifa,
 .titlePictureMotoGP,
-.titlePicturepOWERlIFTING {
+.titlePicturePowerLifting {
     margin-top: 10px;
     font-size: 16px;
   }
