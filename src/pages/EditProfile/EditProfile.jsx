@@ -1,87 +1,87 @@
-import './EditProfile.css'
+// import './EditProfile.css'
 
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { useAuth } from "../../context/authContext";
-import { UploadFile } from '../../components';
-import { UserProfileData } from '../UserProfileData/UserProfileData';
+// import { useState, useEffect } from "react";
+// import { useForm } from "react-hook-form";
+// import { useAuth } from "../../context/authContext";
+// import { UploadFile } from '../../components';
+// import { UserProfileData } from '../UserProfileData/UserProfileData';
 
-import Swal from "sweetalert2/dist/sweetalert2.all.js";
-import { useErrorChangePassword } from '../../hooks/useErrorChangePassword';
-import { useErrorUpdate } from '../../hooks/useErrorUpdate';
-import { useDeleteUser } from '../../hooks/useDeleteUser';
-
-
-export const EditProfile = () => {
-//! ---- estados
-
-const [resPassword, setResPassword] = useState({});
-const [send, setSend] = useState(false);
-
-//! ----- hooks
-
-   const { setUser, setIsDeletedUser, user, } = useAuth();
-    const { handleSubmit, register } = useForm();
+// import Swal from "sweetalert2/dist/sweetalert2.all.js";
+// import { useErrorChangePassword } from '../../hooks/useErrorChangePassword';
+// import { useErrorUpdate } from '../../hooks/useErrorUpdate';
+// import { useDeleteUser } from '../../hooks/useDeleteUser';
 
 
-//! ---- funcion datos del formulario
+// export const EditProfile = () => {
+// //! ---- estados
 
-const changePasswordFormSubmit = (formData) => {
-  const { password, newPassword, confirmPassword } = formData;
+// const [resPassword, setResPassword] = useState({});
+// const [send, setSend] = useState(false);
 
-  if (newPassword == confirmPassword) {
-    Swal.fire({
-      title: "Change password?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "rgb(73, 193, 162)",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-      cancelButtonText: "Cancel,"
-    }).then(async (resPassword
-  ult) => {
-      if (resPassword
-    ult.isConfirmed) {
-        setSend(true);
-        setResPassword
-    (await changePasswordAuth({ password, newPassword }));
-        setSend(false);
-      }
-    });
-  } else {
-    Swal.fire({
-      icon: "error",
-      title: "Passwords do not match",
-      text: "Your password and confirmation password must match",
-      showConfirmButton: false,
-      timer: 3000,
-    });
-  }
-};
+// //! ----- hooks
 
-//! ----- useEffect
+//    const { setUser, setIsDeletedUser, user, } = useAuth();
+//     const { handleSubmit, register } = useForm();
 
 
-useEffect(() =>{
-  console.log(resPassword
-)
-  useErrorUpdate(resPassword
-, setResPassword
-, logout)
-  }, [resPassword])
+// //! ---- funcion datos del formulario
+
+// const changePasswordFormSubmit = (formData) => {
+//   const { password, newPassword, confirmPassword } = formData;
+
+//   if (newPassword == confirmPassword) {
+//     Swal.fire({
+//       title: "Change password?",
+//       icon: "warning",
+//       showCancelButton: true,
+//       confirmButtonColor: "rgb(73, 193, 162)",
+//       cancelButtonColor: "#d33",
+//       confirmButtonText: "Yes",
+//       cancelButtonText: "Cancel,"
+//     }).then(async (resPassword
+//   ult) => {
+//       if (resPassword
+//     ult.isConfirmed) {
+//         setSend(true);
+//         setResPassword
+//     (await changePasswordAuth({ password, newPassword }));
+//         setSend(false);
+//       }
+//     });
+//   } else {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Passwords do not match",
+//       text: "Your password and confirmation password must match",
+//       showConfirmButton: false,
+//       timer: 3000,
+//     });
+//   }
+// };
+
+// //! ----- useEffect
+
+
+// useEffect(() =>{
+//   console.log(resPassword
+// )
+//   useErrorUpdate(resPassword
+// , setResPassword
+// , logout)
+//   }, [resPassword])
 
 
 
-//! ---- estados de navegacion
-
-
+// //! ---- estados de navegacion
 
 
 
 
 
 
-  return (
-    <div>EditProfile</div>
-  )
-}
+
+
+//   return (
+//     <div>EditProfile</div>
+//   )
+// }

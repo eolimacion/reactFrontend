@@ -47,6 +47,20 @@
     color: #ffffff;
   }
   
+  .interest input[type="radio"] {
+    display: none;
+  }
+  
+
+  
+  /* Estilo cuando el botón de interés está seleccionado */
+  .interest input[type="radio"]:checked + .labelRadio {
+    background-color:var(--color-boton);
+    color: #fff;
+    border: 1px solid #2f7a67;
+  }
+
+
   .gender {
     display: flex;
     align-items: center;
