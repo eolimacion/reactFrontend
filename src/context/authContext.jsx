@@ -9,8 +9,7 @@ export const AuthContextProvider = ({ children }) => {
     return user ? JSON.parse(user) : null;
   });
 
-
-  const [isDeletedUser, setIsDeletedUser] = useState(false)
+  const [isDeletedUser, setIsDeletedUser] = useState(false);
 
   const [allUser, setAllUser] = useState({
     data: {
@@ -62,12 +61,15 @@ export const AuthContextProvider = ({ children }) => {
       allUser,
       setAllUser,
       bridgeData,
-     
+      isDeletedUser,
+      setIsDeletedUser,
     }),
-    [user, allUser]
+    [user, allUser, isDeletedUser]
   );
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}> {children} </AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => useContext(AuthContext);
