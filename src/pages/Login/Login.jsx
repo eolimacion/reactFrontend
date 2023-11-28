@@ -61,8 +61,11 @@ export const Login = () => {
 
   return (
     <>
-      <div className="formContainer">
-        <form onSubmit={handleSubmit(formSubmit)}>
+      <div className="allForm">
+      
+        <form  className="formMain" onSubmit={handleSubmit(formSubmit)}>
+          <h1 className="formTitle">Log In!</h1>
+          <label className="placeHolder" htmlFor="email">Email</label>
           <input
             type="email"
             id="userEmail"
@@ -70,7 +73,7 @@ export const Login = () => {
             autoComplete="false"
             {...register("email", { required: true })}
           />
-          <label htmlFor="email">Email</label>
+            <label className="placeHolder" htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -78,9 +81,9 @@ export const Login = () => {
             autoComplete="false"
             {...register("password", { required: true })}
           />
-          <label htmlFor="password">Password</label>
-          <div className="buttonContainer">
-            <button
+        
+          <div className="btn">
+            <button className="btn"
               type="submit"
               disabled={isSent}
               style={{
@@ -90,7 +93,7 @@ export const Login = () => {
               Login
             </button>
           </div>
-          <p className="bottom-text">
+          <p className="btn">
             <small>
               Have you forgotten the password?
               <Link to="/forgotPassword" className="anchorCustom">
