@@ -3,8 +3,7 @@ import { useAuth } from "../../context/authContext";
 import { getUsersFavElevens, getUsersFavLifters, getUsersFavPlayers, getUsersFavRiders, getUsersFavTeams } from "../../services/user.service";
 
 export const CardPlayer = ({ controller }) => {
-  console.log("heheheheh")
-  console.log(controller)
+  console.log("soy controller en cardplayer " + controller)
   const { user } = useAuth()
   const [ prueba, setPrueba ] = useState()
 

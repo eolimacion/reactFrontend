@@ -1,12 +1,15 @@
 import { useAuth } from "../../context/authContext"
 import { CardPlayer } from "../../components/CardPlayer/CardPlayer"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export const FavGallery = () => {
   const { user } = useAuth()
+  const [ show, setShow ] = useState(false)
 
   const pathName = window.location.pathname
   const sportFavName = pathName.slice(20)
+
+  //!FIX ---------------------------- 
 
   // switch (sportFavName) {
   //   case "FIFA":
@@ -24,10 +27,10 @@ export const FavGallery = () => {
   //     modelosPowerLifting.style.display = "flex"
   //     break;
 
-
   //   default:
   //     break;
   // }
+
   let controller
   const setControllerFav = (nombreController) => {
     console.log("me ejecuto")
@@ -40,65 +43,61 @@ export const FavGallery = () => {
       case "Teams":
         controller = "getFavTeams"
         console.log("estoy en teams")
-        return controller
+        break;
 
-      case "elevens":
+      case "Elevens":
         controller = "getFavElevens"
         break;
 
-      case "riders":
+      case "Riders":
         controller = "getFavRiders"
         break;
 
-      case "circuits":
+      case "Circuits":
         controller = "getFavCircuits"
         break;
 
-      case "podiums":
+      case "Podiums":
         controller = "getFavPodiums"
         break;
 
-      case "lifters":
+      case "Lifters":
         controller = "getFavLifters"
         break;
 
-      case "categories":
+      case "Categories":
         controller = "getFavCategories"
         break;
 
       default:
-        return "hola"
+        console.log("no hay controller")
         break;
     }
+    console.log(show)
+    setShow(true)
+    console.log(show)
   }
-
-  useEffect(() => {
-    setControllerFav()
-
-  }, [])
 
   return (
     <>
       <h1>{user.user}'s {sportFavName}'s Favorites</h1>
       <div id = "displayFavFifaModels" style={{display: "flex"}}>
-        <button onClick={(e) => setControllerFav(e.target.innerText)} >Players</button>
+        <button onClick={(e) => setControllerFav(e.target.innerText)}>Players</button>
         <button onClick={(e) => setControllerFav(e.target.innerText)}>Teams</button>
-        {/* <h3 onClick={setControllerFav("elevens")}>Elevens</h3> */}
+        <button onClick={(e) => setControllerFav(e.target.innerText)}>Elevens</button>
       </div>
-      {/* <div id = "displayFavMotoGpModels" style={{display: "none"}}>
-        <h3 onClick={setControllerFav("riders")}>Riders</h3>
-        <h3 onClick={setControllerFav("circuits")}>Circuits</h3>
-        <h3 onClick={setControllerFav("podiums")}>Podiums</h3>
+      <div id = "displayFavMotoGpModels" style={{display: "none"}}>
+        <button onClick={(e) => setControllerFav(e.target.innerText)}>Riders</button>
+        <button onClick={(e) => setControllerFav(e.target.innerText)}>Circuits</button>
+        <button onClick={(e) => setControllerFav(e.target.innerText)}>Podiums</button>
       </div>
       <div id = "displayFavPowerLiftingModels" style={{display: "none"}}>
-        <h3 onClick={setControllerFav("lifters")}>Lifters</h3>
-        <h3 onClick={setControllerFav("categories")}>Categories</h3>
-      </div> */}
+        <button onClick={(e) => setControllerFav(e.target.innerText)}>Lifters</button>
+        <button onClick={(e) => setControllerFav(e.target.innerText)}>Categories</button>
+      </div>
 
       <section className="favGallery">
-        {console.log(controller)}
-        {controller && <CardPlayer controller={controller}/>}
-
+        {show ? <CardPlayer controller={controller}/> : null}
       </section>
     </>
   )
