@@ -76,7 +76,7 @@ export const registerUser = async (formData) => {
 //! ------------------------- VERIFY CODE - CHECK NEW USER -------------------------------
 
 export const verifyConfirmationCode = async (formData) => {
-  return APIuser.post("/check", formData)
+  return APIuser.post("users/check", formData)
     .then((res) => res)
     .catch((error) => error);
 };

@@ -67,6 +67,9 @@ export const Register = () => {
         <p>Champion Within, Victories Begin</p>
         <form className="form" onSubmit={handleSubmit(formSubmit)}>
           <div className="userInfo formGroup">
+          <label htmlFor="name" className="customPlaceholder">
+              Username
+            </label>
             <input
               className="inputUser"
               type="text"
@@ -75,12 +78,13 @@ export const Register = () => {
               autoComplete="false"
               {...register("name", { required: true })}
             />
-            <label htmlFor="name" className="customPlaceholder">
-              Username
-            </label>
+           
           </div>
 
           <div className="passwordInfo formGroup">
+          <label htmlFor="password" className="customPlaceholder">
+              Password
+            </label>
             <input
               className="inputForm"
               type="password"
@@ -89,12 +93,13 @@ export const Register = () => {
               autoComplete="false"
               {...register("password", { required: true })}
             />
-            <label htmlFor="password" className="customPlaceholder">
-              Password
-            </label>
+            
           </div>
 
           <div className="emailInfo formGroup">
+          <label htmlFor="email" className="customPlaceholder">
+              E-mail
+            </label>
             <input
               className="inputForm"
               type="email"
@@ -103,9 +108,8 @@ export const Register = () => {
               autoComplete="false"
               {...register("email", { required: true })}
             />
-            <label htmlFor="email" className="customPlaceholder">
-              E-mail
-            </label>
+           <p>Choose one</p>
+            <div className="formGroup">
             <div className="interest">
               <input
                 type="radio"
@@ -139,8 +143,9 @@ export const Register = () => {
                 Powerlifting
               </label>
             </div>
-
-            <div className="gender">
+            </div>
+           <div className="formGroup">
+           <div className="gender">
               <input
                 type="radio"
                 name="gender"
@@ -163,6 +168,9 @@ export const Register = () => {
                 Female
               </label>
             </div>
+           </div>
+
+           
           </div>
           <UploadFile />
           <div className="btnContainer">
@@ -178,7 +186,7 @@ export const Register = () => {
 
           <p className="bottomText">
             <small>
-              By clicking the Sign Up button, you agree to our{" "}
+              By clicking the Sign Up button, you agree to our{" "} <br />
               <Link to="/terms" className="anchorCustom">
                 Terms & Conditions
               </Link>{" "}

@@ -1,22 +1,22 @@
 :root {
   /* Colores generales */
-  --color-primario: #3498db;
+  --color-primario: #89bcdf;
   --color-secundario: #8b8b8b;
   --color-fondo: #f2f2f2;
 
   /* Colores para etiquetas específicas */
-  --color-h1: #e74c3c;
-  --color-h2: #9b59b6;
+  --color-h1: #3c4de7;
+  --color-h2: #b7b1b9;
   --color-h3: #e67e22;
-  --color-h4: #3498db;
-  --color-p: #34495e;
-  --color-texto-destacado: #047cf5;
+  --color-h4: #85c0e7;
+  --color-p: #157ce2;
+  --color-texto-destacado: #e5ebf1;
   --color-enlace: #000000;
   --color-enlace-hover: #2773b8;
   --color-contenedor: #2ecc71;
-  --color-boton: rgb(245, 12, 12);
+  --color-boton: rgb(12, 16, 245);
   --color-texto-boton: #000000;
-  --color-botondes: #e74c3c;
+  --color-botondes: #1b04ec;
   --color-textbotondes: #ffffff;
   --color-boton-hover: #c0392b;
 }
