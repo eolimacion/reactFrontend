@@ -33,7 +33,7 @@ export const Login = () => {
 
   if (successfulLogin) {
     console.log("succesfullogin", res);
-    if (res?.data?.user == false) {
+    if (res?.data?.user.check == false) {
       return <Navigate to="/verifyCode" />;
     } else {
       console.log(res.data.user)
