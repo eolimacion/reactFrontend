@@ -35,7 +35,7 @@ export const Register = () => {
       const customFormData = {
         ...formData,
       };
-
+console.log(customFormData)
       setSend(true);
       setRes(await registerUser(customFormData));
       setSend(false);

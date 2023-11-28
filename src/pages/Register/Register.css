@@ -4,7 +4,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
    
+  }
+
+  .formTitle{
+    background-color: var(--color-botondes);
+    padding: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 0px 0px;
+    
   }
   .form{
     background-color:var(--color-primario);
@@ -12,12 +21,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
   }
   .formMain {
     background-color: var(--color-primario) ;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+
     margin: 20px;
     text-align: center;
   }
