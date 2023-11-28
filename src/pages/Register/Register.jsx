@@ -35,7 +35,7 @@ export const Register = () => {
       const customFormData = {
         ...formData,
       };
-console.log(customFormData)
+
       setSend(true);
       setRes(await registerUser(customFormData));
       setSend(false);
@@ -145,7 +145,7 @@ console.log(customFormData)
                 type="radio"
                 name="gender"
                 id="male"
-                value="male"
+                value="hombre"
                 {...register("gender")}
               />
               <label htmlFor="male" className="labelRadio male">
@@ -156,7 +156,7 @@ console.log(customFormData)
                 type="radio"
                 name="gender"
                 id="female"
-                value="female"
+                value="mujer"
                 {...register("gender")}
               />
               <label htmlFor="female" className="labelRadio female">
