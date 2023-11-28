@@ -19,7 +19,6 @@ console.log(res, "Respuesta en useLoginError")
         const userString = JSON.stringify(updatedUser);
         login(userString);
         setSuccessfulLogin(() => true);
-        setRes(() => ({}))
     
         Swal.fire({
           icon: "success",

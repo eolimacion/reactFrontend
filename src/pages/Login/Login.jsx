@@ -7,7 +7,6 @@ import { useErrorLogin } from "../../hooks/useErrorLogin";
 import { useAuth } from "../../context/authContext";
 
 export const Login = () => {
-  const { user } = useAuth();
   const { register, handleSubmit } = useForm();
   const { login, setUser } = useAuth();
   const navigate = useNavigate();
@@ -34,21 +33,26 @@ export const Login = () => {
 
   if (successfulLogin) {
     console.log("succesfullogin", res);
-    if (data?.user?.check == false) {
+    if (res?.data?.user == false) {
       return <Navigate to="/verifyCode" />;
     } else {
       console.log(res.data.user)
-      switch (data?.user?.interestedIn) {
+      console.log(res?.data?.user?.interestedIn)
+      switch (res?.data?.user?.interestedIn) {
         case "motogp":
+          console.log("Vrumm vrumm");
           <Navigate to="/motogp" />;
           break;
         case "powerlifting":
+          console.log("Me gusta la proteina");
           <Navigate to="/powerlifting" />;
           break;
         case "fifa":
-          <Navigate to="/fifa" />;
+          console.log("Soy un fifote");
+          <Navigate to="/fifa" />
           break;
         default:
+          console.log("Default");
           <Navigate to="/"/>
           break;
       }
