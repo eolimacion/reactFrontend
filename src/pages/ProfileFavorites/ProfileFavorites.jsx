@@ -1,9 +1,9 @@
-import { FavGallery } from "../../components"
+// import { FavGallery } from "../../components"
 
 export const ProfileFavorites = () => {
   return (
     <>
-      <FavGallery/>
+      {/* <FavGallery/> */}
     </>
   )
 }
