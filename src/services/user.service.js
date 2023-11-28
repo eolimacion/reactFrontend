@@ -15,6 +15,30 @@ import { APIuser } from "./serviceApiUser.config";
         .catch((error) => error);
     };
 
+      //! -------------------> Get Fav Teams [User]
+      export const getUsersFavTeams = async (userId) => {
+        console.log("HE ENTRADOOOOOOO")
+        return APIuser.get(`/users/favTeams/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${updateToken()}`,
+          },
+        })
+          .then((res) => res)
+          .catch((error) => error);
+      };
+
+      //! -------------------> Get Fav Elevens [User]
+      export const getUsersFavElevens = async (userId) => {
+        console.log("HE ENTRADOOOOOOO a elevens")
+        return APIuser.get(`/users/favElevens/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${updateToken()}`,
+          },
+        })
+          .then((res) => res)
+          .catch((error) => error);
+      };
+
     //! -------------------> Get Fav Riders [User]
     export const getUsersFavRiders = async (userId) => {
       return APIuser.get(`/users/favRiders/${userId}`, {

@@ -6,6 +6,7 @@ import {
   Dashboard,
   EditProfile,
   FIFA,
+  FavGallery,
   ForgotPassword,
   Home,
   Lifters,
@@ -15,7 +16,6 @@ import {
   Players,
   Powerlifting,
   Profile,
-  ProfileFavorites,
   Register,
   Riders,
   Teams,
@@ -23,6 +23,7 @@ import {
   Weight,
 } from "../pages/index";
 import App from "../App";
+import { FavoritesNav } from "../components";
 
 export const router = createBrowserRouter([
   {
@@ -103,21 +104,11 @@ export const router = createBrowserRouter([
           },
           {
             path: "/profile/favourites",
-            element: <ProfileFavorites />,
-            children: [
-              {
-                path: "/profile/favourites/FIFA",
-                element: <EditProfile />,
-              },
-              {
-                path: "/profile/favourites/MotoGP",
-                element: <EditProfile />,
-              },
-              {
-                path: "/profile/favourites/PowerLifting",
-                element: <EditProfile />,
-              },
-            ]
+            element: <FavoritesNav/>,
+          },
+          {
+            path: "/profile/favourites/:sport",
+            element: <FavGallery />,
           },
         ],
       },

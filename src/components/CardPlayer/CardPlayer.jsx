@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/authContext";
-import { getUsersFavLifters, getUsersFavPlayers, getUsersFavRiders } from "../../services/user.service";
+import { getUsersFavElevens, getUsersFavLifters, getUsersFavPlayers, getUsersFavRiders, getUsersFavTeams } from "../../services/user.service";
 
 export const CardPlayer = ({ controller }) => {
+  console.log("heheheheh")
+  console.log(controller)
   const { user } = useAuth()
   const [ prueba, setPrueba ] = useState()
 
@@ -11,7 +13,16 @@ export const CardPlayer = ({ controller }) => {
     switch (controller) {
       case "getFavPlayers":
         const resFavPlayers = await getUsersFavPlayers(user._id)
+        console.log(resFavPlayers.data)
         return resFavPlayers.data
+
+      case "getFavTeams":
+        const resFavTeams = await getUsersFavTeams(user._id)
+        return resFavTeams.data
+
+      case "getFavElevens":
+        const resFavElevens = await getUsersFavElevens(user._id)
+        return resFavElevens.data
 
       case "getFavRiders":
         const resFavRiders = await getUsersFavRiders(user._id)
