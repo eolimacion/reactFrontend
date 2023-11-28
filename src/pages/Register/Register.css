@@ -1,0 +1,148 @@
+.todo-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  
+  .parrafoLogin {
+    margin-bottom: 40px;
+  }
+  
+  #imagen {
+    display: block;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .form-wrap {
+    margin-top: 2rem;
+    background: #f7fffa;
+    padding: 15px 25px 30px;
+    color: #333;
+    border-radius: 5px;
+    width: 400px;
+  background-color: var(--color-verde);
+  }
+  
+  .form-wrap h1,
+  .form-wrap p {
+    text-align: center;
+  }
+  
+  .form-wrap .form-group {
+    margin-top: 15px;
+  }
+  
+  .form-wrap .form-group label {
+    color: black;
+    font-weight: normal;
+  }
+  
+  .form-wrap .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: #ddd 1px solid;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    caret-color: var(--color-naranja-habilitado);
+    border: solid 2px var(--color-naranja-habilitado);
+  }
+  
+  .form-wrap .form-group input:focus {
+    outline-color: var(--color-naranja-deshabilitado);
+  }
+  
+  .form-wrap .btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 25px;
+    background:var(--color-naranja-habilitado) !important;
+    color: #fff;
+    cursor: pointer;
+    border:var(--color-naranja-habilitado) 1px solid;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  .form-wrap .btn:hover {
+    background: #37a08e;
+    color: #f4f4f4;
+  }
+  
+  .form-wrap .btn:focus {
+    outline-color: var(--color-naranja-habilitado);
+  }
+  
+  .form-wrap .bottom-text {
+    line-height: 1.4;
+    margin-top: 15px;
+  }
+  
+  .form-wrap .bottom-text a:hover {
+    text-decoration: underline;
+  }
+  
+  .parrafoLogin {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  footer a {
+    color: #49c1a2;
+  }
+  
+  footer a:hover {
+    color: var(--color-naranja-deshabilitado);
+  }
+  
+  .btn:disabled {
+    background-color: navajowhite;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  .sexo {
+    display: flex;
+    flex-wrap: no-wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .sexo .hombre {
+    border-radius: 3px 0 0 3px;
+    color: black !important;
+  }
+  .sexo .mujer {
+    border-radius: 0 3px 3px 0;
+    color: black !important;
+  }
+  
+  .label-radio {
+    background:var(--color-naranja-deshabilitado);
+    color: black;
+    padding: 10px;
+    text-align: center;
+    width: 49.5%;
+  }
+  
+  input[type="radio"]:checked + .label-radio {
+    background: var(--color-naranja-habilitado);
+    color: #fff !important;
+  }
+  
+  
+  
+  .anchorCustom {
+    color:black;
+    font-weight: bold;
+  }
+  
