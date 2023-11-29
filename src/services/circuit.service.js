@@ -1,3 +1,4 @@
+import { updateToken } from "../utils/updateToken";
 import { extraConfig } from "./serviceApiGeneral.config";
 const APIGeneral = extraConfig();
 

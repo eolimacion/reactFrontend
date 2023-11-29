@@ -36,14 +36,22 @@ export const buscarAllweightCategory = async () => {
 //! -------------------------------- ACTUALIZAR WEIGHTCATEGORY -------------------------------------
 
 export const actualizarweightCategory = async (id) => {
-    return APIGeneral.patch(`/weightCategory/update/${id}`)
+    return APIGeneral.patch(`/weightCategory/update/${id}`,{
+      headers: {
+        Authorization: `Bearer ${updateToken()}`,
+      },
+    })
        .then((res) => res)
        .catch((error) => error);}
 
        //! -------------------------------- ACTUALIZAR WEIGHTCATEGORY -------------------------------------
 
 export const addLifters = async (id) => {
-    return APIGeneral.patch(`/weightCategory/addLifters/${id}`)
+    return APIGeneral.patch(`/weightCategory/addLifters/${id}`,{
+      headers: {
+        Authorization: `Bearer ${updateToken()}`,
+      },
+    })
        .then((res) => res)
        .catch((error) => error);}
  
@@ -52,7 +60,11 @@ export const addLifters = async (id) => {
 //! ------------------------------------ BORRAR WEIGHTCATEGORY-------------
 
 export const borrarweightCategory = async (id) => {
-  return APIGeneral.delete("/weightCategory/${id}", formData)
+  return APIGeneral.delete(`/weightCategory/${id}`, formData,{
+   headers: {
+     Authorization: `Bearer ${updateToken()}`,
+   },
+ })
     .then((res) => res)
     .catch((error) => error);
 };
@@ -67,6 +79,10 @@ export const ordenarWeightGenero = async (gender) => {
 //! ------------------------------------LIFTERS IN CATEGORY----------------------
 
 export const liftersInCategory = async (id) => {
-    return APIGeneral.get(`weightCategory/LiftersInCategory/${id}`)
+    return APIGeneral.get(`weightCategory/LiftersInCategory/${id}`,{
+      headers: {
+        Authorization: `Bearer ${updateToken()}`,
+      },
+    })
        .then((res) => res)
        .catch((error) => error);}
