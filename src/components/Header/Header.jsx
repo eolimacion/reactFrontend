@@ -1,8 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "./Header.css";
 import { useAuth } from "../../context/authContext";
 
 import { useState } from "react";
+import { NavSports } from "../NavSports/NavSports";
 export const Header = () => {
   const [mostrarBarra,setMostrarbarra]=useState(false)
   const handleMostrarBarra=()=>{
@@ -61,15 +62,7 @@ export const Header = () => {
           </div>
         </div>
         <div className="nav-links">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/fifa">FIFA</NavLink>
-          <NavLink to="/motogp">Moto GP</NavLink>
-          <NavLink to="/powerlifting">Powerlifting</NavLink>
-          {user !== null && (
-            <div className="especiales">
-          
-            </div>
-          )}
+          <NavSports/>
         </div>
       </header>
     </>

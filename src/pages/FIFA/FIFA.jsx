@@ -1,12 +1,19 @@
-import React from 'react'
+
 import"./FIFA.css"
-import { NavLink } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { NavSportsPages } from '../../components/NavSportsPages/NavSportsPages'
+
+
+
 export const FIFA = () => {
-  return (<>
-    <NavLink to="/fifa/players"> GO TO PLAYERS</NavLink>
-    <NavLink to="/fifa/teams"> GO TO Teams</NavLink>
-   
-  </>
-  
+
+
+  return (
+    <>
+        <NavSportsPages sport={'fifa'} />
+
+        <Outlet/>
+      
+      </>
   )
 }

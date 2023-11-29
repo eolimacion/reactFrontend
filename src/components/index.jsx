@@ -9,3 +9,4 @@ export * from './CardInTheGallery/CardInTheGallery'
 export * from './Nav/NavFav/NavFav'
 export * from './Nav/NavFav/NavFavChildren'
 export * from "./Finder/Finder"
+export * from './NavSports/NavSports'

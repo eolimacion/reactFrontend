@@ -25,7 +25,7 @@ import {
   Weight,
 } from "../pages/index";
 import App from "../App";
-import { FavoritesNav } from "../components";
+import { FavoritesNav, Finder } from "../components";
 import { Protected } from "../components/ProtectedRoutes/Protected";
 import { ProtectedCheckChildren } from "../components/ProtectedRoutes/ProtectedCheckChildren";
 
@@ -36,6 +36,14 @@ export const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "/finder",
+        element: <Finder />,
+      },
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/",
         element: <Home />,
@@ -69,6 +77,22 @@ export const router = createBrowserRouter([
         (<Protected>
           <MotoGP />
         </Protected>),
+        children: [
+          {
+            path: "/motogp/riders",
+            element: 
+            (<Protected>
+              <Riders />
+            </Protected>),
+          },
+          {
+            path: "/motogp/circuits",
+            element: 
+            (<Protected>
+              <Circuits/>
+            </Protected>),
+          },
+        ]
       },
       {
         path: "/podium",
@@ -83,48 +107,46 @@ export const router = createBrowserRouter([
         (<Protected>
           <FIFA />
         </Protected>),
+        children: [
+          {
+            path: "/fifa/players",
+            element: 
+            (<Protected>
+              <Players/>
+            </Protected>),
+          },
+          {
+            path: "/fifa/teams",
+            element: 
+            (<Protected>
+              <Teams/>
+            </Protected>),
+          },
+        ]
       },
       {
-        path: "/motogp/riders",
-        element: 
-        (<Protected>
-          <Riders />
-        </Protected>),
-      },
-      {
-        path: "/motogp/circuits",
-        element: 
-        (<Protected>
-          <Circuits/>
-        </Protected>),
-      },
-      {
-        path: "/fifa/players",
-        element: 
-        (<Protected>
-          <Players/>
-        </Protected>),
-      },
-      {
-        path: "/fifa/teams",
-        element: 
-        (<Protected>
-          <Teams/>
-        </Protected>),
-      },
-      {
-        path: "/powerlifting/lifters",
-        element: 
-        (<Protected>
-          <Lifters/>
-        </Protected>),
-      },
-      {
-        path: "/powerlifting/weight",
-        element:
-        (<Protected>
-          <Weight/>
-        </Protected>),
+      path: "/powerlifting",
+      element: 
+      (<Protected>
+        <Powerlifting/>
+      </Protected>),
+      children: [
+        {
+          path: "/powerlifting/lifters",
+          element: 
+          (<Protected>
+            <Lifters/>
+          </Protected>),
+        },
+        {
+          path: "/powerlifting/weight",
+          element:
+          (<Protected>
+            <Weight/>
+          </Protected>),
+        },
+
+      ]
       },
       {
         path: "/powerlifting",
@@ -186,3 +208,5 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
+     

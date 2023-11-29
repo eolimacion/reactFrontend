@@ -1,24 +1,24 @@
 import './NavProfile.css'
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 export const NavProfile = () => {
   return (
     <div className='navProfile'>
-        <Link to='/profile/user'>
+        <NavLink to='/profile/user'>
         <div className='titleNavProfile titleNav'>Profile</div>
-        </Link>
+        </NavLink>
 
-        <Link to='/profile/favourites'>
+        <NavLink to='/profile/favourites'>
         <div className='titleNavProfile titleNav'>My favourites</div>
-        </Link>
+        </NavLink>
 
-        <Link to='/profile/edit'>
+        <NavLink to='/profile/edit'>
         <div className='titleNavProfile titleNav'>Edit profile</div>
-        </Link>
+        </NavLink>
 
-        <Link to='/profile/settings'>
+        <NavLink to='/profile/settings'>
         <div className='titleNavProfile titleNav'>Account settings</div>
-        </Link>
+        </NavLink>
 
     </div>
   )

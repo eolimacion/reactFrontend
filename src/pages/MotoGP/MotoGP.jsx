@@ -1,11 +1,19 @@
-import React from 'react'
+
 import"./MotoGP.css"
-import { NavLink } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { NavSportsPages } from '../../components/NavSportsPages/NavSportsPages'
+
+
+
 export const MotoGP = () => {
-  return (<>
-  <NavLink to="/motogp/riders"> GO TO RIDERS</NavLink>
-    <NavLink to="/motogp/circuits"> GO TO CIRCUITS</NavLink></>
-    
-   
+
+
+  return (
+    <>
+        <NavSportsPages sport={'motogp'} />
+
+        <Outlet/>
+      
+      </>
   )
 }

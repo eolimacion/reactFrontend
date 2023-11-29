@@ -1,10 +1,19 @@
-import React from 'react'
+
 import"./Powerlifting.css"
-import { NavLink } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { NavSportsPages } from '../../components/NavSportsPages/NavSportsPages'
+
+
+
 export const Powerlifting = () => {
+
+
   return (
     <>
-    <NavLink to="/powerlifting/lifters"> GO TO LIFTERS</NavLink>
-      <NavLink to="/powerlifting/weight"> GO TO CATEGORIES</NavLink></>
+        <NavSportsPages sport={'powerlifting'} />
+
+        <Outlet/>
+      
+      </>
   )
 }
