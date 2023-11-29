@@ -7,8 +7,6 @@ import { useAuth } from '../../../context/authContext'
 import { useEffect, useState } from "react";
 import { useErrorCreate } from '../../../hooks/useErrorCreate'
 
-
-
 export const Circuits = () => {
 //llamar a la funcion createCircuit
 

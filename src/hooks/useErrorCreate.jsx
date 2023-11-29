@@ -8,7 +8,7 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
            //setAllUser(() => res.data);
            Swal.fire({
              icon: "success",
-             title: "Welcome to my Page 💌",
+             title: "Successful creation!✅",
              showConfirmButton: false,
              timer: 1500,
            });
@@ -18,7 +18,7 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Ha habido un error al rellenar el formulario",
+            text: "There was an error filling out the form ❌",
             showConfirmButton: false,
             timer: 3000,
           });
@@ -29,7 +29,7 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Ha habido un error al rellenar el formulario",
+            text: "There was an error filling out the form ❌",
             showConfirmButton: false,
             timer: 3000,
           });
