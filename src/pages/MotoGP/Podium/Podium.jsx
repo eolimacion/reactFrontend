@@ -1,59 +1,43 @@
-import React from 'react'
-import { createCircuit } from '../../../services/circuit.service'
-import { UploadFile } from '../../../components'
-import { useForm } from 'react-hook-form'
-import { Link, Navigate } from 'react-router-dom'
-import { useAuth } from '../../../context/authContext'
-import { useEffect, useState } from "react";
-import { useErrorCreate } from '../../../hooks/useErrorCreate'
-import {  SelectRiders } from '../../../components/SelectRiders/SelectRiders'
-import { createPodium } from '../../../services/podium.service'
-
-
+import React, { useEffect, useState } from 'react';
+import { createPodium } from '../../../services/podium.service';
+import { useForm } from 'react-hook-form';
+import { SelectRiders } from '../../../components/SelectRiders/SelectRiders';
+import { useErrorCreate } from '../../../hooks/useErrorCreate';
+import { CardInTheGallery } from '../../../components';
 
 export const Podium = () => {
-//llamar a la funcion createCircuit
-
   const { register, handleSubmit } = useForm();
   const [res, setRes] = useState({});
   const [send, setSend] = useState(false);
   const [okRegister, setRegisterOk] = useState(false);
-
-  const formSubmit = async (formData) => { 
-   
+  const formSubmit = async (formData) => { // guarda todos lo que manden por register
+   {
      
-    
+      const customFormData = {
+        ...formData,
+      };
 
       setSend(true);
-      setRes(await createPodium(formData));
+      setRes(await createPodium(customFormData));
       setSend(false);
-      
-    
+      console.log("soy la reeeeeeeeeees", res)
+    }
   };
 
   useEffect(() => {
     console.log(res)
+    useErrorCreate(res, setRegisterOk, setRes)
   }, [res]);
-
+ 
+ 
   return (
-  
+    <>
+    <CardInTheGallery/>
+    <div className="allForm">
+      <div className="formMain">
+        <h1 className="formTitle">CREATE A PODIUM</h1>
         <form className="form" onSubmit={handleSubmit(formSubmit)}>
-          
-         
-          
-<SelectRiders
-registerForm={register("firstPlace")}
-position="Primero"
- 
- 
- />
-<SelectRiders
-registerForm={register("secondPlace")}
-position="Segundo"/>
-<SelectRiders
-registerForm={register("thirdPlace")}
-position="Tercero"/>
- <div className="circuitInfo formGroup">
+          <div className="circuitInfo formGroup">
             <label htmlFor="name" className="customPlaceholder">
               Name
             </label>
@@ -65,7 +49,15 @@ position="Tercero"/>
             autoComplete="false" 
             {...register("name", {required: true})}/> 
           </div>
+
+         
+
+         
         
+          <SelectRiders registerForm={register("firstPlace")} position="Primero" />
+ <SelectRiders registerForm={register("secondPlace")} position="Segundo" />
+<SelectRiders registerForm={register("thirdPlace")} position="Tercero" /> 
+       
 
           <div className="btnContainer">
             <button
@@ -78,6 +70,10 @@ position="Tercero"/>
             </button>
           </div>
         </form>
-     
+      </div>
+    </div>
+    </>
   )
-}
+};
+
+

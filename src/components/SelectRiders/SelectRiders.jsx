@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { buscarAllRider } from '../../services/rider.service';
+import { CardInTheGallery } from '../CardInTheGallery/CardInTheGallery';
 
 
 
@@ -19,29 +20,45 @@ export const SelectRiders = ({ registerForm,position}) => {
       getAllRiders();
          console.log(allRiders);
     }, []); 
-  
+    const [selectedRider, setSelectedRider] = useState(null);
+
+  const handleSelectChange = (event) => {
+    setSelectedRider(event.target.value);
+  };
+
  
     
     
 
     return (
-        <>
-          {loading ? (
-            <div>Cargando...</div>
-          ) : (
-            allRiders && (
-              <div>
-                <label htmlFor="rider">{position}</label>
-                <select id="rider" name="rider" {...registerForm}>
-                  {allRiders.data?.map((rider) => (
-                    <option key={rider._id} value={rider.name}>
-                      {rider.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )
-          )}
-        </>
-      );
-                  }
+      <>
+        {allRiders ? (
+          <div>
+            <label htmlFor="rider">{position}</label>
+            <select
+              id="rider"
+              name="rider"
+              {...registerForm}
+              onChange={handleSelectChange}
+            >
+              {allRiders.data?.map((rider) => (
+                <option key={rider._id} value={rider._id}>
+                  {rider.name}
+                </option>
+              ))}
+            </select>
+            {/* Renderizar CardInTheGallery solo para el elemento seleccionado */}
+            {selectedRider && (
+              <CardInTheGallery
+                key={selectedRider}
+                image={allRiders.data.find((rider) => rider._id === selectedRider)?.image}
+                name={allRiders.data.find((rider) => rider._id === selectedRider)?.name}
+              />
+            )}
+          </div>
+        ) : (
+          <div>Cargando...</div>
+        )}
+      </>
+    );
+  };
