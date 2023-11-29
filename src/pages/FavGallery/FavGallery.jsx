@@ -7,7 +7,6 @@ import { CardInTheGallery, NavFavChildren } from "../../components";
 export const FavGallery = () => {
   const { user } = useAuth();
   const [res, setRes] = useState(null);
-  const [controller, setController] = useState();
   const [mainFav, setMainFav] = useState("fifa");
   const [childrenFav, setChildrenFav] = useState("favPlayers");
   const [data, setData] = useState(null)
@@ -27,9 +26,6 @@ export const FavGallery = () => {
   useEffect(() => {
     setData(res?.data[childrenFav])
   }, [childrenFav]);
-
-
-
   return (
     <>
       <NavFav setFav={setMainFav} favChildren={setChildrenFav} />
