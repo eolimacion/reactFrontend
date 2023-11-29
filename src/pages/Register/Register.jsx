@@ -71,7 +71,7 @@ export const Register = () => {
               Username
             </label>
             <input
-              className="inputUser"
+              className="inputForm"
               type="text"
               id="name"
               name="name"

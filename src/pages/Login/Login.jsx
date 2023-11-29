@@ -64,7 +64,7 @@ export const Login = () => {
             Email
           </label>
           <input
-            className="InputForm"
+            className="inputForm"
             type="email"
             id="userEmail"
             name="userEmail"
@@ -75,7 +75,7 @@ export const Login = () => {
             Password
           </label>
           <input
-            className="InputForm"
+            className="inputForm"
             type="password"
             id="password"
             name="password"

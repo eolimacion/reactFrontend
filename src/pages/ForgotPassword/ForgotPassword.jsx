@@ -28,22 +28,31 @@ export const ForgotPassword = () => {
 
   return (
     <>
-      <div className="formWrap">
-        <h1>Change your password</h1>
+    <div className='allForm'>
+    
+      
+     
+      
 
-        <form onSubmit={handleSubmit(formSubmit)}>
-          <div className="userContainer formGroup">
+        <form  className="formMain"onSubmit={handleSubmit(formSubmit)}>
+        <div className='formTitle
+    '>
+       <h1>Change your password</h1>
+    </div>
+
+          <div className="formGroup">
+             <label htmlFor="customInput" className="customPlaceholder">
+              Email
+            </label>
             <input
-              className="inputUser"
+              className="inputForm"
               type="text"
               id="email"
               name="email"
               autoComplete="false"
               {...register("email", { required: true })}
             />
-            <label htmlFor="customInput" className="customPlaceholder">
-              Email
-            </label>
+           
           </div>
 
           <div className="btnContainer">
@@ -62,6 +71,7 @@ export const ForgotPassword = () => {
           </p>
         </form>
       </div>
+     
     </>
   )
 }
