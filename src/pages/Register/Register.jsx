@@ -63,8 +63,10 @@ export const Register = () => {
   return (
     <div className="allForm register">
       <div className="formMain">
-        <h1 className="formTitle">Sign Up</h1>
+        <div className="formTitle">
+        <h1>Sign Up</h1>
         <p>Champion Within, Victories Begin</p>
+        </div>
         <form className="form" onSubmit={handleSubmit(formSubmit)}>
           <div className="userInfo formGroup">
           <label htmlFor="name" className="customPlaceholder">
@@ -80,7 +82,19 @@ export const Register = () => {
             />
            
           </div>
-
+          <div className="emailInfo formGroup">
+          <label htmlFor="email" className="customPlaceholder">
+              E-mail
+            </label>
+            <input
+              className="inputForm"
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="false"
+              {...register("email", { required: true })}
+            />
+            </div>
           <div className="passwordInfo formGroup">
           <label htmlFor="password" className="customPlaceholder">
               Password
@@ -96,19 +110,8 @@ export const Register = () => {
             
           </div>
 
-          <div className="emailInfo formGroup">
-          <label htmlFor="email" className="customPlaceholder">
-              E-mail
-            </label>
-            <input
-              className="inputForm"
-              type="email"
-              id="email"
-              name="email"
-              autoComplete="false"
-              {...register("email", { required: true })}
-            />
-           <p>Choose one</p>
+
+           <p>Interest</p>
             <div className="formGroup">
             <div className="interest">
               <input
@@ -139,13 +142,14 @@ export const Register = () => {
                 value="powerlifting"
                 {...register("interestedIn")}
               />
-              <label htmlFor="powerlifting" className="labelRadio ">
-                Powerlifting
+              <label htmlFor="powerlifting" className="labelRadio ">Powerlifting
               </label>
             </div>
             </div>
+            <p>Gender</p>
            <div className="formGroup">
            <div className="gender">
+           
               <input
                 type="radio"
                 name="gender"
@@ -167,21 +171,36 @@ export const Register = () => {
               <label htmlFor="female" className="labelRadio female">
                 Female
               </label>
+
+              <input
+                type="radio"
+                name="gender"
+                id="otros"
+                value="otros"
+                {...register("gender")}
+              />
+              <label htmlFor="otros" className="labelRadio otros">
+                Otros
+              </label>
             </div>
            </div>
 
            
-          </div>
+          
           <UploadFile />
           <div className="btnContainer">
             <button
-              className="btn"
+              className={send ? "btn btnSent" : "btn btnNotsent"}
               type="submit"
               disabled={send}
-              style={{ background: send ? "#49c1a388" : "#2f7a67" }}
             >
-              Register
+              {send ? "Loading..." : "REGISTER"}
             </button>
+            <div className="loginForm">
+        <p className="loginParagraph">
+          Already a member? <Link to="/login">Login Here</Link>
+        </p>
+      </div>
           </div>
 
           <p className="bottomText">
@@ -198,12 +217,6 @@ export const Register = () => {
             </small>
           </p>
         </form>
-      </div>
-
-      <div className="footerForm">
-        <p className="loginParagraph">
-          Already have an account? <Link to="/login">Login Here</Link>
-        </p>
       </div>
     </div>
   );

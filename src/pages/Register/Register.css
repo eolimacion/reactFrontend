@@ -10,16 +10,14 @@
   }
 
   .formTitle{
-    background-color: var(--color-botondes);
-    padding: 30px;
+    padding: 20px;
+    gap: 1rem;
     margin-bottom: 10px;
     border-radius: 10px 10px 0px 0px;
-    color:var(--color-texto-destacado);
     width: 100%;
     
   }
   .form{
-    background-color:var(--color-primario);
     display: flex;
     flex-direction: column;
     min-width: 350px;
@@ -30,16 +28,13 @@ flex-direction: column;
     width: 40vw;
     
   }
-  form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+
   .formMain {
-    background-color: var(--color-primario) ;
+    background-color: var(--color-form) ;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 1px 6px 6px rgba(224,224,224,0.43);
+    -moz-box-shadow: 1px 1px 6px 6px rgba(224,224,224,0.43);
+    box-shadow: 1px 1px 6px 6px rgba(224,224,224,0.43);
 display: flex;
 justify-content: center;
 align-items: center;
@@ -75,10 +70,6 @@ align-items: center;
     background-color: var(--color-texto-destacado);
 
   }
-  
-  
-  
-  
 
   
   .interest input[type="radio"] {
@@ -108,14 +99,11 @@ align-items: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
   }
   
   .gender input[type="radio"] {
     display: none;
   }
-  
-
 
   .labelRadio {
     cursor: pointer;
@@ -157,15 +145,26 @@ align-items: center;
     margin: 20px 0;
   }
   
+  .btn:focus{
+    transform: scale(0.97);
+  }
+  
+  .btnNotsent{
+  background-color: var(--color-boton);
+  }
+  
+  .btnSent{
+  background-color: var(--color-botonSend);
+  }
   
   .btn:disabled {
     cursor: not-allowed;
-    background-color: var(--color-botondes);
+    background-color: var(--color-boton);
   }
   
   .bottomText {
     margin-top: 20px;
-    color: var(color-text-boton);
+    color: var(--color-text-boton);
   }
   
   .anchorCustom {
@@ -173,11 +172,4 @@ align-items: center;
 
   }
   
-  .footerForm {
-    margin-top: 20px;
-  }
-  
-  .loginParagraph {
-    color: var(--color-texto-destacado)
-  }
   
