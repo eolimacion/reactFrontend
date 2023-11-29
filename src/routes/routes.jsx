@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   About,
   AccountSettings,
-  ChangePassword,
   Circuits,
   Dashboard,
   EditProfile,
@@ -26,6 +25,9 @@ import {
 } from "../pages/index";
 import App from "../App";
 import { FavoritesNav } from "../components";
+import { Protected } from "../components/ProtectedRoutes/Protected";
+import { ProtectedCheckChildren } from "../components/ProtectedRoutes/ProtectedCheckChildren";
+
 
 export const router = createBrowserRouter([
   {
@@ -50,7 +52,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "/verifyCode",
-        element: <VerifyCode />,
+        element: 
+        (<ProtectedCheckChildren>
+          <VerifyCode />
+        </ProtectedCheckChildren>),
       },
       {
         path: "/forgotPassword",
@@ -58,67 +63,118 @@ export const router = createBrowserRouter([
       },
       {
         path: "/motogp",
-        element: <MotoGP />,
+        element: 
+        (<Protected>
+          <MotoGP />
+        </Protected>),
       },
       {
         path: "/fifa",
-        element: <FIFA />,
+        element: 
+        (<Protected>
+          <FIFA />
+        </Protected>),
       },
       {
         path: "/motogp/riders",
-        element: <Riders />,
+        element: 
+        (<Protected>
+          <Riders />
+        </Protected>),
       },
       {
         path: "/motogp/circuits",
-        element: <Circuits/>,
+        element: 
+        (<Protected>
+          <Circuits/>
+        </Protected>),
       },
       {
         path: "/fifa/players",
-        element: <Players/>,
+        element: 
+        (<Protected>
+          <Players/>
+        </Protected>),
       },
       {
         path: "/fifa/teams",
-        element: <Teams/>,
+        element: 
+        (<Protected>
+          <Teams/>
+        </Protected>),
       },
       {
         path: "/powerlifting/lifters",
-        element: <Lifters/>,
+        element: 
+        (<Protected>
+          <Lifters/>
+        </Protected>),
       },
       {
         path: "/powerlifting/weight",
-        element: <Weight/>,
+        element:
+        (<Protected>
+          <Weight/>
+        </Protected>),
       },
       {
         path: "/powerlifting",
-        element: <Powerlifting />,
+        element: 
+        (<Protected>
+          <Powerlifting />
+        </Protected>),
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: 
+        (<Protected>
+          <Dashboard />
+        </Protected>),
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: 
+        (<Protected>
+          <Profile />
+        </Protected>),
         children: [
           {
             path: "/profile/user",
-            element: <UserProfileData />,
+            element: 
+            (<Protected>
+              <UserProfileData />
+            </Protected>),
           },
           {
             path: "/profile/favourites",
-            element: <FavoritesNav/>,
-          },
-          {
-            path: "/profile/favourites/:sport",
-            element: <FavGallery />,
+            element: 
+            (<Protected>
+              <FavoritesNav/>
+            </Protected>),
+            children: [
+              {
+                path: "/profile/favourites/:sport",
+                element: 
+                (<Protected>
+                  <FavGallery />
+                </Protected>),
+              },
+
+            ]
           },
           {
             path: "/profile/edit",
-            element: <EditProfile />,
+            element: 
+            (<Protected>
+              <EditProfile />
+            </Protected>),
           },
           {
             path: "/profile/settings",
-            element: <AccountSettings />,
+            element: 
+            (<Protected>
+              <AccountSettings />
+            </Protected>),
           },
 
         ],
