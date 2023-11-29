@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { SelectRiders } from '../../../components/SelectRiders/SelectRiders';
 import { useErrorCreate } from '../../../hooks/useErrorCreate';
 import { CardInTheGallery } from '../../../components';
+import"./Podium.css"
 
 export const Podium = () => {
   const { register, handleSubmit } = useForm();
@@ -53,10 +54,12 @@ export const Podium = () => {
          
 
          
-        
-          <SelectRiders registerForm={register("firstPlace")} position="Primero" />
+        <div className='contenedorPodium'>
+        <SelectRiders registerForm={register("firstPlace")} position="Primero" />
  <SelectRiders registerForm={register("secondPlace")} position="Segundo" />
 <SelectRiders registerForm={register("thirdPlace")} position="Tercero" /> 
+        </div>
+      
        
 
           <div className="btnContainer">

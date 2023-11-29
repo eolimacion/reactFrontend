@@ -47,7 +47,6 @@ export const SelectRiders = ({ registerForm,position}) => {
                 </option>
               ))}
             </select>
-            {/* Renderizar CardInTheGallery solo para el elemento seleccionado */}
             {selectedRider && (
               <CardInTheGallery
                 key={selectedRider}
