@@ -1,3 +1,35 @@
+.dashboardTitle{
+    color: var(--color-h2); /* Morado oscuro */
+    background-color: black;
+    text-align: center;
+    font-size: 2.3em;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para resaltar el texto */
+    animation: shineAnimation 2s ease-in-out infinite alternate; /* Animación para resplandor alternante */
+    margin: 1rem;
+    transform: translateY(-300px); /* Posición inicial arriba de la pantalla */
+    animation: fallAnimation 1s ease-in-out forwards /* Animación de caída */
+}
+
+
+@keyframes shineAnimation {
+    from {
+        color: #6104bd; /* Morado oscuro */
+    }
+    to {
+        color: rgb(110, 24, 209); /* Blanco */
+    }
+}
+
+
+@keyframes fallAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Posición final en el centro de la pantalla */
+    }
+}
+
+
 .NavProfile {
     display: flex;
     justify-content: center;
@@ -11,14 +43,14 @@ body{
 }
 .imageContainer {
 min-width: 550px;
-    width: 70vw;
+    width: 60vw;
     overflow: hidden;
     padding: 40px;
     margin-right: 5%;
 }
 
 .imageNav {
-    width: 70%;
+    width: 60%;
    
     border-radius: 30%;
     position: relative;
