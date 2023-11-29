@@ -6,10 +6,15 @@ export const CardPlayer = ({ controller }) => {
   console.log("soy controller en cardplayer " + controller)
   const { user } = useAuth()
   const [ prueba, setPrueba ] = useState()
+  const [ controllerState, setControllerState ] = useState()
+
+  useEffect(() => {
+    setControllerState(controller)
+  }, [controller])
 
 
   const printCardItem = async () => {
-    switch (controller) {
+    switch (controllerState) {
       case "getFavPlayers":
         const resFavPlayers = await getUsersFavPlayers(user._id)
         console.log(resFavPlayers.data)
@@ -41,7 +46,7 @@ export const CardPlayer = ({ controller }) => {
       setPrueba(await printCardItem())
     }
     getData()
-  }, [])
+  }, [controllerState])
 
   console.log("estoy pintando esto: " + prueba)
   return (
