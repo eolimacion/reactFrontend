@@ -14,19 +14,7 @@ export const Lifters = () => {
   const [okRegister, setRegisterOk] = useState(false);
 
   const formSubmit = async (formData) => { // guarda todos lo que manden por register
-    const inputFile = document.getElementById("file-upload").files;
-
-    if (inputFile.length != 0) {
-      // si es diferente a cero quiere decir que tenemos una imagen
-      const customFormData = {
-        ...formData,
-        image: inputFile[0],
-      };
-
-      setSend(true);
-      setRes(await createLifterService(customFormData));
-      setSend(false);
-    } else {
+  
       // en este caso no hay imagen y nos quedamos con lo que tenemos en el form data
       const customFormData = {
         ...formData,
@@ -35,8 +23,7 @@ export const Lifters = () => {
       setSend(true);
       setRes(await createLifterService(customFormData));
       setSend(false);
-    }
-  };
+    };
 
   useEffect(() => {
     useErrorCreate(res, setRegisterOk, setRes)
@@ -100,20 +87,6 @@ export const Lifters = () => {
               </label>
             </div>
            </div>
-
-          <div className="ageInfo formGroup">
-            <label htmlFor="age" className="customPlaceholder">
-              Age
-            </label>
-            <input 
-            className="inputForm" 
-            type="number" 
-            id="age" 
-            name="age" 
-            autoComplete="false"
-            placeholder="32" 
-            {...register("age", {required: true})}/> 
-          </div>
 
           <div className="birthInfo formGroup">
             <label htmlFor="birthYear" className="customPlaceholder">
