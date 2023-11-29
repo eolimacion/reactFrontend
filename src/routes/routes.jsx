@@ -151,16 +151,13 @@ export const router = createBrowserRouter([
             (<Protected>
               <FavoritesNav/>
             </Protected>),
-            children: [
-              {
-                path: "/profile/favourites/:sport",
-                element: 
-                (<Protected>
-                  <FavGallery />
-                </Protected>),
-              },
-
-            ]
+          },
+          {
+            path: "/profile/favourites/:sport",
+            element: 
+            (<Protected>
+              <FavGallery />
+            </Protected>),
           },
           {
             path: "/profile/edit",
