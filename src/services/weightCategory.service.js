@@ -11,7 +11,7 @@ const APIGeneral = extraConfig();
 //! ------------------------CREAR WEIGHTCATEGORY------------------------------
 
 export const createweightCategory = async (formData) => {
-    return APIGeneral.post("/weightcategory/", formData, {
+    return APIGeneral.post("/weightCategory/create", formData, {
       headers: { 
         Authorization: `Bearer ${updateToken()}`
       },

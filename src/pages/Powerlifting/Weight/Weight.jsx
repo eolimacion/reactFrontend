@@ -16,6 +16,7 @@ export const Weight = () => {
       const customFormData = {
         ...formData,
       };
+      console.log("soy custom form dataaaaa", customFormData)
 
       setSend(true);
       setRes(await createweightCategory(customFormData));
@@ -23,8 +24,8 @@ export const Weight = () => {
     };
 
   useEffect(() => {
-    console.log(res)
     useErrorCreate(res, setRegisterOk, setRes)
+    console.log(res)
   }, [res]);
 
   return (
@@ -32,31 +33,27 @@ export const Weight = () => {
       <div className="formMain">
         <h1 className="formTitle">CREATE A WEIGHT CATEGORY</h1>
         <form className="form" onSubmit={handleSubmit(formSubmit)}>
-        <div className="genderInfo formGroup">
-           <div className="weight">
-              <input
-                type="radio"
-                name="weight"
-                id="+84"
-                value="+84"
-                {...register("weight")}
-              />
-              <label htmlFor="+84" className="labelRadio +84">
-                +84
-              </label>
-
-              <input
-                type="radio"
-                name="weight"
-                id="+120"
-                value="+120"
-                {...register("weight")}
-              />
-              <label htmlFor="+120" className="labelRadio +120">
-                +120
-              </label>
-            </div>
-           </div>
+        <div className="weightCategoryInfo formGroup">
+          <label htmlFor="weight">Weight</label>
+          <select id="weight" {...register("weight")}>
+          <option value="43">43</option>
+            <option value="52">52</option>
+            <option value="53">53</option>
+            <option value="57">57</option>
+            <option value="59">59</option>
+            <option value="63">63</option>
+            <option value="66">66</option>
+            <option value="69">69</option>
+            <option value="74">74</option>
+            <option value="76">76</option>
+            <option value="83">83</option>
+            <option value="84">84</option>
+            <option value="93">93</option>
+            <option value="105">105</option>
+            <option value="120">120</option>
+            <option value="+120">+120</option>
+          </select>
+        </div>
 
           <div className="genderInfo formGroup">
            <div className="gender">
@@ -86,7 +83,7 @@ export const Weight = () => {
 
            <div className="ageInfo formGroup">
           <label htmlFor="age">Age</label>
-          <select id="weight" {...register("age")}>
+          <select id="age" {...register("age")}>
             <option value="Subjunior">Subjunior</option>
             <option value="Junior">Junior</option>
             <option value="Open">Open</option>
