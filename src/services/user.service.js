@@ -141,3 +141,11 @@ export const deleteUser = async (formData) => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+//* GET USER ------------------------------
+  //! -------------------> Get User By Name
+  export const getUserByName = async (userName) => {
+    return APIuser.get(`/users/byName/${userName}`)
+      .then((res) => res)
+      .catch((error) => error);
+  };
