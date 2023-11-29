@@ -2,7 +2,14 @@ import { updateToken } from "../utils/updateToken"
 import { extraConfig } from "./serviceApiGeneral.config";
 
 //*---------------------favoritos----------------------------
-    
+    //! -------------------> Get Fav Players [User]
+    export const getById = async (userId) => {
+      const APIGeneral = extraConfig();
+
+      return APIGeneral.get(`/users/${userId}`)
+        .then((res) => res)
+        .catch((error) => error);
+    };
     //! -------------------> Get Fav Players [User]
     export const getUsersFavPlayers = async (userId) => {
       const APIGeneral = extraConfig();
@@ -119,7 +126,9 @@ export const changePasswordAuth = async (formData) => {
 
 export const updateUser = async (formData) => {
   const APIGeneral = extraConfig();
-  return APIGeneral.patch("users/update/update", formData)
+  return APIGeneral.patch("users/update/update", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  })
     .then((res) => res)
     .catch((error) => error);
 };
