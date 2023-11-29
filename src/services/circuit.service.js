@@ -8,7 +8,7 @@ const APIGeneral = extraConfig();
 
 //! ------------------------CREAR CIRCUIT------------------------------
 
-export const createRider = async (formData) => {
+export const createCircuit = async (formData) => {
     return APIGeneral.post("/circuit/", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     })
