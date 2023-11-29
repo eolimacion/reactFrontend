@@ -14,6 +14,7 @@ import {
   MotoGP,
   NotFound,
   Players,
+  Podium,
   Powerlifting,
   Profile,
   Register,
@@ -27,6 +28,7 @@ import App from "../App";
 import { FavoritesNav } from "../components";
 import { Protected } from "../components/ProtectedRoutes/Protected";
 import { ProtectedCheckChildren } from "../components/ProtectedRoutes/ProtectedCheckChildren";
+
 
 
 export const router = createBrowserRouter([
@@ -66,6 +68,13 @@ export const router = createBrowserRouter([
         element: 
         (<Protected>
           <MotoGP />
+        </Protected>),
+      },
+      {
+        path: "/podium",
+        element: 
+        (<Protected>
+          <Podium />
         </Protected>),
       },
       {

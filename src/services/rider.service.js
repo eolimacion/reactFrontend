@@ -53,7 +53,7 @@ export const actualizarRider = async (id) => {
 //! ------------------------------------ BORRAR RIDER-------------
 
 export const borrarRider = async (id) => {
-  return APIGeneral.delete("/rider/${id}", formData)
+  return APIGeneral.delete(`/rider/${id}`, formData)
     .then((res) => res)
     .catch((error) => error);
 };

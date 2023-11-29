@@ -5,7 +5,7 @@ const APIGeneral = extraConfig();
 
  //!!----------------------> Get All Lifters
   export const getAllLifters = async () => {
-    return APIGeneral.get("/lifter/",)
+    return APIGeneral.get(`/lifter/`,)
       .then((res) => res)
       .catch((error) => error);
   };
@@ -38,7 +38,7 @@ const APIGeneral = extraConfig();
 
   //! -------------------> Crear  [Admin]
   export const createLifterService = async (formData) => {
-    return APIGeneral.post("/lifter/", formData, {
+    return APIGeneral.post(`/lifter/`, formData, {
       headers: {
         Authorization: `Bearer ${updateToken()}`,
       },

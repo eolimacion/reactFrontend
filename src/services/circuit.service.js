@@ -10,7 +10,7 @@ const APIGeneral = extraConfig();
 //! ------------------------CREAR CIRCUIT------------------------------
 
 export const createCircuit = async (formData) => {
-    return APIGeneral.post("/circuit/", formData, {
+    return APIGeneral.post(`/circuit/`, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((res) => res)
@@ -53,7 +53,7 @@ export const actualizarCircuit = async (id) => {
 //! ------------------------------------ BORRAR CIRCUIT-------------
 
 export const borrarCircuit = async (id) => {
-  return APIGeneral.delete("/circuit/${id}", formData)
+  return APIGeneral.delete(`/circuit/${id}`, formData)
     .then((res) => res)
     .catch((error) => error);
 };
