@@ -19,10 +19,10 @@ console.log(user)
             
              <p> {(user?.followers == undefined) ? '0 followers' : `${user.followers} followers`}</p>
              <p> {(user?.followed == undefined) ? '0 following' : `${user.followed} following`}</p>
-             <p> {(user?.comments == undefined) ? '0 comments' : `${user?.comments?.length} following`}</p>
+             <p> {(user?.comments == undefined) ? '0 comments' : `${user?.comments?.length} comments`}</p>
           </div>
-          <p> {(user?.yourteam !== undefined) && `Your team ${user.yourteam}`}</p>
-          <p> {(user?.yourPodium !== undefined) && `Your team ${user.yourPodium}`}</p>
+          {/* <p> {(user?.yourteam !== undefined) && `Your team ${user.yourteam}`}</p>
+          <p> {(user?.yourPodium !== undefined) && `Your podium ${user.yourPodium}`}</p> */}
           </div>
 
         </figure>

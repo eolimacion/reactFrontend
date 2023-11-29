@@ -217,11 +217,6 @@ useEffect(() =>{
       </div>
     </div>
 
-
-    <div>
-        <h2>or </h2>
-    </div>    
-
     
         {/* <div className='form-login form'>
         <div className="form-wrap">
