@@ -1,5 +1,7 @@
+import { updateToken } from "../utils/updateToken";
 import { extraConfig } from "./serviceApiGeneral.config";
 const APIGeneral = extraConfig();
+
 
 
 //??-------------------------------------RUTAS WEIGHTCATEGORYS------------------------------------------------
@@ -9,8 +11,10 @@ const APIGeneral = extraConfig();
 //! ------------------------CREAR WEIGHTCATEGORY------------------------------
 
 export const createweightCategory = async (formData) => {
-    return APIGeneral.post("/weightCategory/", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
+    return APIGeneral.post("/weightcategory/", formData, {
+      headers: { 
+        Authorization: `Bearer ${updateToken()}`
+      },
     })
       .then((res) => res)
       .catch((error) => error);

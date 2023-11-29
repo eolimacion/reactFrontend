@@ -60,7 +60,8 @@ export const Circuits = () => {
             type="text" 
             id="name" 
             name="name" 
-            autoComplete="false" 
+            autoComplete="false"
+            placeholder='Monza' 
             {...register("name", {required: true})}/> 
           </div>
 
@@ -73,7 +74,8 @@ export const Circuits = () => {
             type="text" 
             id="location" 
             name="location" 
-            autoComplete="false" 
+            autoComplete="false"
+            placeholder='Monza' 
             {...register("location", {required: true})}/> 
           </div>
 
@@ -86,7 +88,8 @@ export const Circuits = () => {
             type="number" 
             id="totalLength" 
             name="totalLength" 
-            autoComplete="false" 
+            autoComplete="false"
+            placeholder='km' 
             {...register("totalLength", {required: true})}/> 
           </div>
 
@@ -99,7 +102,8 @@ export const Circuits = () => {
             type="number" 
             id="capacity" 
             name="capacity" 
-            autoComplete="false" 
+            autoComplete="false"
+            placeholder='people' 
             {...register("capacity", {required: true})}/> 
           </div>
 
@@ -113,6 +117,7 @@ export const Circuits = () => {
             id="topSpeed" 
             name="topSpeed" 
             autoComplete="false" 
+            placeholder='km/h'
             {...register("topSpeed", {required: true})}/> 
           </div>
 
