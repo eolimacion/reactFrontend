@@ -1,13 +1,13 @@
-export const NavFav = ({ setFav , favChildren }) => {
+export const NavFav = ({ setFav , setFavChildren }) => {
   return (
     <nav>
       <button onClick={() => {setFav("fifa")
-    favChildren('favPlayers')}}>FIFA</button>
+    setFavChildren('favPlayers')}}>FIFA</button>
       <button onClick={() => {
         setFav("motoGP") 
-        favChildren('favRiders')}}>MotoGP</button>
+        setFavChildren('favRiders')}}>MotoGP</button>
       <button onClick={() => {setFav("powerlifting") 
-      favChildren('favLifters')}}>Powerlifting</button>
+      setFavChildren('favLifters')}}>Powerlifting</button>
     </nav>
   );
 };

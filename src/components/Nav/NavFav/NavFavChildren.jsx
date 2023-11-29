@@ -1,19 +1,19 @@
-export const NavFavChildren = ({ fav, favChildren }) => {
+export const NavFavChildren = ({ fav, setFavChildren }) => {
   switch (fav) {
     case "fifa":
       return (
         <nav id="displayFavFifaModels">
-          <button onClick={() => favChildren("favPlayers")}>Players</button>
-          <button onClick={() => favChildren("favTeams")}>Teams</button>
-          <button onClick={() => favChildren("favElevens")}>Elevens</button>
+          <button onClick={() => setFavChildren("favPlayers")}>Players</button>
+          <button onClick={() => setFavChildren("favTeams")}>Teams</button>
+          <button onClick={() => setFavChildren("favElevens")}>Elevens</button>
         </nav>
       );
 
     case "powerlifting":
       return (
         <nav id="displayFavPowerLiftingModels">
-          <button onClick={() => favChildren("favLifters")}>Lifters</button>
-          <button onClick={() => favChildren("favWeightCategories")}>
+          <button onClick={() => setFavChildren("favLifters")}>Lifters</button>
+          <button onClick={() => setFavChildren("favWeightCategories")}>
             Categories
           </button>
         </nav>
@@ -22,9 +22,9 @@ export const NavFavChildren = ({ fav, favChildren }) => {
     case "motoGP":
       return (
         <nav id="displayFavMotoGpModels">
-          <button onClick={() => favChildren("favRiders")}>Riders</button>
-          <button onClick={() => favChildren("favCircuits")}>Circuits</button>
-          <button onClick={() => favChildren("favPodiums")}>Podiums</button>
+          <button onClick={() => setFavChildren("favRiders")}>Riders</button>
+          <button onClick={() => setFavChildren("favCircuits")}>Circuits</button>
+          <button onClick={() => setFavChildren("favPodiums")}>Podiums</button>
         </nav>
       );
 
