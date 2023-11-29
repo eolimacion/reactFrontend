@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-
+import"./NavSportsPages.css"
 
 export const NavSportsPages = ({ sport }) => {
 
@@ -21,15 +21,16 @@ export const NavSportsPages = ({ sport }) => {
             case "motogp":
                 return(
                     <div className='navProfile'>
-    
+    <div className="imageContainer">
+
                     <NavLink to='/motogp/riders'>
-                    <div className='titleNavProfile titleNav'>Riders</div>
+                    <img src="https://res.cloudinary.com/djfkchzyq/image/upload/v1701278876/mgvyrsagdezjv9x055x5.jpg" alt="foto moto portada" className='imageNav der'></img>
                     </NavLink>
             
                     <NavLink to='/motogp/circuits'>
-                    <div className='titleNavProfile titleNav'>Circuits</div>
+                    <img src="https://res.cloudinary.com/djfkchzyq/image/upload/v1701278579/oj4g80kjntnmvjhu34ha.jpg" alt="foto circuito portada" className='imageNav izq'></img>
                     </NavLink>
-            
+                    </div>
                 </div>
                 );
                 case "fifa":

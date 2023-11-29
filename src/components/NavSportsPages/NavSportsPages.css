@@ -1,0 +1,56 @@
+.NavProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+body{
+    background-color: rgb(0, 0, 0);
+}
+.imageContainer {
+min-width: 550px;
+    width: 70vw;
+    overflow: hidden;
+    padding: 40px;
+    margin-right: 5%;
+}
+
+.imageNav {
+    width: 70%;
+   
+    border-radius: 30%;
+    position: relative;
+    border-width: 0 10px 10px 0;
+     border: 5px solid white;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out, z-index 0.5s ease-in-out;
+    z-index: 1;
+
+   
+}
+
+
+.izq{
+    
+     margin-top: -100px;
+     margin-left: 15vw;
+}
+.der:hover{
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+
+.imageNav:hover {
+    animation: shadowAnimation 0.3s ease-in-out forwards;
+}
+
+@keyframes shadowAnimation {
+    to {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
