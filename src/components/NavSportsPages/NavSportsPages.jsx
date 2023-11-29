@@ -14,7 +14,7 @@ export const NavSportsPages = ({ sport }) => {
                     <NavLink to='/powerlifting/lifters'>
                         <img
                             src="https://res.cloudinary.com/djfkchzyq/image/upload/v1701285556/jr6rqujwgigc0luavdb1.jpg"
-                            alt="foto moto portada"
+                            alt="pesas en las manos de un forzudo"
                             className='imageNav der'
                         />
                     </NavLink>
@@ -22,7 +22,7 @@ export const NavSportsPages = ({ sport }) => {
                     <NavLink to='/powerlifting/weight'>
                         <img
                             src="https://res.cloudinary.com/djfkchzyq/image/upload/v1701285183/gwpmadtn8ryztmczqscx.jpg"
-                            alt="foto circuito portada"
+                            alt="mujer levantando peso"
                             className='imageNav izq'
                         />
                     </NavLink>
@@ -47,16 +47,18 @@ export const NavSportsPages = ({ sport }) => {
                 case "fifa":
                     return(
                         <div className='navProfile'>
-        
-                        <NavLink to='/fifa/players'>
-                        <div className='titleNavProfile titleNav'>Players</div>
-                        </NavLink>
-                
-                        <NavLink to='/fifa/teams'>
-                        <div className='titleNavProfile titleNav'>Teams</div>
-                        </NavLink>
-                
-                    </div>
+                        <div className="imageContainer">
+                    <h1 className="dashboardTitle">Cristiano Ronaldo o lo demás</h1>
+                                        <NavLink to='/fifa/players'>
+                                        <img src="https://res.cloudinary.com/djfkchzyq/image/upload/v1701286749/tadlpzubaksnp1dawhww.png" alt="escudos equipos" className='imageNav der'></img>
+                                        </NavLink>
+                                
+                                        <NavLink to='/fifa/teams'>
+                                        <img src="https://res.cloudinary.com/djfkchzyq/image/upload/v1701286674/zmewuo8qk5wqlfauopwh.png" alt="Ronaldo guapo" className='imageNav izq'></img>
+                                        </NavLink>
+                                        </div>
+                                    </div>
+                        
                     );
             
             default:
