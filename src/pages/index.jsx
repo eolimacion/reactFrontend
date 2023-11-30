@@ -18,16 +18,14 @@ export * from './AccountSettings/AccountSettings'
 
 //!!POWERLIFTING
 export * from './Powerlifting/Powerlifting'
-export * from './Powerlifting/Lifters/Lifters'
-export * from './Powerlifting/Weight/Weight'
+// export * from './Powerlifting/Lifters/Lifters'
+// export * from './Powerlifting/Weight/Weight'
 //!!FIFA
 export * from './FIFA/FIFA'
-export * from './FIFA/Players/Players'
-export * from './FIFA/Teams/Teams'
+// export * from './FIFA/Players/Players'
+// export * from './FIFA/Teams/Teams'
 //!!MOTO GP
 export * from './MotoGP/MotoGP'
-export * from './MotoGP/Riders/Riders'
-export * from './MotoGP/Circuits/Circuits'
-export * from './MotoGP/Circuits/Circuits'
+// export * from './MotoGP/Riders/Riders'
+// export * from './MotoGP/Circuits/Circuits'
 export * from './MotoGP/Podium/Podium'
-

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useErrorCreate } from '../../../hooks/useErrorCreate';
+import { useErrorCreate } from '../../hooks/useErrorCreate';
 import { useForm } from 'react-hook-form';
-import { UploadFile } from '../../../components';
-import { createPlayerService } from '../../../services/player.service';
+import { UploadFile } from '..';
+import { createPlayerService } from '../../services/player.service';
 
-export const Players = () => {
+export const FormPlayers = () => {
   //! ---- Destructuring ----
   const { register, handleSubmit } = useForm();
 

@@ -1,10 +1,10 @@
-import { createCircuit } from '../../../services/circuit.service'
-import { UploadFile } from '../../../components'
+import { createCircuit } from '../../services/circuit.service'
+import { UploadFile } from '..'
 import { useForm } from 'react-hook-form'
 import { useEffect, useState } from "react";
-import { useErrorCreate } from '../../../hooks/useErrorCreate'
+import { useErrorCreate } from '../../hooks/useErrorCreate'
 
-export const Teams = () => {
+export const FormTeams = () => {
   //! ---- Destructuring ----
   const { register, handleSubmit } = useForm();
 

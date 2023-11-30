@@ -1,13 +1,13 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
-import { UploadFile } from "../../../components"
-import { createRider } from "../../../services/rider.service"
-import { useAuth } from "../../../context/authContext"
+import { UploadFile } from ".."
+import { createRider } from "../../services/rider.service"
+import { useAuth } from "../../context/authContext"
 import { Link, Navigate } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { useErrorCreate } from "../../../hooks/useErrorCreate"
+import { useErrorCreate } from "../../hooks/useErrorCreate"
 
-export const Riders = () => {
+export const FormRiders = () => {
 
   const { register, handleSubmit } = useForm();
   const [res, setRes] = useState({});

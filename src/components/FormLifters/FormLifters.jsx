@@ -1,13 +1,13 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
-import { useAuth } from "../../../context/authContext"
+import { useAuth } from "../../context/authContext"
 import { Link, Navigate } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { useErrorCreate } from "../../../hooks/useErrorCreate"
-import { createLifterService } from '../../../services/lifter.service'
+import { useErrorCreate } from "../../hooks/useErrorCreate"
+import { createLifterService } from '../../services/lifter.service'
 
 
-export const Lifters = () => {
+export const FormLifters = () => {
   const { register, handleSubmit } = useForm();
   const [res, setRes] = useState({});
   const [send, setSend] = useState(false);

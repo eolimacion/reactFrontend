@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useForm } from "react-hook-form"
-import { useErrorCreate } from '../../../hooks/useErrorCreate'
-import { createweightCategory } from '../../../services/weightCategory.service'
+import { useErrorCreate } from '../../hooks/useErrorCreate'
+import { createweightCategory } from '../../services/weightCategory.service'
 
 
-export const Weight = () => {
+export const FormWeight = () => {
   const { register, handleSubmit } = useForm();
   const [res, setRes] = useState({});
   const [send, setSend] = useState(false);
@@ -101,7 +101,7 @@ export const Weight = () => {
               disabled={send}
               style={{ background: send ? "#49c1a388" : "#2f7a67" }}
             >
-              CREATE LIFTER
+              CREATE WEIGHT CATEGORY
             </button>
           </div>
         </form>
