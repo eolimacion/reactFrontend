@@ -28,8 +28,6 @@ export * from "./FIFA/Eleven/Eleven"
 
 //!!MOTO GP
 export * from './MotoGP/MotoGP'
+export * from './MotoGP/Podium/Podium'
 export * from './MotoGP/Riders/Riders'
 export * from './MotoGP/Circuits/Circuits'
-export * from './MotoGP/Circuits/Circuits'
-export * from './MotoGP/Podium/Podium'
-

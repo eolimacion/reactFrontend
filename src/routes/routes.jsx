@@ -77,13 +77,20 @@ export const router = createBrowserRouter([
         element: 
         (<Protected>
           <MotoGP />
-        </Protected>),
-        children: [
+        </Protected>)
+      },
           {
             path: "/motogp/riders",
             element: 
             (<Protected>
               <Riders />
+            </Protected>),
+          },
+          {
+            path: "/motogp/riders/:id",
+            element: 
+            (<Protected>
+              <Riders />  
             </Protected>),
           },
           {
@@ -93,8 +100,14 @@ export const router = createBrowserRouter([
               <Circuits/>
             </Protected>),
           },
-        ]
-      },
+          {
+            path: "/motogp/circuits/:id",
+            element: 
+            (<Protected>
+              <Circuits/>
+            </Protected>),
+          },
+  
       {
         path: "/podium",
         element: 
@@ -115,9 +128,16 @@ export const router = createBrowserRouter([
         (<Protected>
           <FIFA />
         </Protected>),
-        children: [
+      },
           {
             path: "/fifa/players",
+            element: 
+            (<Protected>
+              <Players/>
+            </Protected>),
+          },
+          {
+            path: "/fifa/players/:id",
             element: 
             (<Protected>
               <Players/>
@@ -130,17 +150,29 @@ export const router = createBrowserRouter([
               <Teams/>
             </Protected>),
           },
-        ]
-      },
+          {
+            path: "/fifa/teams/:id",
+            element: 
+            (<Protected>
+              <Teams/>
+            </Protected>),
+          },
       {
       path: "/powerlifting",
       element: 
       (<Protected>
         <Powerlifting/>
-      </Protected>),
-      children: [
+      </Protected>)
+      },
         {
           path: "/powerlifting/lifters",
+          element: 
+          (<Protected>
+            <Lifters/>
+          </Protected>),
+        },
+        {
+          path: "/powerlifting/lifters/:id",
           element: 
           (<Protected>
             <Lifters/>
@@ -153,16 +185,13 @@ export const router = createBrowserRouter([
             <Weight/>
           </Protected>),
         },
-
-      ]
-      },
-      {
-        path: "/powerlifting",
-        element: 
-        (<Protected>
-          <Powerlifting />
-        </Protected>),
-      },
+        {
+          path: "/powerlifting/weight/:id",
+          element:
+          (<Protected>
+            <Weight/>
+          </Protected>),
+        },
       {
         path: "/dashboard",
         element: 

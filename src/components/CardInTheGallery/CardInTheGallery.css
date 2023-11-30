@@ -1,6 +1,13 @@
 
-  
-.singleItemImg{
-    width: 70%;
-    max-width: 120px;
+.singleItemName{
+    width: 100%;
+    height: 100%;
+}
+
+.singleItemImg{ width: 100%;
+    height: 100%;}
+
+.singleItemCard{
+    width: 100%;
+    height: 100%;
 }

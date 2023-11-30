@@ -14,7 +14,8 @@ export const useErrorRegister = (res, setRegisterOk, setRes) => {
 
     Swal.fire({
       icon: "success",
-      title: "Welcome to my Page 💌",
+      title: 'Register succesful',
+      text: 'Please, verify your account',
       showConfirmButton: false,
       timer: 1500,
     });
@@ -24,8 +25,8 @@ export const useErrorRegister = (res, setRegisterOk, setRes) => {
   if (res?.response?.status === 409) {
     Swal.fire({
       icon: "error",
-      title: "Oops...",
-      text: "Please , your email is incorrect !❎",
+      title: "Invalid email",
+      text: "Please, enter a valid email",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -36,8 +37,8 @@ export const useErrorRegister = (res, setRegisterOk, setRes) => {
   if (res?.response?.data?.message?.includes("User validation failed: password:")) {
     Swal.fire({
       icon: "error",
-      title: "Oops...",
-      text: "Min 8 characters, 1 upper case, 1 lower case and a special character ❎",
+      title: "Insuficient password",
+      text: "The password must contain 8 characters, 1 upper case, 1 lower case and a special character",
       showConfirmButton: false,
       timer: 3000,
     });
@@ -51,8 +52,8 @@ export const useErrorRegister = (res, setRegisterOk, setRes) => {
   ) {
     Swal.fire({
       icon: "error",
-      title: "Oops...",
-      text: "Sorry choose another name ❎",
+      title: "This username is already in use",
+      text: "Please, try another one",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -64,8 +65,8 @@ export const useErrorRegister = (res, setRegisterOk, setRes) => {
   if (res?.response?.status == 500) {
     Swal.fire({
       icon: "error",
-      title: "Oops...",
-      text: "Interval server error!❎ Please try again.",
+      title: "Interval server error",
+      text: "There was an error in our interval server. Please try again",
       showConfirmButton: false,
       timer: 1500,
     });

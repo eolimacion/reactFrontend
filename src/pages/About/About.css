@@ -1,0 +1,14 @@
+.divAbout {
+    text-align: center; 
+  }
+  
+  .titleAbout {
+    margin-top: 20px;
+  }
+  
+  .titleMision,
+  .titleComunity,
+  .titleTransparency,
+  .titleDiscover {
+    margin-top: 50px; 
+  }

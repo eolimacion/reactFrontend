@@ -85,12 +85,9 @@ export const Login = () => {
 
           <div className="btn">
             <button
-              className="btn"
+              className={isSent ? "btn btnSent" : "btn btnNotsent"}
               type="submit"
               disabled={isSent}
-              style={{
-                background: isSent ? "color-boton" : "color-boton-des",
-              }}
             >
               Login
             </button>

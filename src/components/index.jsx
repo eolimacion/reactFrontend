@@ -10,4 +10,11 @@ export * from './Nav/NavFav/NavFav'
 export * from './Nav/NavFav/NavFavChildren'
 export * from "./Finder/Finder"
 export * from './NavSports/NavSports'
+export * from './FormCircuits/FormCircuits'
+export * from './FormLifters/FormLifters'
+export * from './FormPlayers/FormPlayers'
+export * from './FormRiders/FormRiders'
+export * from './FormTeams/FormTeams'
+export * from './FormWeight/FormWeight'
 export * from "./SelectPlayers/SelectPlayers"
+

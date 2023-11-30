@@ -28,8 +28,8 @@ export const FavGallery = () => {
   }, [childrenFav]);
   return (
     <>
-      <NavFav setFav={setMainFav} favChildren={setChildrenFav} />
-      <NavFavChildren fav={mainFav} favChildren={setChildrenFav} />
+      <NavFav setFav={setMainFav} setFavChildren={setChildrenFav} />
+      <NavFavChildren fav={mainFav} setFavChildren={setChildrenFav} />
 
       <section className="favGallery">
         {
