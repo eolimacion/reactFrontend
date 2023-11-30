@@ -1,35 +1,61 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Riders.css';
-import { FormRiders } from '../../../components';
+import { CardInTheGallery, FormRiders,  } from '../../../components';
+import { buscarAllRider } from '../../../services/rider.service';
 
 export const Riders = () => {
   const [data, setData] = useState(null);
   const [galleryLoading, setGalleryLoading] = useState(false);
-  const [mainLoading, setMainLoading] = useState(false);
-  const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
+  const [mainLoading, setMainLoading] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
+  const [allRiders, setAllRiders] = useState([]);
+ 
+  const getAllRiders = async () => {
+  
+    const ridersData = await buscarAllRider();
+    setAllRiders(ridersData || []);
+    setGalleryLoading(false);
+   
+  };
 
+  useEffect(() => {
+    getAllRiders();
+       console.log(allRiders);
+  }, []); 
+ 
   const handleButtonClick = () => {
-    // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
     setShowForm(!showForm);
+    setShowGallery(false)
+  };
+
+  const handleGalleryButtonClick = () => {
+    setShowGallery(true);
+    setShowForm(false);
   };
 
   return (
-   <div className="Allpage">
+    <div className="Allpage">
       {galleryLoading ? (
         <p>Cargando la galería...</p>
       ) : (
         <div className="galeriaPreview">
-          Galería pequeña
+          {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
         </div>
       )}
-      <div className="buscadorMario">Buscador de Mario</div>
+      <div className="buscadorMario">
+        <button onClick={handleGalleryButtonClick}>Mostrar Galería</button>
+      </div>
       <section className="mainPage">
-        {mainLoading ? (
+        {galleryLoading ? (
           <p>Cargando...</p>
         ) : (
           <>
             <div className="displayImage">
-              {showForm ? <FormRiders /> : 'Aquí se mostraría la galería'}
+              {showForm ? <FormRiders /> : showGallery &&
+              allRiders?.data?.map((rider) => (
+                <CardInTheGallery image={rider.image} name={rider.name} key={rider._id}/>
+              ))}
             </div>
             <aside className="columnaEnlaces">
               <div className="seccionColumna seccionUno">Uno</div>
@@ -42,5 +68,5 @@ export const Riders = () => {
         )}
       </section>
     </div>
-  );
-};
+      );
+    };
