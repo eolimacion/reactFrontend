@@ -44,13 +44,18 @@ min-width: 550px;
     width: 100vw;
     overflow: hidden;
     padding: 40px;
-   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
     background-color: black;
 }
 
 .imageNav {
-    width: 60%;
-   
+    width: 40vw;
+    max-width: 600px;
+    min-width: 300px;
+   display: block;
     border-radius: 30%;
     position: relative;
     border-width: 0 10px 10px 0;

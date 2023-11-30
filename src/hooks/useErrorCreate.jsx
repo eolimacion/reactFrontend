@@ -13,6 +13,16 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
              timer: 1500,
            });
            setRes({});}
+           if (res?.response?.data?.includes("Este usuario ya tiene un podium")) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "You already have a podium, try updating it",
+                showConfirmButton: false,
+                timer: 3000,
+            });
+            setRes({});
+        }
 
     if (res?.response?.status == 404) {
         Swal.fire({
@@ -37,3 +47,5 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
     }
     
   };
+
+ 

@@ -33,7 +33,7 @@ export const SelectRiders = ({ registerForm,position}) => {
     return (
       <>
         {allRiders ? (
-          <div>
+          <>
             <label htmlFor="rider">{position}</label>
             <select
               id="rider"
@@ -51,10 +51,10 @@ export const SelectRiders = ({ registerForm,position}) => {
               <CardInTheGallery
                 key={selectedRider}
                 image={allRiders.data.find((rider) => rider._id === selectedRider)?.image}
-                name={allRiders.data.find((rider) => rider._id === selectedRider)?.name}
+                // name={allRiders.data.find((rider) => rider._id === selectedRider)?.name}
               />
             )}
-          </div>
+          </>
         ) : (
           <div>Cargando...</div>
         )}
