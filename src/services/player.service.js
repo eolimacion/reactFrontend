@@ -5,6 +5,7 @@ const APIGeneral = extraConfig();
 
  //!!----------------------> Get All Players
   export const getAllPlayers = async () => {
+    console.log("entro al service de getAllPlayers")
     return APIGeneral.get("/players/", {
       headers: { "Content-Type": "multipart/form-data" },
     })
@@ -14,6 +15,8 @@ const APIGeneral = extraConfig();
 
  //!!----------------------> Get By Name
   export const getNamePlayers = async (playerName) => {
+    console.log("entro al service de getNamePlayers")
+    console.log(playerName)
     return APIGeneral.get(`/players/byName/${playerName}`, {
       headers: { "Content-Type": "multipart/form-data" },
     })
