@@ -1,7 +1,7 @@
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 import { deleteUser } from "../services/user.service";
 
-export const useDeleteUser = (setUser, setDeleteUser) => {
+export const useDeleteUser = (setUser, setIsDeletedUser) => {
         Swal.fire({
           title: "Delete account?",
           text: "If you delete your account, you will permanently loose your profile and all the information saved",
@@ -26,7 +26,7 @@ export const useDeleteUser = (setUser, setDeleteUser) => {
                 });
       
                 setUser(() => null);
-                setDeleteUser(() => true);
+                setIsDeletedUser(() => true);
                 localStorage.removeItem("user");
       
                 break;

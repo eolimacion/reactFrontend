@@ -17,6 +17,7 @@ export const AuthContextProvider = ({ children }) => {
       user: {
         password: "",
         email: "",
+        interestedIn:""
       },
     },
   });

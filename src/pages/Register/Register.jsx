@@ -47,9 +47,6 @@ export const Register = () => {
     if (res?.status == 200) bridgeData("ALLUSER");
   }, [res]);
   //este useEffect nos da un console para ver que esta pasando.Lo dejo comentado para futuras pruebas
-  useEffect(() => {
-    console.log("😍", allUser);
-  }, [allUser]);
 
   if (okRegister) {
     //si todo esta ok navega a la pagina del codigo
@@ -119,7 +116,7 @@ export const Register = () => {
                 name="interest"
                 id="futbol"
                 value="fifa"
-                {...register("interestedIn")}
+                {...register("interestedIn", {required: true})}
               />
               <label htmlFor="futbol" className="labelRadio">
                 FIFA
@@ -130,7 +127,7 @@ export const Register = () => {
                 name="interest"
                 id="motogp"
                 value="motogp"
-                {...register("interestedIn")}
+                {...register("interestedIn", {required: true})}
               />
               <label htmlFor="motogp" className="labelRadio ">
                 Moto GP
@@ -140,7 +137,7 @@ export const Register = () => {
                 name="interest"
                 id="powerlifting"
                 value="powerlifting"
-                {...register("interestedIn")}
+                {...register("interestedIn", {required: true})}
               />
               <label htmlFor="powerlifting" className="labelRadio ">Powerlifting
               </label>
@@ -155,7 +152,7 @@ export const Register = () => {
                 name="gender"
                 id="male"
                 value="hombre"
-                {...register("gender")}
+                {...register("gender", {required: true})}
               />
               <label htmlFor="male" className="labelRadio male">
                 Male
@@ -166,7 +163,7 @@ export const Register = () => {
                 name="gender"
                 id="female"
                 value="mujer"
-                {...register("gender")}
+                {...register("gender", {required: true})}
               />
               <label htmlFor="female" className="labelRadio female">
                 Female
@@ -177,7 +174,7 @@ export const Register = () => {
                 name="gender"
                 id="otros"
                 value="otros"
-                {...register("gender")}
+                {...register("gender", {required: true})}
               />
               <label htmlFor="otros" className="labelRadio otros">
                 Otros

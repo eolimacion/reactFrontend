@@ -13,6 +13,7 @@ import { useAuth } from "../../context/authContext";
 import { Navigate, useNavigate } from "react-router";
 import { useVerifyCodeError } from "../../hooks/useVerifyCodeError";
 import { resendConfirmationCode, verifyConfirmationCode } from "../../services/user.service";
+import { useAutoLogin } from "../../hooks/useAutoLogin";
 
 
 export const VerifyCode = () => {
@@ -34,7 +35,6 @@ export const VerifyCode = () => {
       const custFormData = {
      
         confirmationCode: parseInt(formData.confirmationCode),
-   
         email: allUser.data.user.email,
       };
 
@@ -96,15 +96,23 @@ export const VerifyCode = () => {
 
 
   if (okCheck) {
-
-    // if (!localStorage.getItem("user")) {
-  
-    //   useAutoLogin(allUser, login);
-    // } else {
-     
+   if (!localStorage.getItem("user")) {
+     useAutoLogin(allUser);
+    } else {
       return <Navigate to="/dashboard" />;
-    
   }
+}
+
+if(okDeleteUser) {
+  return <Navigate to="/register"/>
+}
+
+
+if(userNotFound) {
+return <Navigate to="/login"/>
+}
+
+
   return (
     <>
       <div className="allForm">
@@ -162,4 +170,5 @@ export const VerifyCode = () => {
       </div>
     </>
   );
-};
+
+}

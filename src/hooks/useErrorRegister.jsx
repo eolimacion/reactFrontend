@@ -33,6 +33,27 @@ export const useErrorRegister = (res, setRegisterOk, setRes) => {
     setRes({});
   }
 
+  if (res?.response?.data?.message?.includes("User validation failed: gender: Path `gender` is required")) {
+    Swal.fire({
+      icon: "error",
+      title: "Insuficient password",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+    setRes({});
+  }
+
+
+  if (res?.response?.data?.message?.includes("User validation failed: interestedIn: Path `interestedIn` is required")) {
+    Swal.fire({
+      icon: "error",
+      title: "Interest is required",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+    setRes({});
+  }
+
   //! ------------------- La contraseña no esta en el formato correcto
   if (res?.response?.data?.message?.includes("User validation failed: password:")) {
     Swal.fire({
