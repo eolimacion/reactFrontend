@@ -28,9 +28,13 @@ export const Eleven = () => {
 
   //! 1. ---- Función que gestiona la asincronía
   const formSubmit = async (formData) => { // guarda todos lo que manden por register
-    { 
+    {
+      const customFormData = {
+        ...formData,
+      };  
+      console.log(formData)
        setSend(true);
-       setRes(await createEleven(formData));
+       setRes(await createEleven(customFormData));
        setSend(false);
        console.log("soy la reeeeeeeeeees", res)
      }
@@ -68,8 +72,6 @@ export const Eleven = () => {
           <SelectPlayers registerForm={register("rightback")} position="Right Back" />
           <SelectPlayers registerForm={register("leftback")} position="Left Back" />
           <SelectPlayers registerForm={register("midfielder1")} position="Midfielder" />
-        </div>        
-        <div className='contenedorPodium'>
           <SelectPlayers registerForm={register("midfielder2")} position="Midfielder" />
           <SelectPlayers registerForm={register("midfielder3")} position="Midfielder" />
           <SelectPlayers registerForm={register("forward1")} position="Forward" />

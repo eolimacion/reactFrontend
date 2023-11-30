@@ -17,6 +17,7 @@ export const Podium = () => {
       const customFormData = {
         ...formData,
       };
+      console.log(customFormData)
 
       setSend(true);
       setRes(await createPodium(customFormData));
