@@ -16,8 +16,6 @@ export const AuthContextProvider = ({ children }) => {
       confirmationCode: "",
       user: {
         password: "",
-        email: "",
-        interestedIn:""
       },
     },
   });
@@ -27,7 +25,8 @@ export const AuthContextProvider = ({ children }) => {
   //! -----------------------------------------------------------------------
 
   const bridgeData = (state) => {
-    const data = localStorage.getItem("data");
+    const data = localStorage.getItem("data")
+    console.log(data);
     const dataJson = JSON.parse(data);
     console.log(dataJson);
     switch (state) {
