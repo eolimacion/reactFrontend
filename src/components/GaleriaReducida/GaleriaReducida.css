@@ -1,0 +1,48 @@
+.galeriaPreview{
+    background-color: rgba(0, 0, 255, 0.171);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+    max-height: 100px;
+    min-height: 50px;
+ 
+}
+.previewButton{
+    width: 5%;
+    height: 20%;
+    padding: 10px;
+    text-align: center;
+    background-color: yellow;
+
+}
+
+figure section .singleItemImg{
+  max-height: 75px;
+}
+
+@keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .slide-in {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .slide-out {
+    animation: slideOut 0.5s ease-in-out;
+  }

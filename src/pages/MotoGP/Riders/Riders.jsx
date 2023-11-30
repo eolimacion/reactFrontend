@@ -1,32 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import './Riders.css';
-import { CardInTheGallery, FormRiders,  } from '../../../components';
+import { CardInTheGallery, FormRiders, GaleriaReducida } from '../../../components';
 import { buscarAllRider } from '../../../services/rider.service';
 
 export const Riders = () => {
-  const [data, setData] = useState(null);
   const [galleryLoading, setGalleryLoading] = useState(false);
-  const [mainLoading, setMainLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
-  const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
+  const [showGallery, setShowGallery] = useState(true);
   const [allRiders, setAllRiders] = useState([]);
- 
+
   const getAllRiders = async () => {
-  
-    const ridersData = await buscarAllRider();
-    setAllRiders(ridersData || []);
-    setGalleryLoading(false);
-   
+    try {
+      setGalleryLoading(true);
+      const ridersData = await buscarAllRider();
+      setAllRiders(ridersData || []);
+    } catch (error) {
+      console.error('Error al obtener datos de riders:', error);
+    } finally {
+      setGalleryLoading(false);
+    }
   };
 
   useEffect(() => {
     getAllRiders();
-       console.log(allRiders);
-  }, []); 
- 
+  }, []);
+
+  useEffect(() => {
+    console.log(allRiders);
+  }, [allRiders]);
+
   const handleButtonClick = () => {
     setShowForm(!showForm);
-    setShowGallery(false)
+    setShowGallery(false);
   };
 
   const handleGalleryButtonClick = () => {
@@ -40,7 +45,7 @@ export const Riders = () => {
         <p>Cargando la galería...</p>
       ) : (
         <div className="galeriaPreview">
-          {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
+          {showGallery && <GaleriaReducida galeriaItems={allRiders?.data} />}
         </div>
       )}
       <div className="buscadorMario">
@@ -52,10 +57,12 @@ export const Riders = () => {
         ) : (
           <>
             <div className="displayImage">
-              {showForm ? <FormRiders /> : showGallery &&
-              allRiders?.data?.map((rider) => (
-                <CardInTheGallery image={rider.image} name={rider.name} key={rider._id}/>
-              ))}
+              {showForm ? (
+                <FormRiders />
+              ) : showGallery &&
+                allRiders?.data?.map((rider) => (
+                  <CardInTheGallery image={rider.image} name={rider.name} key={rider._id} />
+                ))}
             </div>
             <aside className="columnaEnlaces">
               <div className="seccionColumna seccionUno">Uno</div>
@@ -68,5 +75,5 @@ export const Riders = () => {
         )}
       </section>
     </div>
-      );
-    };
+  );
+};

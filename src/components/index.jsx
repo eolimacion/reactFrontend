@@ -17,4 +17,5 @@ export * from './FormRiders/FormRiders'
 export * from './FormTeams/FormTeams'
 export * from './FormWeight/FormWeight'
 export * from "./SelectPlayers/SelectPlayers"
+export * from "./GaleriaReducida/GaleriaReducida"
 
