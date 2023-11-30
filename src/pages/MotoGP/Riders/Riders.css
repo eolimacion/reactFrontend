@@ -13,12 +13,14 @@
 .galeriaPreview {
     width: 40vw;
     height: 5vw;
+    min-height: 50px;
     background-color: red;
 }
 
 .buscadorMario {
     width: 45vw;
     height: 10vw;
+    min-height:100px ;
     background-color: green;
 }
 
@@ -68,4 +70,26 @@
 
 .seccionTres {
   background-color: green;
+}
+@media only screen and (max-width: 600px) {
+    .Allpage {
+     padding: 20px;
+    }
+
+    .galeriaPreview,
+    .buscadorMario {
+        width: 100%;
+    }
+
+    .mainPage {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .displayImage,
+    .columnaEnlaces {
+        width: 100%;
+        flex: none;
+    }
 }
