@@ -18,4 +18,6 @@ export * from './FormTeams/FormTeams'
 export * from './FormWeight/FormWeight'
 export * from "./SelectPlayers/SelectPlayers"
 export * from "./GaleriaReducida/GaleriaReducida"
-
+export * from './CardsById/CardFifaById/CardFifaById'
+export * from './CardsById/CardMotoById/CardMotoById'
+export * from './CardsById/CardPowerById/CardPowerById'

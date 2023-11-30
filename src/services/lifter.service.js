@@ -27,7 +27,8 @@ const APIGeneral = extraConfig();
   };
  //!!---------------------->get my ID
   export const lifterByID = async (id) => {
-    return APIGeneral.get(`/lifter/${id}/`, )
+    console.log(id)
+    return APIGeneral.get(`/lifter/${id}`)
       .then((res) => res)
       .catch((error) => error);
   };

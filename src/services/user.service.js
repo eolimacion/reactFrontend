@@ -162,3 +162,17 @@ export const deleteUser = async (formData) => {
       .then((res) => res)
       .catch((error) => error);
   };
+
+
+
+  //!-------- ADD FAVS ---------------
+
+
+
+  export const addFavLifter = async(idLifter) =>{
+    console.log('entro')
+    const APIGeneral = extraConfig();
+    return APIGeneral.patch(`/users/lifter/toggleLifter/${idLifter}`)
+    .then((res) => res)
+    .catch((error) => error);
+  }
