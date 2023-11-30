@@ -86,7 +86,21 @@ export const router = createBrowserRouter([
             </Protected>),
           },
           {
+            path: "/motogp/riders/:id",
+            element: 
+            (<Protected>
+              <Riders />  
+            </Protected>),
+          },
+          {
             path: "/motogp/circuits",
+            element: 
+            (<Protected>
+              <Circuits/>
+            </Protected>),
+          },
+          {
+            path: "/motogp/circuits/:id",
             element: 
             (<Protected>
               <Circuits/>
@@ -115,7 +129,21 @@ export const router = createBrowserRouter([
             </Protected>),
           },
           {
+            path: "/fifa/players/:id",
+            element: 
+            (<Protected>
+              <Players/>
+            </Protected>),
+          },
+          {
             path: "/fifa/teams",
+            element: 
+            (<Protected>
+              <Teams/>
+            </Protected>),
+          },
+          {
+            path: "/fifa/teams/:id",
             element: 
             (<Protected>
               <Teams/>
@@ -136,20 +164,26 @@ export const router = createBrowserRouter([
           </Protected>),
         },
         {
+          path: "/powerlifting/lifters/:id",
+          element: 
+          (<Protected>
+            <Lifters/>
+          </Protected>),
+        },
+        {
           path: "/powerlifting/weight",
           element:
           (<Protected>
             <Weight/>
           </Protected>),
         },
-
-      {
-        path: "/powerlifting",
-        element: 
-        (<Protected>
-          <Powerlifting />
-        </Protected>),
-      },
+        {
+          path: "/powerlifting/weight/:id",
+          element:
+          (<Protected>
+            <Weight/>
+          </Protected>),
+        },
       {
         path: "/dashboard",
         element: 
