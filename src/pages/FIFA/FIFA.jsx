@@ -12,7 +12,7 @@ export const FIFA = () => {
     <>
         <NavSportsPages sport={'fifa'} />
 
-        <Outlet/>
+       
       
       </>
   )

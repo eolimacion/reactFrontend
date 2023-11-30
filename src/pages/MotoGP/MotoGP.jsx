@@ -12,7 +12,7 @@ export const MotoGP = () => {
     <>
         <NavSportsPages sport={'motogp'} />
 
-        <Outlet/>
+    
       
       </>
   )
