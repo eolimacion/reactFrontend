@@ -69,6 +69,7 @@
   background-color: transparent;
   font-family: 'Baloo 2', sans-serif;
   font-weight: 600;
+  color: white;
 }
 
 #find-name::placeholder, #min-filter::placeholder, #max-filter::placeholder{
@@ -80,10 +81,12 @@
 
 #find-button{
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   border: 2px solid black;
-  background-color: transparent;
+  background-color: white;
   margin: 0 0 0 1rem;
+  color: black;
+  font-weight: bold;
 
 }

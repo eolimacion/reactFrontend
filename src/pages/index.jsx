@@ -24,6 +24,8 @@ export * from './Powerlifting/Weight/Weight'
 export * from './FIFA/FIFA'
 export * from './FIFA/Players/Players'
 export * from './FIFA/Teams/Teams'
+export * from "./FIFA/Eleven/Eleven"
+
 //!!MOTO GP
 export * from './MotoGP/MotoGP'
 export * from './MotoGP/Riders/Riders'

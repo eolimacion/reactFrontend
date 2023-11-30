@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useAuth } from "../../context/authContext"
 import { filterPlayers, getAllPlayers, getNamePlayers, sortAscendingPlayers, sortDescendingPlayers } from "../../services/player.service"
 import "./Finder.css"
@@ -8,7 +8,7 @@ export const Finder = () => {
 
   //! ---- Estados ----
   const [res, setRes] = useState({});
-  const [send, setSend] = useState(false); 
+  const [send, setSend] = useState(false);
   const [okFindPlayer, setOkFindPlayer] = useState(false);
   const [controller, setController] = useState()
 
@@ -38,7 +38,7 @@ export const Finder = () => {
       console.log("entro al condicional GET ALL")
       setSend(true)
       const resAllPlayers = await getAllPlayers()
-      setRes(resAllPlayers.data)
+      setRes(resAllPlayers)
       setController("getall")
       setSend(false)
     }
@@ -47,7 +47,7 @@ export const Finder = () => {
       console.log("entro al condicional GET BY NAME")
       setSend(true)
       const resPlayerByName = await getNamePlayers(buscadorNombre.value)
-      setRes(resPlayerByName.data)
+      setRes(resPlayerByName)
       setController("getbyname")
       setSend(false)
 
@@ -65,13 +65,13 @@ export const Finder = () => {
       if (selectedOptions[0] == "descending") { //! -------------------------> DESCENDING
         setSend(true)
         const resPlayerDescending = await sortDescendingPlayers(selectedOptions[1])
-        setRes(resPlayerDescending.data);
+        setRes(resPlayerDescending);
         setController("sortdescending")
         setSend(false)
       } else if (selectedOptions[0] == "ascending") { //! -------------------> ASCENDING
         setSend(true)
         const resPlayerAscending = await sortAscendingPlayers(selectedOptions[1])
-        setRes(resPlayerAscending.data);
+        setRes(resPlayerAscending);
         setController("sortascending")
         setSend(false)
       }
@@ -83,7 +83,7 @@ export const Finder = () => {
       let filter = buscadorFiltro.value;
       setSend(true)
       const resPlayerFilter = await filterPlayers(filter, min, max)
-      setRes(resPlayerFilter.data)
+      setRes(resPlayerFilter)
       setController("filter")
       setSend(false)
     }

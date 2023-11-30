@@ -51,6 +51,19 @@ import { extraConfig } from "./serviceApiGeneral.config";
         .catch((error) => error);
     };
 
+      //! -------------------> Get User Eleven [User]
+      export const getUsersEleven = async (elevenId) => {
+    
+        console.log("estoy en service eleven")
+        return APIuser.get(`/eleven/${elevenId}`, {
+          headers: {
+            Authorization: `Bearer ${updateToken()}`,
+          },
+        })
+          .then((res) => res)
+          .catch((error) => error);
+      };
+
 //*--------------------- user ----------------------------
 
  //! ------------------------- REGISTER ----------------------------------

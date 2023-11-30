@@ -5,6 +5,7 @@ import {
   Circuits,
   Dashboard,
   EditProfile,
+  Eleven,
   FIFA,
   FavGallery,
   ForgotPassword,
@@ -99,6 +100,13 @@ export const router = createBrowserRouter([
         element: 
         (<Protected>
           <Podium />
+        </Protected>),
+      },
+      {
+        path: "/eleven",
+        element: 
+        (<Protected>
+          <Eleven/>
         </Protected>),
       },
       {

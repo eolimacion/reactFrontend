@@ -10,3 +10,4 @@ export * from './Nav/NavFav/NavFav'
 export * from './Nav/NavFav/NavFavChildren'
 export * from "./Finder/Finder"
 export * from './NavSports/NavSports'
+export * from "./SelectPlayers/SelectPlayers"
