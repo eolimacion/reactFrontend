@@ -1,3 +1,4 @@
+import "./FinderChildrenNav.css"
 export const FinderChildrenNav = ({ action, setFilterValue, setMinValue, setMaxValue, setSortValue, sortValue, setIsAscending }) => {
 
   const handleSortChange = (e) => {

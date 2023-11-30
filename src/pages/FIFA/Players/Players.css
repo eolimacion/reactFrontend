@@ -1,0 +1,6 @@
+.singleCardPlayer{
+  display: flex;
+  flex-direction: column;
+  height: 92%;
+  margin-bottom: 35px;
+}

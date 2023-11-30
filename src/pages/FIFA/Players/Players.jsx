@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './Players.css'
 import { CardInTheGallery, Finder, FormPlayers } from '../../../components'
 import { getAllPlayers } from '../../../services/player.service'
+import { useErrorFinder } from '../../../hooks/useErrorFinder'
 
 
 
@@ -11,16 +12,7 @@ export const Players = () => {
   const [mainLoading, setMainLoading] = useState(false);
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
-  const [allPlayers, setAllPlayers] = useState([]);
   const [res, setRes] = useState(null)
-
-  // const getPlayers = async () => {
-  
-  //   const playersData = await getAllPlayers();
-  //   setAllPlayers(playersData || []);
-  //   setGalleryLoading(false);
-   
-  // };
 
   useEffect(() => {
     console.log(res)
@@ -49,11 +41,10 @@ export const Players = () => {
         <>
           <div className="displayImage">
             {showForm ? <FormPlayers /> : showGallery && 
-            (res && res.data.map((player) => (
-              <>
-              <p>"hola"</p>
+            (res && res?.data?.map((player) => (
+              <div className='singleCardPlayer'>
               <CardInTheGallery image={player.image} name={player.name} key={player._id}/>
-              </>
+              </div>
             )))}
           </div>
           <aside className="columnaEnlaces">
