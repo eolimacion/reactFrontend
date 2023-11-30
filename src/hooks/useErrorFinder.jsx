@@ -9,7 +9,7 @@ export const useErrorFinder = (res, setOkFindPlayer, setRes) => {
              showConfirmButton: false,
              timer: 1500,
            });
-           setRes({});}
+           }
 
     if (res?.response?.status == 404) {
         Swal.fire({
