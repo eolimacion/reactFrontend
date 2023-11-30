@@ -2,13 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './Riders.css';
 import { CardInTheGallery, FormRiders, GaleriaReducida } from '../../../components';
 import { buscarAllRider } from '../../../services/rider.service';
+import { getAllPodiums } from '../../../services/podium.service';
+
 
 export const Riders = () => {
   const [galleryLoading, setGalleryLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showGallery, setShowGallery] = useState(true);
   const [allRiders, setAllRiders] = useState([]);
-
+  //--------------------------------------------------------------
+  const [podiumLoading, setPodiumLoading] = useState(false);
+  const [allPodiums, setAllPodiums] = useState([]);
+  const [showPodiums, setShowPodiums] = useState(false);
+//------------------------------------------------------------
   const getAllRiders = async () => {
     try {
       setGalleryLoading(true);
@@ -20,6 +26,31 @@ export const Riders = () => {
       setGalleryLoading(false);
     }
   };
+
+  //----------------------------------------------------------------------------
+
+  const podiums = async () => {
+    try {
+      setPodiumLoading(true);
+      const podiumData = await getAllPodiums();
+      setAllPodiums(podiumData || []);
+    } catch (error) {
+      console.error('Error al obtener datos de podiums', error)
+    }finally{
+      setGalleryLoading(false)
+    }
+  }
+  useEffect(() => {
+    getAllPodiums();
+  }, []);
+  useEffect(() => {
+    console.log(allPodiums)
+  }, [allPodiums])
+  const handlebuttonPodiumClick = () => {
+    setShowPodiums(false)
+  }
+  //----------------------------------------------------
+  
 
   useEffect(() => {
     getAllRiders();
@@ -65,7 +96,9 @@ export const Riders = () => {
                 ))}
             </div>
             <aside className="columnaEnlaces">
-              <div className="seccionColumna seccionUno">Uno</div>
+              <div className="seccionColumna seccionUno">
+                <button onClick={handlebuttonPodiumClick}>Show Podiums</button>
+              </div>
               <div className="seccionColumna seccionDos">Dos</div>
               <div className="seccionColumna seccionTres">
                 <button onClick={handleButtonClick}>Mostrar/ocultar formulario</button>
