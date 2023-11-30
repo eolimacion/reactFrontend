@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Weight.css'
-import { FormWeight } from '../../../components'
+import { CardInTheGallery, FormWeight } from '../../../components'
+import { buscarAllweightCategory } from '../../../services/weightCategory.service'
+
 
 export const Weight = () => {
   const [data, setData] = useState(null);
@@ -12,7 +14,7 @@ export const Weight = () => {
  
   const getAllWeights = async () => {
   
-    const weightsData = await buscarAllWeights();
+    const weightsData = await buscarAllweightCategory();
     setAllWeights(weightsData || []);
     setGalleryLoading(false);
    
@@ -53,7 +55,7 @@ export const Weight = () => {
         <>
           <div className="displayImage">
             {showForm ? <FormWeight /> : showGallery &&
-            allRiders?.data?.map((weight) => (
+            allWeights?.data?.map((weight) => (
               <CardInTheGallery image={weight.image} name={weight.name} key={weight._id}/>
             ))}
           </div>

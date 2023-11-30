@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './Teams.css'
-import { FormTeams } from '../../../components'
+import { CardInTheGallery, FormTeams } from '../../../components'
+import { buscarAllTeam } from '../../../services/team.service'
+
 
 export const Teams = () => {
   const [data, setData] = useState(null);
@@ -11,7 +13,7 @@ export const Teams = () => {
   const [allTeams, setAllTeams] = useState([]);
 
   const getAllTeams = async () => {
-    const teamsData = await buscarAllTeams();
+    const teamsData = await buscarAllTeam();
     setAllTeams(teamsData || []);
     setGalleryLoading(false);
   }
@@ -51,7 +53,7 @@ export const Teams = () => {
         <>
           <div className="displayImage">
             {showForm ? <FormTeams /> : showGallery &&
-            allRiders?.data?.map((team) => (
+            allTeams?.data?.map((team) => (
               <CardInTheGallery image={team.image} name={team.name} key={team._id}/>
             ))}
           </div>
