@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Players.css'
-import { CardInTheGallery, FormPlayers } from '../../../components'
+import { CardInTheGallery, Finder, FormPlayers } from '../../../components'
 import { getAllPlayers } from '../../../services/player.service'
 
 
@@ -12,6 +12,7 @@ export const Players = () => {
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allPlayers, setAllPlayers] = useState([]);
+  const [res, setRes] = useState([])
 
   const getPlayers = async () => {
   
@@ -46,9 +47,7 @@ export const Players = () => {
         {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
       </div>
     )}
-    <div className="buscadorMario">
-      <button onClick={handleGalleryButtonClick}>Mostrar Galería</button>
-    </div>
+    <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res}/>
     <section className="mainPage">
       {galleryLoading ? (
         <p>Cargando...</p>
@@ -56,7 +55,7 @@ export const Players = () => {
         <>
           <div className="displayImage">
             {showForm ? <FormPlayers /> : showGallery &&
-            allPlayers?.data?.map((player) => (
+            res.data.map((player) => (
               <CardInTheGallery image={player.image} name={player.name} key={player._id}/>
             ))}
           </div>

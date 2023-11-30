@@ -4,40 +4,33 @@ import { filterPlayers, getAllPlayers, getNamePlayers, sortAscendingPlayers, sor
 import "./Finder.css"
 import { useErrorFinder } from "../../hooks/useErrorFinder"
 import { FinderMainNav, FinderChildrenNav } from "../index"
-export const Finder = () => {
+export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
   const {user} = useAuth()
 
   //! ---- Estados ----
-  const [res, setRes] = useState({});
   const [send, setSend] = useState(false);
   const [mainNav, setMainNav] = useState()
-  const [chidlrenNav, setChildrenNav] = useState()
   const [okFindPlayer, setOkFindPlayer] = useState(false);
   const [controller, setController] = useState()
 
-  //todo ----- función renderizado filter y sort -------
-  // const condicionalRender = (param) => {
-  //   if (param == "filter") {
-  //     const selectfilter = document.getElementById("filter-select")
-  //     const minmax = document.getElementById("min-max")
-  //     selectfilter.style.display = "flex"
-  //     minmax.style.display = "flex"
-  //   } else if (param == "sort") {
-  //     const selectsort = document.getElementById("sort-select")
-  //     selectsort.style.display = "flex"
-  //   }
-  // }
+  const [findNameValue, setFindNameValue] = useState("")
+  const [filterValue, setFilterValue] = useState("")
+  const [minValue, setMinValue] = useState(0)
+  const [maxValue, setMaxValue] = useState(0)
+
+  const [sortValue, setSortValue] = useState("")
+  const [isAscending, setIsAscending] = useState(false)
 
   //todo ----- función gestionadora controladores -------
   const handleSubmit = async () => {
-    const buscadorNombre = document.getElementById("find-name")
-    const buscadorFiltro = document.getElementById("filter-select")
-      const minfilter = document.getElementById("min-filter")
-      const maxfilter = document.getElementById("max-filter")
-    const buscadorSort = document.getElementById("sort-select")
-
+    console.log("filter value", filterValue)
+    console.log("min value", minValue)
+    console.log("max value", maxValue)
+    console.log("sort value", sortValue)
+    console.log("metodo", isAscending)
+    console.log("name value", findNameValue)
     //! ------- CASO 1: Todos los inputs vacíos =====> GET ALL PLAYERS
-    if (buscadorNombre.value == "" && (buscadorFiltro.style.display == "none" || buscadorFiltro.value == "") && (buscadorSort.style.display == "none" || buscadorSort.value == "")) {
+    if (findNameValue == "" && (filterValue == "" || minValue == 0 || maxValue == 0) && sortValue == "") {
       console.log("entro al condicional GET ALL")
       setSend(true)
       const resAllPlayers = await getAllPlayers()
@@ -45,56 +38,56 @@ export const Finder = () => {
       setController("getall")
       setSend(false)
     }
+
     //! ------- CASO 2: Buscador por nombre contiene algo =====> GET BY NAME
-    if (buscadorNombre.value !== "") {
+    if (findNameValue != "") {
       console.log("entro al condicional GET BY NAME")
       setSend(true)
-      const resPlayerByName = await getNamePlayers(buscadorNombre.value)
+      const resPlayerByName = await getNamePlayers(findNameValue)
       setRes(resPlayerByName)
       setController("getbyname")
       setSend(false)
-
     }
-    //! ------- CASO 3: El select del sort tiene un valor seleccionado =====> SORT
-    if (buscadorSort.value !== "" && buscadorSort.value !== "selecciona") {
-      console.log("entro al condicional SORT")
-      const selectedOptions = []
-      for (let option of buscadorSort) { //? esto sirve para que mire del select cuales son las opciones seleccionadas
-        if (option.selected) {
-          selectedOptions.push(option.value)
-        }
-      }
-      console.log(selectedOptions)
-      if (selectedOptions[0] == "descending") { //! -------------------------> DESCENDING
+
+    //! ------- CASO 3: El estado de filter tiene los 3 valores: filtro, min, max ==> FILTER
+    if (filterValue !== "" && minValue !== 0 && maxValue !== 0) {
+      setSend(true)
+      const resPlayerFilter = await filterPlayers(filterValue, minValue, maxValue)
+      setRes(resPlayerFilter)
+      setController("filter")
+      setSend(false)
+    }
+
+    //! ------- CASO 4: El estado de sort tiene los 2 valores: método y el stat que hacer sort ==> SORT
+    if (sortValue !== "") {
+      if (!isAscending) {
         setSend(true)
-        const resPlayerDescending = await sortDescendingPlayers(selectedOptions[1])
+        const resPlayerDescending = await sortDescendingPlayers(sortValue)
         setRes(resPlayerDescending);
         setController("sortdescending")
         setSend(false)
-      } else if (selectedOptions[0] == "ascending") { //! -------------------> ASCENDING
+      } else if (isAscending) {
         setSend(true)
-        const resPlayerAscending = await sortAscendingPlayers(selectedOptions[1])
+        const resPlayerAscending = await sortAscendingPlayers(sortValue)
         setRes(resPlayerAscending);
         setController("sortascending")
         setSend(false)
       }
     }
-    //! ------- CASO 4: El select del filter tiene un valor seleccionado =====> FILTER
-    if (buscadorFiltro.value !== "" && buscadorFiltro.value !== "selecciona") {
-      let min = parseInt(minfilter.value);
-      let max = parseInt(maxfilter.value);
-      let filter = buscadorFiltro.value;
-      setSend(true)
-      const resPlayerFilter = await filterPlayers(filter, min, max)
-      setRes(resPlayerFilter)
-      setController("filter")
-      setSend(false)
-    }
+    setFindNameValue("")
+    setFilterValue("")
+    setSortValue("")
+    setMinValue(0)
+    setMaxValue(0)
+    setIsAscending(false)
+    setShowGallery(true)
+    setShowForm(false)
   }
   //! 2. ---- Función que gestiona los errores
   useEffect(() => {
     useErrorFinder(res, setOkFindPlayer, setRes)
     console.log(`you will print: ${controller} => ${res}`)
+    console.log(res)
   }, [res])
 
   return (
@@ -102,12 +95,12 @@ export const Finder = () => {
       <div id = "float-right-finder">
         <button id = "filter-players" onClick={() => {setMainNav("filter")}}>FILTER</button>
         <button id = "sort-players" onClick={() => {setMainNav("sort")}}>SORT</button>
-        <FinderChildrenNav action={mainNav}/>
+        <FinderChildrenNav action={mainNav} setFilterValue={setFilterValue} setMinValue={setMinValue} setMaxValue={setMaxValue} setSortValue={setSortValue} sortValue = {sortValue} setIsAscending = {setIsAscending}/>
 
         <button type="submit" id = "find-button" onClick={handleSubmit}>Find</button>
       </div>
       <div id = "left-finder">
-        <input  id = "find-name" placeholder = "enter the player's name" type="text" />
+        <input  id = "find-name" placeholder = "enter the player's name" type="text" onChange={(e) => {setFindNameValue(e.target.value)}}/>
       </div>
     </section>
   )
