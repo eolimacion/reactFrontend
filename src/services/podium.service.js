@@ -19,8 +19,7 @@ export const createPodium = async (formData) => {
 
 export const getAllPodiums = async () => {
   console.log("entro al service de getAllPodiums")
-  return APIGeneral.get("/podium/getall", {
-    headers: { "Content-Type": "multipart/form-data" },
+  return APIGeneral.get("/podium/", {
   })
     .then((res) => res)
     .catch((error) => error);

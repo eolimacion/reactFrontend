@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Riders.css';
 import { CardInTheGallery, FormRiders, GaleriaReducida } from '../../../components';
 import { buscarAllRider } from '../../../services/rider.service';
-import { getAllPodiums } from '../../../services/podium.service';
+import { PodiumContainer } from '../../../components/PodiumContainer/PodiumContainer';
 
 
 export const Riders = () => {
@@ -10,11 +10,8 @@ export const Riders = () => {
   const [showForm, setShowForm] = useState(false);
   const [showGallery, setShowGallery] = useState(true);
   const [allRiders, setAllRiders] = useState([]);
-  //--------------------------------------------------------------
-  const [podiumLoading, setPodiumLoading] = useState(false);
-  const [allPodiums, setAllPodiums] = useState([]);
-  const [showPodiums, setShowPodiums] = useState(false);
-//------------------------------------------------------------
+  const [showPodium, setShowPodium] = useState(false);
+
   const getAllRiders = async () => {
     try {
       setGalleryLoading(true);
@@ -27,30 +24,6 @@ export const Riders = () => {
     }
   };
 
-  //----------------------------------------------------------------------------
-
-  const podiums = async () => {
-    try {
-      setPodiumLoading(true);
-      const podiumData = await getAllPodiums();
-      setAllPodiums(podiumData || []);
-    } catch (error) {
-      console.error('Error al obtener datos de podiums', error)
-    }finally{
-      setGalleryLoading(false)
-    }
-  }
-  useEffect(() => {
-    getAllPodiums();
-  }, []);
-  useEffect(() => {
-    console.log(allPodiums)
-  }, [allPodiums])
-  const handlebuttonPodiumClick = () => {
-    setShowPodiums(false)
-  }
-  //----------------------------------------------------
-  
 
   useEffect(() => {
     getAllRiders();
@@ -59,6 +32,12 @@ export const Riders = () => {
   useEffect(() => {
     console.log(allRiders);
   }, [allRiders]);
+
+  const handlebuttonPodiumClick = () => {
+    setShowGallery(false)
+    setShowForm(false)
+    setShowPodium(true)
+  }
 
   const handleButtonClick = () => {
     setShowForm(!showForm);
@@ -90,10 +69,17 @@ export const Riders = () => {
             <div className="displayImage">
               {showForm ? (
                 <FormRiders />
-              ) : showGallery &&
+              ) : showGallery ? (
                 allRiders?.data?.map((rider) => (
-                  <CardInTheGallery image={rider.image} name={rider.name} key={rider._id} />
-                ))}
+                  <CardInTheGallery
+                    image={rider.image}
+                    name={rider.name}
+                    key={rider._id}
+                  />
+                ))
+              ) : 
+                showPodium && <PodiumContainer />
+              }
             </div>
             <aside className="columnaEnlaces">
               <div className="seccionColumna seccionUno">
@@ -101,7 +87,9 @@ export const Riders = () => {
               </div>
               <div className="seccionColumna seccionDos">Dos</div>
               <div className="seccionColumna seccionTres">
-                <button onClick={handleButtonClick}>Mostrar/ocultar formulario</button>
+                <button onClick={handleButtonClick}>
+                  Mostrar/ocultar formulario
+                </button>
               </div>
             </aside>
           </>
