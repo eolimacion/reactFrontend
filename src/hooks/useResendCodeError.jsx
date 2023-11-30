@@ -15,7 +15,8 @@ export const useResendCodeError = (
     setResResend(() => ({}));
     Swal.fire({
       icon: "error",
-      title: "Error sending email with your code ✅",
+      title: "There has been an error emailing your code",
+      text: "Please, try again",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -27,7 +28,8 @@ export const useResendCodeError = (
     setResResend(() => ({}));
     Swal.fire({
       icon: "success",
-      title: "We have sent  an email with your code ✅",
+      title: "Confirmation code was sent",
+      text: "Please, check your email",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -43,8 +45,8 @@ export const useResendCodeError = (
     setResResend(() => ({}));
     Swal.fire({
       icon: "error",
-      title: "Internal server error ❎.",
-      text: "We couldn't resend the code. Try again, please.",
+      title: "Interval Server Error",
+      text: "Please, try again",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -54,8 +56,8 @@ export const useResendCodeError = (
     setResResend(() => ({}));
     Swal.fire({
       icon: "error",
-      title: "Oops...",
-      text: "Internal Server Error! Didn't send the email ❎!",
+      title: "Interval Server Error",
+      text: "There has been an error in our internal servers. Please, try again",
       showConfirmButton: false,
       timer: 1500,
     });

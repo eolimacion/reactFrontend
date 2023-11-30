@@ -9,8 +9,8 @@ export const useForgotPasswordError = (res, setRes, setForgotOk) => {
       setRes(() => ({}));
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Enter a valid email address ❎",
+        title: "This user does not exists",
+        text: "Please, register first",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -24,8 +24,8 @@ export const useForgotPasswordError = (res, setRes, setForgotOk) => {
       setRes(() => ({}));
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "No update password,  ❎ Try again, please",
+        title: "There was a problem updating your user",
+      text: "Please, try again",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -38,8 +38,8 @@ export const useForgotPasswordError = (res, setRes, setForgotOk) => {
         setRes(() => ({}));
         Swal.fire({
           icon: "success",
-          title: "Change password ok",
-          text: "Send email with your new password ✅",
+          title: 'We have sent you a temporary password',
+          text: 'Please, check your email',
           showConfirmButton: false,
           timer: 1500,
         });
@@ -56,8 +56,8 @@ export const useForgotPasswordError = (res, setRes, setForgotOk) => {
       setRes(() => ({}));
       Swal.fire({
         icon: "error",
-        title: "Error send incorrect email",
-        text: "We don't change your password, your email isn't valid ❎",
+        title: "There was a problem updating your user",
+        text: "The email we sent you is no longer valid. Please, try again to get a valid new password",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -69,8 +69,8 @@ export const useForgotPasswordError = (res, setRes, setForgotOk) => {
       setRes(() => ({}));
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Internal server error ❎, please try again ",
+        title: "Interval Server Error",
+      text: "There was an error in our interval server. Please try again",
         showConfirmButton: false,
         timer: 1500,
       });

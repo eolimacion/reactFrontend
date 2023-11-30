@@ -16,8 +16,8 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
            if (res?.response?.data?.includes("Este usuario ya tiene un podium")) {
             Swal.fire({
                 icon: "error",
-                title: "Oops...",
-                text: "You already have a podium, try updating it",
+                title: "You already have a podium",
+                text: "Please, try updating it",
                 showConfirmButton: false,
                 timer: 3000,
             });
@@ -27,8 +27,8 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
     if (res?.response?.status == 404) {
         Swal.fire({
             icon: "error",
-            title: "Oops...",
-            text: "There was an error filling out the form ❌",
+            title: "Error filling out the form",
+            text: "Please, try again",
             showConfirmButton: false,
             timer: 3000,
           });
@@ -38,8 +38,8 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
     if (res?.response?.status == 500) {
         Swal.fire({
             icon: "error",
-            title: "Oops...",
-            text: "There was an error filling out the form ❌",
+            title: "Internal Server Error",
+        text: "There was an error in our internal servers. Please, try again later",
             showConfirmButton: false,
             timer: 3000,
           });

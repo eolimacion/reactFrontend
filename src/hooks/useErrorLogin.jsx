@@ -46,8 +46,7 @@ console.log(res, "Respuesta en useLoginError")
       if (res?.response?.data?.includes("password is incorrect (does not match)")) {
         Swal.fire({
           icon: "error",
-          title: "Oops...",
-          text: "Password is incorrect.",
+          title: "Wrong password",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -57,8 +56,8 @@ console.log(res, "Respuesta en useLoginError")
       if (res?.response?.status == 500) {
         Swal.fire({
           icon: "error",
-          title: "Sorry!",
-          text: "We had trouble with the server. Please try again later.",
+          title: "Interval Server Error",
+          text: "There has been an error in our internal servers. Please try again.",
           showConfirmButton: false,
           timer: 1500,
         });
