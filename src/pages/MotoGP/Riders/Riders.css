@@ -36,6 +36,7 @@
     width: 55vw;
     height: 65vh;
     background-color: grey;
+    overflow: scroll;
   
 }
 
