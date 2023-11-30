@@ -10,8 +10,9 @@ export const useResendCodeError = (
   setResResend,
   setUserNotFound
 ) => {
+  console.log(resResend)
   /// 200 ---------> resend false
-  if (resResend?.data?.resend.toString() == "false") {
+  if (resResend?.response?.data?.resend  == "false") {
     setResResend(() => ({}));
     Swal.fire({
       icon: "error",

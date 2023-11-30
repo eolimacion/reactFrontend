@@ -91,7 +91,7 @@ export const VerifyCode = () => {
   useEffect(() => {
  
     useResendCodeError(resResend, setResResend, setUserNotFound);
-  }, [resResend]);
+  }, [resResend]); 
 
 
 
@@ -99,7 +99,8 @@ export const VerifyCode = () => {
    if (!localStorage.getItem("user")) {
      useAutoLogin(allUser);
     } else {
-      return <Navigate to="/dashboard" />;
+      console.log("Voy al dashboard")
+      return <Navigate to="/home" />;
   }
 }
 
