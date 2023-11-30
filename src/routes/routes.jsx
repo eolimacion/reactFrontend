@@ -26,7 +26,7 @@ import {
   Weight,
 } from "../pages/index";
 import App from "../App";
-import { FavoritesNav, Finder } from "../components";
+import { CardPowerById, FavoritesNav, Finder } from "../components";
 import { Protected } from "../components/ProtectedRoutes/Protected";
 import { ProtectedCheckChildren } from "../components/ProtectedRoutes/ProtectedCheckChildren";
 
@@ -175,7 +175,7 @@ export const router = createBrowserRouter([
           path: "/powerlifting/lifters/:id",
           element: 
           (<Protected>
-            <Lifters/>
+            <CardPowerById/>
           </Protected>),
         },
         {

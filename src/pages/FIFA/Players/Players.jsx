@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Players.css'
-import { FormPlayers } from '../../../components'
+import { CardInTheGallery, FormPlayers } from '../../../components'
+import { getAllPlayers } from '../../../services/player.service'
+
 
 
 export const Players = () => {
@@ -11,16 +13,16 @@ export const Players = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allPlayers, setAllPlayers] = useState([]);
 
-  const getAllPlayers = async () => {
+  const getPlayers = async () => {
   
-    const playersData = await buscarAllPlayers();
+    const playersData = await getAllPlayers();
     setAllPlayers(playersData || []);
     setGalleryLoading(false);
    
   };
 
   useEffect(() => {
-    getAllPlayers();
+    getPlayers();
        console.log(allPlayers);
   }, []); 
 
@@ -54,7 +56,7 @@ export const Players = () => {
         <>
           <div className="displayImage">
             {showForm ? <FormPlayers /> : showGallery &&
-            allRiders?.data?.map((player) => (
+            allPlayers?.data?.map((player) => (
               <CardInTheGallery image={player.image} name={player.name} key={player._id}/>
             ))}
           </div>

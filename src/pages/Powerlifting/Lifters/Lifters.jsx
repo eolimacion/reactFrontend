@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Lifters.css'
-import { FormLifters } from '../../../components'
+import { CardInTheGallery, FormLifters } from '../../../components'
+import { getAllLifters } from '../../../services/lifter.service'
 
 export const Lifters = () => {
   const [data, setData] = useState(null);
@@ -10,16 +11,16 @@ export const Lifters = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allLifters, setAllLifters] = useState([]);
  
-  const getAllLifters = async () => {
+  const getLifters = async () => {
   
-    const liftersData = await buscarAllLifters();
+    const liftersData = await getAllLifters();
     setAllLifters(liftersData || []);
     setGalleryLoading(false);
    
   };
 
   useEffect(() => {
-    getAllLifters();
+    getLifters();
        console.log(allLifters);
   }, []); 
 
@@ -53,7 +54,7 @@ export const Lifters = () => {
         <>
           <div className="displayImage">
             {showForm ? <FormLifters /> : showGallery &&
-            allRiders?.data?.map((lifter) => (
+            allLifters?.data?.map((lifter) => (
               <CardInTheGallery image={lifter.image} name={lifter.name} key={lifter._id}/>
             ))}
           </div>
