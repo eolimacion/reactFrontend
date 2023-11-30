@@ -129,7 +129,7 @@ export const VerifyCode = () => {
 <div >
             <button 
               id="btnCheck"
-              className="btn"
+              className={send ? "btn btnSent" : "btn btnNotsent"}
               type="submit"
               disabled={send}
               style={{ background: send ? "#49c1a388" : "#49c1a2" }}
@@ -140,7 +140,7 @@ export const VerifyCode = () => {
           <div >
             <button
               id="btnResend"
-              className="btn"
+              className={send ? "btn btnSent" : "btn btnNotsent"}
               disabled={send}
               style={{ background: send ? "#49c1a388" : "#49c1a2" }}
               onClick={() => handleReSend()}

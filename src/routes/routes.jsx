@@ -76,8 +76,8 @@ export const router = createBrowserRouter([
         element: 
         (<Protected>
           <MotoGP />
-        </Protected>),
-        children: [
+        </Protected>)
+      },
           {
             path: "/motogp/riders",
             element: 
@@ -92,8 +92,7 @@ export const router = createBrowserRouter([
               <Circuits/>
             </Protected>),
           },
-        ]
-      },
+  
       {
         path: "/podium",
         element: 
@@ -107,7 +106,7 @@ export const router = createBrowserRouter([
         (<Protected>
           <FIFA />
         </Protected>),
-        children: [
+      },
           {
             path: "/fifa/players",
             element: 
@@ -122,15 +121,13 @@ export const router = createBrowserRouter([
               <Teams/>
             </Protected>),
           },
-        ]
-      },
       {
       path: "/powerlifting",
       element: 
       (<Protected>
         <Powerlifting/>
-      </Protected>),
-      children: [
+      </Protected>)
+      },
         {
           path: "/powerlifting/lifters",
           element: 
@@ -146,8 +143,6 @@ export const router = createBrowserRouter([
           </Protected>),
         },
 
-      ]
-      },
       {
         path: "/powerlifting",
         element: 
