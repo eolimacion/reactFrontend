@@ -170,7 +170,6 @@ export const deleteUser = async (formData) => {
 
 
   export const addFavLifter = async(idLifter) =>{
-    console.log('entro')
     const APIGeneral = extraConfig();
     return APIGeneral.patch(`/users/lifter/toggleLifter/${idLifter}`)
     .then((res) => res)

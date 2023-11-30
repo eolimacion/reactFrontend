@@ -6,3 +6,35 @@
   'GRAD' 0,
   'opsz' 24
 }
+
+.btnReturn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.IdContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 10vh;
+}
+
+.cardByIdContainer{
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.pageByid{
+    background-color: #ffffff;
+    padding: 20px 40px;
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

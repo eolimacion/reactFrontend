@@ -30,28 +30,36 @@ export const CardPowerById = () => {
   const addToLikes = async () => {
     console.log(idLifter)
     const response = await addFavLifter(idLifter);
-    console.log('response addToLikes', response);
+    console.log('response addToLikes', response.data.userUpdate.favLifters);
     setUpdatedLikes(!updatedLikes);
   };
 
-  const getLikes = async () => {
-    console.log('ENTROOOOOO', likedLiftersRes);
-    const likedLiftersRes = await getUsersFavLifters(idUser); // Fetch user's liked albums
 
-    setUserLikedLifters(likedLiftersRes.data);
+  const getLikes = async () => {
+    console.log('ENTROOOOOO');
+    const likedLiftersRes = await getUsersFavLifters(idUser); 
+    console.log(likedLiftersRes.data)
+    setUserLikedLifters(likedLiftersRes.data); //array de objetos ------ LIKES DEL USUARIO 
   };
 
-  console.log('userLikedLifters', userLikedLifters)
 
-// const isLiked = userLikedLifters.includes(idLifter)
+  console.log('userLikedLifters', userLikedLifters) //array de objetos ------ LIKES DEL USUARIO 
+
+
 
   useEffect(() => {
     fetchLifters();
-  }, [idLifter]);
+  }, [ok, updatedLikes]);
 
   useEffect(() => {
     getLikes();
-  }, [idLifter]);
+  }, [updatedLikes]);
+
+  console.log('hooooolaaaa', resLifter?.data?.likes?.includes(idUser))
+
+  const isLiked = resLifter?.data?.likes?.includes(idUser)
+
+  console.log()
 
   if (!ok) {
     return <Loading />;
@@ -73,24 +81,25 @@ export const CardPowerById = () => {
   } = resLifter.data;
 
   return (
+  //   <h1>hjola</h1>
+  // )
     <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,-25"
-      />
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,0,200" />
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
       />
-      <div>
-        <button
-          className="btnReturnGallery"
-          onClick={() => navigate("/powerlifting/lifters")}
-        >
-          <span className="material-symbols-outlined">keyboard_return</span>
-        </button>
+      <div className="IdContainer">
+      <div className="btnReturn">
+          <span 
+          onClick={() => navigate("/powerlifting/lifters")} className="material-symbols-outlined">
+arrow_back_ios
+</span><p>All Lifters</p>
+
       </div>
-      <section id="pageByidLifter">
+      <div className="cardByIdContainer">
+      <div className="pageByidLifter pageByid">
         <figure id="figureidLifter">
           {/* <img src={src} alt={name} /> */}
           <h1 className="nameByidLifter">{name}</h1>
@@ -120,75 +129,16 @@ export const CardPowerById = () => {
             <h4>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
               
               </h4>
-              {/* <span className="material-symbols-outlined"
+              <span className="material-symbols-outlined"
               style={{ fontVariationSettings: isLiked ? "'FILL' 1" : "'FILL' 0" }}
               onClick={() => addToLikes(idLifter)}
               >favorite</span>
-             */}
+            
           </div>
         </figure>
-      </section>
+      </div>
+      </div>
+      </div>
     </>
-  );
-};
-
-const Dashboard = () => {
-  const [allAlbums, setAllAlbums] = useState([]);
-  const [userLikedAlbums, setUserLikedAlbums] = useState([]);
-  const [isReady, setIsReady] = useState(false);
-  const [updatedLikes, setUpdatedLikes] = useState(false);
-
-  const getAlbums = async () => {
-    const albumsRes = await getAllAlbumsServices();
-    setAllAlbums(albumsRes.data);
-    setIsReady(!isReady);
-  };
-
-  const addToLikes = async (idLifterParam) => {
-    let idLifter = { idLifter: idLifterParam };
-    const response = await toggleLikedAlbum(idLifter);
-    console.log(response?.data);
-    setUpdatedLikes(!updatedLikes);
-  };
-
-  const getLikes = async () => {
-    const likedAlbumsRes = await getLikesByidLifter(); // Fetch user's liked albums
-    console.log(likedAlbumsRes);
-
-    setUserLikedAlbums(likedAlbumsRes.data);
-  };
-
-  useEffect(() => {
-    getAlbums();
-  }, [updatedLikes]);
-
-  useEffect(() => {
-    getLikes();
-  }, [updatedLikes]);
-
-  return (
-    <div className="albumsContainer">
-      {allAlbums.map((item) => {
-        console.log(item);
-        const isLiked = userLikedAlbums.includes(item._idLifter);
-        return (
-          <Card
-            key={item._idLifter}
-            idLifter={item._idLifter}
-            name={item.albumName}
-            src={
-              item.image
-                ? item.image
-                : "https://res.cloudinary.com/drbssyzr7/image/upload/v1699200914/NODE_project/default-album-art_afjoep.png"
-            }
-            initialLikes={item.likedBy.length}
-            year={item.year}
-            className="albums"
-            isLiked={isLiked} // Pass the information to Card component
-            addToLikes={addToLikes}
-          />
-        );
-      })}
-    </div>
   );
 };
