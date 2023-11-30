@@ -37,21 +37,21 @@ export const Home = () => {
     <div className="picturesHome">
     <figure className="dataHome">
       <Link to={user ? '/fifa' : '/login'}>
-      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701336642/fifa_PNG31_lociqj_oijqak.png"/>
       </Link>
       <h3 className="titlePictureFifa">FIFA</h3>
     </figure>
     
     <figure className="dataHome">
       <Link to={user ? '/motogp' : '/login'}>
-      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701337001/630617_i6cgxo_d2kuc3.png"/>
       </Link>
       <h3 className="titlePictureMotoGP">MOTO GP</h3>
     </figure>
 
     <figure className="dataHome">
       <Link to={user ? '/powerlifting' : '/login'}>
-      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1697625721/100_qbiwp6.png"/>
+      <img src="https://res.cloudinary.com/dqlvldxwc/image/upload/v1701337192/png-transparent-exercise-weight-training-fitness-centre-muscle-dumbbell-fitness-coach-physical-fitness-bodybuilder-sports-thumbnail_yfob8e_anbimc.png"/>
       </Link>
       <h3 className="titlePicturePowerLifting">POWER LIFTING</h3>
     </figure>
