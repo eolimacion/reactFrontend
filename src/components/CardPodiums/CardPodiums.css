@@ -1,0 +1,14 @@
+
+.podiumAbel {
+    display: flex;
+  }
+  
+  .podiumCardContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .singleItemImgPodium{
+    width: 200px;
+    height: 200px;
+  }

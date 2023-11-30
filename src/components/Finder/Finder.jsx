@@ -44,6 +44,7 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
       console.log("entro al condicional GET BY NAME")
       setSend(true)
       const resPlayerByName = await getNamePlayers(findNameValue)
+      console.log(resPlayerByName)
       setRes(resPlayerByName)
       setController("getbyname")
       setSend(false)
@@ -87,7 +88,6 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
   useEffect(() => {
     useErrorFinder(res, setOkFindPlayer, setRes)
     console.log(`you will print: ${controller} => ${res}`)
-    console.log(res)
   }, [res])
 
   return (
@@ -96,7 +96,6 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
         <button id = "filter-players" onClick={() => {setMainNav("filter")}}>FILTER</button>
         <button id = "sort-players" onClick={() => {setMainNav("sort")}}>SORT</button>
         <FinderChildrenNav action={mainNav} setFilterValue={setFilterValue} setMinValue={setMinValue} setMaxValue={setMaxValue} setSortValue={setSortValue} sortValue = {sortValue} setIsAscending = {setIsAscending}/>
-
         <button type="submit" id = "find-button" onClick={handleSubmit}>Find</button>
       </div>
       <div id = "left-finder">

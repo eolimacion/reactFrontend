@@ -1,0 +1,22 @@
+.podiumAbel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+}
+.podiumCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+}
+.singleItemImg{
+    width: 100px;
+    height: 100px;
+}
+.singleItemCard{
+    width: 100px;
+    height: 100px;
+}

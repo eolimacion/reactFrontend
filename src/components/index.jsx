@@ -23,4 +23,5 @@ export * from './CardsById/CardMotoById/CardMotoById'
 export * from './CardsById/CardPowerById/CardPowerById'
 export * from "./FinderMainNav/FinderMainNav"
 export * from "./FinderChildrenNav/FinderChildrenNav"
+export * from "./CardPodiums/CardPodiums"
 

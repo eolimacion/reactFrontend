@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './Players.css'
 import { CardInTheGallery, Finder, FormPlayers } from '../../../components'
 import { getAllPlayers } from '../../../services/player.service'
+import { useErrorFinder } from '../../../hooks/useErrorFinder'
 
 
 
@@ -11,31 +12,16 @@ export const Players = () => {
   const [mainLoading, setMainLoading] = useState(false);
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
-  const [allPlayers, setAllPlayers] = useState([]);
-  const [res, setRes] = useState([])
-
-  const getPlayers = async () => {
-  
-    const playersData = await getAllPlayers();
-    setAllPlayers(playersData || []);
-    setGalleryLoading(false);
-   
-  };
+  const [res, setRes] = useState(null)
 
   useEffect(() => {
-    getPlayers();
-       console.log(allPlayers);
-  }, []); 
+    console.log(res)
+  }, [res]); 
 
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
     setShowForm(!showForm);
     setShowGallery(false)
-  };
-
-  const handleGalleryButtonClick = () => {
-    setShowGallery(true);
-    setShowForm(false);
   };
 
   return (
@@ -54,10 +40,12 @@ export const Players = () => {
       ) : (
         <>
           <div className="displayImage">
-            {showForm ? <FormPlayers /> : showGallery &&
-            res.data.map((player) => (
+            {showForm ? <FormPlayers /> : showGallery && 
+            (res && res?.data?.map((player) => (
+              <div className='singleCardPlayer'>
               <CardInTheGallery image={player.image} name={player.name} key={player._id}/>
-            ))}
+              </div>
+            )))}
           </div>
           <aside className="columnaEnlaces">
             <div className="seccionColumna seccionUno">Uno</div>

@@ -11,7 +11,7 @@ import { useErrorRegister } from "../../hooks/useErrorRegister";
 
 export const Register = () => {
   // allUser es la respuesta completa del 200 del service de registro
-  const { allUser, setAllUser, bridgeData } = useAuth();
+  const { setAllUser, bridgeData, setIsDeletedUser } = useAuth();
   const { register, handleSubmit } = useForm();
   const [res, setRes] = useState({});
   const [send, setSend] = useState(false);
@@ -48,15 +48,18 @@ export const Register = () => {
   }, [res]);
   //este useEffect nos da un console para ver que esta pasando.Lo dejo comentado para futuras pruebas
 
-  if (okRegister) {
-    //si todo esta ok navega a la pagina del codigo
-    return <Navigate to="/verifyCode" />;
-  }
+useEffect(() => {
+  setIsDeletedUser(()=> false);
+}, [])
+
 
   if (okRegister) {
     //si todo esta ok navega a la pagina del codigo
     return <Navigate to="/verifyCode" />;
   }
+
+
+
   return (
     <div className="allForm register">
       <div className="formMain">

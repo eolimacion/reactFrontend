@@ -19,8 +19,7 @@ export const createPodium = async (formData) => {
 
 export const getAllPodiums = async () => {
   console.log("entro al service de getAllPodiums")
-  return APIGeneral.get("/podium/getall", {
-    headers: { "Content-Type": "multipart/form-data" },
+  return APIGeneral.get("/podium/", {
   })
     .then((res) => res)
     .catch((error) => error);
@@ -28,14 +27,13 @@ export const getAllPodiums = async () => {
 
 //!--------------------POST COMMENT ------------------------
 
-// export const createPodiumComment = async (locationMoto) => {
-//   return APIGeneral.post(`/comment/${locationMoto}`, formData,{
-//     headers: {
-//       Authorization: `Bearer ${updateToken()}`,
-//     },
-//   } )
-//     .then((res) => res)
-//     .catch((error) => error);
-// };
+export const createPodiumComment = async (locationMoto) => {
+  return APIGeneral.post(`/comment/${locationMoto}`,{
+    headers: {
+      Authorization: `Bearer ${updateToken()}`,
+    },
+  } )
+    .then((res) => res)
+    .catch((error) => error);
+};
 
-// /createpodium/:locationMoto"
