@@ -5,9 +5,7 @@ import { buscarAllCircuit } from '../../../services/circuit.service';
 
 
 export const Circuits = () => {
-  const [data, setData] = useState(null);
   const [galleryLoading, setGalleryLoading] = useState(false);
-  const [mainLoading, setMainLoading] = useState(false);
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allCircuits, setAllCircuits] = useState([]);

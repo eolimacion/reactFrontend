@@ -28,11 +28,14 @@ export const getAllPodiums = async () => {
 
 //!--------------------POST COMMENT ------------------------
 
-export const createComment = async (id) => {
-  console.log("entro al service de createComment")
-  return APIGeneral.post(`/comment/createpodium/${id}`, {
-    headers: { "Content-Type": "multipart/form-data" },
-  })
-    .then((res) => res)
-    .catch((error) => error);
-};
+// export const createPodiumComment = async (locationMoto) => {
+//   return APIGeneral.post(`/comment/${locationMoto}`, formData,{
+//     headers: {
+//       Authorization: `Bearer ${updateToken()}`,
+//     },
+//   } )
+//     .then((res) => res)
+//     .catch((error) => error);
+// };
+
+// /createpodium/:locationMoto"

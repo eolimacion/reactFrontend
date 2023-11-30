@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CardInTheGallery } from "../CardInTheGallery/CardInTheGallery";
 import"./GaleriaReducida.css"
 
 export const GaleriaReducida = ({ galeriaItems }) => {
   const itemsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
-  const[animacion,setAnimacion]=useState(true)
+
 
   const currentItems = galeriaItems?.slice(
     (currentPage - 1) * itemsPerPage,
@@ -16,23 +16,14 @@ export const GaleriaReducida = ({ galeriaItems }) => {
   const nextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
-      setAnimacion(!animacion)
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
-      setAnimacion(!animacion)
     }
   };
- 
-  useEffect(() => {
-   console.log(animacion)
-  
-    
-  }, [animacion])
-  
 
   return (
     <>
@@ -44,7 +35,7 @@ export const GaleriaReducida = ({ galeriaItems }) => {
       A
     </button>
     {currentItems?.map((item) => (
-      <figure key={item._id} className="gallery-item slide-in">
+      <figure key={item.id} className="gallery-item slide-in">
         <CardInTheGallery image={item?.image} />
       </figure>
     ))}
