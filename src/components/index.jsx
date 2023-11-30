@@ -18,4 +18,6 @@ export * from './FormTeams/FormTeams'
 export * from './FormWeight/FormWeight'
 export * from "./SelectPlayers/SelectPlayers"
 export * from "./GaleriaReducida/GaleriaReducida"
+export * from "./FinderMainNav/FinderMainNav"
+export * from "./FinderChildrenNav/FinderChildrenNav"
 

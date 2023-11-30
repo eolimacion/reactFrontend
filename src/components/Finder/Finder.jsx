@@ -3,27 +3,30 @@ import { useAuth } from "../../context/authContext"
 import { filterPlayers, getAllPlayers, getNamePlayers, sortAscendingPlayers, sortDescendingPlayers } from "../../services/player.service"
 import "./Finder.css"
 import { useErrorFinder } from "../../hooks/useErrorFinder"
+import { FinderMainNav, FinderChildrenNav } from "../index"
 export const Finder = () => {
   const {user} = useAuth()
 
   //! ---- Estados ----
   const [res, setRes] = useState({});
   const [send, setSend] = useState(false);
+  const [mainNav, setMainNav] = useState()
+  const [chidlrenNav, setChildrenNav] = useState()
   const [okFindPlayer, setOkFindPlayer] = useState(false);
   const [controller, setController] = useState()
 
   //todo ----- función renderizado filter y sort -------
-  const condicionalRender = (param) => {
-    if (param == "filter") {
-      const selectfilter = document.getElementById("filter-select")
-      const minmax = document.getElementById("min-max")
-      selectfilter.style.display = "flex"
-      minmax.style.display = "flex"
-    } else if (param == "sort") {
-      const selectsort = document.getElementById("sort-select")
-      selectsort.style.display = "flex"
-    }
-  }
+  // const condicionalRender = (param) => {
+  //   if (param == "filter") {
+  //     const selectfilter = document.getElementById("filter-select")
+  //     const minmax = document.getElementById("min-max")
+  //     selectfilter.style.display = "flex"
+  //     minmax.style.display = "flex"
+  //   } else if (param == "sort") {
+  //     const selectsort = document.getElementById("sort-select")
+  //     selectsort.style.display = "flex"
+  //   }
+  // }
 
   //todo ----- función gestionadora controladores -------
   const handleSubmit = async () => {
@@ -97,40 +100,10 @@ export const Finder = () => {
   return (
     <section id = "finder">
       <div id = "float-right-finder">
-        <div id = "filter-finder">
-          <button id = "filter-players" onClick={() => condicionalRender("filter") }>FILTER</button>
-          <div id = "min-max" style={{display: "none"}}>
-            <input id = "min-filter" placeholder = "min" type="text"/>
-            <input id = "max-filter" placeholder = "max" type="text" />
-          </div>
-          <select name="filter" id="filter-select" style={{display: "none"}}>
-            <option value="selecciona">Select Filter</option>
-            <option value="number">Number</option>
-            <option value="age">Age</option>
-            <option value="marketvalue">Market Value</option>
-            <option value="goals">Goals</option>
-            <option value="assists">Assists</option>
-            <option value="rating">Rating</option>
-          </select>
-        </div>
-        <div id = "sort-finder">
-          <button id = "sort-players" onClick={() => condicionalRender("sort") }>SORT</button>
-          <select multiple name="sort" id="sort-select" style={{display: "none"}}>
-            <option value="selecciona">Select Sort</option>
-            <optgroup label="SORTING METHOD">
-              <option value="descending">Descending</option>
-              <option value="ascending">Ascending</option>
-            </optgroup>
-            <optgroup label = "STAT">
-              <option value="number">Number</option>
-              <option value="age">Age</option>
-              <option value="marketvalue">Market Value</option>
-              <option value="goals">Goals</option>
-              <option value="assists">Assists</option>
-              <option value="rating">Rating</option>
-            </optgroup>
-          </select>
-        </div>
+        <button id = "filter-players" onClick={() => {setMainNav("filter")}}>FILTER</button>
+        <button id = "sort-players" onClick={() => {setMainNav("sort")}}>SORT</button>
+        <FinderChildrenNav action={mainNav}/>
+
         <button type="submit" id = "find-button" onClick={handleSubmit}>Find</button>
       </div>
       <div id = "left-finder">
