@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import"./PodiumContainer.css"
 import {
   createPodiumComment,
   getAllComentsByID,
@@ -181,7 +182,7 @@ export const PodiumContainer = () => {
       {allComments && 
   allComments?.data?.comments.map((comment,index) => (
     <div className="comentarioCaja"  key={comment._id}>
-      <div >
+      <div className="comentarioHeader" >
         <img className="comentarioImagen" src={comment.image} alt="" />
         <h3 className="comentarioCreador">{comment.creatorName}</h3>
        <Rating name="read-only" value={comment.rating} readOnly />
