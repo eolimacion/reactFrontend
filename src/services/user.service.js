@@ -51,6 +51,14 @@ export const getUsersFavLifters = async (userId) => {
     .catch((error) => error);
 };
 
+//!-------------------> GET FAV CIRCUITS [User]
+export const getUsersFavCircuits = async (userId) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/users/favCircuits/${userId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
+
 //! -------------------> Get User Eleven [User]
 export const getUsersEleven = async (elevenId) => {
   const APIGeneral = extraConfig();

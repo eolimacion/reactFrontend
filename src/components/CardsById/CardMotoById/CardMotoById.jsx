@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './CardMotoById'
+import './CardMotoById.css'
 import { buscarRiderId } from '../../../services/rider.service'
 import { useNavigate, useParams } from 'react-router-dom'
 import { addFavRiders, getUsersFavRiders } from '../../../services/user.service'
@@ -103,7 +103,7 @@ export const CardMotoById = () => {
           <span 
            className="material-symbols-outlined">
 arrow_back_ios
-</span><p>All Players</p>
+</span><p>All Riders</p>
 </button>
 
       </div>

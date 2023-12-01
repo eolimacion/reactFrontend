@@ -29,6 +29,7 @@ import App from "../App";
 import { CardFifaById, CardMotoById, CardPowerById, FavoritesNav, Finder } from "../components";
 import { Protected } from "../components/ProtectedRoutes/Protected";
 import { ProtectedCheckChildren } from "../components/ProtectedRoutes/ProtectedCheckChildren";
+import { CardCircuitById } from "../components/CardsById/CardCircuitById/CardCircuitById";
 
 
 
@@ -104,7 +105,7 @@ export const router = createBrowserRouter([
             path: "/motogp/circuits/:id",
             element: 
             (<Protected>
-              <Circuits/>
+              <CardCircuitById/>
             </Protected>),
           },
   

@@ -36,7 +36,7 @@ export const Circuits = () => {
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
     setShowForm(!showForm);
-    setShowGallery(false)
+    setShowGallery(!showGallery)
   };
 
 

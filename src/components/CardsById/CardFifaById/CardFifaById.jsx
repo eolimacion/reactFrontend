@@ -114,6 +114,7 @@ arrow_back_ios
         <figure id="figureidPlayer">
           <img className='imageById imagePlayer' src={image} alt={name} />
           <h1 className="nameByidPlayer">{name}</h1>
+          {team[0] && <h3>Team: {team[0]}</h3>}
           <h3>
             <span className="SBDspan">Position:</span> {position}
           </h3>
@@ -123,9 +124,6 @@ arrow_back_ios
             <h3>
               <span className="SBDspan">Age:</span>{age}
             </h3>
-          <h3>
-            <span className="SBDspan">Team:</span>{team} 
-          </h3>
           <div>
             <div className="playerStats">
               <h3>
