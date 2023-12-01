@@ -43,7 +43,7 @@ export const Lifters = () => {
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
     setShowForm(!showForm);
-    setShowGallery(false)
+    setShowGallery(!showGallery)
   };
 
   const handleGalleryButtonClick = () => {
@@ -70,9 +70,11 @@ export const Lifters = () => {
       }
           <div className="displayImage">
             {showForm ? <FormLifters /> : showGallery &&  dataPag?.map((item)=>(
-              <CardInTheGallery name={item?.name} image={item?.image}b key={item._id}/>
-            ))
+  <CardInTheGallery name={item?.name} image={item?.image} key={item._id} sportPath={sportPath}
+  id={item._id}/>
+         ))
            }
+           
           
           </div>
           <aside className="columnaEnlaces">
