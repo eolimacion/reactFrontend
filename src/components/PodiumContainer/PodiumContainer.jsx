@@ -10,6 +10,7 @@ import { CardPodiums } from "../CardPodiums/CardPodiums";
 import { useForm } from "react-hook-form";
 import { Paginacion } from "../../utils/paginacion";
 import { Rating } from "@mui/material";
+import { useErrorRegister } from "../../hooks/useErrorRegister";
 
 export const PodiumContainer = () => {
   const [podiumLoading, setPodiumLoading] = useState(false);
@@ -21,6 +22,7 @@ export const PodiumContainer = () => {
   const [send, setSend] = useState(false);
   const [valueStar, setValueStar] = useState(0);
   const [allComments, setAllComments] = useState([]);
+  const [registerOk, setRegisterOk] = useState(false);
 
   //!!Referente a comentarios sobre el podium-----------------------
   const handleComment = (id) => {
@@ -70,6 +72,7 @@ export const PodiumContainer = () => {
 
   const getAllComments = async (buttonComment) => {
     const commentsData = await getpodiumByID(buttonComment);
+  
     setAllComments(commentsData);
   };
 
@@ -77,13 +80,14 @@ export const PodiumContainer = () => {
     if (buttonComment) {
       getAllComments(buttonComment);
     }
-  }, [buttonComment]);
+  }, [buttonComment,res]);
 
   useEffect(() => {
-    console.log(buttonComment);
-    console.log(allComments?.data);
-    console.log(res)
-  }, [buttonComment, allComments]);
+    useErrorRegister(res, setRegisterOk, setRes);
+    
+  }, [res]);
+
+
 
   return (
     <div className="podiumAbel">
@@ -159,11 +163,13 @@ export const PodiumContainer = () => {
                           </button>
                         </div>
                       </form>
+                      { buttonComment !== ""&&<button onClick={() => handleComment("")}>Volver</button>}
+                     
                     </div>
                   </div>
                 ) : (
                   <button onClick={() => handleComment(item._id)}>
-                    comment here
+                    Comments
                   </button>
                 )}
               </div>
@@ -179,17 +185,20 @@ export const PodiumContainer = () => {
         />
       )}
       
-      {allComments && 
-  allComments?.data?.comments.map((comment,index) => (
-    <div className="comentarioCaja"  key={comment._id}>
-      <div className="comentarioHeader" >
-        <img className="comentarioImagen" src={comment.image} alt="" />
-        <h3 className="comentarioCreador">{comment.creatorName}</h3>
-       <Rating name="read-only" value={comment.rating} readOnly />
+      {allComments && buttonComment !== "" &&
+  allComments?.data?.comments
+    .slice() 
+    .reverse() 
+    .map((comment, index) => (
+      <div className="comentarioCaja" key={comment._id}>
+        <div className="comentarioHeader">
+          <img className="comentarioImagen" src={comment.image} alt="" />
+          <h3 className="comentarioCreador">{comment.creatorName}</h3>
+          <Rating name="read-only" value={comment.rating} readOnly />
+        </div>
+        <p>{comment.comment}</p>
       </div>
-      <p>{comment.comment}</p>
-    </div>
-  ))
+    ))
 }
       
     </div>
