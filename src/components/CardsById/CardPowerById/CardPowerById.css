@@ -11,9 +11,11 @@
     width: 300px;
 }
 
-.SBDspan{
-    
-
+.errorDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #btnReturn{

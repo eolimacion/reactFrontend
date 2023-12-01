@@ -33,7 +33,7 @@ export const FavGallery = () => {
 
       <section className="favGallery">
         {
-          data && data.map((item)=>(<CardInTheGallery key={JSON.stringify(item)} name={item.name} image={item.image} id={item._id}/>))
+          data && data.map((item)=>(<CardInTheGallery key={JSON.stringify(item)} name={item.name} image={item.image} />))
          }
       </section>
     </>

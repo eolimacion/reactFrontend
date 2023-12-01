@@ -22,20 +22,12 @@ export const CardPowerById = () => {
   const [updatedLikes, setUpdatedLikes] = useState(false);
   const [resLifter, setresLifter] = useState({});
   const [ok, setOk] = useState(false);
+  const [dataLifter, setDataLifter] = useState(null)
 
   const fetchLifters = async () => {
     setresLifter(await lifterByID(idLifter));
     setOk(true);
   };
-console.log(resLifter)
-  if (resLifter?.response?.status == 404 || resLifter?.response?.status == 500) {
-    return (
-      <>
-      <h1>{resLifter?.response?.status}</h1>
-      <p>Error Not Found</p>
-    </>
-    )
-  }
 
   const addToLikes = async () => {
     console.log(idLifter)
@@ -60,20 +52,42 @@ console.log('resLifter',resLifter)
 
   useEffect(() => {
     fetchLifters();
-  }, [ok, updatedLikes]);
+  }, [updatedLikes]);
+
+  useEffect(() => {
+    resLifter?.status == 200 && setDataLifter(resLifter.data)
+  }, [resLifter])
+  
 
   useEffect(() => {
     getLikes();
   }, [updatedLikes]);
 
 
-  const isLiked = resLifter?.data?.likes?.includes(idUser)
+  
+
+if (resLifter?.response?.status == 404 || resLifter?.response?.status == 500){
+  return (
+    <>
+    <div className="errorDiv">
+  <h1>ERROR</h1>
+  <h2>{resLifter?.response?.status}</h2>
+  <h2>{resLifter?.response?.data}</h2>
+  </div>
+  </>
+  )
+}
 
 
   if (!ok) {
     return <Loading />;
   }
 
+
+if(dataLifter){
+
+  const isLiked = dataLifter?.likes?.includes(idUser)
+  
   const {
     name,
     gender,
@@ -87,14 +101,11 @@ console.log('resLifter',resLifter)
     weightCategory,
     likes,
     comments,
-  } = resLifter.data;
-
-
- 
+  } = dataLifter
 
  
 
-  if(resLifter?.status == 200){
+
   return (
 
     <>
@@ -162,5 +173,5 @@ arrow_back_ios
       </div>
     </>
   );
-  }
+}
 };

@@ -5,6 +5,7 @@ import { Link, Navigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useErrorCreate } from "../../hooks/useErrorCreate"
 import { createLifterService } from '../../services/lifter.service'
+import { UploadFile } from '../UploadFile/UploadFile'
 
 
 export const FormLifters = () => {
@@ -94,11 +95,11 @@ export const FormLifters = () => {
             </label>
             <input 
             className="inputForm" 
-            type="date" 
+            type="number" 
             id="birthYear" 
             name="birthYear" 
             autoComplete="false"
-            placeholder="21/03/1991" 
+            placeholder="1991" 
             {...register("birthYear", {required: true})}/> 
           </div>
 
@@ -171,7 +172,7 @@ export const FormLifters = () => {
             placeholder="84.58" 
             {...register("GLPoints", {required: false})}/> 
           </div>
-
+        <UploadFile/>
           <div className="btnContainer">
             <button
               className="btn"
