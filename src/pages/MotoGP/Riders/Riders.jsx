@@ -11,6 +11,7 @@ export const Riders = () => {
   const [allRiders, setAllRiders] = useState([]);
   const [showPodium, setShowPodium] = useState(false);
   const [res, setRes] = useState(null)
+  const sportPath = `/motogp/riders/`
 
   const getAllRiders = async () => {
     try {
@@ -63,9 +64,9 @@ export const Riders = () => {
           <>
             <div className="displayImage">
             {showForm ? <FormRiders /> : showGallery ? 
-            (res && res?.data?.map((player) => (
+            (res && res?.data?.map((rider) => (
               <div className='singleCardPlayer'>
-              <CardInTheGallery image={player.image} name={player.name} key={player._id}/>
+              <CardInTheGallery image={rider.image} name={rider.name} key={rider._id} id={rider._id} sportPath={sportPath}/>
               </div>
             ))): <PodiumContainer/>}
           </div>

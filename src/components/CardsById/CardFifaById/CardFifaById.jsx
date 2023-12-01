@@ -89,6 +89,8 @@ export const CardFifaById = () => {
       comments,
     } = dataPlayer
 
+    console.log('team',team)
+
     return (
       <>
     
@@ -113,25 +115,33 @@ arrow_back_ios
           <img className='imageById imagePlayer' src={image} alt={name} />
           <h1 className="nameByidPlayer">{name}</h1>
           <h3>
-            {position}, {number}, {age}
+            <span className="SBDspan">Position:</span> {position}
           </h3>
-          <h2>{team} <span className="SBDspan">Team</span></h2>
+          <h3>
+            <span className="SBDspan">Number:</span>{number}
+            </h3>
+            <h3>
+              <span className="SBDspan">Age:</span>{age}
+            </h3>
+          <h3>
+            <span className="SBDspan">Team:</span>{team} 
+          </h3>
           <div>
             <div className="playerStats">
               <h3>
-                <span className="SBDspan">MARKET VALUE</span> {marketvalue} Mill.
+                <span className="SBDspan">Market value:</span> {marketvalue} Mill.
               </h3>
               <h3>
-                <span className="SBDspan">RATING</span> {rating}
+                <span className="SBDspan">Rating:</span> {rating}
               </h3>
               <h3>
-                <span className="SBDspan">GOALS</span> {goals}
+                <span className="SBDspan">Goals:</span> {goals}
               </h3>
               <h3>
-                <span className="SBDspan">ASSISTS</span> {assists}
+                <span className="SBDspan">Assists:</span> {assists}
               </h3>
               <h3>
-                <span className="SBDspan">PREFERRED FOOT</span> {preferredfoot}
+                <span className="SBDspan">Preferred foot:</span> {preferredfoot}
               </h3>
             </div>
           </div>

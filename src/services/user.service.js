@@ -182,3 +182,10 @@ export const deleteUser = async (formData) => {
     .then((res) => res)
     .catch((error) => error);
   }
+
+  export const addFavRiders = async(idRider) =>{
+    const APIGeneral = extraConfig();
+    return APIGeneral.patch(`/users/toggleRider/${idRider}`)
+    .then((res) => res)
+    .catch((error) => error);
+  }

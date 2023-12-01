@@ -26,7 +26,7 @@ import {
   Weight,
 } from "../pages/index";
 import App from "../App";
-import { CardFifaById, CardPowerById, FavoritesNav, Finder } from "../components";
+import { CardFifaById, CardMotoById, CardPowerById, FavoritesNav, Finder } from "../components";
 import { Protected } from "../components/ProtectedRoutes/Protected";
 import { ProtectedCheckChildren } from "../components/ProtectedRoutes/ProtectedCheckChildren";
 
@@ -90,7 +90,7 @@ export const router = createBrowserRouter([
             path: "/motogp/riders/:id",
             element: 
             (<Protected>
-              <Riders />  
+              <CardMotoById />  
             </Protected>),
           },
           {
