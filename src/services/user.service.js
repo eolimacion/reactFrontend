@@ -199,5 +199,12 @@ export const addFavCircuits = async (idCircuit) => {
     .then((res) => res)
     .catch((error) => error);
 };
+export const addFavTeams = async (idTeam) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.patch(`/users/toggleTeam/${idTeam}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
+
 
 

@@ -27,3 +27,11 @@ export const createPodiumComment = async (locationMoto, formData) => {
     .then((res) => res)
     .catch((error) => error);
 };
+//!--------------------POST COMMENT ALL ------------------------
+
+export const getAllComentsByID = async (id) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.post(`/comment/getbyid/${id}`, formData)
+    .then((res) => res)
+    .catch((error) => error);
+};

@@ -16,7 +16,7 @@ export const PodiumContainer = () => {
   const { register, handleSubmit } = useForm();
   const [res, setRes] = useState(false);
   const [send, setSend] = useState(false);
-  const[valueStar,setValueStar]=useState(0)
+  const [valueStar, setValueStar] = useState(0);
 
   //!!Referente a comentarios sobre el podium-----------------------
   const handleComment = (id) => {
@@ -26,7 +26,8 @@ export const PodiumContainer = () => {
     // guarda todos lo que manden por register
     // en este caso no hay imagen y nos quedamos con lo que tenemos en el form data
     const customFormData = {
-      ...formData,rating:valueStar
+      ...formData,
+      rating: valueStar,
     };
 
     setSend(true);
@@ -77,60 +78,6 @@ export const PodiumContainer = () => {
               <div className="podiumCardContainer" key={item._id}>
                 <div className="nombreYComentario">
                   <h3 className="podiumCard">{item?.name}</h3>
-
-                  {buttonComment !== "" ? (
-                    <div className="allForm">
-                      <div className="formMain">
-                        <h1 className="formTitle">CREAR COMENTARIO</h1>
-                        <form
-                          className="form"
-                          onSubmit={handleSubmit(formSubmit)}
-                        >
-                          <div className="riderInfo formGroup">
-                            <label
-                              htmlFor="comment"
-                              className="customPlaceholder"
-                            >
-                              comentario
-                            </label>
-                            <input
-                              className="inputForm"
-                              type="text"
-                              id="comment"
-                              name="comment"
-                              autoComplete="false"
-                              placeholder="Deja tu comentario"
-                              {...register("comment", { required: true })}
-                            />
-                          </div>
-                          <Rating
-                            name="simple-controlled"
-                            value={valueStar}
-                            onChange={(event, newValue) => {
-                             setValueStar(parseInt(event.target.value))
-                            }}
-                          />
-
-                          <div className="btnContainer">
-                            <button
-                              className="btn"
-                              type="submit"
-                              disabled={send}
-                              style={{
-                                background: send ? "#49c1a388" : "#2f7a67",
-                              }}
-                            >
-                              Publicar
-                            </button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  ) : (
-                    <button onClick={() => handleComment(item._id)}>
-                      comment here
-                    </button>
-                  )}
                 </div>
 
                 <div className="podiumCartas">
@@ -150,10 +97,64 @@ export const PodiumContainer = () => {
                     image={item?.thirdPlace?.image}
                   />
                 </div>
+                {buttonComment !== "" ? (
+                  <div className="allForm">
+                    <div className="formMain">
+                      <h1 className="formTitle">CREAR COMENTARIO</h1>
+                      <form
+                        className="form"
+                        onSubmit={handleSubmit(formSubmit)}
+                      >
+                        <div className="riderInfo formGroup">
+                          <label
+                            htmlFor="comment"
+                            className="customPlaceholder"
+                          >
+                            comentario
+                          </label>
+                          <input
+                            className="inputForm"
+                            type="text"
+                            id="comment"
+                            name="comment"
+                            autoComplete="false"
+                            placeholder="Deja tu comentario"
+                            {...register("comment", { required: true })}
+                          />
+                        </div>
+                        <Rating
+                          name="simple-controlled"
+                          value={valueStar}
+                          onChange={(event, newValue) => {
+                            setValueStar(parseInt(event.target.value));
+                          }}
+                        />
+
+                        <div className="btnContainer">
+                          <button
+                            className="btn"
+                            type="submit"
+                            disabled={send}
+                            style={{
+                              background: send ? "#49c1a388" : "#2f7a67",
+                            }}
+                          >
+                            Publicar
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                ) : (
+                  <button onClick={() => handleComment(item._id)}>
+                    comment here
+                  </button>
+                )}
               </div>
             )
         )}
         
+
       {buttonComment == "" && (
         <Paginacion
           currentPage={currentPage}
@@ -162,6 +163,8 @@ export const PodiumContainer = () => {
           onPrevPage={prevPage}
         />
       )}
+      <div>Aqui van todos los comentarios</div>
     </div>
   );
+  
 };
