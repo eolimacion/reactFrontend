@@ -11,7 +11,8 @@ export const Weight = () => {
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allWeights, setAllWeights] = useState([]);
- 
+  const sportPath = `/powerlifting/weight/`
+
   const getAllWeights = async () => {
   
     const weightsData = await buscarAllweightCategory();
@@ -56,7 +57,7 @@ export const Weight = () => {
           <div className="displayImage">
             {showForm ? <FormWeight /> : showGallery &&
             allWeights?.data?.map((weight) => (
-              <CardInTheGallery image={weight.image} name={weight.name} key={weight._id}/>
+              <CardInTheGallery image={weight.image} name={weight.name} key={weight._id} id={weight._id} sportPath={sportPath}/>
             ))}
           </div>
           <aside className="columnaEnlaces">

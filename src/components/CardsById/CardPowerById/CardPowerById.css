@@ -7,10 +7,31 @@
   'opsz' 24
 }
 
-.btnReturn{
+.imageById{
+    width: 300px;
+}
+
+.SBDspan{
+    
+
+}
+
+#btnReturn{
+    background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100px;
+}
+#btnReturn:hover{
+    transform: scale(1.1);
+    cursor:pointer;
 }
 
 .IdContainer{
@@ -30,6 +51,7 @@
 }
 
 .pageByid{
+    border: 1px solid #edeaea ;
     background-color: #ffffff;
     padding: 20px 40px;
     min-height: 65vh;
@@ -37,4 +59,28 @@
     align-items: center;
     justify-content: center;
 
+}
+
+
+#btnLiked{
+color: rgb(177, 16, 38);
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 100,
+    'GRAD' -25,
+    'opsz' 48
+
+}
+
+#btnNotLiked{
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 100,
+      'GRAD' -25,
+      'opsz' 48
+}
+
+.material-symbols-outlined:hover{
+    width: 100px;
+    cursor: pointer;
 }

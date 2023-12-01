@@ -10,6 +10,7 @@ export const Lifters = () => {
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allLifters, setAllLifters] = useState([]);
+  const sportPath = `/powerlifting/lifters/`
  
   const getLifters = async () => {
   
@@ -55,7 +56,7 @@ export const Lifters = () => {
           <div className="displayImage">
             {showForm ? <FormLifters /> : showGallery &&
             allLifters?.data?.map((lifter) => (
-              <CardInTheGallery image={lifter.image} name={lifter.name} key={lifter._id}/>
+              <CardInTheGallery image={lifter.image} name={lifter.name} key={lifter._id} id={lifter._id} sportPath={sportPath}/>
             ))}
           </div>
           <aside className="columnaEnlaces">

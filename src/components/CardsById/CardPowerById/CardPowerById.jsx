@@ -18,6 +18,7 @@ export const CardPowerById = () => {
 
   const [allLifters, setAllLifters] = useState([]);
   const [userLikedLifters, setUserLikedLifters] = useState([]);
+  const [errorLifter, setErrorLifter] = useState(false)
   const [updatedLikes, setUpdatedLikes] = useState(false);
   const [resLifter, setresLifter] = useState({});
   const [ok, setOk] = useState(false);
@@ -26,6 +27,15 @@ export const CardPowerById = () => {
     setresLifter(await lifterByID(idLifter));
     setOk(true);
   };
+console.log(resLifter)
+  if (resLifter?.response?.status == 404 || resLifter?.response?.status == 500) {
+    return (
+      <>
+      <h1>{resLifter?.response?.status}</h1>
+      <p>Error Not Found</p>
+    </>
+    )
+  }
 
   const addToLikes = async () => {
     console.log(idLifter)
@@ -43,8 +53,9 @@ export const CardPowerById = () => {
   };
 
 
-  console.log('userLikedLifters', userLikedLifters) //array de objetos ------ LIKES DEL USUARIO 
 
+console.log('resLifter',resLifter)
+  console.log('userLikedLifters', userLikedLifters) //array de objetos ------ LIKES DEL USUARIO 
 
 
   useEffect(() => {
@@ -55,20 +66,18 @@ export const CardPowerById = () => {
     getLikes();
   }, [updatedLikes]);
 
-  console.log('hooooolaaaa', resLifter?.data?.likes?.includes(idUser))
 
   const isLiked = resLifter?.data?.likes?.includes(idUser)
 
-  console.log()
 
   if (!ok) {
     return <Loading />;
   }
 
-  console.log(resLifter);
   const {
     name,
     gender,
+    image,
     birthYear,
     squat,
     benchPress,
@@ -80,9 +89,14 @@ export const CardPowerById = () => {
     comments,
   } = resLifter.data;
 
+
+ 
+
+ 
+
+  if(resLifter?.status == 200){
   return (
-  //   <h1>hjola</h1>
-  // )
+
     <>
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,0,200" />
@@ -91,22 +105,24 @@ export const CardPowerById = () => {
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
       />
       <div className="IdContainer">
-      <div className="btnReturn">
+      <div>
+        <button id='btnReturn' onClick={() => navigate("/powerlifting/lifters")}>
           <span 
-          onClick={() => navigate("/powerlifting/lifters")} className="material-symbols-outlined">
+           className="material-symbols-outlined">
 arrow_back_ios
 </span><p>All Lifters</p>
+</button>
 
       </div>
       <div className="cardByIdContainer">
       <div className="pageByidLifter pageByid">
         <figure id="figureidLifter">
-          {/* <img src={src} alt={name} /> */}
+          <img className='imageById imageLifter' src={image} alt={name} />
           <h1 className="nameByidLifter">{name}</h1>
           <h3>
             {gender}, {birthYear}, -{weightCategory.weigth}
           </h3>
-          <h2>{GLPoints} GL points</h2>
+          <h2>{GLPoints} <span className="SBDspan">GL points</span></h2>
           <div>
             <h2>MAX STATS IN CHAMPIONSHIPS</h2>
             <h4>updated 2022</h4>
@@ -126,13 +142,18 @@ arrow_back_ios
             </div>
           </div>
           <div>
+
+            
             <h4>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
               
               </h4>
+              <div className="like">
               <span className="material-symbols-outlined"
-              style={{ fontVariationSettings: isLiked ? "'FILL' 1" : "'FILL' 0" }}
+              id={ isLiked ? "btnLiked" : "btnNotLiked" }
+              
               onClick={() => addToLikes(idLifter)}
               >favorite</span>
+              </div>
             
           </div>
         </figure>
@@ -141,4 +162,5 @@ arrow_back_ios
       </div>
     </>
   );
+  }
 };
