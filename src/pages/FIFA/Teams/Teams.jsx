@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './Teams.css'
 import { CardInTheGallery, Finder, FormTeams } from '../../../components'
 import { buscarAllTeam } from '../../../services/team.service'
+import { usePaginacion } from '../../../hooks/usePaginacion'
 
 
 export const Teams = () => {
@@ -12,8 +13,13 @@ export const Teams = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [res, setRes] = useState(null)
 
+  const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
+
   useEffect(() => {
     console.log(res)
+    if(res?.status == 200){
+      setGaleriaItems(res?.data)
+    }
   }, [res])
 
   const handleButtonClick = () => {
@@ -36,10 +42,10 @@ export const Teams = () => {
       {galleryLoading ? (
         <p>Cargando...</p>
       ) : (
-        <>
+        <> {!showForm && <ComponentPaginacion/>}
           <div className="displayImage">
             {showForm ? <FormTeams /> : showGallery &&
-            res && res?.data?.map((team) => (
+            res && dataPag.map((team) => (
               <CardInTheGallery image={team.image} name={team.name} key={team._id}/>
             ))}
           </div>

@@ -3,6 +3,7 @@ import './Riders.css';
 import { CardInTheGallery, Finder, FormRiders, GaleriaReducida } from '../../../components';
 import { buscarAllRider } from '../../../services/rider.service';
 import { PodiumContainer } from '../../../components/PodiumContainer/PodiumContainer';
+import { usePaginacion } from '../../../hooks/usePaginacion';
 
 export const Riders = () => {
   const [galleryLoading, setGalleryLoading] = useState(false);
@@ -11,6 +12,9 @@ export const Riders = () => {
   const [allRiders, setAllRiders] = useState([]);
   const [showPodium, setShowPodium] = useState(false);
   const [res, setRes] = useState(null)
+
+  const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
+
   const sportPath = `/motogp/riders/`
 
   const getAllRiders = async () => {
@@ -32,6 +36,9 @@ export const Riders = () => {
   useEffect(() => {
     console.log(allRiders);
     console.log(res)
+    if(res?.status == 200){
+      setGaleriaItems(res?.data)
+    }
   }, [allRiders, res]);
 
   const handlebuttonPodiumClick = () => {
@@ -44,8 +51,6 @@ export const Riders = () => {
     setShowForm(!showForm);
     setShowGallery(false);
   };
-
-
 
   return (
     <div className="Allpage">
@@ -61,10 +66,10 @@ export const Riders = () => {
         {galleryLoading ? (
           <p>Cargando...</p>
         ) : (
-          <>
+          <> {!showForm && <ComponentPaginacion/>}
             <div className="displayImage">
             {showForm ? <FormRiders /> : showGallery ? 
-            (res && res?.data?.map((rider) => (
+            (res && dataPag?.map((rider) => (
               <div className='singleCardPlayer'>
               <CardInTheGallery image={rider.image} name={rider.name} key={rider._id} id={rider._id} sportPath={sportPath}/>
               </div>

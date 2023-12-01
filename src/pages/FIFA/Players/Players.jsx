@@ -51,7 +51,6 @@ export const Players = () => {
             (res && dataPag?.map((player) => (
               <div className='singleCardPlayer'>
               <CardPlayer image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
-              {console.log("player iddddddddddddddd", player._id)}
               </div>
             )))}
           </div>

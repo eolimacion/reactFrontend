@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Circuits.css';
 import { CardInTheGallery, Finder, FormCircuits, GaleriaReducida } from '../../../components';
 import { buscarAllCircuit } from '../../../services/circuit.service';
+import { usePaginacion } from '../../../hooks/usePaginacion';
 
 
 export const Circuits = () => {
@@ -10,6 +11,9 @@ export const Circuits = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allCircuits, setAllCircuits] = useState([]);
   const [res, setRes] = useState(null)
+
+  const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
+
   const sportPath = '/motogp/circuits/'
 
   const getAllCircuits = async () => {
@@ -22,6 +26,12 @@ export const Circuits = () => {
     getAllCircuits();
     console.log(allCircuits)
   }, []);
+
+  useEffect(() => {
+    if(res?.status == 200){
+      setGaleriaItems(res?.data)
+    }
+  }, [res])
 
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
@@ -44,13 +54,12 @@ export const Circuits = () => {
       {galleryLoading ? (
         <p>Cargando...</p>
       ) : (
-        <>
+        <> {!showForm && <ComponentPaginacion/>}
           <div className="displayImage">
-            {showForm ? <FormPlayers /> : showGallery && 
-            (res && res?.data?.map((player) => (
+            {showForm ? <FormCircuits /> : showGallery && 
+            (res && dataPag?.map((circuit) => (
               <div className='singleCardPlayer'>
-              <CardInTheGallery image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
-              {console.log("player iddddddddddddddd", player._id)}
+              <CardInTheGallery image={circuit.image} name={circuit.name} key={circuit._id} id={circuit._id} sportPath={sportPath}/>
               </div>
             )))}
           </div>
