@@ -37,15 +37,17 @@ export const SortSelect = ({ setIsAscending, setSortValue, page }) => {
           </optgroup>}
         {page == "riders" &&
           <optgroup label = "STAT">
+            <option value="name">Name</option>
+            <option value="nationality">Nationality</option>
             <option value="number">Number</option>
             <option value="age">Age</option>
             <option value="polesSeason">Poles (season)</option>
+            <option value="ranking">Ranking</option>
             <option value="points">Points</option>
             <option value="victoriesSeason">Victories (season)</option>
             <option value="victoriesCarrer">Victories (career)</option>
             <option value="championshipsCarrer">Championships (career)</option>
             <option value="rating">Rating</option>
-            <option value="name">Name</option>
           </optgroup>}
         {page == "circuits" &&
           <optgroup label = "STAT">

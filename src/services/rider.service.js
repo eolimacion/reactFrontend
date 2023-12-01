@@ -76,6 +76,7 @@ export const buscarRiderDescendente = async (stat) => {
        //! ------------------------------------FILTER----------------------
 
 export const fitrarRider = async (filter,gt,lt) => {
+   console.log(filter, gt, lt)
     return APIGeneral.get(`rider/filter/riders/${filter}/${gt}/${lt}`)
        .then((res) => res)
        .catch((error) => error);}

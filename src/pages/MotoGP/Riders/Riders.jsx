@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Riders.css';
-import { CardInTheGallery, FormRiders, GaleriaReducida } from '../../../components';
+import { CardInTheGallery, Finder, FormRiders, GaleriaReducida } from '../../../components';
 import { buscarAllRider } from '../../../services/rider.service';
 import { PodiumContainer } from '../../../components/PodiumContainer/PodiumContainer';
 
@@ -11,6 +11,7 @@ export const Riders = () => {
   const [showGallery, setShowGallery] = useState(true);
   const [allRiders, setAllRiders] = useState([]);
   const [showPodium, setShowPodium] = useState(false);
+  const [res, setRes] = useState(null)
 
   const getAllRiders = async () => {
     try {
@@ -24,14 +25,14 @@ export const Riders = () => {
     }
   };
 
-
   useEffect(() => {
     getAllRiders();
   }, []);
 
   useEffect(() => {
     console.log(allRiders);
-  }, [allRiders]);
+    console.log(res)
+  }, [allRiders, res]);
 
   const handlebuttonPodiumClick = () => {
     setShowGallery(false)
@@ -44,10 +45,7 @@ export const Riders = () => {
     setShowGallery(false);
   };
 
-  const handleGalleryButtonClick = () => {
-    setShowGallery(true);
-    setShowForm(false);
-  };
+
 
   return (
     <div className="Allpage">
@@ -58,23 +56,20 @@ export const Riders = () => {
           <GaleriaReducida galeriaItems={allRiders?.data} />
         </div>
       )}
-      <div className="buscadorMario">
-        <button onClick={handleGalleryButtonClick}>Mostrar Galería</button>
-      </div>
+      <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "riders"/>
       <section className="mainPage">
         {galleryLoading ? (
           <p>Cargando...</p>
         ) : (
           <>
             <div className="displayImage">
-              {showForm ? (
-                <FormRiders />
-              ) : showGallery ? (
-                <GaleriaReducida galeriaItems={allRiders?.data} />
-              ) : 
-                showPodium && <PodiumContainer />
-              }
-            </div>
+            {showForm ? <FormPlayers /> : showGallery && 
+            (res && res?.data?.map((player) => (
+              <div className='singleCardPlayer'>
+              <CardInTheGallery image={player.image} name={player.name} key={player._id}/>
+              </div>
+            )))}
+          </div>
             <aside className="columnaEnlaces">
               <div className="seccionColumna seccionUno">
                 <button onClick={handlebuttonPodiumClick}>Show Podiums</button>

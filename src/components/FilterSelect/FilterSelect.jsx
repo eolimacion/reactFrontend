@@ -31,7 +31,6 @@ export const FilterSelect = ({ setFilterValue, page }) => {
           <option value="victoriesCarrer">Victories (career)</option>
           <option value="championshipsCarrer">Championships (career)</option>
           <option value="rating">Rating</option>
-          <option value="name">Name</option>
         </select>}
       { page == "circuits" &&
         <select name="filter" id="filter-select" onChange={(e) => {setFilterValue(() => e.target.value)}}>
