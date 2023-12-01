@@ -1,6 +1,6 @@
 
 export const CommentsComponent = () => {
   return (
-    <div>Prueba</div>
+    <div>Prueba2</div>
   )
 }
