@@ -13,6 +13,7 @@ export const Players = () => {
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [res, setRes] = useState(null)
+  const sportPathPlayer = `/fifa/players/`
 
   useEffect(() => {
     console.log(res)
@@ -43,7 +44,8 @@ export const Players = () => {
             {showForm ? <FormPlayers /> : showGallery && 
             (res && res?.data?.map((player) => (
               <div className='singleCardPlayer'>
-              <CardInTheGallery image={player.image} name={player.name} key={player._id}/>
+              <CardInTheGallery image={player.image} name={player.name} key={player._id} id={player._id} sportPathPlayer={sportPathPlayer}/>
+              {console.log("player iddddddddddddddd", player._id)}
               </div>
             )))}
           </div>
