@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import './Players.css'
-import { CardInTheGallery, Finder, FormPlayers } from '../../../components'
+import { CardInTheGallery, CardPlayer, Finder, FormPlayers } from '../../../components'
 import { getAllPlayers } from '../../../services/player.service'
 import { useErrorFinder } from '../../../hooks/useErrorFinder'
+import { usePaginacion } from '../../../hooks/usePaginacion'
 
 
 
@@ -15,8 +16,13 @@ export const Players = () => {
   const [res, setRes] = useState(null)
   const sportPath = `/fifa/players/`
 
+  const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
+
   useEffect(() => {
     console.log(res)
+    if(res?.status == 200){
+      setGaleriaItems(res?.data)
+    }
   }, [res]); 
 
   const handleButtonClick = () => {
@@ -39,12 +45,12 @@ export const Players = () => {
       {galleryLoading ? (
         <p>Cargando...</p>
       ) : (
-        <>
+        <> {!showForm && <ComponentPaginacion/>}
           <div className="displayImage">
             {showForm ? <FormPlayers /> : showGallery && 
-            (res && res?.data?.map((player) => (
+            (res && dataPag?.map((player) => (
               <div className='singleCardPlayer'>
-              <CardInTheGallery image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
+              <CardPlayer image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
               {console.log("player iddddddddddddddd", player._id)}
               </div>
             )))}

@@ -1,0 +1,23 @@
+/* .singleItemCardPlayer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+} */
+.singleItemImgPlayer{
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid black;
+  border-radius: 5px
+}
+
+.singleItemNamePlayer{
+  margin: 10px 0 0 0;
+  font-size: 15px;
+}
+
+#buttons-card-player{
+  display: flex;
+  gap: 1rem;
+}

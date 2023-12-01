@@ -70,8 +70,8 @@ export const Lifters = () => {
       }
           <div className="displayImage">
             {showForm ? <FormLifters /> : showGallery &&  dataPag?.map((item)=>(
-  <CardInTheGallery name={item?.name} image={item?.image}b key={item._id}/>
-         ))
+              <CardInTheGallery name={item?.name} image={item?.image}b key={item._id}/>
+            ))
            }
           
           </div>

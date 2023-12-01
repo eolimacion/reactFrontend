@@ -11,13 +11,6 @@
 }
 
 
-.buscadorMario {
-    width: 45vw;
-    height: 10vw;
-    min-height:100px ;
-    background-color: green;
-}
-
 .mainPage {
     width: 80vw;
     min-height: 70vh;
@@ -32,13 +25,21 @@
     width: 75vw;
     min-height: 60vh;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content:space-around;
-padding: 10px;
+    justify-content: center;
+    padding: 10px;
     align-items: center;
     background-color: grey;
+    gap: 1rem;
+}
 
-  
+.singleCardPlayer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
 }
 
 .columnaEnlaces {
