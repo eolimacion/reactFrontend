@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Riders.css';
-import { CardInTheGallery, CardRider, Finder, FormRiders, GaleriaReducida } from '../../../components';
+import { CardInTheGallery, CardRider, Finder, FormRiders, GaleriaReducida, Loading } from '../../../components';
 import { buscarAllRider } from '../../../services/rider.service';
 import { PodiumContainer } from '../../../components/PodiumContainer/PodiumContainer';
 import { usePaginacion } from '../../../hooks/usePaginacion';
@@ -52,10 +52,17 @@ export const Riders = () => {
     setShowGallery(false);
   };
 
+  const handleButtonGallery = () =>{
+    setShowGallery(true)
+    setShowForm(false)
+    setShowPodium(false)
+  }
+
+
   return (
     <div className="Allpage">
       {galleryLoading ? (
-        <p>Cargando la galería...</p>
+        <Loading />
       ) : (
         <div className="galeriaPreview">
           <GaleriaReducida galeriaItems={allRiders?.data} />
@@ -64,9 +71,11 @@ export const Riders = () => {
       <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "riders"/>
       <section className="mainPage">
         {galleryLoading ? (
-          <p>Cargando...</p>
+          <Loading />
         ) : (
-          <> {!showForm && <ComponentPaginacion/>}
+          <> 
+          <div className='galleryDiv'>
+          {!showForm && <ComponentPaginacion/>}
             <div className="displayImage">
             {showForm ? <FormRiders /> : showGallery ? 
             (res && dataPag?.map((rider) => (
@@ -75,17 +84,18 @@ export const Riders = () => {
               </div>
             ))): <PodiumContainer/>}
           </div>
-            <aside className="columnaEnlaces">
-              <div className="seccionColumna seccionUno">
-                <button onClick={handlebuttonPodiumClick}>Show Podiums</button>
-              </div>
-              <div className="seccionColumna seccionDos">Dos</div>
-              <div className="seccionColumna seccionTres">
-                <button onClick={handleButtonClick}>
-                  Mostrar/ocultar formulario
+            <div className="bottonButton">
+
+                <button className='btn btnGallery' onClick={handlebuttonPodiumClick}>Show Podiums</button>
+
+                <button className='btn btnGallery' onClick={handleButtonClick}>
+                  Create Form
                 </button>
-              </div>
-            </aside>
+                <button className='btn btnGallery' onClick={handleButtonGallery}>
+                  Show Gallery
+                </button>
+            </div>
+            </div>
           </>
         )}
       </section>

@@ -30,4 +30,5 @@ export * from "./SortSelect/SortSelect"
 export * from "./CardTeam/CardTeam"
 export * from "./CardCircuit/CardCircuit"
 export * from "./CardRider/CardRider"
+export * from './DarkMode/DarkMode'
 

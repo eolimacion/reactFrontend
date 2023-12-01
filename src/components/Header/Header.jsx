@@ -4,6 +4,7 @@ import { useAuth } from "../../context/authContext";
 
 import { useState } from "react";
 import { NavSports } from "../NavSports/NavSports";
+import { DarkMode } from "../DarkMode/DarkMode";
 export const Header = () => {
   const [mostrarBarra,setMostrarbarra]=useState(false)
   const handleMostrarBarra=()=>{
@@ -42,6 +43,7 @@ account_circle
             )}
             {user !== null ? (
               <>
+              <DarkMode/>
               <div className="logoutDiv">
               <span onClick={() => logout()} className="material-symbols-outlined logout">logout</span>
             Logout

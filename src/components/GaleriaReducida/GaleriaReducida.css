@@ -1,27 +1,58 @@
+.galeriaReducida{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+
 .galeriaPreview {
-  background-color: rgba(17, 17, 221, 0.486);
+  background-color: white;
+  border: var(--boder);
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50vw;
+  width: 57vw;
   max-height: 100px;
   min-height: 70px;
 }
 .previewButton {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
   width: 5%;
   height: 20%;
   padding: 10px;
   text-align: center;
-  background-color: yellow;
-}
-.botones {
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
-  flex-direction: column;
+  margin: 0 2rem;
+}
+#disabled{
+  color: grey
 }
 
+.arrow:hover{
+  transform: scale(1.2);
+  cursor:pointer;
+}
+
+
+.botonesPaginacion {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: row;
+}
+
+
+
+
 .noSe {
+  padding: 0 0 0 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -11,6 +11,8 @@ export const AuthContextProvider = ({ children }) => {
 
   const [isDeletedUser, setIsDeletedUser] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(false)
+
   const [allUser, setAllUser] = useState({
     data: {
       confirmationCode: "",
@@ -63,8 +65,9 @@ export const AuthContextProvider = ({ children }) => {
       bridgeData,
       isDeletedUser,
       setIsDeletedUser,
+      darkMode, setDarkMode
     }),
-    [user, allUser, isDeletedUser]
+    [user, allUser, isDeletedUser, darkMode]
   );
 
   return (

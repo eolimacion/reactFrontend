@@ -29,22 +29,29 @@ export const usePaginacion = () => {
   return {
     ComponentPaginacion: () => (
       <>
-        <div className="botones">
+        <div className="botonesPaginacion">
           <button
             className={`previewButton ${currentPage === 1 ? "disabled" : ""}`}
+            id={`${currentPage === 1 ? "disabled" : "active"}`}
             onClick={prevPage}
             disabled={currentPage === 1}
           >
-            A
+<span class="material-symbols-outlined arrow">
+arrow_back
+</span>
           </button>
+          <p>{currentPage}</p>
           <button
             className={`previewButton ${
               currentPage === totalPages ? "disabled" : ""
             }`}
+            id={`${currentPage ===  totalPages ? "disabled" : "active"}`}
             onClick={nextPage}
             disabled={currentPage === totalPages}
           >
-            S
+          <span class="material-symbols-outlined arrow">
+arrow_forward
+</span>
           </button>
         </div>
       </>

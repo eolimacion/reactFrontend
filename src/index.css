@@ -2,43 +2,27 @@
 
 
 :root {
+/*         ------        variables  */
+
+
   /* Colores generales */
   --color-primario: #89bcdf;
   --color-secundario: #8b8b8b;
   --color-fondo: #EDF6FB;
 
-  /*   colores form     */
-  --color-form: #Fafafa;
-  
-  /* -webkit-box-shadow: 1px 1px 6px 6px rgba(224,224,224,0.43);
-  -moz-box-shadow: 1px 1px 6px 6px rgba(224,224,224,0.43);
-  box-shadow: 1px 1px 6px 6px rgba(224,224,224,0.43);  */
-
-  /* Colores para etiquetas específicas */
-  --color-h1: #3c4de7;
-  --color-h2: #b7b1b9;
-  --color-h3: #e67e22;
-  --color-h4: #85c0e7;
-  --color-p: #157ce2;
-  --color-texto-destacado: #e5ebf1;
-  --color-enlace: #000000;
-  --color-enlace-hover: #2773b8;
-  --color-contenedor: #2ecc71;
-  --color-boton: #EE5684;
-  --color-botonSend: #b9365e;
-
-  --color-texto-boton: #000000;
-  --color-botondes: #1b04ec;
-  --color-textbotondes: #3db6e6;
-  --color-boton-hover: #c0392b;
-
-
   /*    -------    general --------- */
 
   --color-background: #f5f4f4;
   --color-enhance: #Fafafa;
-  --color-background-nightmode: #333941;
-  --color-enhance-nightmode: #42535B;
+
+  --color-background-nightmode: #121212;
+  --color-enhance-nightmode: #252424;
+
+  --color-form: #Fafafa;
+
+  --boder: 2px solid #edeaea ;
+  --boder--nightmode: #252424
+
 
 
 /*  --------- MOTO GP ----------   */
@@ -52,7 +36,6 @@
 --color-boton-powerlifting: #AF363D;
 
 
-
 }
 *{
   margin: 0;
@@ -60,8 +43,9 @@
   box-sizing: border-box;
 }
 
-html{
+body{
   background-color: var( --color-background);
+  color: black;
   font-family: 'Rubik', sans-serif;
 }
 

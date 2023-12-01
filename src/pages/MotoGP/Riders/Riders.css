@@ -9,20 +9,24 @@
     margin: 1%;
 }
 
+.btnGallery{
+    margin: 1rem;
+}
 
 .mainPage {
-    background-color: var(--color-form);
+    background-color: #D90042;
     width: 90vw;
     min-height: 70vh;
-    border: 2px solid rgb(224, 217, 217);
+    border-radius: 10px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     padding: 1%;
     gap: 5%;
 }
 
 .displayImage {
-    width: 75vw;
+    width: 85vw;
     min-height: 60vh;
     display: flex;
     flex-direction: row;
@@ -30,7 +34,9 @@
     justify-content: center;
     padding: 10px;
     align-items: center;
-    background-color: grey;
+    background-color: var(--color-background);
+    border: var(--boder);
+    border-radius: 20px;
     gap: 1rem;
 }
 

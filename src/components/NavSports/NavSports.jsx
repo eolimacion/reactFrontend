@@ -3,18 +3,25 @@ import { useAuth } from "../../context/authContext";
 import "./NavSports.css";
 
 export const NavSports = () => {
-  const { user } = useAuth();
+  const { user, darkMode } = useAuth();
 
   return (
     <>
 
       <div className="nav-links">
         <NavLink to="/">
-          <img
+         { darkMode ? 
+         <img
+         alt="home logo"
+         className="homeLogo"
+         src="https://res.cloudinary.com/daxddugwt/image/upload/v1701443591/png-transparent-computer-icons-home-house-home-angle-building-rectangle-thumbnail-removebg-preview_1_ywdvxs.png"
+       />
+         : <img
             alt="home logo"
             className="homeLogo"
             src="https://res.cloudinary.com/daxddugwt/image/upload/v1701438523/png-transparent-computer-icons-home-house-home-angle-building-rectangle-thumbnail-removebg-preview_mfluhs.png"
           />
+         }
         </NavLink>
         <NavLink to="/fifa">
           <img
@@ -32,8 +39,8 @@ export const NavSports = () => {
         </NavLink>
         <NavLink to="/powerlifting">
           <img
-            alt="powerliftingLogo"
-            className="powerliftingLogo"
+            alt="powerliftingLogo "
+            className="powerliftingLogo logoNav"
             src="https://res.cloudinary.com/daxddugwt/image/upload/v1701429167/dda462081fc0dc518ff1ccd3a1d4600e-removebg-preview_bysd1c.png"
           />
         </NavLink>

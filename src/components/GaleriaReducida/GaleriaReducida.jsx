@@ -5,7 +5,7 @@ import "./GaleriaReducida.css";
 export const GaleriaReducida = ({ galeriaItems }) => {
   const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
-
+  const sportPath = `/motogp/riders/`
   const currentItems = galeriaItems?.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -26,23 +26,27 @@ export const GaleriaReducida = ({ galeriaItems }) => {
 
   return (
     <>
+    <div className="galeriaReducida">
+        <button
+          className={`previewButton ${currentPage === 1 ? "disabled" : ""}`}
+          onClick={prevPage}
+          disabled={currentPage === 1}
+        >
+<span class="material-symbols-outlined arrow">
+arrow_back
+</span>
+        </button>
       <div className="noSe">
         {currentItems?.map((item) => (
           <CardInTheGallery
             image={item?.image}
             name={item?.name}
             key={item?._id}
+            id={item?._id} sportPath={sportPath}
           />
         ))}
       </div>
-      <div className="botones">
-        <button
-          className={`previewButton ${currentPage === 1 ? "disabled" : ""}`}
-          onClick={prevPage}
-          disabled={currentPage === 1}
-        >
-          A
-        </button>
+
         <button
           className={`previewButton ${
             currentPage === totalPages ? "disabled" : ""
@@ -50,7 +54,9 @@ export const GaleriaReducida = ({ galeriaItems }) => {
           onClick={nextPage}
           disabled={currentPage === totalPages}
         >
-          S
+<span class="material-symbols-outlined arrow">
+arrow_forward
+</span>
         </button>
       </div>
     </>
