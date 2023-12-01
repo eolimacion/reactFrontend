@@ -1,6 +1,35 @@
-.navProfile{
+ .navProfile{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 }
+
+.navProfile > a {
+    text-decoration:solid;
+    color: rgb(6, 25, 42);
+
+    &:active > div.titleNavProfile {
+        background-color: rgb(168, 185, 200);
+    }
+}
+
+
+
+.titleNavProfile{
+    width: 20vw;
+    padding: 1.5rem;
+    margin: 1rem;
+    background-color: rgba(215, 236, 255, 0.8);
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.5rem;
+
+
+    &:hover {
+        background-color: #e0e0e0; /* Change background on hover */
+        color: #333; /* Change text color on hover */
+    }
+
+}
+    

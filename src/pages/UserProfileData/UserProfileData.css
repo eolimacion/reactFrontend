@@ -1,3 +1,63 @@
-.profile-picture-user{
-    width: 200px;
+.profilePictureUser{
+    width: 20vh;
+    border: double 10px rgb(73, 73, 109);
+}
+
+.infoUser {
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+}
+
+
+.profileButtonsContainer {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap:1vh;
+}
+
+
+.profileButton {
+    height: 6vh;
+    width: 100%;
+    background-color: rgba(220, 233, 245), 0.95;
+    color: rgb(6, 25, 42);
+    display: block;
+
+    &:active {
+        background-color: rgb(168, 185, 200);
+    }
+}
+
+.followProfileGallery {
+    width: 65vw;
+    height: 50vh;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+}
+
+.forwardBackward {
+    display: flex;
+    flex-direction: row;
+    justify-content:baseline;
+    gap: 10rem;
+
+}
+
+.followContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.topProfileInfo {
+}
+
+.bottomProfileInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 1rem;
 }
