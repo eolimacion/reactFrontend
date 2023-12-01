@@ -1,32 +1,51 @@
 import { useEffect, useState } from 'react'
 import './Teams.css'
-import { CardInTheGallery, CardTeam, Finder, FormTeams } from '../../../components'
+import { CardInTheGallery, Finder, FormTeams } from '../../../components'
 import { buscarAllTeam } from '../../../services/team.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 
 
+
+
 export const Teams = () => {
-  const [data, setData] = useState(null);
   const [galleryLoading, setGalleryLoading] = useState(false);
-  const [mainLoading, setMainLoading] = useState(false);
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
-  const [res, setRes] = useState(null)
+  const [res, setRes] = useState(null);
+  const [allTeams, setAllTeams] = useState();
+
 
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
+  const sportPath = '/fifa/teams/'
+
+
+  const allTeam = async () => {
+    const teamsData = await buscarAllTeam();
+    setAllTeams(teamsData || []);
+    setGalleryLoading(false);
+  }
+
 
   useEffect(() => {
-    console.log(res)
+    allTeam();
+    console.log(allTeams)
+  }, [])
+ 
+
+
+  useEffect(() => {
     if(res?.status == 200){
       setGaleriaItems(res?.data)
     }
   }, [res])
+
 
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
     setShowForm(!showForm);
     setShowGallery(false)
   };
+
 
   return (
     <div className="Allpage">
@@ -46,9 +65,7 @@ export const Teams = () => {
           <div className="displayImage">
             {showForm ? <FormTeams /> : showGallery &&
             res && dataPag.map((team) => (
-              <div className='singleCardItem'>
-                <CardTeam image={team.image} name={team.name} key={team._id}/>
-              </div>
+              <CardInTheGallery image={team.image} name={team.name} key={team._id} id={team._id} sportPath={sportPath}/>
             ))}
           </div>
           <aside className="columnaEnlaces">

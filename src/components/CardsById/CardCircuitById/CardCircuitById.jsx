@@ -79,8 +79,6 @@ export const CardCircuitById = () => {
         topSpeed,
         image,
         likes,
-        fastestLap,
-        mostSuccessful,
     } = dataCircuit
   
 
@@ -94,11 +92,11 @@ export const CardCircuitById = () => {
       />
       <div className="IdContainer">
       <div>
-        <button id='btnReturn' onClick={() => navigate("/motogp/riders")}>
+        <button id='btnReturn' onClick={() => navigate("/motogp/circuits")}>
           <span 
            className="material-symbols-outlined">
 arrow_back_ios
-</span><p>All Riders</p>
+</span><p>All Circuits</p>
 </button>
 
       </div>
@@ -111,23 +109,17 @@ arrow_back_ios
             <span className="SBDspan">Location:</span> {location}
           </h3>
           <h3>
-            <span className="SBDspan">Total length:</span>{totalLength}
+            <span className="SBDspan">Total length:</span>{totalLength} km
             </h3>
             <h3>
-              <span className="SBDspan">Capacity:</span>{capacity}
+              <span className="SBDspan">Capacity:</span>{capacity} people
             </h3>
           <h3>
-            <span className="SBDspan">Top speed:</span>{topSpeed} 
+            <span className="SBDspan">Top speed:</span>{topSpeed} km/h
           </h3>
           <div>
-            <div className="playerStats">
-              {fastestLap[0] && <h3>Fastest lap: {fastestLap[0]}</h3>}
-              {mostSuccessful[0] && <h3>Most successful: {mostSuccessful[0]}</h3>}
-            </div>
           </div>
           <div>
-
-            
             <h4>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
               
               </h4>

@@ -144,9 +144,6 @@ arrow_back_ios
               <h3>
                 <span className="SBDspan">Poles season:</span> {polesSeason}
               </h3>
-              <h3>
-                <span className="SBDspan">Circuits:</span> {circuits}
-              </h3>
             </div>
           </div>
           <div>

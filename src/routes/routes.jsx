@@ -26,12 +26,10 @@ import {
   Weight,
 } from "../pages/index";
 import App from "../App";
-import { CardFifaById, CardMotoById, CardPowerById, FavoritesNav, Finder } from "../components";
+import { CardFifaById, CardMotoById, CardPowerById, CardTeamById, FavoritesNav, Finder } from "../components";
 import { Protected } from "../components/ProtectedRoutes/Protected";
 import { ProtectedCheckChildren } from "../components/ProtectedRoutes/ProtectedCheckChildren";
 import { CardCircuitById } from "../components/CardsById/CardCircuitById/CardCircuitById";
-
-
 
 export const router = createBrowserRouter([
   {
@@ -155,7 +153,7 @@ export const router = createBrowserRouter([
             path: "/fifa/teams/:id",
             element: 
             (<Protected>
-              <Teams/>
+              <CardTeamById/>
             </Protected>),
           },
       {
