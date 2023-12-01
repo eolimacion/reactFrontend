@@ -26,7 +26,7 @@ import {
   Weight,
 } from "../pages/index";
 import App from "../App";
-import { CardPowerById, FavoritesNav, Finder } from "../components";
+import { CardFifaById, CardPowerById, FavoritesNav, Finder } from "../components";
 import { Protected } from "../components/ProtectedRoutes/Protected";
 import { ProtectedCheckChildren } from "../components/ProtectedRoutes/ProtectedCheckChildren";
 
@@ -140,7 +140,7 @@ export const router = createBrowserRouter([
             path: "/fifa/players/:id",
             element: 
             (<Protected>
-              <Players/>
+              <CardFifaById/>
             </Protected>),
           },
           {

@@ -13,6 +13,15 @@ const APIGeneral = extraConfig();
       .catch((error) => error);
   };
 
+  //!----------------------> GET BY ID PLAYER
+
+  export const getByID = async (id) => {
+    console.log(id)
+    return APIGeneral.get(`/players/${id}`)
+      .then((res) => res)
+      .catch((error) => error);
+  };
+
  //!!----------------------> Get By Name
   export const getNamePlayers = async (playerName) => {
     console.log("entro al service de getNamePlayers")
