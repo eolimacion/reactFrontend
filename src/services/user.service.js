@@ -191,3 +191,13 @@ export const addFavRiders = async (idRider) => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+
+export const addFavCircuits = async (idCircuit) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.patch(`/users/toggleCircuit/${idCircuit}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
+
+
