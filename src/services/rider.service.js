@@ -68,7 +68,7 @@ export const buscarRiderAscendente = async (stat) => {
 //! ------------------------------------FILTRAR DESCENDENTE----------------------
 
 export const buscarRiderDescendente = async (stat) => {
-    return APIGeneral.get(`rider/descendcending/riders/${stat}`)
+    return APIGeneral.get(`rider/sortdescending/riders/${stat}`)
        .then((res) => res)
        .catch((error) => error);}
 
@@ -76,6 +76,6 @@ export const buscarRiderDescendente = async (stat) => {
        //! ------------------------------------FILTER----------------------
 
 export const fitrarRider = async (filter,gt,lt) => {
-    return APIGeneral.get(`rider/filter/riders/${filter,gt,lt}`)
+    return APIGeneral.get(`rider/filter/riders/${filter}/${gt}/${lt}`)
        .then((res) => res)
        .catch((error) => error);}
