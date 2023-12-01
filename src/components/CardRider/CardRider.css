@@ -1,19 +1,19 @@
-.singleItemCardCircuit{
+.singleItemCardRider{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 20vw;
+  width: 100%
   /* margin: 0 0.5rem 0 0.5rem ; */
 }
-.singleItemImgCircuit{
-  width: 100%;
+.singleItemImgRider{
+  width: 150%;
   object-fit: cover;
-  border: 1.5px solid black;
   border-radius: 50%;
 }
 
-.singleItemNameCircuit{
+.singleItemNameRider{
+  display: flex;
   margin-top: 5px;
   font-size: 15px;
   height: 40px;

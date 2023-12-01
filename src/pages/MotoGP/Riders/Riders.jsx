@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Riders.css';
-import { CardInTheGallery, Finder, FormRiders, GaleriaReducida } from '../../../components';
+import { CardInTheGallery, CardRider, Finder, FormRiders, GaleriaReducida } from '../../../components';
 import { buscarAllRider } from '../../../services/rider.service';
 import { PodiumContainer } from '../../../components/PodiumContainer/PodiumContainer';
 import { usePaginacion } from '../../../hooks/usePaginacion';
@@ -71,7 +71,7 @@ export const Riders = () => {
             {showForm ? <FormRiders /> : showGallery ? 
             (res && dataPag?.map((rider) => (
               <div className='singleCardPlayer'>
-              <CardInTheGallery image={rider.image} name={rider.name} key={rider._id} id={rider._id} sportPath={sportPath}/>
+              <CardRider image={rider.image} name={rider.name} key={rider._id} id={rider._id} sportPath={sportPath}/>
               </div>
             ))): <PodiumContainer/>}
           </div>
