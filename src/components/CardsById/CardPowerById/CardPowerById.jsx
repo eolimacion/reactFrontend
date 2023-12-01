@@ -118,7 +118,7 @@ console.log('weight', weightCategory[0])
       <div>
         <button id='btnReturn' onClick={() => navigate("/powerlifting/lifters")}>
           <span 
-           className="material-symbols-outlined">
+           className="material-symbols-outlined logoId">
 arrow_back_ios
 </span><p>All Lifters</p>
 </button>

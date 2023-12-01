@@ -75,7 +75,7 @@
   background-color: transparent;
   font-family: 'Baloo 2', sans-serif;
   font-weight: 600;
-  color: white;
+  color: black;
 }
 
 #find-name::placeholder, #min-filter::placeholder, #max-filter::placeholder{

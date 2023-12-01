@@ -1,5 +1,5 @@
 
-.material-symbols-outlined {
+.logoId{
   font-variation-settings:
   'FILL' 0,
   'wght' 600,
@@ -107,7 +107,7 @@ color: rgb(177, 16, 38);
       'opsz' 48
 }
 
-.material-symbols-outlined:hover{
+.logoId:hover{
     width: 100px;
     cursor: pointer;
 }

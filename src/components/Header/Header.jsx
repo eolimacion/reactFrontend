@@ -29,21 +29,20 @@ export const Header = () => {
     }
    
       <header className="main-header">
-        <div className="search-bar">
-          <NavLink to="/">
-            <img src="" className="imagen-vecino"></img>
-          </NavLink>
-          <img src="" className="nombre-vecino"></img>
+      <div className="nav-links">
+          <NavSports/>
+        </div>
           <div id="iniciarayuda">
             {user == null && (
               <NavLink to="/login" className="logate">
-                <span className="material-symbols-outlined">passkey</span>
-                Log In
+               <span class="material-symbols-outlined account">
+account_circle
+</span>
               </NavLink>
             )}
             {user !== null ? (
               <>
-              <div>
+              <div className="logoutDiv">
               <span onClick={() => logout()} className="material-symbols-outlined logout">logout</span>
             Logout
               </div>
@@ -55,15 +54,13 @@ export const Header = () => {
                     src={user.image}
                     alt={user.user}
                   />
-                  Profile
+                
                 </NavLink>
               </>
             ) : null}
           </div>
-        </div>
-        <div className="nav-links">
-          <NavSports/>
-        </div>
+
+
       </header>
     </>
   );
