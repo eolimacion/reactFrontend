@@ -36,7 +36,7 @@ export const buscarAllTeam = async () => {
 //! -------------------------------- BUSCAR NOMBRE ----------------------------------
 
 export const buscarTeamName = async (name) => {
-    return APIGeneral.get(`teams/byName${name}`)
+    return APIGeneral.get(`teams/byName/${name}`)
        .then((res) => res)
        .catch((error) => error);}
  

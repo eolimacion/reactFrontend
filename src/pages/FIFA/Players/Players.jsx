@@ -33,7 +33,7 @@ export const Players = () => {
         {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
       </div>
     )}
-    <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res}/>
+    <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "players"/>
     <section className="mainPage">
       {galleryLoading ? (
         <p>Cargando...</p>

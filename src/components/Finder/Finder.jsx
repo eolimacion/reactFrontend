@@ -4,7 +4,8 @@ import { filterPlayers, getAllPlayers, getNamePlayers, sortAscendingPlayers, sor
 import "./Finder.css"
 import { useErrorFinder } from "../../hooks/useErrorFinder"
 import { FinderMainNav, FinderChildrenNav } from "../index"
-export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
+import { buscarAllTeam, buscarTeamAscendente, buscarTeamDescendente, buscarTeamName, fitrarTeam } from "../../services/team.service"
+export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
   const {user} = useAuth()
 
   //! ---- Estados ----
@@ -33,8 +34,13 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
     if (findNameValue == "" && (filterValue == "" || minValue == 0 || maxValue == 0) && sortValue == "") {
       console.log("entro al condicional GET ALL")
       setSend(true)
-      const resAllPlayers = await getAllPlayers()
-      setRes(resAllPlayers)
+      let resAll
+      if (page == "players") {
+        resAll = await getAllPlayers()
+      } else if (page == "teams") {
+        resAll = await buscarAllTeam()
+      }
+      setRes(resAll)
       setController("getall")
       setSend(false)
     }
@@ -42,10 +48,15 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
     //! ------- CASO 2: Buscador por nombre contiene algo =====> GET BY NAME
     if (findNameValue != "") {
       console.log("entro al condicional GET BY NAME")
+      console.log(findNameValue)
       setSend(true)
-      const resPlayerByName = await getNamePlayers(findNameValue)
-      console.log(resPlayerByName)
-      setRes(resPlayerByName)
+      let resByName
+      if (page == "players") {
+        resByName = await getNamePlayers(findNameValue)
+      } else if (page == "teams") {
+        resByName = await buscarTeamName(findNameValue)
+      }
+      setRes(resByName)
       setController("getbyname")
       setSend(false)
     }
@@ -53,8 +64,13 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
     //! ------- CASO 3: El estado de filter tiene los 3 valores: filtro, min, max ==> FILTER
     if (filterValue !== "" && minValue !== 0 && maxValue !== 0) {
       setSend(true)
-      const resPlayerFilter = await filterPlayers(filterValue, minValue, maxValue)
-      setRes(resPlayerFilter)
+      let resFilter
+      if (page == "players") {
+        resFilter = await filterPlayers(filterValue, minValue, maxValue)
+      } else if (page == "teams") {
+        resFilter = await fitrarTeam(filterValue, minValue, maxValue)
+      }
+      setRes(resFilter)
       setController("filter")
       setSend(false)
     }
@@ -63,14 +79,24 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
     if (sortValue !== "") {
       if (!isAscending) {
         setSend(true)
-        const resPlayerDescending = await sortDescendingPlayers(sortValue)
-        setRes(resPlayerDescending);
+        let resDescending
+        if (page == "players") {
+          resDescending = await sortDescendingPlayers(sortValue)
+        } else if (page == "teams") {
+          resDescending = await buscarTeamDescendente(sortValue)
+        }
+        setRes(resDescending);
         setController("sortdescending")
         setSend(false)
       } else if (isAscending) {
         setSend(true)
-        const resPlayerAscending = await sortAscendingPlayers(sortValue)
-        setRes(resPlayerAscending);
+        let resAscending
+        if (page == "players") {
+          resAscending = await sortAscendingPlayers(sortValue)
+        } else if (page == "teams") {
+          resAscending = await buscarTeamAscendente(sortValue)
+        }
+        setRes(resAscending);
         setController("sortascending")
         setSend(false)
       }
@@ -95,7 +121,7 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res}) => {
       <div id = "float-right-finder">
         <button id = "filter-players" onClick={() => {setMainNav("filter")}}>FILTER</button>
         <button id = "sort-players" onClick={() => {setMainNav("sort")}}>SORT</button>
-        <FinderChildrenNav action={mainNav} setFilterValue={setFilterValue} setMinValue={setMinValue} setMaxValue={setMaxValue} setSortValue={setSortValue} sortValue = {sortValue} setIsAscending = {setIsAscending}/>
+        <FinderChildrenNav action={mainNav} setFilterValue={setFilterValue} setMinValue={setMinValue} setMaxValue={setMaxValue} setSortValue={setSortValue} sortValue = {sortValue} setIsAscending = {setIsAscending} page = {page}/>
         <button type="submit" id = "find-button" onClick={handleSubmit}>Find</button>
       </div>
       <div id = "left-finder">
