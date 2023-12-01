@@ -6,8 +6,7 @@ import {
 import { CardPodiums } from "../CardPodiums/CardPodiums";
 import { useForm } from "react-hook-form";
 import { Paginacion } from "../../utils/paginacion";
-
-
+import { Rating } from "@mui/material";
 
 export const PodiumContainer = () => {
   const [podiumLoading, setPodiumLoading] = useState(false);
@@ -17,8 +16,8 @@ export const PodiumContainer = () => {
   const { register, handleSubmit } = useForm();
   const [res, setRes] = useState(false);
   const [send, setSend] = useState(false);
+  const[valueStar,setValueStar]=useState(0)
 
- 
   //!!Referente a comentarios sobre el podium-----------------------
   const handleComment = (id) => {
     setButtonComment(id);
@@ -27,11 +26,11 @@ export const PodiumContainer = () => {
     // guarda todos lo que manden por register
     // en este caso no hay imagen y nos quedamos con lo que tenemos en el form data
     const customFormData = {
-      ...formData,
+      ...formData,rating:valueStar
     };
 
     setSend(true);
-    setRes(await createPodiumComment(buttonComment,customFormData));
+    setRes(await createPodiumComment(buttonComment, customFormData));
     setSend(false);
     setButtonComment("");
   };
@@ -78,7 +77,7 @@ export const PodiumContainer = () => {
               <div className="podiumCardContainer" key={item._id}>
                 <div className="nombreYComentario">
                   <h3 className="podiumCard">{item?.name}</h3>
-                
+
                   {buttonComment !== "" ? (
                     <div className="allForm">
                       <div className="formMain">
@@ -104,6 +103,13 @@ export const PodiumContainer = () => {
                               {...register("comment", { required: true })}
                             />
                           </div>
+                          <Rating
+                            name="simple-controlled"
+                            value={valueStar}
+                            onChange={(event, newValue) => {
+                             setValueStar(parseInt(event.target.value))
+                            }}
+                          />
 
                           <div className="btnContainer">
                             <button
@@ -147,13 +153,15 @@ export const PodiumContainer = () => {
               </div>
             )
         )}
-        {buttonComment==""&& <Paginacion
-        currentPage={currentPage}
-        totalPages={allPodiums?.data?.length}
-        onNextPage={nextPage}
-        onPrevPage={prevPage}
-      />}
-     
+        
+      {buttonComment == "" && (
+        <Paginacion
+          currentPage={currentPage}
+          totalPages={allPodiums?.data?.length}
+          onNextPage={nextPage}
+          onPrevPage={prevPage}
+        />
+      )}
     </div>
   );
 };
