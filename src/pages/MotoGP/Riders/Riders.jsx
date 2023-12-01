@@ -4,7 +4,6 @@ import { CardInTheGallery, Finder, FormRiders, GaleriaReducida } from '../../../
 import { buscarAllRider } from '../../../services/rider.service';
 import { PodiumContainer } from '../../../components/PodiumContainer/PodiumContainer';
 
-
 export const Riders = () => {
   const [galleryLoading, setGalleryLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -63,12 +62,12 @@ export const Riders = () => {
         ) : (
           <>
             <div className="displayImage">
-            {showForm ? <FormPlayers /> : showGallery && 
+            {showForm ? <FormRiders /> : showGallery ? 
             (res && res?.data?.map((player) => (
               <div className='singleCardPlayer'>
               <CardInTheGallery image={player.image} name={player.name} key={player._id}/>
               </div>
-            )))}
+            ))): <PodiumContainer/>}
           </div>
             <aside className="columnaEnlaces">
               <div className="seccionColumna seccionUno">
