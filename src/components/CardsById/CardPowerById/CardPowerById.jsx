@@ -86,6 +86,7 @@ if (resLifter?.response?.status == 404 || resLifter?.response?.status == 500){
 if(dataLifter){
 
   const isLiked = dataLifter?.likes?.includes(idUser)
+  console.log(dataLifter)
 
   const {
     name,

@@ -70,6 +70,7 @@ export const CardMotoById = () => {
 
   if (dataRider) {
     const isLiked = dataRider?.likes?.includes(idUser)
+    console.log(dataRider)
 
     const {
       name,
@@ -156,10 +157,10 @@ arrow_back_ios
               <span className="material-symbols-outlined"
               id={ isLiked ? "btnLiked" : "btnNotLiked" }
               
-              onClick={() => addToLikes(idLifter)}
+              onClick={() => addToLikes(idRider)}
               >favorite</span>
               </div>
-            
+            {console.log(isLiked)}
           </div>
         </figure>
       </div>
