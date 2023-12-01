@@ -145,12 +145,13 @@ export const PodiumContainer = () => {
               </div>
             )
         )}
-      <Paginacion
+        {buttonComment==""&& <Paginacion
         currentPage={currentPage}
         totalPages={allPodiums?.data?.length}
         onNextPage={nextPage}
         onPrevPage={prevPage}
-      />
+      />}
+     
     </div>
   );
 };
