@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Circuits.css';
-import { CardInTheGallery, Finder, FormCircuits, GaleriaReducida } from '../../../components';
+import { CardCircuit, CardInTheGallery, Finder, FormCircuits, GaleriaReducida } from '../../../components';
 import { buscarAllCircuit } from '../../../services/circuit.service';
 import { usePaginacion } from '../../../hooks/usePaginacion';
 
@@ -58,8 +58,8 @@ export const Circuits = () => {
           <div className="displayImage">
             {showForm ? <FormCircuits /> : showGallery && 
             (res && dataPag?.map((circuit) => (
-              <div className='singleCardPlayer'>
-              <CardInTheGallery image={circuit.image} name={circuit.name} key={circuit._id} id={circuit._id} sportPath={sportPath}/>
+              <div className='singleCardItem'>
+              <CardCircuit image={circuit.image} name={circuit.name} key={circuit._id} id={circuit._id} sportPath={sportPath}/>
               </div>
             )))}
           </div>

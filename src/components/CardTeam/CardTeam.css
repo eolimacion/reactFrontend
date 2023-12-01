@@ -1,18 +1,17 @@
-.singleItemCardPlayer{
+.singleItemCardTeam{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.singleItemImgPlayer{
+.singleItemImgTeam{
   width: 100%;
   object-fit: cover;
-  border: 1px solid black;
   border-radius: 5px
 }
 
-.singleItemNamePlayer{
-  margin: 8px 0 0 0;
+.singleItemNameTeam{
+  margin: 12px 0 0 0;
   font-size: 15px;
   height: 40px;
   text-align: center;

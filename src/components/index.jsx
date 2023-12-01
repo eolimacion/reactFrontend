@@ -26,4 +26,6 @@ export * from "./FinderChildrenNav/FinderChildrenNav"
 export * from "./CardPodiums/CardPodiums"
 export * from "./FilterSelect/FilterSelect"
 export * from "./SortSelect/SortSelect"
+export * from "./CardTeam/CardTeam"
+export * from "./CardCircuit/CardCircuit"
 

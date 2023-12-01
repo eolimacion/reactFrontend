@@ -28,7 +28,7 @@ export const Players = () => {
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
     setShowForm(!showForm);
-    setShowGallery(false)
+    setShowGallery(!showGallery)
   };
 
   return (
@@ -49,7 +49,7 @@ export const Players = () => {
           <div className="displayImage">
             {showForm ? <FormPlayers /> : showGallery && 
             (res && dataPag?.map((player) => (
-              <div className='singleCardPlayer'>
+              <div className='singleCardItem'>
               <CardPlayer image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
               </div>
             )))}
