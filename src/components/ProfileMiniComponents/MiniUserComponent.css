@@ -13,6 +13,22 @@
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.miniUserComponentLink {
+  width: 40%;
+  max-height: 15vh;
+  display: flex;
+  margin: 0.2rem;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(6, 40, 72);
+  border-radius: 20px;
+  color: rgb(173, 197, 218);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
 .miniUserComponent:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);

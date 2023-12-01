@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../context/authContext";
 import "./UserProfileData.css";
 import { getById } from "../../services/user.service";
-import { FollowersComponent } from "./FollowersComponent";
-import { FollowedComponent } from "./FollowingComponent";
+import { FollowedComponent } from "../../components/ProfileInfoSections/FollowingComponent";
+import { CommentsComponent } from "../../components/ProfileInfoSections/CommentsComponent";
+import { FollowersComponent } from "../../components/ProfileInfoSections/FollowersComponent";
 
 export const UserProfileData = () => {
   const { user } = useAuth();
@@ -29,7 +30,7 @@ export const UserProfileData = () => {
       case "followed":
         return <FollowedComponent followed={data?.data?.followed} />;
       case "comments":
-        return <h1>Whoops, under construction!</h1>
+        return <CommentsComponent comments={data?.data?.comments}/>
       default:
         return <div className="info-user"></div>;
     }

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { MiniUserComponent } from "./MiniUserComponent";
+import { MiniCommentComponent } from "../ProfileMiniComponents/MiniCommentComponent";
 
-export const FollowedComponent = ({ followed }) => {
-  const baseItemsPerPage = 6;
+export const CommentsComponent = ({ comments }) => {
+  const baseItemsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
   const [dataPerPage, setDataPerPage] = useState(null);
-  const totalPages = Math.ceil(followed?.length / baseItemsPerPage);
-  const [isReady, setIsReady] = useState(false);
+  const totalPages = comments ? Math.ceil(comments?.length / baseItemsPerPage) : 0;
 
   //al slice le tengo que pasar el punto de partida y el punto de salida,
   //asi que necesito tener el numero de pagina * baseItems para saber el ultimo, y
@@ -25,20 +24,22 @@ export const FollowedComponent = ({ followed }) => {
     //que le indica cuantos elementos por pagina va a pintar (la base)
     let lastItem = baseItemsPerPage * newPage;
     let firstItem = baseItemsPerPage * newPage - baseItemsPerPage;
-    const slicedItems = followed?.slice(firstItem, lastItem);
+    const slicedItems = comments?.slice(firstItem, lastItem);
     setDataPerPage(slicedItems);
   };
 
   useEffect(() => {
     updateDataPerPage(currentPage);
-  }, [currentPage, followed]);
+  }, [currentPage, comments]);
 
-  return (
-    <>
+
+  
+    return (
+      <>
       <div className="topProfileInfo">
-        <h2>followers</h2>
+        <h2>YOUR COMMENTS</h2>
         <div className="forwardBackward">
-          <button
+         <button
             className="profileButton"
             onClick={() => changePagination(currentPage - 1)}
             disabled={currentPage === 1}
@@ -47,23 +48,22 @@ export const FollowedComponent = ({ followed }) => {
           </button>
 
           {/* Forward Button */}
-          <button
-            className="profileButton"
+          <button className="profileButton"
             onClick={() => changePagination(currentPage + 1)}
             disabled={
-              currentPage === totalPages || followed?.length < baseItemsPerPage
+              currentPage === totalPages || comments?.length < baseItemsPerPage
             }
           >
             Forward
           </button>
-        </div>
+          </div>
+         </div>
+         <div className="bottomProfileInfo">
+         {dataPerPage && dataPerPage?.map((item) => (
+          <MiniCommentComponent data={item} key={item._id}/>
+        ))}
+        
       </div>
-      <div className="bottomProfileInfo">
-        {dataPerPage &&
-          dataPerPage?.map((item) => (
-            <MiniUserComponent data={item} key={item._id} />
-          ))}
-      </div>
-    </>
-  );
-};
+      </>
+    )
+  }

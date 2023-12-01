@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { MiniUserComponent } from "./MiniUserComponent";
+import { Link } from "react-router-dom";
+import { MiniUserComponent } from "../ProfileMiniComponents/MiniUserComponent";
 
-export const FollowersComponent = ({ followers }) => {
-  const baseItemsPerPage = 3;
+export const FollowedComponent = ({ followed }) => {
+  const baseItemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
   const [dataPerPage, setDataPerPage] = useState(null);
-  const totalPages = followers ? Math.ceil(followers.length / baseItemsPerPage) : 0;
+  const totalPages = Math.ceil(followed?.length / baseItemsPerPage);
+  const [isReady, setIsReady] = useState(false);
 
   //al slice le tengo que pasar el punto de partida y el punto de salida,
   //asi que necesito tener el numero de pagina * baseItems para saber el ultimo, y
@@ -24,22 +26,20 @@ export const FollowersComponent = ({ followers }) => {
     //que le indica cuantos elementos por pagina va a pintar (la base)
     let lastItem = baseItemsPerPage * newPage;
     let firstItem = baseItemsPerPage * newPage - baseItemsPerPage;
-    const slicedItems = followers?.slice(firstItem, lastItem);
+    const slicedItems = followed?.slice(firstItem, lastItem);
     setDataPerPage(slicedItems);
   };
 
   useEffect(() => {
     updateDataPerPage(currentPage);
-  }, [currentPage, followers]);
+  }, [currentPage, followed]);
 
-
-  
-    return (
-      <>
+  return (
+    <>
       <div className="topProfileInfo">
-        <h2>followers</h2>
+        <h2>FOLLOWING</h2>
         <div className="forwardBackward">
-         <button
+          <button
             className="profileButton"
             onClick={() => changePagination(currentPage - 1)}
             disabled={currentPage === 1}
@@ -48,32 +48,24 @@ export const FollowersComponent = ({ followers }) => {
           </button>
 
           {/* Forward Button */}
-          <button className="profileButton"
+          <button
+            className="profileButton"
             onClick={() => changePagination(currentPage + 1)}
             disabled={
-              currentPage === totalPages || followers.length < baseItemsPerPage
+              currentPage === totalPages || followed?.length < baseItemsPerPage
             }
           >
             Forward
           </button>
-          </div>
-         </div>
-         <div className="bottomProfileInfo">
-         {dataPerPage && dataPerPage?.map((item) => (
-          <MiniUserComponent data={item} key={item._id}/>
-        ))}
-        
-
-        
-        {/* {followers?.map((follower) => (
-        <div key={follower?._id}>
-          <img src={follower?.image} alt={`follower-${follower?.name}`} />
-          <p>{follower?.name}</p>
-          <p>{`${follower?.followers?.length || 0} followers`}</p>
         </div>
-      ))} */}
-      
       </div>
-      </>
-    )
-  }
+      <div className="bottomProfileInfo">
+        {dataPerPage &&
+          dataPerPage?.map((item) =>
+          <MiniUserComponent data={item} key={item._id} />
+          )}
+
+      </div>
+    </>
+  );
+};
