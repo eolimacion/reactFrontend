@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Teams.css'
-import { CardInTheGallery, Finder, FormTeams } from '../../../components'
+import { CardTeam, Finder, FormTeams } from '../../../components'
 import { buscarAllTeam } from '../../../services/team.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 
@@ -65,7 +65,7 @@ export const Teams = () => {
           <div className="displayImage">
             {showForm ? <FormTeams /> : showGallery &&
             res && dataPag.map((team) => (
-              <CardInTheGallery image={team.image} name={team.name} key={team._id} id={team._id} sportPath={sportPath}/>
+              <CardTeam image={team.image} name={team.name} key={team._id} id={team._id} sportPath={sportPath}/>
             ))}
           </div>
           <aside className="columnaEnlaces">
