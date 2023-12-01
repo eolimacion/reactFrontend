@@ -152,55 +152,82 @@ useEffect(() =>{
               {...register("name")}
             />
           </div>
-
-          <div className="container-div form-div gender-div">
-          <label htmlFor="custom-input" className="label-gender">
-            Gender
-            <div className="container-div genders" id="gender-div">
- 
+          <p>Interest</p>
+            <div className="formGroup">
+            <div className="interest">
               <input
-                className="input--gender"
-                  type="radio"
-                  name="gender"
-                  id="hombre"
-                  value="hombre"
-                  
-                  {...register("gender")}
-                />
-                <label htmlFor="hombre" className="label-radio hombre" id='genderid'> 
-                  {''}Man{''}
-                </label>
+                type="radio"
+                name="interest"
+                id="futbol"
+                value="fifa"
+                {...register("interestedIn", {required: true})}
+              />
+              <label htmlFor="futbol" className="labelRadio">
+                FIFA
+              </label>
 
-               <input
-                className="input--gender"
-                  type="radio"
-                  name="gender"
-                  id="mujer"
-                  value="mujer"
-                  {...register("gender")}
-                />
-                <label htmlFor="mujer" className="label-radio mujer" id='genderid'>
-                {''} Woman{''}
-                </label>
-
-                 <input
-                className="input--gender"
-                  type="radio"
-                  name="gender"
-                  id="otros"
-                  value="otros"
-                  {...register("gender")}
-                />
-                <label
-                  htmlFor="otro"
-                  className="label-radio otros"
-                  id='genderid'
-                >Nonbinary
-                </label>
+              <input
+                type="radio"
+                name="interest"
+                id="motogp"
+                value="motogp"
+                {...register("interestedIn", {required: true})}
+              />
+              <label htmlFor="motogp" className="labelRadio ">
+                Moto GP
+              </label>
+              <input
+                type="radio"
+                name="interest"
+                id="powerlifting"
+                value="powerlifting"
+                {...register("interestedIn", {required: true})}
+              />
+              <label htmlFor="powerlifting" className="labelRadio ">Powerlifting
+              </label>
             </div>
-            </label>
+            </div>
+
+            <p>Gender</p>
+           <div className="formGroup">
+           <div className="gender">
+           
+              <input
+                type="radio"
+                name="gender"
+                id="male"
+                value="hombre"
+                {...register("gender", {required: true})}
+              />
+              <label htmlFor="male" className="labelRadio male">
+                Male
+              </label>
+
+              <input
+                type="radio"
+                name="gender"
+                id="female"
+                value="mujer"
+                {...register("gender", {required: true})}
+              />
+              <label htmlFor="female" className="labelRadio female">
+                Female
+              </label>
+
+              <input
+                type="radio"
+                name="gender"
+                id="otros"
+                value="otros"
+                {...register("gender", {required: true})}
+              />
+              <label htmlFor="otros" className="labelRadio otros">
+                Otros
+              </label>
+            </div>
+           </div>
+
             
-        </div>
           <UploadFile />
           <div className="btn-div container-div">
             <button
@@ -218,68 +245,6 @@ useEffect(() =>{
     </div>
 
     
-        {/* <div className='form-login form'>
-        <div className="form-wrap">
-        <h3>Change your password</h3>
-        <form onSubmit={handleSubmit(changePasswordFormSubmit)}>
-          <div className="container-div form-div">
-          <label htmlFor="custom-input" className="custom-placeholder">
-              Current password
-            </label>
-            <input
-              className="input_user"
-              type="password"
-              id="password"
-              name="password"
-              autoComplete="false"
-              {...register("password", { required: true })}
-            />
-          </div>
-          <div className="container-div form-div">
-          <label htmlFor="custom-input" className="custom-placeholder">
-              New password
-            </label>
-            <input
-              className="input_user"
-              type="password"
-              id="newPassword"
-              name="newPassword"
-              autoComplete="false"
-              {...register("newPassword", { required: true })}
-            />
-          </div>
-          <div className="container-div form-div">
-          <label htmlFor="custom-input" className="custom-placeholder">
-              Confirm new password
-            </label>
-            <input
-              className="input_user"
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              autoComplete="false"
-              {...register("confirmPassword", { required: true })}
-            />
-
-          </div>
-          <div className="btn_container">
-            <button
-              className="btn"
-              type="submit"
-              disabled={sendPassword}
-              style={{ background: sendPassword ? "#bf3a62" : "#EE5684" }}
-            >
-              Change Password
-            </button>
-          </div>
-        </form>
-      </div>
-
-      </div>
-        <button className='btn btn-delete' onClick={()=> useDeleteUser(setUser, setIsDeletedUser)}>
-        Delete account
-      </button> */}
-      {/* </div> */}
   </>
   )
 }

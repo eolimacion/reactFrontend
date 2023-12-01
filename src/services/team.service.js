@@ -68,7 +68,7 @@ export const buscarTeamAscendente = async (stat) => {
 //! ------------------------------------FILTRAR DESCENDENTE----------------------
 
 export const buscarTeamDescendente = async (stat) => {
-    return APIGeneral.get(`teams/descendcending/teams/${stat}`)
+    return APIGeneral.get(`teams/sortdescending/teams/${stat}`)
        .then((res) => res)
        .catch((error) => error);}
 
@@ -76,7 +76,7 @@ export const buscarTeamDescendente = async (stat) => {
        //! ------------------------------------FILTER----------------------
 
 export const fitrarTeam = async (filter,gt,lt) => {
-    return APIGeneral.get(`teams/filter/teams/${filter,gt,lt}`)
+    return APIGeneral.get(`teams/filter/teams/${filter}/${gt}/${lt}`)
        .then((res) => res)
        .catch((error) => error);}
        //! ------------------------------------AVERAGE----------------------

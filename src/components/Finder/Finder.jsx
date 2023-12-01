@@ -5,6 +5,8 @@ import "./Finder.css"
 import { useErrorFinder } from "../../hooks/useErrorFinder"
 import { FinderMainNav, FinderChildrenNav } from "../index"
 import { buscarAllTeam, buscarTeamAscendente, buscarTeamDescendente, buscarTeamName, fitrarTeam } from "../../services/team.service"
+import { buscarAllRider, buscarRiderAscendente, buscarRiderDescendente, buscarRiderName, fitrarRider } from "../../services/rider.service"
+import { buscarAllCircuit, buscarCircuitAscendente, buscarCircuitDescendente, buscarCircuitName, fitrarCircuit } from "../../services/circuit.service"
 export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
   const {user} = useAuth()
 
@@ -30,6 +32,7 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
     console.log("sort value", sortValue)
     console.log("metodo", isAscending)
     console.log("name value", findNameValue)
+
     //! ------- CASO 1: Todos los inputs vacíos =====> GET ALL PLAYERS
     if (findNameValue == "" && (filterValue == "" || minValue == 0 || maxValue == 0) && sortValue == "") {
       console.log("entro al condicional GET ALL")
@@ -39,7 +42,12 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
         resAll = await getAllPlayers()
       } else if (page == "teams") {
         resAll = await buscarAllTeam()
+      } else if (page == "riders")  {
+        resAll = await buscarAllRider()
+      } else if (page == "circuits") {
+        resAll = await buscarAllCircuit()
       }
+
       setRes(resAll)
       setController("getall")
       setSend(false)
@@ -55,6 +63,10 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
         resByName = await getNamePlayers(findNameValue)
       } else if (page == "teams") {
         resByName = await buscarTeamName(findNameValue)
+      } else if (page == "riders")  {
+        resByName = await buscarRiderName(findNameValue)
+      } else if (page == "circuits") {
+        resByName = await buscarCircuitName(findNameValue)
       }
       setRes(resByName)
       setController("getbyname")
@@ -69,6 +81,10 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
         resFilter = await filterPlayers(filterValue, minValue, maxValue)
       } else if (page == "teams") {
         resFilter = await fitrarTeam(filterValue, minValue, maxValue)
+      } else if (page == "riders")  {
+        resFilter = await fitrarRider(filterValue, minValue, maxValue)
+      } else if (page == "circuits") {
+        resFilter = await fitrarCircuit(filterValue, minValue, maxValue)
       }
       setRes(resFilter)
       setController("filter")
@@ -84,6 +100,10 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
           resDescending = await sortDescendingPlayers(sortValue)
         } else if (page == "teams") {
           resDescending = await buscarTeamDescendente(sortValue)
+        } else if (page == "riders")  {
+          resDescending = await buscarRiderDescendente(sortValue)
+        } else if (page == "circuits") {
+          resDescending = await buscarCircuitDescendente(sortValue)
         }
         setRes(resDescending);
         setController("sortdescending")
@@ -95,6 +115,10 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
           resAscending = await sortAscendingPlayers(sortValue)
         } else if (page == "teams") {
           resAscending = await buscarTeamAscendente(sortValue)
+        } else if (page == "riders")  {
+          resAscending = await buscarRiderAscendente(sortValue)
+        } else if (page == "circuits") {
+          resAscending = await buscarCircuitAscendente(sortValue)
         }
         setRes(resAscending);
         setController("sortascending")

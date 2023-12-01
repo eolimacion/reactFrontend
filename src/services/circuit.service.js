@@ -68,7 +68,7 @@ export const buscarCircuitAscendente = async (stat) => {
 //! ------------------------------------FILTRAR DESCENDENTE----------------------
 
 export const buscarCircuitDescendente = async (stat) => {
-    return APIGeneral.get(`circuit/descendcending/circuits/${stat}`)
+    return APIGeneral.get(`circuit/sortdescending/circuits/${stat}`)
        .then((res) => res)
        .catch((error) => error);}
 
@@ -76,7 +76,7 @@ export const buscarCircuitDescendente = async (stat) => {
        //! ------------------------------------FILTER----------------------
 
 export const fitrarCircuit = async (filter,gt,lt) => {
-    return APIGeneral.get(`circuit/filter/circuits/${filter,gt,lt}`)
+    return APIGeneral.get(`circuit/filter/circuits/${filter}/${gt}/${lt}`)
        .then((res) => res)
        .catch((error) => error);}
        //! ------------------------------------AVERAGE----------------------

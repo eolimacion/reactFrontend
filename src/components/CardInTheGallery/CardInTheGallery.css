@@ -7,10 +7,18 @@
 
 }
 
+<<<<<<< HEAD
 .singleItemImg{ width: 30vw;
  max-height: 200px;
 max-width: 400px;
+=======
+.singleItemImg{ 
+    width: 150px;
+height: 200px;
+ object-fit: cover;
+>>>>>>> 2a552ca303ca63e017d40cfae4bb239033adc2a9
  border-radius: 10px;
+ margin: 1rem ;
   
 
 }

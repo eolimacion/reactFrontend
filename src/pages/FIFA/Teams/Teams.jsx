@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Teams.css'
-import { CardInTheGallery, FormTeams } from '../../../components'
+import { CardInTheGallery, Finder, FormTeams } from '../../../components'
 import { buscarAllTeam } from '../../../services/team.service'
 
 
@@ -10,28 +10,16 @@ export const Teams = () => {
   const [mainLoading, setMainLoading] = useState(false);
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
-  const [allTeams, setAllTeams] = useState([]);
-
-  const getAllTeams = async () => {
-    const teamsData = await buscarAllTeam();
-    setAllTeams(teamsData || []);
-    setGalleryLoading(false);
-  }
+  const [res, setRes] = useState(null)
 
   useEffect(() => {
-    getAllTeams();
-    console.log(allTeams)
-  }, [])
+    console.log(res)
+  }, [res])
 
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
     setShowForm(!showForm);
     setShowGallery(false)
-  };
-
-  const handleGalleryButtonClick = () => {
-    setShowGallery(true)
-    setShowForm(false)
   };
 
   return (
@@ -43,9 +31,7 @@ export const Teams = () => {
         {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
       </div>
     )}
-    <div className="buscadorMario">
-      <button onClick={handleGalleryButtonClick}>Mostrar Galería</button>
-    </div>
+    <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "teams"/>
     <section className="mainPage">
       {galleryLoading ? (
         <p>Cargando...</p>
@@ -53,7 +39,7 @@ export const Teams = () => {
         <>
           <div className="displayImage">
             {showForm ? <FormTeams /> : showGallery &&
-            allTeams?.data?.map((team) => (
+            res && res?.data?.map((team) => (
               <CardInTheGallery image={team.image} name={team.name} key={team._id}/>
             ))}
           </div>

@@ -175,3 +175,10 @@ export const deleteUser = async (formData) => {
     .then((res) => res)
     .catch((error) => error);
   }
+
+  export const addFavPlayers = async(idPlayer) =>{
+    const APIGeneral = extraConfig();
+    return APIGeneral.patch(`/users/togglePlayer/${idPlayer}`)
+    .then((res) => res)
+    .catch((error) => error);
+  }
