@@ -1,6 +1,6 @@
-import { updateToken } from "../utils/updateToken";
+
 import { extraConfig } from "./serviceApiGeneral.config";
-const APIGeneral = extraConfig();
+
 
 
 //??-------------------------------------RUTAS CIRCUITS------------------------------------------------
@@ -10,6 +10,7 @@ const APIGeneral = extraConfig();
 //! ------------------------CREAR CIRCUIT------------------------------
 
 export const createCircuit = async (formData) => {
+const APIGeneral = extraConfig();
     return APIGeneral.post(`/circuit/`, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     })
@@ -20,6 +21,7 @@ export const createCircuit = async (formData) => {
 //! ------------------------------- BUSCAR CIRCUIT id ---------------------------------
 
 export const buscarCircuitId = async (id) => {
+const APIGeneral = extraConfig();
    return APIGeneral.get(`/circuit/${id}`)
       .then((res) => res)
       .catch((error) => error);}
@@ -28,6 +30,7 @@ export const buscarCircuitId = async (id) => {
 //!  ------------------------------- BUSCAR TODOS -------------------------------
 
 export const buscarAllCircuit = async () => {
+const APIGeneral = extraConfig();
    return APIGeneral.get(`/circuit/`)
       .then((res) => res)
       .catch((error) => error);}
@@ -36,6 +39,7 @@ export const buscarAllCircuit = async () => {
 //! -------------------------------- BUSCAR NOMBRE ----------------------------------
 
 export const buscarCircuitName = async (name) => {
+const APIGeneral = extraConfig();
     return APIGeneral.get(`circuit/byName/${name}`)
        .then((res) => res)
        .catch((error) => error);}
@@ -44,6 +48,7 @@ export const buscarCircuitName = async (name) => {
 //! -------------------------------- ACTUALIZAR CIRCUIT -------------------------------------
 
 export const actualizarCircuit = async (id) => {
+const APIGeneral = extraConfig();
     return APIGeneral.patch(`/circuit/${id}`)
        .then((res) => res)
        .catch((error) => error);}
@@ -53,6 +58,7 @@ export const actualizarCircuit = async (id) => {
 //! ------------------------------------ BORRAR CIRCUIT-------------
 
 export const borrarCircuit = async (id) => {
+const APIGeneral = extraConfig();
   return APIGeneral.delete(`/circuit/${id}`, formData)
     .then((res) => res)
     .catch((error) => error);
@@ -60,6 +66,7 @@ export const borrarCircuit = async (id) => {
 
 //! ------------------------------------FILTRAR ASCENDENTE----------------------
 export const buscarCircuitAscendente = async (stat) => {
+const APIGeneral = extraConfig();
     return APIGeneral.get(`circuit/sortascending/circuits/${stat}`)
        .then((res) => res)
        .catch((error) => error);}
@@ -68,6 +75,7 @@ export const buscarCircuitAscendente = async (stat) => {
 //! ------------------------------------FILTRAR DESCENDENTE----------------------
 
 export const buscarCircuitDescendente = async (stat) => {
+const APIGeneral = extraConfig();
     return APIGeneral.get(`circuit/sortdescending/circuits/${stat}`)
        .then((res) => res)
        .catch((error) => error);}
@@ -76,12 +84,14 @@ export const buscarCircuitDescendente = async (stat) => {
        //! ------------------------------------FILTER----------------------
 
 export const fitrarCircuit = async (filter,gt,lt) => {
+const APIGeneral = extraConfig();
     return APIGeneral.get(`circuit/filter/circuits/${filter}/${gt}/${lt}`)
        .then((res) => res)
        .catch((error) => error);}
        //! ------------------------------------AVERAGE----------------------
 
 export const averageCircuit = async (stat) => {
+const APIGeneral = extraConfig();
     return APIGeneral.get(`circuit/average${stat}`)
        .then((res) => res)
        .catch((error) => error);}

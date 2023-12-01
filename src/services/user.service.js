@@ -1,72 +1,69 @@
-import { updateToken } from "../utils/updateToken"
+import { updateToken } from "../utils/updateToken";
 import { extraConfig } from "./serviceApiGeneral.config";
 
 //*---------------------favoritos----------------------------
-    //! -------------------> Get Fav Players [User]
-    export const getById = async (userId) => {
-      const APIGeneral = extraConfig();
+//! -------------------> Get Fav Players [User]
+export const getById = async (userId) => {
+  const APIGeneral = extraConfig();
 
-      return APIGeneral.get(`/users/${userId}`)
-        .then((res) => res)
-        .catch((error) => error);
-    };
-    //! -------------------> Get Fav Players [User]
-    export const getUsersFavPlayers = async (userId) => {
-      const APIGeneral = extraConfig();
+  return APIGeneral.get(`/users/${userId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
+//! -------------------> Get Fav Players [User]
+export const getUsersFavPlayers = async (userId) => {
+  const APIGeneral = extraConfig();
 
-      return APIGeneral.get(`/users/favPlayers/${userId}`)
-        .then((res) => res)
-        .catch((error) => error);
-    };
+  return APIGeneral.get(`/users/favPlayers/${userId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
 
-      //! -------------------> Get Fav Teams [User]
-      export const getUsersFavTeams = async (userId) => {
-        const APIGeneral = extraConfig();
-        return APIGeneral.get(`/users/favTeams/${userId}`)
-          .then((res) => res)
-          .catch((error) => error);
-      };
+//! -------------------> Get Fav Teams [User]
+export const getUsersFavTeams = async (userId) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/users/favTeams/${userId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
 
-      //! -------------------> Get Fav Elevens [User]
-      export const getUsersFavElevens = async (userId) => {
-        const APIGeneral = extraConfig();
-        return APIGeneral.get(`/users/favElevens/${userId}`)
-          .then((res) => res)
-          .catch((error) => error);
-      };
+//! -------------------> Get Fav Elevens [User]
+export const getUsersFavElevens = async (userId) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/users/favElevens/${userId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
 
-    //! -------------------> Get Fav Riders [User]
-    export const getUsersFavRiders = async (userId) => {
-      const APIGeneral = extraConfig();
-      return APIGeneral.get(`/users/favRiders/${userId}`)
-        .then((res) => res)
-        .catch((error) => error);
-    };
+//! -------------------> Get Fav Riders [User]
+export const getUsersFavRiders = async (userId) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/users/favRiders/${userId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
 
-    //! -------------------> Get Fav Lifters [User]
-    export const getUsersFavLifters = async (userId) => {
-      const APIGeneral = extraConfig();
-      return APIGeneral.get(`/users/favLifters/${userId}`)
-        .then((res) => res)
-        .catch((error) => error);
-    };
+//! -------------------> Get Fav Lifters [User]
+export const getUsersFavLifters = async (userId) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/users/favLifters/${userId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
 
-      //! -------------------> Get User Eleven [User]
-      export const getUsersEleven = async (elevenId) => {
-    
-        console.log("estoy en service eleven")
-        return APIuser.get(`/eleven/${elevenId}`, {
-          headers: {
-            Authorization: `Bearer ${updateToken()}`,
-          },
-        })
-          .then((res) => res)
-          .catch((error) => error);
-      };
+//! -------------------> Get User Eleven [User]
+export const getUsersEleven = async (elevenId) => {
+  const APIGeneral = extraConfig();
+
+  console.log("estoy en service eleven");
+  return APIGeneral.get(`/eleven/${elevenId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
 
 //*--------------------- user ----------------------------
 
- //! ------------------------- REGISTER ----------------------------------
+//! ------------------------- REGISTER ----------------------------------
 
 export const registerUser = async (formData) => {
   const APIGeneral = extraConfig();
@@ -130,7 +127,7 @@ export const forgotPasswordNoAuth = async (formData) => {
 
 export const changePasswordAuth = async (formData) => {
   const APIGeneral = extraConfig();
-  return APIGeneral.patch('/users/changepassword', formData)
+  return APIGeneral.patch("/users/changepassword", formData)
     .then((res) => res)
     .catch((error) => error);
 };
@@ -156,36 +153,33 @@ export const deleteUser = async (formData) => {
 };
 
 //* GET USER ------------------------------
-  //! -------------------> Get User By Name
-  export const getUserByName = async (userName) => {
-    return APIuser.get(`/users/byName/${userName}`)
-      .then((res) => res)
-      .catch((error) => error);
-  };
-
-
-
-  //!-------- ADD FAVS ---------------
-
-
-
-  export const addFavLifter = async(idLifter) =>{
-    const APIGeneral = extraConfig();
-    return APIGeneral.patch(`/users/lifter/toggleLifter/${idLifter}`)
+//! -------------------> Get User By Name
+export const getUserByName = async (userName) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/users/byName/${userName}`)
     .then((res) => res)
     .catch((error) => error);
-  }
+};
 
-  export const addFavPlayers = async(idPlayer) =>{
-    const APIGeneral = extraConfig();
-    return APIGeneral.patch(`/users/togglePlayer/${idPlayer}`)
+//!-------- ADD FAVS ---------------
+
+export const addFavLifter = async (idLifter) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.patch(`/users/lifter/toggleLifter/${idLifter}`)
     .then((res) => res)
     .catch((error) => error);
-  }
+};
 
-  export const addFavRiders = async(idRider) =>{
-    const APIGeneral = extraConfig();
-    return APIGeneral.patch(`/users/toggleRider/${idRider}`)
+export const addFavPlayers = async (idPlayer) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.patch(`/users/togglePlayer/${idPlayer}`)
     .then((res) => res)
     .catch((error) => error);
-  }
+};
+
+export const addFavRiders = async (idRider) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.patch(`/users/toggleRider/${idRider}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
