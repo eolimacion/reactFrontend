@@ -3,7 +3,7 @@ import { CardInTheGallery } from "../CardInTheGallery/CardInTheGallery";
 import"./GaleriaReducida.css"
 
 export const GaleriaReducida = ({ galeriaItems }) => {
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
 
@@ -14,6 +14,7 @@ export const GaleriaReducida = ({ galeriaItems }) => {
   // Calcular el número total de páginas
   const totalPages = Math.ceil((galeriaItems?.length || 0) / itemsPerPage);
   const nextPage = () => {
+    
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
@@ -27,6 +28,14 @@ export const GaleriaReducida = ({ galeriaItems }) => {
 
   return (
     <>
+<div className="noSe">
+    {currentItems?.map((item) => (
+      
+        <CardInTheGallery image={item?.image} name={item?.name} key={item?._id}/>
+      
+    ))}
+    </div>
+    <div className="botones">
     <button
       className={`previewButton ${currentPage === 1 ? 'disabled' : ''}`}
       onClick={prevPage}
@@ -34,11 +43,6 @@ export const GaleriaReducida = ({ galeriaItems }) => {
     >
       A
     </button>
-    {currentItems?.map((item) => (
-      <figure key={item.id} className="gallery-item slide-in">
-        <CardInTheGallery image={item?.image} />
-      </figure>
-    ))}
     <button
       className={`previewButton ${currentPage === totalPages ? 'disabled' : ''}`}
       onClick={nextPage}
@@ -46,6 +50,8 @@ export const GaleriaReducida = ({ galeriaItems }) => {
     >
       S
     </button>
+    </div>
+        
   </>
   );
 };

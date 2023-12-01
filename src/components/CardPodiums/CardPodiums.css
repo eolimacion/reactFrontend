@@ -1,14 +1,42 @@
-
-.podiumAbel {
+.podiumCardContainer {
     display: flex;
-  }
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   max-width: 350px;
+gap: 50px;
+ width: 70vw;
+ 
   
-  .podiumCardContainer {
-    display: flex;
-    flex-direction: column;
   }
   
   .singleItemImgPodium{
-    width: 200px;
-    height: 200px;
+    width: 18vw;
+   max-height: 200px;
+  
+   max-width: 300px;
+   
+  }
+  .podiumCard{
+    /* Esto solo gestiona el nombre */
+    display: flex;
+    padding: 20px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+  }
+  .podiumCartas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .singleItemNamePodium{
+    min-height: 58px;
+  }
+
+  .nombreYComentario{
+    display: flex;
+    justify-content: space-between;
   }

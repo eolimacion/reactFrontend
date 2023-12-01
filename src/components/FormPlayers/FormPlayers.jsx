@@ -162,7 +162,7 @@ export const FormPlayers = () => {
             />
           </div>
 
-          <div className="sexo">
+          <div className="preferredfoot">
             <label htmlFor="preferredfoot" className="customPlaceholder">
               PreferredFoot
             </label>
@@ -173,7 +173,7 @@ export const FormPlayers = () => {
                 value="left"
                 {...register("preferredfoot")}
               />
-              <label htmlFor="left" className="label-radio hombre">
+              <label htmlFor="left" className="labelRadio ">
                 Left
               </label>
               <input
@@ -183,7 +183,7 @@ export const FormPlayers = () => {
                 value="right"
                 {...register("preferredfoot")}
               />
-              <label htmlFor="right" className="label-radio mujer">
+              <label htmlFor="right" className="labelRadio ">
                 Right
               </label>
             </div>

@@ -1,48 +1,87 @@
-.galeriaPreview{
-    background-color: rgba(0, 0, 255, 0.171);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 50vw;
-    max-height: 100px;
-    min-height: 50px;
- 
+.galeriaPreview {
+  background-color: rgba(17, 17, 221, 0.486);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50vw;
+  max-height: 100px;
+  min-height: 70px;
 }
-.previewButton{
-    width: 5%;
-    height: 20%;
-    padding: 10px;
-    text-align: center;
-    background-color: yellow;
-
+.previewButton {
+  width: 5%;
+  height: 20%;
+  padding: 10px;
+  text-align: center;
+  background-color: yellow;
+}
+.botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-figure section .singleItemImg{
-  max-height: 75px;
+.noSe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.galeriaPreview .singleItemImg {
+  width: 30vw;
+  max-height: 100px;
+  max-width: 100px;
+}
+.galeriaPreview .noSe {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  gap: 10px;
+  width: 48vw;
+}
+
+
+.galeriaPreview .singleItemName {
+  display: none;
+}
+
+.galeriaPreview .singleItemCard {
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
+  from {
+    transform: translateX(100%);
   }
-  
-  @keyframes slideOut {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+  to {
+    transform: translateX(0);
   }
-  
-  .slide-in {
-    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
   }
-  
-  .slide-out {
-    animation: slideOut 0.5s ease-in-out;
+  to {
+    transform: translateX(-100%);
   }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.slide-out {
+  animation: slideOut 0.5s ease-in-out;
+}
+@media only screen and (max-width: 600px) {
+  .galeriaPreview .noSe {
+   
+    width: 75vw;
+  }
+}

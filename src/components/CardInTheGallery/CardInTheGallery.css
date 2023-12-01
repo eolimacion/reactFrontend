@@ -1,16 +1,54 @@
 
 .singleItemName{
-    width: 100%;
-    height: 100%;
+    width: 10vw;
+    max-height: 90px;
+    border-radius: 10px;
+  
+
 }
 
-.singleItemImg{ width: 100%;
-    height: 100%;
-    object-fit: cover;
+.singleItemImg{ width: 30vw;
+ max-height: 200px;
+
+ border-radius: 10px;
+  
 
 }
 
 .singleItemCard{
-    width: 100%;
-    height: 100%;
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+    .singleItemCard{
+        width: 28vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    
+       
+    }
+    .singleItemCard{
+        width: 35vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    
+        overflow: hidden;
+    }
+    .singleItemName{
+        width: 30vw;
+        
+      
+    
+    }
 }

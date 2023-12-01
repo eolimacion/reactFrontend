@@ -29,10 +29,15 @@
 }
 
 .displayImage {
-    width: 55vw;
-    height: 65vh;
+    width: 75vw;
+    min-height: 60vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+padding: 10px;
+    align-items: center;
     background-color: grey;
-    overflow: scroll;
+
   
 }
 
@@ -55,20 +60,21 @@
 }
 
 .seccionUno {
-   background-color: red;
+   background-color: rgb(247, 156, 156);
 }
 
 .seccionDos {
-   background-color: blue;
+   background-color: rgb(164, 164, 238);
 }
 
 .seccionTres {
-  background-color: green;
+  background-color: rgb(167, 236, 167);
 }
 @media only screen and (max-width: 600px) {
     .Allpage {
      padding: 20px;
     }
+ 
 
     .galeriaPreview,
     .buscadorMario {
@@ -76,14 +82,14 @@
     }
 
     .mainPage {
-        width: 100%;
+      
         flex-direction: column;
-        gap: 20px;
+       
     }
 
     .displayImage,
     .columnaEnlaces {
         width: 100%;
-        flex: none;
+       
     }
 }

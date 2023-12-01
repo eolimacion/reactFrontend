@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Circuits.css';
-import { CardInTheGallery, FormCircuits } from '../../../components';
+import { CardInTheGallery, FormCircuits, GaleriaReducida } from '../../../components';
 import { buscarAllCircuit } from '../../../services/circuit.service';
 
 
@@ -38,7 +38,7 @@ export const Circuits = () => {
       <p>Cargando la galería...</p>
     ) : (
       <div className="galeriaPreview">
-        {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
+        {showGallery ? <GaleriaReducida galeriaItems={allCircuits?.data} />: 'Galería pequeña'}
       </div>
     )}
     <div className="buscadorMario">
@@ -51,9 +51,7 @@ export const Circuits = () => {
         <>
           <div className="displayImage">
             {showForm ? <FormCircuits /> : showGallery &&
-            allCircuits?.data?.map((circuit) => (
-              <CardInTheGallery image={circuit.image} name={circuit.name} key={circuit._id}/>
-            ))}
+            <GaleriaReducida galeriaItems={allCircuits?.data} />}
           </div>
           <aside className="columnaEnlaces">
             <div className="seccionColumna seccionUno">Uno</div>

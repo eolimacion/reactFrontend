@@ -84,8 +84,15 @@ align-items: center;
  
  
   }
+  .preferredfoot input{
+    display: none;
+   
+  }
+  .preferredfoot {
+    margin:30px ;
+   
+  }
 
-  
   /* Estilo cuando el botón de interés está seleccionado */
   .interest input[type="radio"]:checked + .labelRadio {
     background-color:var(--color-boton);
@@ -125,6 +132,11 @@ align-items: center;
   
   /* Estilo cuando el botón está seleccionado */
   .gender input[type="radio"]:checked + .labelRadio,.interested input[type="radio"]:checked + .labelRadio {
+    background-color:var(--color-boton);
+    color: #fff;
+    border: 1px solid #2f7a67;
+  }
+  .preferredfoot input[type="radio"]:checked + .labelRadio,.interested input[type="radio"]:checked + .labelRadio {
     background-color:var(--color-boton);
     color: #fff;
     border: 1px solid #2f7a67;

@@ -55,7 +55,7 @@ export const Riders = () => {
         <p>Cargando la galería...</p>
       ) : (
         <div className="galeriaPreview">
-          {showGallery && <GaleriaReducida galeriaItems={allRiders?.data} />}
+          <GaleriaReducida galeriaItems={allRiders?.data} />
         </div>
       )}
       <div className="buscadorMario">
@@ -70,13 +70,7 @@ export const Riders = () => {
               {showForm ? (
                 <FormRiders />
               ) : showGallery ? (
-                allRiders?.data?.map((rider) => (
-                  <CardInTheGallery
-                    image={rider.image}
-                    name={rider.name}
-                    key={rider._id}
-                  />
-                ))
+                <GaleriaReducida galeriaItems={allRiders?.data} />
               ) : 
                 showPodium && <PodiumContainer />
               }
