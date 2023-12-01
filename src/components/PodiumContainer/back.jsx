@@ -180,10 +180,10 @@ export const PodiumContainer = () => {
       
       {allComments && 
   allComments?.data?.comments.map((comment,index) => (
-    <div className="comentarioCaja"  key={comment._id}>
+    <div  key={comment._id}>
       <div >
-        <img className="comentarioImagen" src={comment.image} alt="" />
-        <h3 className="comentarioCreador">{comment.creatorName}</h3>
+        <img src={allComments?.data?.owner?.image} alt="" />
+        <h3>{allComments?.data?.owner?.name}</h3>
        <Rating name="read-only" value={comment.rating} readOnly />
       </div>
       <p>{comment.comment}</p>

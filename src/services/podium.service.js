@@ -31,7 +31,13 @@ export const createPodiumComment = async (locationMoto, formData) => {
 
 export const getAllComentsByID = async (id) => {
   const APIGeneral = extraConfig();
-  return APIGeneral.post(`/comment/getbyid/${id}`, formData)
+  return APIGeneral.get(`/comment/getbyid/${id}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
+export const getpodiumByID = async (id) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/podium/${id}`)
     .then((res) => res)
     .catch((error) => error);
 };
