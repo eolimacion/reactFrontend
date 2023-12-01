@@ -30,7 +30,7 @@ export const PodiumContainer = () => {
     };
 
     setSend(true);
-    setRes(await createPodiumComment(customFormData));
+    setRes(await createPodiumComment(buttonComment,customFormData));
     setSend(false);
     setButtonComment("");
   };
@@ -66,7 +66,7 @@ export const PodiumContainer = () => {
   useEffect(() => {
     console.log(res);
     console.log(buttonComment);
-  }, [res]);
+  }, [buttonComment]);
 
   return (
     <div className="podiumAbel">

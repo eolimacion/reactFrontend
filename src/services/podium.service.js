@@ -27,8 +27,8 @@ export const getAllPodiums = async () => {
 
 //!--------------------POST COMMENT ------------------------
 
-export const createPodiumComment = async (locationMoto) => {
-  return APIGeneral.post(`/comment/createpodium/${locationMoto}`,{
+export const createPodiumComment = async (locationMoto,formData) => {
+  return APIGeneral.post(`/comment/createpodium/${locationMoto}`,formData,{
     headers: {
       Authorization: `Bearer ${updateToken()}`,
     },

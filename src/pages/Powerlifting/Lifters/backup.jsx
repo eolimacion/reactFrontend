@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import './Lifters.css'
-import {  CardInTheGallery, FormLifters } from '../../../components'
+import { CardInTheGallery, FormLifters } from '../../../components'
 import { getAllLifters } from '../../../services/lifter.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
-
 
 export const Lifters = () => {
   const [data, setData] = useState(null);
@@ -13,31 +12,27 @@ export const Lifters = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allLifters, setAllLifters] = useState([]);
   const sportPath = `/powerlifting/lifters/`
-  const{galeriaItems,ComponentPaginacion,setGaleriaItems,dataPag}=usePaginacion()
+  const{galeriaItems,ComponentPaginacion,setGaleriaItems}=usePaginacion()
  
   const getLifters = async () => {
   
     const liftersData = await getAllLifters();
-    setAllLifters(liftersData)
     setGalleryLoading(false);
    
   };
   
-//este use effect gestiona los datos de la llamada
+
   useEffect(() => {
     getLifters();
        console.log(allLifters);
   }, []); 
-  //cuando es 200 envia al estado de la paginacion
-  useEffect(() => {if(allLifters?.status==200){
- 
+  useEffect(() => {if(liftersData?.status==200){
+    setAllLifters(liftersData );
     setGaleriaItems(allLifters?.data)
   }
  
   
-  }, [allLifters])
-
- 
+  }, [liftersData])
   
 
   const handleButtonClick = () => {
@@ -50,6 +45,7 @@ export const Lifters = () => {
     setShowGallery(true);
     setShowForm(false);
   };
+
   return (
     <div className="Allpage">
     {galleryLoading ? (
@@ -66,15 +62,8 @@ export const Lifters = () => {
       {galleryLoading ? (
         <p>Cargando...</p>
       ) : (
-        <>  {!showForm && <ComponentPaginacion/>
-      }
-          <div className="displayImage">
-            {showForm ? <FormLifters /> : showGallery &&  dataPag?.map((item)=>(
-  <CardInTheGallery name={item?.name} image={item?.image}b key={item._id}/>
-         ))
-           }
+        <>
           
-          </div>
           <aside className="columnaEnlaces">
             <div className="seccionColumna seccionUno">Uno</div>
             <div className="seccionColumna seccionDos">Dos</div>
@@ -88,18 +77,3 @@ export const Lifters = () => {
   </div>
   );
 }
- 
-// {galleryLoading ? (
-//   <p>Cargando...</p>
-// ) : (
-//   <>
-//   <div className="displayImage">
-//       {showForm ? <FormLifters /> : showGallery &&(
-          
-
-//          <ComponentPaginacion/>
-//       )}
- 
-
-
-//    </div> </>)}
