@@ -112,7 +112,7 @@ arrow_back_ios
       <div className="cardByIdContainer">
       <div className="pageByidPlayer pageByid">
         <figure id="figureidPlayer">
-          <img className='imageById imagePlayer' src={image} alt={name} />
+          <img className='imagePlayer' src={image} alt={name} />
           <h1 className="nameByidPlayer">{name}</h1>
           {team[0] && <h3>Team: {team[0]}</h3>}
           <h3>
