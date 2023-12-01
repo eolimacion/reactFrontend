@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export const usePaginacion = () => {
+export const usePaginacion = (num) => {
   const [galeriaItems, setGaleriaItems] = useState([]);
-  const itemsPerPage = 6;
+  const itemsPerPage = num||6;
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentItems = galeriaItems?.slice(
@@ -57,6 +57,6 @@ arrow_forward
       </>
     ),
     dataPag: currentItems,
-    setGaleriaItems,
+    setGaleriaItems,itemsPerPage
   };
 };

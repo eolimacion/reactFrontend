@@ -75,7 +75,7 @@ export const Riders = () => {
         ) : (
           <> 
           <div className='galleryDiv'>
-          {!showForm && <ComponentPaginacion/>}
+          {showGallery && <ComponentPaginacion/>}
             <div className="displayImage">
             {showForm ? <FormRiders /> : showGallery ? 
             (res && dataPag?.map((rider) => (

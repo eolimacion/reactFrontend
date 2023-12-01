@@ -10,13 +10,26 @@ gap: 50px;
   
   }
   
-  .singleItemImgPodium{
-    width: 18vw;
+  .claseFija{
+    width: 25vw;
    max-height: 200px;
-  
+  border-radius: 10px;
+
    max-width: 300px;
    
   }
+ .primero{
+  background-color: rgba(255, 215, 0, 0.7); /* Color oro con opacidad del 70% */
+}
+
+.segundo{
+  background-color: rgba(192, 192, 192, 0.7); /* Color plata con opacidad del 70% */
+}
+
+.tercero {
+  background-color: rgba(205, 127, 50, 0.7); /* Color bronce con opacidad del 70% */
+}
+
   .podiumCard{
     /* Esto solo gestiona el nombre */
     display: flex;
@@ -24,7 +37,8 @@ gap: 50px;
     border-radius: 20px;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    color: white;
+    background-color: rgb(217, 0, 66);
   }
   .podiumCartas{
     display: flex;
@@ -34,6 +48,7 @@ gap: 50px;
   }
   .singleItemNamePodium{
     min-height: 58px;
+    max-width: 120px;
   }
 
   .nombreYComentario{

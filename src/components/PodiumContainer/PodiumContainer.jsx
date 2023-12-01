@@ -2,20 +2,19 @@ import React, { useEffect, useState } from "react";
 import"./PodiumContainer.css"
 import {
   createPodiumComment,
-  getAllComentsByID,
   getAllPodiums,
   getpodiumByID,
 } from "../../services/podium.service";
 import { CardPodiums } from "../CardPodiums/CardPodiums";
 import { useForm } from "react-hook-form";
-import { Paginacion } from "../../utils/paginacion";
 import { Rating } from "@mui/material";
 import { useErrorRegister } from "../../hooks/useErrorRegister";
+import { usePaginacion } from "../../hooks/usePaginacion";
 
 export const PodiumContainer = () => {
   const [podiumLoading, setPodiumLoading] = useState(false);
   const [allPodiums, setAllPodiums] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+
   const [buttonComment, setButtonComment] = useState("");
   const { register, handleSubmit } = useForm();
   const [res, setRes] = useState(false);
@@ -23,14 +22,14 @@ export const PodiumContainer = () => {
   const [valueStar, setValueStar] = useState(0);
   const [allComments, setAllComments] = useState([]);
   const [registerOk, setRegisterOk] = useState(false);
+  const{galeriaItems,ComponentPaginacion,setGaleriaItems,dataPag}=usePaginacion(1)
 
   //!!Referente a comentarios sobre el podium-----------------------
   const handleComment = (id) => {
     setButtonComment(id);
   };
   const formSubmit = async (formData) => {
-    // guarda todos lo que manden por register
-    // en este caso no hay imagen y nos quedamos con lo que tenemos en el form data
+ 
     const customFormData = {
       ...formData,
       rating: valueStar,
@@ -44,30 +43,27 @@ export const PodiumContainer = () => {
 
   //!!-------------------------------------------------------------------------
   //!!----------Traer y pintar el podium--------------------------------------------
-  const getPodiums = async () => {
-    setPodiumLoading(true);
-    const podiumData = await getAllPodiums();
-    setAllPodiums(podiumData);
-
+  const getPodium = async () => {
+  
+    const podiumsData = await getAllPodiums();
+    setAllPodiums(podiumsData)
     setPodiumLoading(false);
+   
   };
+  
+//este use effect gestiona los datos de la llamada
   useEffect(() => {
-    getPodiums();
-  }, []);
-
-  //!!-------------------------------------------------------------------------
-  //!!--------------------PAginacion-------------------------------------
-  const nextPage = () => {
-    if (currentPage < allPodiums?.data?.length) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+    getPodium();
+       console.log(res);
+  }, []); 
+  //cuando es 200 envia al estado de la paginacion
+  useEffect(() => {if(allPodiums?.status==200){
+ 
+    setGaleriaItems(allPodiums?.data)
+  }
+ 
+  
+  }, [allPodiums])
   //!!---------------------------------------
 
   const getAllComments = async (buttonComment) => {
@@ -79,10 +75,13 @@ export const PodiumContainer = () => {
   useEffect(() => {
     if (buttonComment) {
       getAllComments(buttonComment);
+      console.log(res)
+      console.log(buttonComment) 
     }
   }, [buttonComment,res]);
 
   useEffect(() => {
+  
     useErrorRegister(res, setRegisterOk, setRes);
     
   }, [res]);
@@ -92,27 +91,28 @@ export const PodiumContainer = () => {
   return (
     <div className="podiumAbel">
       {allPodiums &&
-        allPodiums?.data?.map(
-          (item, index) =>
-            index + 1 === currentPage && (
+      dataPag?.map(
+          (item) =>
+            (
               <div className="podiumCardContainer" key={item._id}>
                 <div className="nombreYComentario">
                   <h3 className="podiumCard">{item?.name}</h3>
                 </div>
 
                 <div className="podiumCartas">
+                
                   <CardPodiums
-                    className="primerPuesto"
+                     positionClass="segundo"
+                    name={item?.secondPlace?.name}
+                    image={item?.secondPlace?.image}
+                  />
+                    <CardPodiums
+                     positionClass="primero"
                     name={item?.firstPlace?.name}
                     image={item?.firstPlace?.image}
                   />
                   <CardPodiums
-                    className="segundoPuesto"
-                    name={item?.secondPlace?.name}
-                    image={item?.secondPlace?.image}
-                  />
-                  <CardPodiums
-                    className="tercerPuesto"
+                    positionClass="tercero"
                     name={item?.thirdPlace?.name}
                     image={item?.thirdPlace?.image}
                   />
@@ -163,12 +163,12 @@ export const PodiumContainer = () => {
                           </button>
                         </div>
                       </form>
-                      { buttonComment !== ""&&<button onClick={() => handleComment("")}>Volver</button>}
+                      { buttonComment !== ""&&<button   className="btn" onClick={() => handleComment("")}>Volver</button>}
                      
                     </div>
                   </div>
                 ) : (
-                  <button onClick={() => handleComment(item._id)}>
+                  <button    className="btn" onClick={() => handleComment(item._id)}>
                     Comments
                   </button>
                 )}
@@ -176,14 +176,8 @@ export const PodiumContainer = () => {
             )
         )}
 
-      {buttonComment == "" && (
-        <Paginacion
-          currentPage={currentPage}
-          totalPages={allPodiums?.data?.length}
-          onNextPage={nextPage}
-          onPrevPage={prevPage}
-        />
-      )}
+ {buttonComment=="" &&
+  <ComponentPaginacion/>}
       
       {allComments && buttonComment !== "" &&
   allComments?.data?.comments
