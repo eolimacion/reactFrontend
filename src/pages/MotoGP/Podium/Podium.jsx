@@ -41,13 +41,15 @@ export const Podium = () => {
           <div className="formGroup formGroupP">
             <label
               htmlFor="name"
+              
               className="customPlaceholder customPlaceholderP"
             >
-              Name
+             Your Podium Name
             </label>
             <input
               className="inputForm inputFormP"
               type="text"
+              placeHolder="Alex's podium."
               id="name"
               name="name"
               autoComplete="false"
@@ -55,16 +57,20 @@ export const Podium = () => {
             />
           </div>
 
-          <div className="contenedorPodium">
-            <SelectRiders
-              registerForm={register("firstPlace")}
-              position="Primero"
-            />
-            <SelectRiders
+          <div className="contenedorPodiumP">
+          <SelectRiders
+            classEspecial="segundo"
               registerForm={register("secondPlace")}
               position="Segundo"
             />
             <SelectRiders
+            classEspecial="primero"
+              registerForm={register("firstPlace")}
+              position="Primero"
+            />
+          
+            <SelectRiders
+            classEspecial="tercero"
               registerForm={register("thirdPlace")}
               position="Tercero"
             />

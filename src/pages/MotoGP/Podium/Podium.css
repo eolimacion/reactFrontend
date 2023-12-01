@@ -1,0 +1,22 @@
+.formMainP{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+}
+.formP{
+    width: 75vw;
+}
+
+.contenedorPodiumP{
+    display:flex;
+    justify-content: center;
+    align-items: start;
+    min-height: 35vh;
+    gap: 10px;
+ 
+}
+.inputFormP{
+    text-align: center;
+    margin: 10px;
+}

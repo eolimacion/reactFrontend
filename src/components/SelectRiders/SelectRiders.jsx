@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { buscarAllRider } from '../../services/rider.service';
 import { CardInTheGallery } from '../CardInTheGallery/CardInTheGallery';
+import { CardPodiums } from '../CardPodiums/CardPodiums';
 
 
 
-export const SelectRiders = ({ registerForm,position}) => {
+export const SelectRiders = ({ registerForm,position,classEspecial}) => {
     const [allRiders, setAllRiders] = useState({});
     const [loading, setLoading] = useState(true);
   
@@ -48,7 +49,8 @@ export const SelectRiders = ({ registerForm,position}) => {
               ))}
             </select>
             {selectedRider && (
-              <CardInTheGallery
+              <CardPodiums
+              positionClass={classEspecial}
                 key={selectedRider}
                 image={allRiders.data.find((rider) => rider._id === selectedRider)?.image}
                 // name={allRiders.data.find((rider) => rider._id === selectedRider)?.name}
