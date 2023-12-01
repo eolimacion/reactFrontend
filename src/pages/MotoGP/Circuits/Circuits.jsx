@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Circuits.css';
-import { CardInTheGallery, FormCircuits, GaleriaReducida } from '../../../components';
+import { CardInTheGallery, Finder, FormCircuits, GaleriaReducida } from '../../../components';
 import { buscarAllCircuit } from '../../../services/circuit.service';
 
 
@@ -9,6 +9,8 @@ export const Circuits = () => {
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allCircuits, setAllCircuits] = useState([]);
+  const [res, setRes] = useState(null)
+  const sportPath = '/motogp/circuits/'
 
   const getAllCircuits = async () => {
     const circuitsData = await buscarAllCircuit();
@@ -27,10 +29,6 @@ export const Circuits = () => {
     setShowGallery(false)
   };
 
-  const handleGalleryButtonClick = () => {
-    setShowGallery(true);
-    setShowForm(false)
-  }
 
   return (
     <div className="Allpage">
@@ -41,17 +39,20 @@ export const Circuits = () => {
         {showGallery ? <GaleriaReducida galeriaItems={allCircuits?.data} />: 'Galería pequeña'}
       </div>
     )}
-    <div className="buscadorMario">
-      <button onClick={handleGalleryButtonClick}>Mostrar Galería</button>
-    </div>
+    <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "circuits"/>
     <section className="mainPage">
       {galleryLoading ? (
         <p>Cargando...</p>
       ) : (
         <>
           <div className="displayImage">
-            {showForm ? <FormCircuits /> : showGallery &&
-            <GaleriaReducida galeriaItems={allCircuits?.data} />}
+            {showForm ? <FormPlayers /> : showGallery && 
+            (res && res?.data?.map((player) => (
+              <div className='singleCardPlayer'>
+              <CardInTheGallery image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
+              {console.log("player iddddddddddddddd", player._id)}
+              </div>
+            )))}
           </div>
           <aside className="columnaEnlaces">
             <div className="seccionColumna seccionUno">Uno</div>

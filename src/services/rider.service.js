@@ -36,7 +36,8 @@ export const buscarAllRider = async () => {
 //! -------------------------------- BUSCAR NOMBRE ----------------------------------
 
 export const buscarRiderName = async (name) => {
-    return APIGeneral.get(`rider/byName${name}`)
+   console.log(name)
+    return APIGeneral.get(`rider/byName/${name}`)
        .then((res) => res)
        .catch((error) => error);}
  
@@ -73,7 +74,7 @@ export const buscarRiderDescendente = async (stat) => {
        .catch((error) => error);}
 
 
-       //! ------------------------------------FILTER----------------------
+//! ------------------------------------FILTER----------------------
 
 export const fitrarRider = async (filter,gt,lt) => {
    console.log(filter, gt, lt)

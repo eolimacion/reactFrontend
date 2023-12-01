@@ -134,6 +134,25 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
     setShowGallery(true)
     setShowForm(false)
   }
+
+  useEffect(() => {
+    const printStartingGallery = async () => {
+      let resAll
+      if (page == "players") {
+        resAll = await getAllPlayers()
+      } else if (page == "teams") {
+        resAll = await buscarAllTeam()
+      } else if (page == "riders")  {
+        resAll = await buscarAllRider()
+      } else if (page == "circuits") {
+        resAll = await buscarAllCircuit()
+      }
+      setRes(resAll)
+      setController("getall")
+    }
+    printStartingGallery()
+  }, [])
+
   //! 2. ---- Función que gestiona los errores
   useEffect(() => {
     useErrorFinder(res, setOkFindPlayer, setRes)

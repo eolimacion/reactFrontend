@@ -36,7 +36,7 @@ export const buscarAllCircuit = async () => {
 //! -------------------------------- BUSCAR NOMBRE ----------------------------------
 
 export const buscarCircuitName = async (name) => {
-    return APIGeneral.get(`circuit/byName${name}`)
+    return APIGeneral.get(`circuit/byName/${name}`)
        .then((res) => res)
        .catch((error) => error);}
  
