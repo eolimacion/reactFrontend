@@ -4,8 +4,8 @@ import {
   getAllPodiums,
 } from "../../services/podium.service";
 import { CardPodiums } from "../CardPodiums/CardPodiums";
-import { Paginacion } from "../../utils/paginacion";
 import { useForm } from "react-hook-form";
+import { Paginacion } from "../../utils/Paginacion";
 
 export const PodiumContainer = () => {
   const [podiumLoading, setPodiumLoading] = useState(false);
