@@ -153,7 +153,7 @@ arrow_back_ios
               <span className="material-symbols-outlined"
               id={ isLiked ? "btnLiked" : "btnNotLiked" }
               
-              onClick={() => addToLikes(idLifter)}
+              onClick={() => addToLikes(idPlayer)}
               >favorite</span>
               </div>
             
