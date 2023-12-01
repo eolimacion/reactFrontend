@@ -16,9 +16,7 @@ export const CardPowerById = () => {
   const idUser = user._id;
   const idLifter = id;
 
-  const [allLifters, setAllLifters] = useState([]);
   const [userLikedLifters, setUserLikedLifters] = useState([]);
-  const [errorLifter, setErrorLifter] = useState(false)
   const [updatedLikes, setUpdatedLikes] = useState(false);
   const [resLifter, setresLifter] = useState({});
   const [ok, setOk] = useState(false);
@@ -26,6 +24,7 @@ export const CardPowerById = () => {
 
   const fetchLifters = async () => {
     setresLifter(await lifterByID(idLifter));
+    console.log('resLifter',resLifter)
     setOk(true);
   };
 
@@ -40,7 +39,7 @@ export const CardPowerById = () => {
   const getLikes = async () => {
     console.log('ENTROOOOOO');
     const likedLiftersRes = await getUsersFavLifters(idUser); 
-    console.log(likedLiftersRes.data)
+    console.log('liked', likedLiftersRes)
     setUserLikedLifters(likedLiftersRes.data); //array de objetos ------ LIKES DEL USUARIO 
   };
 
@@ -87,7 +86,7 @@ if (resLifter?.response?.status == 404 || resLifter?.response?.status == 500){
 if(dataLifter){
 
   const isLiked = dataLifter?.likes?.includes(idUser)
-  
+
   const {
     name,
     gender,
@@ -104,7 +103,7 @@ if(dataLifter){
   } = dataLifter
 
  
-
+console.log('weight', weightCategory[0])
 
   return (
 
@@ -129,35 +128,40 @@ arrow_back_ios
       <div className="pageByidLifter pageByid">
         <figure id="figureidLifter">
           <img className='imageById imageLifter' src={image} alt={name} />
+          <div className="divName">
           <h1 className="nameByidLifter">{name}</h1>
-          <h3>
-            {gender}, {birthYear}, -{weightCategory.weigth}
+          <h3 className="H3ById">
+            {gender}, {birthYear}
           </h3>
-          <h2>{GLPoints} <span className="SBDspan">GL points</span></h2>
+          <h2 className="H2ById"> <span className="SBDspan">{GLPoints}</span>{" "}GL points</h2>
+          </div>
           <div>
-            <h2>MAX STATS IN CHAMPIONSHIPS</h2>
+            <h2 className="H2ById">MAX STATS IN CHAMPIONSHIPS</h2>
             <h4>updated 2022</h4>
+            { weightCategory[0] &&  <h3>Category: -{weightCategory[0].weight} {weightCategory[0].age}</h3> }
+            
             <div className="powerStats">
-              <h3>
-                <span className="SBDspan">SQ</span> {squat}kg
+              <h3 className="stats H3ById">SQ {" "}
+                <span className="SBDspan">{squat}</span> 
               </h3>
-              <h3>
-                <span className="SBDspan">BP</span> {benchPress}kg
+              <h3 className="stats H3ById">BP {" "}
+                <span className="SBDspan">{benchPress}</span> 
               </h3>
-              <h3>
-                <span className="SBDspan">DL</span> {deadlift}kg
+              <h3 className="stats H3ById">DL{" "}
+                <span className="SBDspan">{deadlift}</span> 
               </h3>
-              <h3>
-                <span className="SBDspan">TOTAL</span> {total}kg
+              </div>
+              <h3 className="H3ById">TOTAL {" "}
+                <span className="SBDspan">{total}</span> kg
               </h3>
-            </div>
+            
           </div>
           <div>
 
             
-            <h4>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
+            <h3 className="H3ById likeh3">{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
               
-              </h4>
+              </h3>
               <div className="like">
               <span className="material-symbols-outlined"
               id={ isLiked ? "btnLiked" : "btnNotLiked" }
