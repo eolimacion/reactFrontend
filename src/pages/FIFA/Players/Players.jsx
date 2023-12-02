@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import './Players.css'
-import { CardInTheGallery, CardPlayer, Finder, FormPlayers } from '../../../components'
+import { CardInTheGallery, CardPlayer, Finder, FormPlayers, GaleriaReducida } from '../../../components'
 import { getAllPlayers } from '../../../services/player.service'
 import { useErrorFinder } from '../../../hooks/useErrorFinder'
 import { usePaginacion } from '../../../hooks/usePaginacion'
+import { GaleriaReducidaPlayers } from '../../../components/GaleriaReducidaPlayers/GaleriaReducidaPlayers'
 
 
 
@@ -37,8 +38,8 @@ export const Players = () => {
       <p>Cargando la galería...</p>
     ) : (
       <div className="galeriaPreview">
-        {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
-      </div>
+          <GaleriaReducidaPlayers galeriaItems={res?.data} />
+        </div>
     )}
     <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "players"/>
     <section className="mainPage">
