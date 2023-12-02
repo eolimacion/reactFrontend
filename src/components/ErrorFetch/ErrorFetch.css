@@ -1,0 +1,23 @@
+.errorFetchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 50%;
+  padding: 1rem 3rem 1rem 3rem;
+  border: 2px var(--color-secundario) solid;
+  border-radius: 10px;
+  background-color: var(--color-form);
+  color: var(--color-enhance-nightmode);
+  -webkit-box-shadow: -5px 30px 26px 14px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -5px 30px 26px 14px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px 30px 26px 14px rgba(0, 0, 0, 0.2);
+}
+
+.errorFetchContainer img {
+  max-width: 50%;
+}
+
+.errorFetchContainer h1 {
+    margin-bottom: 1rem;
+}

@@ -11,6 +11,7 @@ import { useErrorChangePassword } from '../../hooks/useErrorChangePassword';
 import { useErrorUpdate } from '../../hooks/useErrorUpdate';
 import { useDeleteUser } from '../../hooks/useDeleteUser';
 import { changePasswordAuth, updateUser } from '../../services/user.service';
+import { ErrorFetch } from '../../components/ErrorFetch/ErrorFetch';
 
 
 export const EditProfile = () => {
@@ -129,7 +130,7 @@ useEffect(() =>{
   return (
     <>
     {/* <div className='editProfile-div'> */}
-    <div className="form profileEditForm">
+    {/* <div className="form profileEditForm">
           
         <h3>Edit your information </h3>
 
@@ -240,8 +241,8 @@ useEffect(() =>{
         </form>
           <div className="btn_container">
           </div>
-    </div>
-
+    </div> */}
+<ErrorFetch/>
     
   </>
   )
