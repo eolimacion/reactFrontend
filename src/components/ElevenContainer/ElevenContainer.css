@@ -13,3 +13,11 @@
 .espacio{
     height: 80vh;
 }
+
+.playerElevenName{
+    font-size: 12px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 0 3px;
+    max-height: 12px;
+}

@@ -24,7 +24,7 @@ export const ElevenContainer = () => {
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag } =
     usePaginacion(1);
 
-  //!!Referente a comentarios sobre el podium-----------------------
+  //!!Referente a comentarios sobre el eleven-----------------------
   const handleComment = (id) => {
     setButtonComment(id);
   };
@@ -40,7 +40,7 @@ export const ElevenContainer = () => {
   };
 
   //!!-------------------------------------------------------------------------
-  //!!----------Traer y pintar el podium--------------------------------------------
+  //!!----------Traer y pintar el eleven--------------------------------------------
   const getEleven = async () => {
     const elevensData = await getAllElevens();
     setAllElevens(elevensData);
@@ -98,6 +98,7 @@ export const ElevenContainer = () => {
                     src={item?.goalkeeper.image}
                     alt={name}
                   />
+                  <h4 className="playerElevenName">{item.goalkeeper.name}</h4>
                 </div>
               </div>
               <div className="contenedorJugadorE centrebackE">
@@ -106,6 +107,7 @@ export const ElevenContainer = () => {
                   src={item?.centreback1.image}
                   alt={name}
                 />
+                <h4 className="playerElevenName">{item.centreback1.name}</h4>
               </div>
               <div className="contenedorJugadorE centreback2E">
                 <img
@@ -113,6 +115,7 @@ export const ElevenContainer = () => {
                   src={item?. centreback2.image}
                   alt={name}
                 />
+                 <h4 className="playerElevenName">{item.centreback2.name}</h4>
               </div>
               <div className="contenedorJugadorE rightbackE">
                 <img
@@ -120,6 +123,7 @@ export const ElevenContainer = () => {
                   src={item?. rightback.image}
                   alt={name}
                 />
+                 <h4 className="playerElevenName">{item.rightback.name}</h4>
               </div>
               <div className="contenedorJugadorE leftbackE">
                 <img
@@ -127,6 +131,7 @@ export const ElevenContainer = () => {
                   src={item?.leftback.image}
                   alt={name}
                 />
+                 <h4 className="playerElevenName">{item.leftback.name}</h4>
               </div>
               <div className="contenedorJugadorE midfielder1E">
                 <img
@@ -134,6 +139,7 @@ export const ElevenContainer = () => {
                   src={item?.midfielder1.image}
                   alt={name}
                 />
+                 <h4 className="playerElevenName">{item.midfielder1.name}</h4>
               </div>
               <div className="contenedorJugadorE midfielder2E">
                 <img
@@ -141,6 +147,7 @@ export const ElevenContainer = () => {
                   src={item?.midfielder2.image}
                   alt={name}
                 />
+                  <h4 className="playerElevenName">{item.midfielder2.name}</h4>
               </div>
               <div className="contenedorJugadorE midfielder3E">
                 <img
@@ -148,6 +155,7 @@ export const ElevenContainer = () => {
                   src={item?.midfielder3.image}
                   alt={name}
                 />
+                  <h4 className="playerElevenName">{item.midfielder3.name}</h4>
               </div>
               <div className="contenedorJugadorE forward1E">
                 <img
@@ -155,6 +163,7 @@ export const ElevenContainer = () => {
                   src={item?.forward1.image}
                   alt={name}
                 />
+                  <h4 className="playerElevenName">{item.forward1.name}</h4>
               </div>
               <div className="contenedorJugadorE forward2E">
                 <img
@@ -162,6 +171,7 @@ export const ElevenContainer = () => {
                   src={item?.forward2.image}
                   alt={name}
                 />
+                 <h4 className="playerElevenName">{item.forward2.name}</h4>
               </div>
               <div className="contenedorJugadorE forward3E">
                 <img
@@ -169,6 +179,7 @@ export const ElevenContainer = () => {
                   src={item?.forward3.image}
                   alt={name}
                 />
+                 <h4 className="playerElevenName">{item.forward3.name}</h4>
               </div>
             </div>
             {buttonComment !== "" ? (

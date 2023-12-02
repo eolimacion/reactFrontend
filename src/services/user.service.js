@@ -20,9 +20,9 @@ export const getUsersFavPlayers = async (userId) => {
 };
 
 //! -------------------> Get Fav Teams [User]
-export const getUsersFavTeams = async (userId) => {
+export const getUsersFavTeams = async (id) => {
   const APIGeneral = extraConfig();
-  return APIGeneral.get(`/users/favTeams/${userId}`)
+  return APIGeneral.get(`/users/favTeams/${id}`)
     .then((res) => res)
     .catch((error) => error);
 };
@@ -52,9 +52,9 @@ export const getUsersFavLifters = async (userId) => {
 };
 
 //!-------------------> GET FAV CIRCUITS [User]
-export const getUsersFavCircuits = async (userId) => {
+export const getUsersFavCircuits = async (id) => {
   const APIGeneral = extraConfig();
-  return APIGeneral.get(`/users/favCircuits/${userId}`)
+  return APIGeneral.get(`/users/favCircuits/${id}`)
     .then((res) => res)
     .catch((error) => error);
 };
