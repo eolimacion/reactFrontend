@@ -36,7 +36,7 @@ export const Header = () => {
           <div id="iniciarayuda">
             {user == null && (
               <NavLink to="/login" className="logate">
-               <span class="material-symbols-outlined account">
+               <span className="material-symbols-outlined account">
 account_circle
 </span>
               </NavLink>
