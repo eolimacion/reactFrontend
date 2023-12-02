@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CardInTheGallery } from "../CardInTheGallery/CardInTheGallery";
 import "./GaleriaReducida.css";
+import { CardRider } from "../CardRider/CardRider";
 
 export const GaleriaReducida = ({ galeriaItems }) => {
   const itemsPerPage = 6;
@@ -38,7 +39,7 @@ arrow_back
         </button>
       <div className="noSe">
         {currentItems?.map((item) => (
-          <CardInTheGallery
+          <CardRider
             image={item?.image}
             name={item?.name}
             key={item?._id}
