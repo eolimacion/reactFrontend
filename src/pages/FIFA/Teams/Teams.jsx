@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import './Teams.css'
-import { CardTeam, Finder, FormTeams } from '../../../components'
+import { CardTeam, Finder, FormTeams, Loading } from '../../../components'
 import { buscarAllTeam } from '../../../services/team.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
+import { GaleriaReducidaTeams } from '../../../components/GaleriaReducidaTeams/GaleriaReducidaTeams'
 
 
 
@@ -37,7 +38,7 @@ export const Teams = () => {
     if(res?.status == 200){
       setGaleriaItems(res?.data)
     }
-  }, [res])
+  }, [allTeams, res])
 
 
   const handleButtonClick = () => {
@@ -50,10 +51,10 @@ export const Teams = () => {
   return (
     <div className="Allpage">
     {galleryLoading ? (
-      <p>Cargando la galería...</p>
+      <Loading/>
     ) : (
       <div className="galeriaPreview">
-        {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
+        <GaleriaReducidaTeams galeriaItems={allTeams?.data}/>
       </div>
     )}
     <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "teams"/>

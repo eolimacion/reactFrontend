@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Circuits.css';
-import { CardCircuit, CardInTheGallery, Finder, FormCircuits, GaleriaReducida } from '../../../components';
+import { CardCircuit, CardInTheGallery, Finder, FormCircuits, GaleriaReducida, Loading } from '../../../components';
 import { buscarAllCircuit } from '../../../services/circuit.service';
 import { usePaginacion } from '../../../hooks/usePaginacion';
+import { GaleriaReducidaCircuits } from '../../../components/GaleriaReducidaCircuits/GaleriaReducidaCircuits';
 
 
 export const Circuits = () => {
@@ -31,7 +32,7 @@ export const Circuits = () => {
     if(res?.status == 200){
       setGaleriaItems(res?.data)
     }
-  }, [res])
+  }, [allCircuits, res])
 
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
@@ -43,10 +44,10 @@ export const Circuits = () => {
   return (
     <div className="Allpage">
     {galleryLoading ? (
-      <p>Cargando la galería...</p>
+      <Loading/>
     ) : (
       <div className="galeriaPreview">
-        {showGallery ? <GaleriaReducida galeriaItems={allCircuits?.data} />: 'Galería pequeña'}
+        <GaleriaReducidaCircuits galeriaItems={allCircuits?.data}/>
       </div>
     )}
     <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "circuits"/>

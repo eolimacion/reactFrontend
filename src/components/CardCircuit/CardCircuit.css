@@ -7,10 +7,11 @@
   /* margin: 0 0.5rem 0 0.5rem ; */
 }
 .singleItemImgCircuit{
-  width: 100%;
+  width: 80%;
   object-fit: cover;
   border: 1.5px solid black;
   border-radius: 50%;
+  background-color: rgb(102, 100, 100);
 }
 
 .singleItemNameCircuit{

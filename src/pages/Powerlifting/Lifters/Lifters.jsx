@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import './Lifters.css'
-import {  CardInTheGallery, FormLifters } from '../../../components'
+import {  CardInTheGallery, FormLifters, Loading } from '../../../components'
 import { getAllLifters } from '../../../services/lifter.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
+import { GaleriaReducidaLifters } from '../../../components/GaleriaReducidaLifters/GaleriaReducidaLifters'
 
 
 export const Lifters = () => {
@@ -53,10 +54,10 @@ export const Lifters = () => {
   return (
     <div className="Allpage">
     {galleryLoading ? (
-      <p>Cargando la galería...</p>
+      <Loading/>
     ) : (
       <div className="galeriaPreview">
-        {showGallery ? <p>Galeria cargada</p> : 'Galería pequeña'}
+        <GaleriaReducidaLifters galeriaItems={allLifters?.data}/>
       </div>
     )}
     <div className="buscadorMario">
