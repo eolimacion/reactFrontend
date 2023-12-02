@@ -1,0 +1,41 @@
+
+.favsTab {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.favNavTop {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.firstNavFav {
+  height: 50%;
+  width: 100%;
+}
+
+.secondNavFav {
+  height: 50%;
+  width: 70%;
+}
+.favGallery {
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.profileFavMainButtons {
+    width: 30%;
+    height: 100%;
+}
+
+.profileFavSecondaryButtons {
+    width:30%;
+    height:100%;
+}

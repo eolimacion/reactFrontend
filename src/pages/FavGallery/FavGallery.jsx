@@ -2,40 +2,65 @@ import { useAuth } from "../../context/authContext";
 import { useEffect, useState } from "react";
 import { getById } from "../../services/user.service";
 import { NavFav } from "../../components/Nav/NavFav/NavFav";
+import "./FavGallery.css";
 import { CardInTheGallery, NavFavChildren } from "../../components";
+import { usePaginacion } from "../../hooks/usePaginacion";
+import { pathWithId } from "../../utils/pathWithId";
+import { ProfileFavsCard } from "../../components/ProfileFavsCard/ProfileFavsCard";
 
 export const FavGallery = () => {
   const { user } = useAuth();
+  const [galleryLoading, setGalleryLoading] = useState(true);
   const [res, setRes] = useState(null);
   const [mainFav, setMainFav] = useState("fifa");
   const [childrenFav, setChildrenFav] = useState("favPlayers");
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
+  const { galeriaItems, ComponentPaginacion, dataPag, setGaleriaItems } =
+    usePaginacion();
 
   const fetchData = async () => {
+    setGalleryLoading(true);
     setRes(await getById(user._id));
+    setGalleryLoading(false);
   };
   useEffect(() => {
     fetchData();
   }, []);
 
   useEffect(() => {
-    res?.status == 200 && setData(res?.data[childrenFav])
-    
+    res?.status == 200 && setGaleriaItems(res?.data[childrenFav]);
   }, [res]);
 
   useEffect(() => {
-    setData(res?.data[childrenFav])
+    setGaleriaItems(res?.data[childrenFav]);
   }, [childrenFav]);
+
+
   return (
     <>
-      <NavFav setFav={setMainFav} setFavChildren={setChildrenFav} />
-      <NavFavChildren fav={mainFav} setFavChildren={setChildrenFav} />
-
-      <section className="favGallery">
-        {
-          data && data.map((item)=>(<CardInTheGallery key={JSON.stringify(item)} name={item.name} image={item.image} />))
-         }
-      </section>
+      <div className="favsTab">
+        <div className="favNavTop">
+          <NavFav setFav={setMainFav} setFavChildren={setChildrenFav} />
+          <NavFavChildren fav={mainFav} setFavChildren={setChildrenFav} />
+          <div>{!galleryLoading && <ComponentPaginacion />}</div>
+        </div>
+        <section className="favGallery">
+          {galleryLoading ? (
+            <h1> Loading...</h1>
+          ) : (
+            dataPag?.map((item) => (
+              <ProfileFavsCard
+                path={pathWithId(item._id, childrenFav) 
+                  // esto es un switch que juzga el children fav para ver que tipo de 
+                  //favorito es, y les asigna una ruta que le vamos a pasar para crearlo link
+                }
+                key={JSON.stringify(item)}
+                data={item}
+              />
+            ))
+          )}
+        </section>
+      </div>
     </>
   );
 };
