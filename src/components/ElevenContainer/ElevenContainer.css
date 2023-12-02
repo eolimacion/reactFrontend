@@ -1,0 +1,14 @@
+.todoElEleven{
+    min-height: 800px;
+    display: flex;
+    justify-content: flex-end;
+}
+.formMainDataDos{
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.espacio{
+    height: 80vh;
+}

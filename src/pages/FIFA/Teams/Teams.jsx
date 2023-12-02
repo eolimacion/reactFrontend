@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Teams.css'
-import { CardTeam, Finder, FormTeams, Loading } from '../../../components'
+import { CardTeam, ElevenContainer, Finder, FormTeams, Loading } from '../../../components'
 import { buscarAllTeam } from '../../../services/team.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 import { GaleriaReducidaTeams } from '../../../components/GaleriaReducidaTeams/GaleriaReducidaTeams'
@@ -14,6 +14,7 @@ export const Teams = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [res, setRes] = useState(null);
   const [allTeams, setAllTeams] = useState();
+  const [showEleven, setShowEleven] = useState(false);
 
 
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
@@ -42,43 +43,64 @@ export const Teams = () => {
 
 
   const handleButtonClick = () => {
-    // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
-    setShowForm(!showForm);
+  
+    setShowForm(true);
     setShowGallery(false)
+    setShowEleven(false)
+  };
+  const handleButtonClickGallery = () => {
+  setShowEleven(false)
+    setShowForm(false);
+    setShowGallery(true)
+  };
+  const handleButtonClickEleven = () => {
+    // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
+    setShowForm(false);
+    setShowGallery(false)
+    setShowEleven(true)
   };
 
 
   return (
     <div className="Allpage">
-    {galleryLoading ? (
-      <Loading/>
-    ) : (
-      <div className="galeriaPreview">
-        <GaleriaReducidaTeams galeriaItems={allTeams?.data}/>
-      </div>
-    )}
-    <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "teams"/>
-    <section className="mainPage">
       {galleryLoading ? (
-        <p>Cargando...</p>
+        <Loading />
       ) : (
-        <> {!showForm && <ComponentPaginacion/>}
-          <div className="displayImage">
-            {showForm ? <FormTeams /> : showGallery &&
-            res && dataPag.map((team) => (
-              <CardTeam image={team.image} name={team.name} key={team._id} id={team._id} sportPath={sportPath}/>
-            ))}
-          </div>
-          <aside className="columnaEnlaces">
-            <div className="seccionColumna seccionUno">Uno</div>
-            <div className="seccionColumna seccionDos">Dos</div>
-            <div className="seccionColumna seccionTres">
-              <button onClick={handleButtonClick}>Mostrar/ocultar formulario</button>
-            </div>
-          </aside>
-        </>
+        <div className="galeriaPreview">
+          {/* <GaleriaReducida galeriaItems={allRiders?.data} /> */}
+        </div>
       )}
-    </section>
-  </div>
+      <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "teams"/>
+      <section className="mainPage">
+        {galleryLoading ? (
+          <Loading />
+        ) : (
+          <> 
+          <div className='galleryDiv'>
+          {showGallery && <ComponentPaginacion/>}
+            <div className="displayImage">
+            {showForm ? <FormTeams /> : showGallery ? 
+            (res && dataPag?.map((team) => (
+              <div className='singleCardPlayer'>
+              <CardTeam image={team.image} name={team.name} key={team._id} id={team._id} sportPath={sportPath}/>
+              </div>
+            ))): <ElevenContainer/>}
+          </div>
+            <div className="bottonButton">
+
+                <button className='btn btnGallery' onClick={handleButtonClickEleven}>Show Elevens</button>
+
+                <button className='btn btnGallery' onClick={handleButtonClick}>
+                  Create Form
+                </button>
+                <button className='btn btnGallery' onClick={handleButtonClickGallery}>
+                  Show Gallery
+                </button>
+            </div>
+            </div>
+          </>
+        )}
+      </section>
+    </div>
   );
-}
+};

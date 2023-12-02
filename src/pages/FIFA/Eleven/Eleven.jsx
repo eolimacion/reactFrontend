@@ -60,7 +60,7 @@ export const Eleven = () => {
               Give a name to your eleven
               </label>
               <input
-                className="inputForm"
+                className=" inputForm inputFormE"
                 type="text"
                 id="name"
                 name="name"
