@@ -1,0 +1,28 @@
+
+.singleItemImgLifter{
+    width: 24vw;
+    height: 35vh;
+    object-fit: cover;
+    border-radius: 4px;
+    margin: 8px
+}
+
+.singleItemNameLifter{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.lifterCardSection{
+    width: 26vw;
+    height: 45vh;
+    border: var(--boder);
+    border-radius: 4px;
+    background-color: var(--color-enhance);
+}
+
+
+.lifterInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

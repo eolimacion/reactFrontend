@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 export const NavProfile = () => {
   return (
-    <div className='navProfile'>
+    <div className='navProfileProfile'>
         <NavLink to='/profile/user'>
         <div className='titleNavProfile titleNav'>Profile</div>
         </NavLink>

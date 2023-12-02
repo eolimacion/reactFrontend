@@ -39,7 +39,10 @@ export const Circuits = () => {
     setShowForm(!showForm);
     setShowGallery(!showGallery)
   };
-
+  const handleGalleryButtonClick = () => {
+    setShowGallery(true);
+    setShowForm(false);
+  };
 
   return (
     <div className="Allpage">
@@ -53,9 +56,11 @@ export const Circuits = () => {
     <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "circuits"/>
     <section className="mainPage">
       {galleryLoading ? (
-        <p>Cargando...</p>
+        <Loading/>
       ) : (
-        <> {!showForm && <ComponentPaginacion/>}
+        <> 
+         <div className='galleryDiv'>
+        {!showForm && <ComponentPaginacion/>}
           <div className="displayImage">
             {showForm ? <FormCircuits /> : showGallery && 
             (res && dataPag?.map((circuit) => (
@@ -64,13 +69,16 @@ export const Circuits = () => {
               </div>
             )))}
           </div>
-          <aside className="columnaEnlaces">
-            <div className="seccionColumna seccionUno">Uno</div>
-            <div className="seccionColumna seccionDos">Dos</div>
-            <div className="seccionColumna seccionTres">
-              <button onClick={handleButtonClick}>Mostrar/ocultar formulario</button>
-            </div>
-          </aside>
+          <div className="bottonButton">
+
+<button className='btn btnGallery' onClick={handleButtonClick}>
+  Create Form
+</button>
+<button className='btn btnGallery' onClick={handleGalleryButtonClick}>
+  Show Gallery
+</button>
+</div>
+</div>
         </>
       )}
     </section>

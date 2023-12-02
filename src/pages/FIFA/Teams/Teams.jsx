@@ -59,16 +59,45 @@ export const Teams = () => {
     setShowGallery(false)
     setShowEleven(true)
   };
+  const handleGalleryButtonClick = () => {
+    setShowGallery(true);
+    setShowForm(false);
+  };
 
 
   return (
     <div className="Allpage">
       {galleryLoading ? (
+<<<<<<< HEAD
         <Loading />
       ) : (
         <div className="galeriaPreview">
           {/* <GaleriaReducida galeriaItems={allRiders?.data} /> */}
         </div>
+=======
+       <Loading/>
+      ) : (
+        <> 
+        <div className='galleryDiv'>
+        {!showForm && <ComponentPaginacion/>}
+          <div className="displayImage">
+            {showForm ? <FormTeams /> : showGallery &&
+            res && dataPag.map((team) => (
+              <CardTeam image={team.image} name={team.name} key={team._id} id={team._id} sportPath={sportPath}/>
+            ))}
+</div>
+          <div className="bottonButton">
+
+<button className='btn btnGallery' onClick={handleButtonClick}>
+  Create Form
+</button>
+<button className='btn btnGallery' onClick={handleGalleryButtonClick}>
+  Show Gallery
+</button>
+</div>
+</div>
+</>
+>>>>>>> 776f1f892c5076983eadeffd49b69b01b51b31d2
       )}
       <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "teams"/>
       <section className="mainPage">

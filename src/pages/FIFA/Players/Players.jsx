@@ -31,6 +31,10 @@ export const Players = () => {
     setShowForm(!showForm);
     setShowGallery(!showGallery)
   };
+  const handleGalleryButtonClick = () => {
+    setShowGallery(true);
+    setShowForm(false);
+  };
 
   return (
     <div className="Allpage">
@@ -44,9 +48,11 @@ export const Players = () => {
     <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "players"/>
     <section className="mainPage">
       {galleryLoading ? (
-        <p>Cargando...</p>
+        <Loading/>
       ) : (
-        <> {!showForm && <ComponentPaginacion/>}
+        <>
+        <div className='galleryDiv'>
+         {!showForm && <ComponentPaginacion/>}
           <div className="displayImage">
             {showForm ? <FormPlayers /> : showGallery && 
             (res && dataPag?.map((player) => (
@@ -54,15 +60,18 @@ export const Players = () => {
               <CardPlayer image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
               </div>
             )))}
-          </div>
-          <aside className="columnaEnlaces">
-            <div className="seccionColumna seccionUno">Uno</div>
-            <div className="seccionColumna seccionDos">Dos</div>
-            <div className="seccionColumna seccionTres">
-              <button onClick={handleButtonClick}>Mostrar/ocultar formulario</button>
-            </div>
-          </aside>
-        </>
+ </div>
+          <div className="bottonButton">
+
+<button className='btn btnGallery' onClick={handleButtonClick}>
+  Create Form
+</button>
+<button className='btn btnGallery' onClick={handleGalleryButtonClick}>
+  Show Gallery
+</button>
+</div>
+</div>
+</>
       )}
     </section>
   </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Lifters.css'
-import {  CardInTheGallery, Finder, FormLifters, Loading } from '../../../components'
+import {  CardInTheGallery, CardLifter, Finder, FormLifters, Loading } from '../../../components'
 import { getAllLifters } from '../../../services/lifter.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 import { GaleriaReducidaLifters } from '../../../components/GaleriaReducidaLifters/GaleriaReducidaLifters'
@@ -19,13 +19,6 @@ export const Lifters = () => {
   const sportPath = `/powerlifting/lifters/`
   const{galeriaItems,ComponentPaginacion,setGaleriaItems,dataPag}=usePaginacion()
  
-  // const getLifters = async () => {
-  
-  //   const liftersData = await getAllLifters();
-  //   setAllLifters(liftersData)
-  //   setGalleryLoading(false);
-   
-  // };
 
   useEffect(() => {
     console.log(res)
@@ -34,21 +27,6 @@ export const Lifters = () => {
     }
   }, [res]); 
   
-
-//este use effect gestiona los datos de la llamada
-  // useEffect(() => {
-  //   getLifters();
-  //      console.log(allLifters);
-  // }, []); 
-  //cuando es 200 envia al estado de la paginacion
-  // useEffect(() => {if(allLifters?.status==200){
- 
-  //   setGaleriaItems(allLifters?.data)
-  // }
- 
-  
-  // }, [allLifters])
-
  
   
 
@@ -58,10 +36,10 @@ export const Lifters = () => {
     setShowGallery(!showGallery)
   };
 
-  // const handleGalleryButtonClick = () => {
-  //   setShowGallery(true);
-  //   setShowForm(false);
-  // };
+  const handleGalleryButtonClick = () => {
+    setShowGallery(true);
+    setShowForm(false);
+  };
   return (
     <div className="Allpage">
     {galleryLoading ? (
@@ -76,25 +54,29 @@ export const Lifters = () => {
       {galleryLoading ? (
         <Loading/>
       ) : (
-        <>  {!showForm && <ComponentPaginacion/>
-      }
-          <div className="displayImage">
+        <>  
+        <div className='galleryDiv'>
+        {!showForm && <ComponentPaginacion/>}
+          <div className="displayImage displayImageLifters">
             {showForm ? <FormLifters /> : showGallery &&  dataPag?.map((item)=>(
-  <CardInTheGallery name={item?.name} image={item?.image} key={item._id} sportPath={sportPath}
+              <div className='singleCardPlayer'>
+  <CardLifter name={item?.name} image={item?.image} key={item._id} sportPath={sportPath}
   id={item._id}/>
+  </div>
          ))
            }
-           
-          
           </div>
-          <aside className="columnaEnlaces">
-            <div className="seccionColumna seccionUno">Uno</div>
-            <div className="seccionColumna seccionDos">Dos</div>
-            <div className="seccionColumna seccionTres">
-              <button onClick={handleButtonClick}>Mostrar/ocultar formulario</button>
-            </div>
-          </aside>
-        </>
+          <div className="bottonButton">
+
+<button className='btn btnGallery' onClick={handleButtonClick}>
+  Create Form
+</button>
+<button className='btn btnGallery' onClick={handleGalleryButtonClick}>
+  Show Gallery
+</button>
+</div>
+</div>
+</>
       )}
     </section>
   </div>

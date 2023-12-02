@@ -129,15 +129,12 @@ useEffect(() =>{
   return (
     <>
     {/* <div className='editProfile-div'> */}
-    <div className="form form-div">
-          <div className='container-div profile-data'>
+    <div className="form profileEditForm">
+          
         <h3>Edit your information </h3>
 
-          </div>
-
-          <div className="form-wrap formProfile">
         <form onSubmit={handleSubmit(editProfileFormSubmit)}>
-        <div className="user_container form-group">
+        <div className="profileEditLeft">
           <label htmlFor="custom-input" className="label name">
               Name
             </label>
@@ -152,6 +149,7 @@ useEffect(() =>{
               {...register("name")}
             />
           </div>
+          <div className='profileEditRight'>
           <p>Interest</p>
             <div className="formGroup">
             <div className="interest">
@@ -229,6 +227,7 @@ useEffect(() =>{
 
             
           <UploadFile />
+          </div>
           <div className="btn-div container-div">
             <button
               className="btn"
@@ -241,7 +240,6 @@ useEffect(() =>{
         </form>
           <div className="btn_container">
           </div>
-      </div>
     </div>
 
     

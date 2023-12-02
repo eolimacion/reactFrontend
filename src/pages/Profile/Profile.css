@@ -5,7 +5,6 @@
     flex-direction: column;
     width: 100%;
     min-height: 80vh;
-    background-image: url('https://res.cloudinary.com/drbssyzr7/image/upload/v1701370216/dataBase/sports-background-with-blue-shape_571891-33_qxuy3f.avif');
     background-size: cover;
 }
 
@@ -15,8 +14,10 @@
     justify-content: center;
     flex-direction: row;
     width: 90vw;
-    height: 10vh;
-    background-color:transparent;
+    height: 8vh;
+    margin-top: 4vh;
+    margin-bottom: 1vh;
+
 }
 
 
@@ -29,5 +30,5 @@
     min-height: 50vh;
     padding: 2vw;
     margin: 1rem;
-    background-color: rgba(215, 236, 255, 0.95);
+    background-color: var(--color-primario);
 }

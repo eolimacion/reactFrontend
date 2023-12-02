@@ -1,6 +1,6 @@
 import { extraConfig } from "./serviceApiGeneral.config";
 
-//! ------------------------CREAR RIDER------------------------------
+//! ------------------------CREAR PODIUM ------------------------------
 
 export const createPodium = async (formData) => {
   const APIGeneral = extraConfig();
@@ -15,6 +15,14 @@ export const getAllPodiums = async () => {
   console.log("entro al service de getAllPodiums");
   const APIGeneral = extraConfig();
   return APIGeneral.get("/podium/", {})
+    .then((res) => res)
+    .catch((error) => error);
+};
+
+//! ----------------------- get by id -------------------------
+export const getPodiumById = async (id) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/podium/${id}`)
     .then((res) => res)
     .catch((error) => error);
 };

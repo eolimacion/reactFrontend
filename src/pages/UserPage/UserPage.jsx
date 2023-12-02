@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react"
 import { getUserById, toggleFollow } from "../../services/user.service"
 import { useParams } from "react-router-dom"
-import { Loading } from "../../components"
+import { Loading, UserPodium } from "../../components"
 import "./UserPage.css"
 import { useAuth } from "../../context/authContext"
+import { Profile } from "../Profile/Profile"
+import { PodiumContainer } from "../../components/PodiumContainer/PodiumContainer"
 
 export const UserPage = () => {
   //! Estados ------------------------------------
   const [userData, setUserData] = useState()
   const [res, setRes] = useState(null)
   const [ok, setOk] = useState(false)
-  const [isFollowing, setisFollowing] = useState()
+  const [isFollowing, setisFollowing] = useState(false)
+  const [renderContent, setRenderContent] = useState("")
 
   //! Destructuring ------------------------------
   const {id} = useParams()
@@ -18,7 +21,9 @@ export const UserPage = () => {
 
   //! 1. al cargar => TRAEMOS TODA LA INFO DEL USER LOGEADO (para estado del follow)
   const fetchDataUser = async () => {
-    setUserData(await getUserById(user._id))
+    let resDataUser = await getUserById(user._id)
+    // console.log(resDataUser)
+    setUserData(resDataUser)
   }
 
   useEffect(() => {
@@ -32,19 +37,17 @@ export const UserPage = () => {
     setOk(true)
   }
   
-  useEffect(() => {
+  useEffect(() => { //? miramos si en el array de followed está el id del user para pintar Follow/Unfollow
     if (userData?.status == 200) {
+      userData.data.followed.map((user) => {
+        user._id == id ? setisFollowing(true) : null
+      })
       fetchUserPage()
-      if (userData.data.followed.includes(id)) {
-        setisFollowing(true)
-      } else {
-        setisFollowing(false)
-      }
     }
   }, [userData])
 
   //! 3. al hacer click en follow => CAMBIAMOS ESTADO DEL FOLLOW Y RENDERIZAMOS TODO DE NUEVO (para tener data actualizada)
-  const handleFollow = async (e) => {
+  const handleFollow = async () => {
     let executeToggleFollow = await toggleFollow(res.data._id)
     setisFollowing(!isFollowing)
   }
@@ -61,15 +64,28 @@ export const UserPage = () => {
                 <h1 id="userPageName">{res.data.name}</h1>
                 <div id = "userPageInterestFollow">
                   <p id="userPageInterest">Is here for <span>{res.data.interestedIn}</span></p>
-                  <button id = "followUserButton" onClick={(e) => handleFollow(e)}>
+                  <button id = "followUserButton" onClick={handleFollow}>
                     {isFollowing ? "Unfollow" : "Follow"}
                   </button>
                 </div>
               </div>
             </div>
           </section>
+          <nav id = "userPageNav">
+            <button onClick={() => setRenderContent("eleven")}>{res.data.name}'s Eleven</button>
+            <button onClick={() => setRenderContent("podium")}>{res.data.name}'s Podium</button>
+            <button onClick={() => setRenderContent("favorites")}>{res.data.name}'s Favorites</button>
+          </nav>
           <section id = "userPageInfo">
-            <h2>hola</h2>
+            {((renderContent == "eleven") || (renderContent == "")) &&
+              <h2>eleven</h2>
+            }
+            {renderContent == "podium" &&
+              <UserPodium page = "userPage" podiumId = {res.data.yourPodium[0]._id}/>
+            }
+            {renderContent == "favorites" &&
+              <h2>favorites</h2>
+            }
           </section>
         </div>
       )}
