@@ -60,6 +60,17 @@
   font-weight: bold;
 }
 
+#userPageNav{
+  height: 10vh;
+  padding: 15px;
+  display: flex;
+  gap: 2rem;
+}
+
+#userPageInfo > button{
+  aspect-ratio: 1/1;
+}
+
 #userPageInfo{
-  height: 56vh;
+  height: 46vh;
 }
