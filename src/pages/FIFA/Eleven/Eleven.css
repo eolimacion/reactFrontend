@@ -1,0 +1,123 @@
+.formEleven{
+    min-height: 900px;
+}
+.inputForm{
+    background-color: rgb(108, 108, 233);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+.selecEleven{
+   position: relative;
+    top: 90%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 1px;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formEleven{
+    
+ 
+    height: 120vh;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+}
+.contenedorEleven{
+    background-image:url("https://res.cloudinary.com/djfkchzyq/image/upload/v1701527637/ykcrr3rpdya2a0lfhwg5.png");
+   width: 650px;
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 40vh;
+    height: 700px;
+    position: absolute;
+
+    ;
+}
+.opcionJugador{
+    background-color: rgba(255, 255, 0, 0);
+    position: relative;
+    width: 120px;
+    height: 120px;
+ 
+  
+   
+}
+.contenedorJugadorE{
+  position: relative;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    
+}
+
+.imagenEleven{
+    width: 80px;
+    height: 100px;
+
+  
+}
+/*Posiciones de lo jugadore en el campo
+"*/
+
+.goalkeeperE{
+   
+    top: 58%;
+    left: 41%;
+   
+}
+.centrebackE{
+  position: relative ;
+    top: 34%;
+    left: 27%;
+ 
+ }
+ .centreback2E{
+    top:19.5%;
+    left: 56%;
+   
+ }
+
+ .rightbackE{
+    top:-5%;
+    left: 67%;
+}  
+.leftbackE{
+    top:-18%;
+    left: 15%;
+} 
+.midfielder1E{
+    top: -47%;
+    left: 40%;
+    
+} 
+.midfielder2E{
+    top: -53%;
+    left: 52%;
+} 
+.midfielder3E{
+    top: -68%;
+    left: 28%;
+} 
+.forward1E{
+    top: -99.5%;
+    left: 56%;
+}
+.forward2E{
+    top: -113%;
+    left: 24%;
+}
+.forward3E{
+    top: -135%;
+    left: 40%;
+}
