@@ -51,7 +51,7 @@ body{
 
 main{
   /* margin-top: 15vh; */
-  min-height: 76vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;

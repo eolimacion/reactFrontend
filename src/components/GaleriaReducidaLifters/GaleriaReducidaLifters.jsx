@@ -35,7 +35,7 @@ export const GaleriaReducidaLifters = ({galeriaItems}) => {
             onClick={prevPage}
             disabled={currentPage === 1}
           >
-  <span class="material-symbols-outlined arrow">
+  <span className="material-symbols-outlined arrow">
   arrow_back
   </span>
           </button>
@@ -57,7 +57,7 @@ export const GaleriaReducidaLifters = ({galeriaItems}) => {
             onClick={nextPage}
             disabled={currentPage === totalPages}
           >
-  <span class="material-symbols-outlined arrow">
+  <span className="material-symbols-outlined arrow">
   arrow_forward
   </span>
           </button>

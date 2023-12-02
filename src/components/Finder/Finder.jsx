@@ -7,6 +7,7 @@ import { FinderMainNav, FinderChildrenNav } from "../index"
 import { buscarAllTeam, buscarTeamAscendente, buscarTeamDescendente, buscarTeamName, fitrarTeam } from "../../services/team.service"
 import { buscarAllRider, buscarRiderAscendente, buscarRiderDescendente, buscarRiderName, fitrarRider } from "../../services/rider.service"
 import { buscarAllCircuit, buscarCircuitAscendente, buscarCircuitDescendente, buscarCircuitName, fitrarCircuit } from "../../services/circuit.service"
+import { filterLifters, getAllLifters, getNameLifters, sortAscendingLifters, sortDescendingLifters } from "../../services/lifter.service"
 export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
   const {user} = useAuth()
 
@@ -46,6 +47,8 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
         resAll = await buscarAllRider()
       } else if (page == "circuits") {
         resAll = await buscarAllCircuit()
+      } else if (page == "powerlifters") {
+        resAll = await getAllLifters()
       }
 
       setRes(resAll)
@@ -67,6 +70,8 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
         resByName = await buscarRiderName(findNameValue)
       } else if (page == "circuits") {
         resByName = await buscarCircuitName(findNameValue)
+      } else if (page == "powerlifters") {
+        resByName = await getNameLifters(findNameValue)
       }
       setRes(resByName)
       setController("getbyname")
@@ -85,7 +90,11 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
         resFilter = await fitrarRider(filterValue, minValue, maxValue)
       } else if (page == "circuits") {
         resFilter = await fitrarCircuit(filterValue, minValue, maxValue)
+      } else if (page == "powerlifters") {
+        resFilter = await filterLifters(filterValue, minValue, maxValue)
       }
+
+      
       setRes(resFilter)
       setController("filter")
       setSend(false)
@@ -104,7 +113,13 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
           resDescending = await buscarRiderDescendente(sortValue)
         } else if (page == "circuits") {
           resDescending = await buscarCircuitDescendente(sortValue)
+        } else if (page == "powerlifters") {
+          resDescending = await sortDescendingLifters(sortValue)
         }
+
+
+
+        
         setRes(resDescending);
         setController("sortdescending")
         setSend(false)
@@ -119,7 +134,11 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
           resAscending = await buscarRiderAscendente(sortValue)
         } else if (page == "circuits") {
           resAscending = await buscarCircuitAscendente(sortValue)
+        }  else if (page == "powerlifters") {
+          resAscending = await sortAscendingLifters(sortValue)
         }
+
+
         setRes(resAscending);
         setController("sortascending")
         setSend(false)
@@ -146,6 +165,8 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
         resAll = await buscarAllRider()
       } else if (page == "circuits") {
         resAll = await buscarAllCircuit()
+      } else if (page == "powerlifters") {
+        resAll = await getAllLifters()
       }
       setRes(resAll)
       setController("getall")

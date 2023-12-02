@@ -56,6 +56,15 @@ export const SortSelect = ({ setIsAscending, setSortValue, page }) => {
             <option value="topSpeed">Top Speed</option>
             <option value="name">Name</option>
           </optgroup>}
+          {page == "powerlifters" &&
+          <optgroup label = "STAT">
+            <option value="birthYear">Year</option>
+            <option value="benchPress">Bench Press</option>
+            <option value="squat">Squat</option>
+            <option value="deadlift">Deadlift</option>
+            <option value="total">Total</option>
+            <option value="GLPoints">GL Points</option>
+          </optgroup>}
       </select>
     </>
   )

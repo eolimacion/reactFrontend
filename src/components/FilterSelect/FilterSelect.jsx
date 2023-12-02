@@ -40,6 +40,16 @@ export const FilterSelect = ({ setFilterValue, page }) => {
           <option value="topSpeed">Top Speed</option>
           <option value="name">Name</option>
         </select>}
+        {page == "powerlifters" &&
+        <select name="filter" id="filter-select" onChange={(e) => {setFilterValue(() => e.target.value)}}>
+          <option value="selecciona">Select Filter</option>
+            <option value="birthYear">Year</option>
+            <option value="benchPress">Bench Press</option>
+            <option value="squat">Squat</option>
+            <option value="deadlift">Deadlift</option>
+            <option value="total">Total</option>
+            <option value="GLPoints">GL Points</option>
+            </select>}
     </>
   )
 }

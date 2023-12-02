@@ -1,18 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+
+
+
+
 footer {
-    background-color:var(--color-secundario);
+    font-family: 'Roboto', sans-serif;
+    background-color:rgb(20, 11, 12);
+    color: white;
+    margin: 1rem 0 0 0;
     color: var(--color-p);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 10vh;
+    height: 30vh;
 }
 
-.linkAboutFooter {
+
+.footerDiv{
+    width: 100vw;
+    padding: 1rem;
     color: white;
-    text-decoration: inherit;
+    font-weight: 200;
+    text-decoration:none ;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content: space-around;
 }
 
-.linkAboutFooter:hover {
-    color: rgba(245, 245, 220, 0.445);
+.h3Footer{
+    font-weight: 400;
+    padding: 0 0 0.5rem 0;
 }
+
+.legalDivFooter{
+    padding: 0 0 0 5rem;
+    gap: 1rem;
+    color: white;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:flex-start ;
+}
+
+footer ul {
+    list-style-type: none;
+    
+  }
+
+footer ul li {
+    margin: 2px
+}
+

@@ -65,7 +65,7 @@ export const Riders = () => {
         <Loading />
       ) : (
         <div className="galeriaPreview">
-          <GaleriaReducida galeriaItems={allRiders?.data} />
+          {/* <GaleriaReducida galeriaItems={allRiders?.data} /> */}
         </div>
       )}
       <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "riders"/>

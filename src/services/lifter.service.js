@@ -19,7 +19,7 @@ export const getNameLifters = async (name) => {
 };
 
 //!!---------------------->get my GL
-export const sortDescendingLifters = async (stat) => {
+export const getByGL = async (stat) => {
   const APIGeneral = extraConfig();
   return APIGeneral.get(`/lifter/getByGL/`)
     .then((res) => res)
@@ -33,6 +33,41 @@ export const lifterByID = async (id) => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+
+//!!----------------------> Filtrar
+export const filterLifters = async (filter, gt, lt) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/lifter/filter/lifter/${filter}/${gt}/${lt}`, {
+    headers: { "Content-Type": "multipart/form-data" },
+  })
+    .then((res) => res)
+    .catch((error) => error);
+};
+
+//!!----------------------> Sort Descending (o alfabéticamente) by Stat
+export const sortDescendingLifters = async (stat) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/lifter/sortdescending/lifter/${stat}`, {
+    headers: { "Content-Type": "multipart/form-data" },
+  })
+    .then((res) => res)
+    .catch((error) => error);
+
+};
+
+
+//!!----------------------> Sort Ascending (o de z - a) by Stat
+export const sortAscendingLifters = async (stat) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/lifter/sortascending/lifter/${stat}`, {
+    headers: { "Content-Type": "multipart/form-data" },
+  })
+    .then((res) => res)
+    .catch((error) => error);
+};
+
+
 
 //? AUTENTICADOS ------------------------------------------------------------------------
 

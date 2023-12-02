@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Players.css'
-import { CardInTheGallery, CardPlayer, Finder, FormPlayers, GaleriaReducida } from '../../../components'
+import { CardInTheGallery, CardPlayer, Finder, FormPlayers, GaleriaReducida, Loading } from '../../../components'
 import { getAllPlayers } from '../../../services/player.service'
 import { useErrorFinder } from '../../../hooks/useErrorFinder'
 import { usePaginacion } from '../../../hooks/usePaginacion'
@@ -35,7 +35,7 @@ export const Players = () => {
   return (
     <div className="Allpage">
     {galleryLoading ? (
-      <p>Cargando la galería...</p>
+      <Loading/>
     ) : (
       <div className="galeriaPreview">
           <GaleriaReducidaPlayers galeriaItems={res?.data} />

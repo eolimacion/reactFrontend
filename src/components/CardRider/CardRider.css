@@ -1,13 +1,50 @@
-.singleItemCardRider{
+
+  @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+
+.riderCardGallery{
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%
-  /* margin: 0 0.5rem 0 0.5rem ; */
+  text-align: center;
+  background: rgb(2,0,36);
+background: linear-gradient(36deg, rgba(2,0,36,1) 0%, rgba(26,28,32,1) 52%, rgba(124,10,45,1) 100%);
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+height: 60vh;
+  position: relative;
 }
+
+.riderNameDiv{
+  text-align: left;
+  font-family: 'Russo One', sans-serif;
+  padding: 50px;
+  font-size: 23px;
+  width: 30vw;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 78%;
+    left: 35%;
+    transform: translate(-40%, -30%);
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 37%, rgba(26,28,32,0.6706389925373134) 74%, rgba(124,10,45,0) 100%);
+}
+.imageRiderDiv{
+  height: 80vh;
+  overflow: hidden;
+}
+
+
+
 .singleItemImgRider{
-  width: 150%;
+  height: 65vh;
   object-fit: cover;
   border-radius: 50%;
 }

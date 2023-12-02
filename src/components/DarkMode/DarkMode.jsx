@@ -13,6 +13,10 @@ if(darkMode){
     root.style.setProperty("--color-background", "#252424")
     root.style.setProperty("--color-enhance", "#121212")
 }
+
+
+
+
 //!--------------- LIGHT MODE --------------------
 if(!darkMode){
     let root = document.documentElement
@@ -24,7 +28,7 @@ if(!darkMode){
 
   return (
     <>
-    <button onClick={()=> setDarkMode(!darkMode)}  >
+    <button className='darkModeBtn' onClick={()=> setDarkMode(!darkMode)}  >
         { darkMode ? "Light Mode" : "Dark Mode"}
     </button>
     </>

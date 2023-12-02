@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Lifters.css'
-import {  CardInTheGallery, FormLifters, Loading } from '../../../components'
+import {  CardInTheGallery, Finder, FormLifters, Loading } from '../../../components'
 import { getAllLifters } from '../../../services/lifter.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 import { GaleriaReducidaLifters } from '../../../components/GaleriaReducidaLifters/GaleriaReducidaLifters'
@@ -13,30 +13,41 @@ export const Lifters = () => {
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allLifters, setAllLifters] = useState([]);
+  const [res, setRes] = useState(null)
+
+
   const sportPath = `/powerlifting/lifters/`
   const{galeriaItems,ComponentPaginacion,setGaleriaItems,dataPag}=usePaginacion()
  
-  const getLifters = async () => {
+  // const getLifters = async () => {
   
-    const liftersData = await getAllLifters();
-    setAllLifters(liftersData)
-    setGalleryLoading(false);
+  //   const liftersData = await getAllLifters();
+  //   setAllLifters(liftersData)
+  //   setGalleryLoading(false);
    
-  };
-  
-//este use effect gestiona los datos de la llamada
+  // };
+
   useEffect(() => {
-    getLifters();
-       console.log(allLifters);
-  }, []); 
+    console.log(res)
+    if(res?.status == 200){
+      setGaleriaItems(res?.data)
+    }
+  }, [res]); 
+  
+
+//este use effect gestiona los datos de la llamada
+  // useEffect(() => {
+  //   getLifters();
+  //      console.log(allLifters);
+  // }, []); 
   //cuando es 200 envia al estado de la paginacion
-  useEffect(() => {if(allLifters?.status==200){
+  // useEffect(() => {if(allLifters?.status==200){
  
-    setGaleriaItems(allLifters?.data)
-  }
+  //   setGaleriaItems(allLifters?.data)
+  // }
  
   
-  }, [allLifters])
+  // }, [allLifters])
 
  
   
@@ -47,10 +58,10 @@ export const Lifters = () => {
     setShowGallery(!showGallery)
   };
 
-  const handleGalleryButtonClick = () => {
-    setShowGallery(true);
-    setShowForm(false);
-  };
+  // const handleGalleryButtonClick = () => {
+  //   setShowGallery(true);
+  //   setShowForm(false);
+  // };
   return (
     <div className="Allpage">
     {galleryLoading ? (
@@ -60,12 +71,10 @@ export const Lifters = () => {
         <GaleriaReducidaLifters galeriaItems={allLifters?.data}/>
       </div>
     )}
-    <div className="buscadorMario">
-      <button onClick={handleGalleryButtonClick}>Mostrar Galería</button>
-    </div>
+ <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "powerlifters"/>
     <section className="mainPage">
       {galleryLoading ? (
-        <p>Cargando...</p>
+        <Loading/>
       ) : (
         <>  {!showForm && <ComponentPaginacion/>
       }
@@ -92,17 +101,3 @@ export const Lifters = () => {
   );
 }
  
-// {galleryLoading ? (
-//   <p>Cargando...</p>
-// ) : (
-//   <>
-//   <div className="displayImage">
-//       {showForm ? <FormLifters /> : showGallery &&(
-          
-
-//          <ComponentPaginacion/>
-//       )}
- 
-
-
-//    </div> </>)}
