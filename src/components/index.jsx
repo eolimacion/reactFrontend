@@ -32,4 +32,4 @@ export * from "./CardCircuit/CardCircuit"
 export * from "./CardRider/CardRider"
 export * from './DarkMode/DarkMode'
 export * from "./UserPodium/UserPodium"
-
+export * from './CardLifter/CardLifter'
