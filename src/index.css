@@ -50,8 +50,8 @@ body{
 }
 
 main{
-  padding-top: 12vh;
-  min-height: 80vh;
+  /* margin-top: 15vh; */
+  min-height: 76vh;
   display: flex;
   justify-content: center;
   align-items: center;

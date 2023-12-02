@@ -1,0 +1,52 @@
+#userPagePage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#userPageTopContainer{
+  height: 20vh;
+  width: 100vw;
+  padding-left: 5vw;
+  gap: 3rem;
+}
+
+#userPageImage{
+  height: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  float: left;
+}
+
+#userPageMainInfoNav{
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+}
+
+#userPageMainInfoNav > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 0.5rem;
+}
+
+#userPageName{
+  font-size: 2em;
+}
+
+#userPageInterest{
+  font-family: "Rubik", sans-serif;
+}
+
+#userPageInterest > span{
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+#userPageInfo{
+  height: 46vh;
+}

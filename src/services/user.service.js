@@ -169,6 +169,15 @@ export const getUserByName = async (userName) => {
     .catch((error) => error);
 };
 
+//! -------------------> Get User By Id
+export const getUserById = async (userId) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/users/${userId}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
+
+
 //!-------- ADD FAVS ---------------
 
 export const addFavLifter = async (idLifter) => {

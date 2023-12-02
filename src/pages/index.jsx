@@ -15,6 +15,8 @@ export * from './ProfileFavorites/ProfileFavorites'
 export * from './FavGallery/FavGallery'
 export * from './UserProfileData/UserProfileData'
 export * from './AccountSettings/AccountSettings'
+export * from './FindUsers/FindUsers'
+export * from './UserPage/UserPage'
 
 //!!POWERLIFTING
 export * from './Powerlifting/Powerlifting'

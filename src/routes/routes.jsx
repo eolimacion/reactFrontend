@@ -8,6 +8,7 @@ import {
   Eleven,
   FIFA,
   FavGallery,
+  FindUsers,
   ForgotPassword,
   Home,
   Lifters,
@@ -21,6 +22,7 @@ import {
   Register,
   Riders,
   Teams,
+  UserPage,
   UserProfileData,
   VerifyCode,
   Weight,
@@ -37,8 +39,12 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/finder",
-        element: <Finder />,
+        path: "/users",
+        element: <FindUsers />,
+      },
+      {
+        path: "/users/:id",
+        element: <UserPage />,
       },
       {
         path: "/",

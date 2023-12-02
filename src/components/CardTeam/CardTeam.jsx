@@ -1,7 +1,7 @@
 import "./CardTeam.css"
 import { Link } from 'react-router-dom'
 
-export const CardTeam = ({ name, image, id }) => {
+export const CardTeam = ({ name, image, id, sportPath }) => {
   const path = `${sportPath}${id}`
   return (
     <>
