@@ -31,10 +31,10 @@ export * from "./CardTeam/CardTeam"
 export * from "./CardCircuit/CardCircuit"
 export * from "./CardRider/CardRider"
 export * from './DarkMode/DarkMode'
-<<<<<<< HEAD
+
 export * from './ElevenContainer/ElevenContainer'
 
-=======
+
 export * from "./UserPodium/UserPodium"
 export * from './CardLifter/CardLifter'
->>>>>>> 776f1f892c5076983eadeffd49b69b01b51b31d2
+
