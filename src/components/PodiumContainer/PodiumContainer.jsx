@@ -75,7 +75,7 @@ export const PodiumContainer = () => {
   useEffect(() => {
     if (buttonComment) {
       getAllComments(buttonComment);
-      console.log(res)
+      console.log(allComments)
       console.log(buttonComment) 
     }
   }, [buttonComment,res]);
