@@ -72,5 +72,5 @@
 }
 
 #userPageInfo{
-  height: 46vh;
+  min-height: 46vh;
 }

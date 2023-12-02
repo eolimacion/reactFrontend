@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getUserById, toggleFollow } from "../../services/user.service"
 import { useParams } from "react-router-dom"
-import { Loading } from "../../components"
+import { Loading, UserPodium } from "../../components"
 import "./UserPage.css"
 import { useAuth } from "../../context/authContext"
 import { Profile } from "../Profile/Profile"
@@ -81,7 +81,7 @@ export const UserPage = () => {
               <h2>eleven</h2>
             }
             {renderContent == "podium" &&
-              <PodiumContainer page = "userPage" id = {res.data.yourPodium[0]}/>
+              <UserPodium page = "userPage" podiumId = {res.data.yourPodium[0]._id}/>
             }
             {renderContent == "favorites" &&
               <h2>favorites</h2>
