@@ -145,7 +145,7 @@ export const PodiumContainer = () => {
                         <Rating
                           name="simple-controlled"
                           value={valueStar}
-                          onChange={(event, newValue) => {
+                          onChange={(event) => {
                             setValueStar(parseInt(event.target.value));
                           }}
                         />

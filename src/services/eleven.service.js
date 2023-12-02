@@ -5,7 +5,7 @@ import { extraConfig } from "./serviceApiGeneral.config";
 export const createEleven = async (formData) => {
   console.log("estoy en eleven service");
   const APIGeneral = extraConfig();
-  return APIGeneral.post("/eleven/create", formData)
+  return APIGeneral.post("/eleven/create", formData,)
     .then((res) => res)
     .catch((error) => error);
 };
