@@ -5,6 +5,10 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/user.service";
 import { useErrorLogin } from "../../hooks/useErrorLogin";
 import { useAuth } from "../../context/authContext";
+import Button from '@mui/material/Button';
+
+import SendIcon from '@mui/icons-material/Send';
+
 
 export const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -57,9 +61,13 @@ export const Login = () => {
 
   return (
     <>
-      <div className="allForm">
-        <form className="formMain" onSubmit={handleSubmit(formSubmit)}>
-          <h1 className="formTitle">Log In!</h1>
+      <div className="allForm register">
+      <div className="formMain">
+      <div className="formTitle">
+          <h1 className="titleFormH1">LOG IN</h1>
+          </div>
+          <form className="form" onSubmit={handleSubmit(formSubmit)}>
+          <div className="inputPlaceHolderForm">
           <label className="placeHolder" htmlFor="email">
             Email
           </label>
@@ -83,22 +91,21 @@ export const Login = () => {
             {...register("password", { required: true })}
           />
 
-          <div className="btn">
-            <button
-              className={isSent ? "btn btnSent" : "btn btnNotsent"}
-              type="submit"
-              disabled={isSent}
-            >
-              Login
-            </button>
+</div>
+
+          <div className="btnContainer">
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem'}}  type="submit"
+               variant="contained" endIcon={<SendIcon />}>
+ LOG IN
+</Button>
           </div>
-          <p className="btn">
-            <small>
-              Have you forgotten the password?
+          <p className="loginParagraph changePassword">
+            
+              Have you forgotten the password?{" "}
               <Link to="/forgotPassword" className="anchorCustom">
                 Change password
               </Link>
-            </small>
+            
           </p>
         </form>
         <div className="footerForm">
@@ -106,6 +113,7 @@ export const Login = () => {
             Are you not registered? <Link to="/register">Register Here</Link>
           </p>
         </div>
+      </div>
       </div>
     </>
   );

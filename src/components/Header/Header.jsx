@@ -1,10 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./Header.css";
 import { useAuth } from "../../context/authContext";
-
 import { useState } from "react";
 import { NavSports } from "../NavSports/NavSports";
 import { DarkMode } from "../DarkMode/DarkMode";
+import LogoutIcon from '@mui/icons-material/Logout';
+
 export const Header = () => {
   const [mostrarBarra,setMostrarbarra]=useState(false)
   const handleMostrarBarra=()=>{
@@ -45,8 +46,7 @@ account_circle
               <>
               <DarkMode/>
               <div className="logoutDiv">
-              <span onClick={() => logout()} className="material-symbols-outlined logout">logout</span>
-            Logout
+             <LogoutIcon sx={{ fontSize: 30 }} color="var(--color-h)" onClick={() => logout()}/>
               </div>
              
                 <NavLink className="profileCircle" to ="/profile/user">

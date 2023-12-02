@@ -19,9 +19,12 @@
   --color-enhance-nightmode: #252424;
 
   --color-form: #Fafafa;
+  --color-form-nightmode: black;
 
   --boder: 2px solid #ebe1de ;
   --boder--nightmode: 2px solid #252424;
+
+  --border-form: 1px solid #e4dad9;
 
 
   --color-h: black;
@@ -30,10 +33,10 @@
 
 
 /*  --------- MOTO GP ----------   */
---color-boton-motogp: #D92351;
+--color-boton-motogp: #e93864;
 
 /*  --------- FIFA  ----------   */
---color-boton-motogp: #135B97;
+
 
 
 /*  --------- POWERLIFTING ----------   */

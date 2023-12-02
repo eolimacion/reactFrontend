@@ -9,6 +9,18 @@ import { UploadFile } from "../../components";
 import { useErrorRegister } from "../../hooks/useErrorRegister";
 
 
+import * as React from 'react';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
+
+
 export const Register = () => {
   // allUser es la respuesta completa del 200 del service de registro
   const { setAllUser, bridgeData, setIsDeletedUser } = useAuth();
@@ -64,11 +76,12 @@ useEffect(() => {
     <div className="allForm register">
       <div className="formMain">
         <div className="formTitle">
-        <h1>Sign Up</h1>
+        <h1 className="titleFormH1">SIGN UP</h1>
         <p>Champion Within, Victories Begin</p>
         </div>
         <form className="form" onSubmit={handleSubmit(formSubmit)}>
-          <div className="userInfo formGroup">
+          <div className="inputPlaceHolderForm">
+
           <label htmlFor="name" className="customPlaceholder">
               Username
             </label>
@@ -81,8 +94,8 @@ useEffect(() => {
               {...register("name", { required: true })}
             />
            
-          </div>
-          <div className="emailInfo formGroup">
+
+  
           <label htmlFor="email" className="customPlaceholder">
               E-mail
             </label>
@@ -94,8 +107,7 @@ useEffect(() => {
               autoComplete="false"
               {...register("email", { required: true })}
             />
-            </div>
-          <div className="passwordInfo formGroup">
+
           <label htmlFor="password" className="customPlaceholder">
               Password
             </label>
@@ -108,10 +120,10 @@ useEffect(() => {
               {...register("password", { required: true })}
             />
             
+  
           </div>
 
-
-           <p>Interest</p>
+           <p className="customPlaceholder">Interest</p>
             <div className="formGroup">
             <div className="interest">
               <input
@@ -146,56 +158,31 @@ useEffect(() => {
               </label>
             </div>
             </div>
-            <p>Gender</p>
-           <div className="formGroup">
-           <div className="gender">
-           
-              <input
-                type="radio"
-                name="gender"
-                id="male"
-                value="hombre"
-                {...register("gender", {required: true})}
-              />
-              <label htmlFor="male" className="labelRadio male">
-                Male
-              </label>
+            <p className="customPlaceholder">Gender</p>
+    <div className="radioMUI">
+            <FormControl>
+      <RadioGroup
+        row
+        aria-labelledby="demo-row-radio-buttons-group-label"
+        name="row-radio-buttons-group"
+        style= {{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}
+      >
+        <FormControlLabel value="mujer" control={<Radio />} label="Female" {...register("gender", {required: true})}/>
+        <FormControlLabel value="hombre" control={<Radio />} label="Male" {...register("gender", {required: true})} />
+        <FormControlLabel value="otros" control={<Radio />} label="Other" {...register("gender", {required: true})} />
+      </RadioGroup>
+    </FormControl>
 
-              <input
-                type="radio"
-                name="gender"
-                id="female"
-                value="mujer"
-                {...register("gender", {required: true})}
-              />
-              <label htmlFor="female" className="labelRadio female">
-                Female
-              </label>
+    </div>
 
-              <input
-                type="radio"
-                name="gender"
-                id="otros"
-                value="otros"
-                {...register("gender", {required: true})}
-              />
-              <label htmlFor="otros" className="labelRadio otros">
-                Otros
-              </label>
-            </div>
-           </div>
-
-           
           
           <UploadFile />
           <div className="btnContainer">
-            <button
-              className={send ? "btn btnSent" : "btn btnNotsent"}
-              type="submit"
-              disabled={send}
-            >
-              {send ? "Loading..." : "REGISTER"}
-            </button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem'}}  type="submit"
+              disabled={send} variant="contained" endIcon={<SendIcon />}>
+ {send ? "Loading..." : "SING UP"}
+</Button>
+
             <div className="loginForm">
         <p className="loginParagraph">
           Already a member? <Link to="/login">Login Here</Link>
@@ -204,7 +191,7 @@ useEffect(() => {
           </div>
 
           <p className="bottomText">
-            <small>
+            <small className="terms">
               By clicking the Sign Up button, you agree to our{" "} <br />
               <Link to="/terms" className="anchorCustom">
                 Terms & Conditions

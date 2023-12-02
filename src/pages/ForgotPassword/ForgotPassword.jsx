@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import { Navigate } from "react-router-dom";
 import { forgotPasswordNoAuth } from '../../services/user.service';
 import { useForgotPasswordError } from '../../hooks/useForgotPasswordError';
+import Button from '@mui/material/Button';
+
+import SendIcon from '@mui/icons-material/Send';
 
 
 export const ForgotPassword = () => {
@@ -28,19 +31,20 @@ export const ForgotPassword = () => {
 
   return (
     <>
-    <div className='allForm'>
+    <div className='allForm '>
     
       
      
-      
+    <div className="formMain">
 
-        <form  className="formMain"onSubmit={handleSubmit(formSubmit)}>
+        <form  className="form"onSubmit={handleSubmit(formSubmit)}>
         <div className='formTitle
     '>
-       <h1>Change your password</h1>
+       <h1 className="titleFormH1" id="titleForgot">FORGOT PASSWORD?</h1>
+       <p>Don't worry! We will send you a new one to your email</p>
     </div>
 
-          <div className="formGroup">
+          <div className="inputPlaceHolderForm">
              <label htmlFor="customInput" className="customPlaceholder">
               Email
             </label>
@@ -55,21 +59,17 @@ export const ForgotPassword = () => {
            
           </div>
 
-          <div className="btnContainer">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? "#49c1a388" : "#49c1a2" }}
-            >
-              Change password
-            </button>
-          </div>
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem'}}  type="submit"
+               variant="contained" endIcon={<SendIcon />}>
+SEND
+</Button>
+
 
           <p className="bottomText">
-            <small>Enter your email to send you the new password</small>
+            <small>Please set a new password as soon as you log into your account.</small>
           </p>
         </form>
+      </div>
       </div>
      
     </>

@@ -9,6 +9,11 @@
     animation: fallAnimation 1s ease-in-out forwards 
 }
 
+.videoCircuit{
+    width: 30vw;
+    height: 30vh;
+}
+
 
 @keyframes shineAnimation {
     from {

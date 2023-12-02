@@ -6,14 +6,15 @@ export const CardRider = ({ name, image, id, sportPath }) => {
   return (
     <>
         <section className="singleItemCardRider riderCardGallery" key={id}>
-          <Link to={path}>
+          <Link style={{ textDecoration: 'none', color: 'white' }} to={path}>
             <div className="imageRiderDiv">
             <img className="singleItemImgRider" src={image} alt={name} />
             </div>
-          </Link>
+          
           <div className="riderNameDiv">
           <h2 className="riderName">{name}</h2>
           </div>
+          </Link>
         </section>
     </>
   )

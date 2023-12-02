@@ -70,6 +70,7 @@ if(darkMode){
     root.style.setProperty("--color-enhance", "#121212")
     root.style.setProperty("--boder", "2px solid #252424")
     root.style.setProperty("--color-h", "white")
+    root.style.setProperty("--color-form", "black")
 }
 
 
@@ -82,6 +83,7 @@ if(!darkMode){
     root.style.setProperty("--color-enhance", "#Fafafa")
     root.style.setProperty("--boder", "2px solid #ebe1de")
     root.style.setProperty("--color-h", "black")
+    root.style.setProperty("--color-form", "#Fafafa")
 }
 
 

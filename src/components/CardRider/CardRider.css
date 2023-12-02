@@ -41,6 +41,9 @@ height: 60vh;
   overflow: hidden;
 }
 
+.riderCardGallery:hover{
+  transform: scale(102%);
+}
 
 
 .singleItemImgRider{
