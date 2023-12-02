@@ -215,5 +215,12 @@ export const addFavTeams = async (idTeam) => {
     .catch((error) => error);
 };
 
+export const toggleFollow = async (idUser) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.patch(`/users/toggleFollow/${idUser}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
+
 
 

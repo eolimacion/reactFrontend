@@ -6,7 +6,7 @@ import { CardPlayer } from '../CardPlayer/CardPlayer';
 export const GaleriaReducidaPlayers = ({galeriaItems}) => {
     const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
-  const sportPath = `/motogp/riders/`
+  const sportPath = `/fifa/players/`
   const currentItems = galeriaItems?.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -42,6 +42,7 @@ arrow_back
           <CardPlayer
             image={item?.image}
             key={item?._id}
+            // name={item?.name}
             id={item?._id} sportPath={sportPath}
           />
         ))}

@@ -10,6 +10,7 @@
   width: 100vw;
   padding-left: 5vw;
   gap: 3rem;
+  border: 1px solid black;
 }
 
 #userPageImage{
@@ -38,6 +39,18 @@
   font-size: 2em;
 }
 
+#userPageInterestFollow{
+   display: flex;
+   flex-direction: row;
+   gap: 2rem;
+}
+
+#followUserButton{
+  min-width: 100px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
 #userPageInterest{
   font-family: "Rubik", sans-serif;
 }
@@ -48,5 +61,5 @@
 }
 
 #userPageInfo{
-  height: 46vh;
+  height: 56vh;
 }
