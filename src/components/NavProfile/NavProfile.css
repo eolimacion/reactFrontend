@@ -1,11 +1,12 @@
- .navProfile{
+ .navProfileProfile{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    background-color: --primary;
 }
 
-.navProfile > a {
+.navProfileProfile > a {
     text-decoration:solid;
     color: rgb(6, 25, 42);
 
@@ -13,6 +14,8 @@
         background-color: rgb(168, 185, 200);
     }
 }
+
+
 
 
 

@@ -3,7 +3,7 @@ export const NavFavChildren = ({ classname, fav, setFavChildren }) => {
     case "fifa":
       return (
         <nav className='secondNavFav' id="displayFavFifaModels">
-          <button className="profileFavSecondaryButtons" onClick={() => setFavChildren("favPlayers")}>Players</button>
+          <button className="profileFavSecondaryButtons" autoFocus onClick={() => setFavChildren("favPlayers")}>Players</button>
           <button className="profileFavSecondaryButtons" onClick={() => setFavChildren("favTeams")}>Teams</button>
           <button className="profileFavSecondaryButtons" onClick={() => setFavChildren("favElevens")}>Elevens</button>
         </nav>

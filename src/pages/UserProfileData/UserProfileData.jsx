@@ -58,6 +58,7 @@ export const UserProfileData = () => {
         <div className="profileButtonsContainer">
           <button
             className="profileButton"
+            autoFocus
             onClick={() => setDisplaySection("followers")}
           >
             {data?.data?.followers?.length} followers
