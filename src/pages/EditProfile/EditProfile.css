@@ -19,16 +19,28 @@
   }
    */
 
-   .profileEditForm {
-    display: flex;
-    flex-direction: column;
-    background-color: --color-primario;
-   }
+.profileEditForm {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: space-evenly;
+}
 
-   .profileEditLeft {
+.profileEditContainerColumns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
-   }
+.profileEditLeft {
+  display: flex;
+  flex-direction: column;
+}
 
-   .profileEditRight {
-    
-   }
+.profileEditRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}

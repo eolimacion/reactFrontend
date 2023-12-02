@@ -19,7 +19,7 @@
   
   .favCardImag {
     width: 60%;
-    object-fit: cover; /* Ensure the image covers the container */
+    object-fit:contain; /* Ensure the image covers the container */
   }
   
   .favCardDetails {

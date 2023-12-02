@@ -16,6 +16,7 @@
 
 .errorFetchContainer img {
   max-width: 50%;
+  min-width: 20vw;
 }
 
 .errorFetchContainer h1 {

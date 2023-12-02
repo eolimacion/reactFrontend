@@ -13,6 +13,7 @@ console.log(res, "Respuesta en useLoginError")
           _id: res.data.user._id,
           role: res.data.user.role,
           interestedIn: res.data.user.interestedIn, 
+          gender: res.data.user.gender,
           
         };
         console.log(updatedUser)
