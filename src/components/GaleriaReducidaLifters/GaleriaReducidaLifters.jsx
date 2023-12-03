@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import './GaleriaReducidaLifters.css'
-import { CardInTheGallery } from '../CardInTheGallery/CardInTheGallery'
-
 import React from 'react'
-import { CardPlayer } from '../CardPlayer/CardPlayer'
+import { CardLifterGaleriaReducida } from '../CardLifter/CardLifterGaleriaReducida'
 
 export const GaleriaReducidaLifters = ({galeriaItems}) => {
     const itemsPerPage = 6;
     const [currentPage, setCurrentPage] = useState(1);
-    const sportPath = `/motogp/riders/`
+    const sportPath = `/powerlifting/lifters/`
     const currentItems = galeriaItems?.slice(
       (currentPage - 1) * itemsPerPage,
       currentPage * itemsPerPage
@@ -41,7 +39,7 @@ export const GaleriaReducidaLifters = ({galeriaItems}) => {
           </button>
         <div className="noSe">
         {currentItems?.map((item) => (
-            <CardPlayer
+            <CardLifterGaleriaReducida
               image={item?.image}
               key={item?._id}
               id={item?._id} 

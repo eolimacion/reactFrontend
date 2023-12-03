@@ -5,6 +5,8 @@ import { getAllLifters } from '../../../services/lifter.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 import { GaleriaReducidaLifters } from '../../../components/GaleriaReducidaLifters/GaleriaReducidaLifters'
 import Button from '@mui/material/Button';
+import { CardLifterGaleriaReducida } from '../../../components/CardLifter/CardLifterGaleriaReducida'
+import { Link } from 'react-router-dom'
 
 export const Lifters = () => {
   const [data, setData] = useState(null);
