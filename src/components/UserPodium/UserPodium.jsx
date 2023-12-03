@@ -54,7 +54,6 @@ export const UserPodium = ({ page, podiumId }) => {
 //este use effect gestiona los datos de la llamada
   useEffect(() => {
     getPodium();
-       console.log(res);
   }, []); 
 
   //!!---------------------------------------

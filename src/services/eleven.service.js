@@ -17,6 +17,14 @@ export const getAllElevens = async () => {
     .catch((error) => error);
 };
 
+//! ------------------------ GET by ID ---------------------
+export const getElevenById = async (elevenId) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/eleven/${elevenId}`, {})
+    .then((res) => res)
+    .catch((error) => error);
+};
+
 //!--------------------POST COMMENT ------------------------
 
 export const createElevenComment = async (location, formData) => {

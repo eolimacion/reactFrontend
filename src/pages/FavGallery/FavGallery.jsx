@@ -8,7 +8,7 @@ import { usePaginacion } from "../../hooks/usePaginacion";
 import { pathWithId } from "../../utils/pathWithId";
 import { ProfileFavsCard } from "../../components/ProfileFavsCard/ProfileFavsCard";
 
-export const FavGallery = () => {
+export const FavGallery = ({ id, page}) => {
   const { user } = useAuth();
   const [galleryLoading, setGalleryLoading] = useState(true);
   const [res, setRes] = useState(null);
@@ -22,6 +22,11 @@ export const FavGallery = () => {
     setGalleryLoading(true);
     setRes(await getById(user._id));
     setGalleryLoading(false);
+    if (page == "userpage") {
+      setGalleryLoading(true);
+      setRes(await getById(id));
+      setGalleryLoading(false);
+    }
   };
   useEffect(() => {
     fetchData();

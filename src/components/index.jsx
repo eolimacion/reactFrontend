@@ -34,7 +34,7 @@ export * from './DarkMode/DarkMode'
 
 export * from './ElevenContainer/ElevenContainer'
 
-
+export * from "./UserEleven/UserEleven"
 export * from "./UserPodium/UserPodium"
 export * from './CardLifter/CardLifter'
 

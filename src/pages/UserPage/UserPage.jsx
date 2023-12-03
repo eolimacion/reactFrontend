@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { getUserById, toggleFollow } from "../../services/user.service"
 import { useParams } from "react-router-dom"
-import { Loading, UserPodium } from "../../components"
+import { Loading, UserEleven, UserPodium } from "../../components"
 import "./UserPage.css"
 import { useAuth } from "../../context/authContext"
 import { Profile } from "../Profile/Profile"
 import { PodiumContainer } from "../../components/PodiumContainer/PodiumContainer"
+import { FavGallery } from "../FavGallery/FavGallery"
 
 export const UserPage = () => {
   //! Estados ------------------------------------
@@ -78,13 +79,13 @@ export const UserPage = () => {
           </nav>
           <section id = "userPageInfo">
             {((renderContent == "eleven") || (renderContent == "")) &&
-              <h2>eleven</h2>
+              <UserEleven elevenId = {res.data.yourteam[0]._id}/>
             }
             {renderContent == "podium" &&
               <UserPodium page = "userPage" podiumId = {res.data.yourPodium[0]._id}/>
             }
             {renderContent == "favorites" &&
-              <h2>favorites</h2>
+              <FavGallery id = {id} page = "userpage"/>
             }
           </section>
         </div>
