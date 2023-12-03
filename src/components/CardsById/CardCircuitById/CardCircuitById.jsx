@@ -6,6 +6,7 @@ import { addFavCircuits, getUsersFavCircuits } from '../../../services/user.serv
 import { Loading } from '../../Loading/Loading'
 import { useAuth } from '../../../context/authContext'
 import { ErrorFetch } from '../../ErrorFetch/ErrorFetch'
+import { DeletePlayer } from '../../DeletePlayer/DeletePlayer'
 
 export const CardCircuitById = () => {
     const navigate = useNavigate();
@@ -118,6 +119,9 @@ arrow_back_ios
               >favorite</span>
               </div>
             
+          </div>
+          <div id = "deletePlayerContainer">
+            {/*userData.rol === "admin" && */ <DeletePlayer  id = "DeletePlayer" playerId = {idCircuit} playerName = {name}/>}
           </div>
         </figure>
       </div>

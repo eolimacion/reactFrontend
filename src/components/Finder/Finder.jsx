@@ -228,4 +228,3 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
     </section>
   )
 }
-

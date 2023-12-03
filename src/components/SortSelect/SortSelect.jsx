@@ -63,7 +63,7 @@ export const SortSelect = ({ setIsAscending, setSortValue, page }) => {
             <option value="squat">Squat</option>
             <option value="deadlift">Deadlift</option>
             <option value="total">Total</option>
-            <option value="GLPoints">GL Points</option>
+            <option value="GLPoints">GLPoints</option>
           </optgroup>}
       </select>
     </>

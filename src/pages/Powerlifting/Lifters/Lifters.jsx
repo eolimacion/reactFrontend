@@ -44,13 +44,13 @@ export const Lifters = () => {
   };
   return (
     <div className="Allpage">
-    {galleryLoading ? (
+    {/* {galleryLoading ? (
       <Loading/>
     ) : (
       <div className="galeriaPreview">
         <GaleriaReducidaLifters galeriaItems={allLifters?.data}/>
       </div>
-    )}
+    )} */}
  <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "powerlifters"/>
     <section className="mainPage">
       {galleryLoading ? (

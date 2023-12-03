@@ -36,14 +36,14 @@ export const NavProfile = () => {
     />
     <BottomNavigationAction
     style={{color: 'var(--color-h)'}}
-      label="My favourites"
+      label="Favourites"
       value="favorites"
       onClick={()=> navigate('/profile/favourites')}
       icon={<FavoriteIcon />}
     />
     <BottomNavigationAction
     style={{color: 'var(--color-h)'}}
-      label="Edit profile"
+      label="Edit"
       value="nearby"
       onClick={()=> navigate('/profile/edit')}
       icon={<EditIcon />}

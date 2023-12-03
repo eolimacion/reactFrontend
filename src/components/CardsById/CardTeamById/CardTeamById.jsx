@@ -6,6 +6,7 @@ import { addFavTeams, getUsersFavTeams } from "../../../services/user.service";
 import { Loading } from "../../Loading/Loading";
 import { useAuth } from "../../../context/authContext";
 import { ErrorFetch } from "../../ErrorFetch/ErrorFetch";
+import { DeletePlayer } from "../../DeletePlayer/DeletePlayer";
 
 export const CardTeamById = () => {
   const navigate = useNavigate();
@@ -145,6 +146,9 @@ export const CardTeamById = () => {
                     </span>
                   </div>
                 </div>
+                <div id = "deletePlayerContainer">
+            {/*userData.rol === "admin" && */ <DeletePlayer  id = "DeletePlayer" playerId = {idTeam} playerName = {name}/>}
+          </div>
               </figure>
             </div>
           </div>

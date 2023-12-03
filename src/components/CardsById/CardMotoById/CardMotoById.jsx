@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { addFavRiders, getUsersFavRiders } from '../../../services/user.service'
 import { Loading } from '../../Loading/Loading'
 import { useAuth } from '../../../context/authContext'
+import { DeletePlayer } from '../../DeletePlayer/DeletePlayer'
 
 export const CardMotoById = () => {
   const navigate = useNavigate();
@@ -162,7 +163,11 @@ arrow_back_ios
               </div>
             {console.log(isLiked)}
           </div>
+          <div id = "deletePlayerContainer">
+            {/*userData.rol === "admin" && */ <DeletePlayer  id = "DeletePlayer" playerId = {idRider} playerName = {name}/>}
+          </div>
         </figure>
+        
       </div>
       </div>
       </div>

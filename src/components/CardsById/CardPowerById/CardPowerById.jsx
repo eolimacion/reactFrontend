@@ -8,6 +8,7 @@ import {
 } from "../../../services/user.service";
 import { Loading } from "../../Loading/Loading";
 import { useAuth } from "../../../context/authContext";
+import { DeletePlayer } from "../../DeletePlayer/DeletePlayer";
 
 export const CardPowerById = () => {
   const navigate = useNavigate();
@@ -171,6 +172,9 @@ arrow_back_ios
               >favorite</span>
               </div>
             
+          </div>
+          <div id = "deletePlayerContainer">
+            {/*userData.rol === "admin" && */ <DeletePlayer  id = "DeletePlayer" playerId = {idLifter} playerName = {name}/>}
           </div>
         </figure>
       </div>

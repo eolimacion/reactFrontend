@@ -10,7 +10,7 @@ export const DeletePlayer = ({ playerId, playerName }) => {
 
   const handleDeletePlayer = async () => {
     Swal.fire({
-      title: "Are you sure you want to delete this player?",
+      title: `Delete ${playerName}?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "rgb(73, 193, 162)",
