@@ -1,44 +1,46 @@
 import { useEffect, useState } from "react";
 import "./CardTeamById.css";
-import { buscarTeamId } from "../../../services/team.service";
+import { buscarTeamId, buscarTeamIdNotPopulated } from "../../../services/team.service";
 import { useNavigate, useParams } from "react-router";
 import { addFavTeams, getUsersFavTeams } from "../../../services/user.service";
 import { Loading } from "../../Loading/Loading";
 import { useAuth } from "../../../context/authContext";
+import { ErrorFetch } from "../../ErrorFetch/ErrorFetch";
 
 export const CardTeamById = () => {
   const navigate = useNavigate();
+
   const { id } = useParams();
   const { user } = useAuth();
+
   const idUser = user._id;
   const idTeam = id;
 
-  const [userLikedTeams, setUserLikedTeams] = useState([]);
   const [updatedLikes, setUpdatedLikes] = useState();
-  const [resTeam, setResTeam] = useState();
+  const [resTeam, setResTeam] = useState({});
   const [ok, setOk] = useState();
   const [dataTeam, setDataTeam] = useState(null);
+  const [likesArray, setLikesArray] = useState();
 
   const fetchTeams = async () => {
-    setResTeam(await buscarTeamId(idTeam));
-    setOk(true);
+    const resTeamHCD = await buscarTeamId(idTeam); //hcd significa hardcodded
+    setResTeam(resTeamHCD)
+    console.log(resTeam)
+    resTeamHCD.status == 200 && setOk(true);
   };
 
   const addToLikes = async () => {
-    console.log(dataTeam);
     const response = await addFavTeams(idTeam);
-    console.log(dataTeam);
     setUpdatedLikes(!updatedLikes);
   };
 
   const getLikes = async () => {
-    
-    await getUsersFavTeams(idTeam);
+    const data = await buscarTeamIdNotPopulated(idTeam);
+    setLikesArray(data.data.likes);
   };
 
   useEffect(() => {
     fetchTeams();
-    
   }, [updatedLikes]);
 
   useEffect(() => {
@@ -52,11 +54,7 @@ export const CardTeamById = () => {
   if (resTeam?.response?.status == 404 || resTeam?.response?.status == 500) {
     return (
       <>
-        <div className="errorDiv">
-          <h1>ERROR</h1>
-          <h2>{resTeam?.response?.status}</h2>
-          <h2>{resTeam?.response?.data}</h2>
-        </div>
+        <ErrorFetch/>
       </>
     );
   }
@@ -66,7 +64,7 @@ export const CardTeamById = () => {
   }
 
   if (dataTeam) {
-    const isLiked = dataTeam?.likes?.includes(idUser);
+    const isLiked = likesArray.includes(idUser);
 
     const {
       name,
