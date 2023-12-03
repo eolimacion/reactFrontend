@@ -55,13 +55,13 @@
   flex-direction: column;
   padding: 0.4rem;
   margin: 0.4rem;
-  min-height: 50vh;
+  min-height: 55vh;
 }
 
 .forwardBackward {
   display: flex;
-  flex-direction: row;
-  justify-content: baseline;
+  flex-direction: column;
+  justify-content: center;
   gap: 10rem;
 }
 

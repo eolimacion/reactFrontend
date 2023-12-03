@@ -26,9 +26,10 @@ export const FollowersComponent = ({ followers }) => {
       <div className="topProfileInfo">
         <div className="forwardBackward">
         {!galleryLoading && <ComponentPaginacion />}
+        {noItems && <NothingHereComponent/>}
         </div>
         </div>
-      {noItems && <NothingHereComponent/>}
+      
       <div className="bottomProfileInfo">
         {dataPag &&
           dataPag?.map((item) =>
