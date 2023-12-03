@@ -7,7 +7,7 @@ import React from 'react'
 export const GaleriaReducidaCircuits = ({galeriaItems}) => {
     const itemsPerPage = 6;
     const [currentPage, setCurrentPage] = useState(1);
-    const sportPath = `/motogp/riders/`
+    const sportPath = `/motogp/circuits/`
     const currentItems = galeriaItems?.slice(
       (currentPage - 1) * itemsPerPage,
       currentPage * itemsPerPage
