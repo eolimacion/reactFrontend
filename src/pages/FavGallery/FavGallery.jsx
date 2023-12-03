@@ -17,7 +17,7 @@ export const FavGallery = ({ id, page}) => {
   const [childrenFav, setChildrenFav] = useState("favPlayers");
   const [data, setData] = useState(null);
   const { galeriaItems, ComponentPaginacion, dataPag, setGaleriaItems } =
-    usePaginacion();
+    usePaginacion(4);
 
   const fetchData = async () => {
     setGalleryLoading(true);

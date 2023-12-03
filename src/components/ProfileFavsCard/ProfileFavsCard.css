@@ -9,11 +9,11 @@
     border-radius: 8px;
     overflow: hidden;
     margin: 8px;
-    width: 15% /* Display 6 cards horizontally */
+    width: 100% /* Display 6 cards horizontally */
   }
   
   .favImageContainer {
-      width: 15vw;
+      width: 100%;
       display: flex;
       justify-content: center;
       overflow: hidden;

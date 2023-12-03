@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-#userPagePage{
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+#userPagePage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,28 +7,43 @@
   width: 100%;
 }
 
-#userPageTopContainer{
+#userPageTopContainer {
   height: 20vh;
   width: 100%;
-  padding-left: 5vw;
   gap: 3rem;
-  border: 1px solid black;
+  background-color: var(--color-primario);
+  padding: 1rem;
+  -webkit-box-shadow: 0px 7px 13px -1px rgba(66, 65, 65, 0.15);
+  -moz-box-shadow: 0px 7px 13px -1px rgba(66, 65, 65, 0.15);
+  box-shadow: 0px 7px 13px -1px rgba(66, 65, 65, 0.15);
+  border: 1px solid rgb(202, 202, 202);
 }
 
-#userPageImage{
+#userPageImage {
   height: 100%;
   border-radius: 50%;
   aspect-ratio: 1/1;
   float: left;
+  padding: 1rem;
 }
 
-#userPageMainInfoNav{
+@media (max-width: 650px) {
+  #userPageImage {
+    height: 100px;
+  }
+
+  #userPageTopContainer {
+    align-items: center;
+  }
+}
+
+#userPageMainInfoNav {
   height: 100%;
   width: auto;
   overflow: hidden;
 }
 
-#userPageMainInfoNav > div{
+#userPageMainInfoNav > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +53,7 @@
   padding: 15px 0 15px 0;
 }
 
-#containerNameandFollow{
+#containerNameandFollow {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -46,21 +61,21 @@
   align-items: center;
 }
 
-#userPageName{
+#userPageName {
   font-size: 36px;
   height: 40px;
 }
 
-#containerInterestInfo{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: row;
-   gap: 1rem;
-   height: 100%;
+#containerInterestInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  height: 100%;
 }
 
-#followUserButton{
+#followUserButton {
   min-width: 100px;
   border: 1px solid black;
   border-radius: 3px;
@@ -69,16 +84,16 @@
   margin-left: 25px;
 }
 
-#userPageInterest{
+#userPageInterest {
   font-family: "Rubik", sans-serif;
 }
 
-#userPageInterest > span{
+#userPageInterest > span {
   text-transform: capitalize;
   font-weight: bold;
 }
 
-#userPageNav{
+#userPageNav {
   height: 10vh;
   padding: 15px;
   display: flex;
@@ -86,48 +101,52 @@
   margin-bottom: 50px;
 }
 
-#userPageNav > button{
-  --b: 3px;   /* border thickness */
-  --s: .15em; /* size of the corner */
+#userPageNav > button {
+  --b: 3px; /* border thickness */
+  --s: 0.15em; /* size of the corner */
   --c: #015792;
-  
-  padding: calc(.05em + var(--s)) calc(.3em + var(--s));
+
+  padding: calc(0.05em + var(--s)) calc(0.3em + var(--s));
   color: var(--c);
   --_p: var(--s);
-  background:
-    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
-    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
-  transition: .3s linear, color 0s, background-color 0s;
+  background: conic-gradient(
+      from 90deg at var(--b) var(--b),
+      #0000 90deg,
+      var(--c) 0
+    )
+    var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
+    calc(100% - var(--b) - 2 * var(--_p));
+  transition: 0.3s linear, color 0s, background-color 0s;
   outline: var(--b) solid #0000;
-  outline-offset: .2em;
+  outline-offset: 0.2em;
 
   font-family: system-ui, sans-serif;
   font-weight: bold;
   font-size: 17px;
   cursor: pointer;
   border: none;
-  margin: .1em;
+  margin: 0.1em;
   height: 35px;
 }
 
-#userPageNav > button:hover, #userPageNav > button:focus-visible{
+#userPageNav > button:hover,
+#userPageNav > button:focus-visible {
   --_p: 0px;
   outline-color: var(--c);
-  outline-offset: .05em;
+  outline-offset: 0.05em;
 }
 
-#userPageNav > button:active{
+#userPageNav > button:active {
   background: var(--c);
   color: #fff;
 }
 
-#userPageInfo > button{
+#userPageInfo > button {
   aspect-ratio: 1/1;
 }
 
-#userPageInfo{
+#userPageInfo {
   min-height: 46vh;
   width: 100%;
   justify-content: center;
 }
-

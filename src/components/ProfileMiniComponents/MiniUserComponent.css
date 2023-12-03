@@ -13,6 +13,22 @@
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+@media (max-width: 650px) {
+  .miniUserComponent {
+    width: 100%
+  }
+
+  .firstFavNav {
+    width: 100%;
+ }
+}
+
+@media (min-width: 650px) {
+  .favGallery {
+    padding: 0 2rem 0 2rem;
+  }
+}
+
 .miniUserComponentLink {
   width: 40%;
   max-height: 15vh;
