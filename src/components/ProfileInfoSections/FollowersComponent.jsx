@@ -58,6 +58,7 @@ export const FollowersComponent = ({ followers }) => {
             Forward
           </button>
           </div>
+          </div>
       
       <div className="bottomProfileInfo">
         {dataPerPage &&
@@ -65,7 +66,6 @@ export const FollowersComponent = ({ followers }) => {
               <MiniUserComponent data={item} key={item._id} />
           ))}
       {/* </div> */}
-      </div>
       </div>
     </>
   );

@@ -5,9 +5,7 @@ import { getById } from "../../services/user.service";
 import { FollowedComponent } from "../../components/ProfileInfoSections/FollowingComponent";
 import { CommentsComponent } from "../../components/ProfileInfoSections/CommentsComponent";
 import { FollowersComponent } from "../../components/ProfileInfoSections/FollowersComponent";
-import Button from '@mui/material/Button';
-
-
+import Button from "@mui/material/Button";
 
 export const UserProfileData = () => {
   const { user } = useAuth();
@@ -33,14 +31,11 @@ export const UserProfileData = () => {
       case "followed":
         return <FollowedComponent followed={data?.data?.followed} />;
       case "comments":
-        return <CommentsComponent comments={data?.data?.comments}/>
+        return <CommentsComponent comments={data?.data?.comments} />;
       default:
         return <div className="info-user"></div>;
     }
   };
-
-
-
 
   return (
     <>
@@ -59,17 +54,51 @@ export const UserProfileData = () => {
           </div>
         </figure>
         <div className="profileButtonsContainer">
-        <Button onClick={() => setDisplaySection("followers")} autoFocus variant="contained"  style= {{backgroundColor: 'white', color: 'var(--color-boton-motogp)', fontWeight: '600', fontSize: '15px', margin: '2px', width: '180px'}} >
-        {data?.data?.followers?.length} followers
-</Button>
-<Button onClick={() => setDisplaySection("followed")} autoFocus variant="contained"  style= {{backgroundColor: 'white', color: 'var(--color-boton-motogp)', fontWeight: '600', fontSize: '15px', margin: '2px', width: '180px'}} >
-{data?.data?.followed?.length} following
-</Button>
-<Button onClick={() => setDisplaySection("comments")} autoFocus variant="contained"  style= {{backgroundColor: 'white', color: 'var(--color-boton-motogp)', fontWeight: '600', fontSize: '15px', margin: '2px', width: '180px'}} >
-{data?.data?.comments?.length} comments
-</Button>
-
-
+          <Button
+            onClick={() => setDisplaySection("followers")}
+            autoFocus
+            variant="contained"
+            style={{
+              backgroundColor: "white",
+              color: "var(--color-boton-motogp)",
+              fontWeight: "600",
+              fontSize: "15px",
+              margin: "2px",
+              width: "180px",
+            }}
+          >
+            {data?.data?.followers?.length} followers
+          </Button>
+          <Button
+            onClick={() => setDisplaySection("followed")}
+            autoFocus
+            variant="contained"
+            style={{
+              backgroundColor: "white",
+              color: "var(--color-boton-motogp)",
+              fontWeight: "600",
+              fontSize: "15px",
+              margin: "2px",
+              width: "180px",
+            }}
+          >
+            {data?.data?.followed?.length} following
+          </Button>
+          <Button
+            onClick={() => setDisplaySection("comments")}
+            autoFocus
+            variant="contained"
+            style={{
+              backgroundColor: "white",
+              color: "var(--color-boton-motogp)",
+              fontWeight: "600",
+              fontSize: "15px",
+              margin: "2px",
+              width: "180px",
+            }}
+          >
+            {data?.data?.comments?.length} comments
+          </Button>
 
           {/* <button
             className="profileButton"
@@ -93,9 +122,7 @@ export const UserProfileData = () => {
           </button> */}
         </div>
       </div>
-      <div className="followProfileGallery">
-        {renderSection()}
-      </div>
+      <div className="followProfileGallery">{renderSection()}</div>
     </>
   );
 };

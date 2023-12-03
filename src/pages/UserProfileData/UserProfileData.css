@@ -51,9 +51,11 @@
 
 .followProfileGallery {
   width: 65vw;
-  height: 50vh;
   flex-wrap: wrap;
   flex-direction: column;
+  padding: 0.4rem;
+  margin: 0.4rem;
+  min-height: 50vh;
 }
 
 .forwardBackward {
@@ -72,7 +74,6 @@
   border: 4px double rgb(73, 152, 204);
   padding: 0.4rem;
   margin: 0.4rem;
-  height: 50vh;
 }
 
 .bottomProfileInfo {

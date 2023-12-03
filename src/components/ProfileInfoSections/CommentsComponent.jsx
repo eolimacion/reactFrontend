@@ -58,12 +58,13 @@ export const CommentsComponent = ({ comments }) => {
           </button>
           
          </div>
+         </div>
          <div className="bottomProfileInfo">
          {dataPerPage && dataPerPage?.map((item) => (
           <MiniCommentComponent data={item} key={item._id}/>
         ))}
         </div>
-      </div>
+      
       </>
     )
   }
