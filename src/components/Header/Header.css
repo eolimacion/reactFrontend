@@ -1,10 +1,9 @@
 .main-header {
-
   background-color: var(--color-enhance);
-  -webkit-box-shadow: 3px 9px 28px -7px rgba(204,200,204,1);
--moz-box-shadow: 3px 9px 28px -7px rgba(204,200,204,1);
-box-shadow: 3px 9px 28px -7px rgba(204,200,204,1);
-border-bottom: var(--boder);
+  -webkit-box-shadow: 3px 9px 28px -7px rgba(204, 200, 204, 1);
+  -moz-box-shadow: 3px 9px 28px -7px rgba(204, 200, 204, 1);
+  box-shadow: 3px 9px 28px -7px rgba(204, 200, 204, 1);
+  border-bottom: var(--boder);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -17,12 +16,9 @@ border-bottom: var(--boder);
   margin: 0 0 1rem 0;
 }
 
-.imageLogo{
+.imageLogo {
   height: 30px;
 }
-
-
-
 
 .imagen-vecino {
   width: 50vw;
@@ -68,8 +64,7 @@ strong {
 
 .logate,
 .contacto,
-.logout,
-.profileCircle {
+.logout {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,36 +103,34 @@ header a:hover::after {
 
 .especiales {
   display: flex;
-
 }
 
 .especiales a {
-  background-color:var(--color-boton);
+  background-color: var(--color-boton);
   border-radius: 10px;
   padding: 0 10px;
   margin: 0 5px;
 }
 
 .especiales a:hover {
-  background-color:var(--color-boton-hover);
-  color: var(--color-p)
+  background-color: var(--color-boton-hover);
+  color: var(--color-p);
+}
+a.profileCircle {
+width: 55px;
+height: 55px;
 }
 
 .profileCircle {
-  max-width: 55px;
-  min-width: 40px;
-  border: 0.5px solid rgb(248, 236, 236);
+  border: 0.5px solid #f8ecec;
   border-radius: 50%;
+  max-width: 60px;
+  min-width: 60px;
 }
 
-
-  .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
-  }
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+}
 
 .nombre-vecino {
   background-color: rgba(211, 31, 31, 0);
@@ -148,16 +141,14 @@ header a:hover::after {
 }
 @media (max-width: 650px) {
   .nombre-vecino {
-    display: none;}
-    .search-bar {
-  
-      display: flex;
-     justify-content: space-between;
-     width: 100vw;
-     gap: 20px;
-      align-items: center;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.308);
-    
-    }
-  
+    display: none;
   }
+  .search-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.308);
+  }
+}

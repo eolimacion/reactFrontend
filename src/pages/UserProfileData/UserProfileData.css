@@ -1,6 +1,4 @@
-.profilePictureUser {
-  width: 20vh;
-}
+
 
 .infoUser {
   margin: 0.5rem 2rem 0.5rem 0.5rem;
@@ -22,6 +20,7 @@
 }
 
 .profilePictureUser{
+  width: 80%;
   border-radius: 10px;
   border: 2px solid rgb(129, 111, 111);
 }
