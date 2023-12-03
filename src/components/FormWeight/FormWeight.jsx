@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useForm } from "react-hook-form"
 import { useErrorCreate } from '../../hooks/useErrorCreate'
 import { createweightCategory } from '../../services/weightCategory.service'
+import Button from '@mui/material/Button';
 
 
 export const FormWeight = () => {
@@ -95,14 +96,11 @@ export const FormWeight = () => {
         </div>
 
           <div className="btnContainer">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? "#49c1a388" : "#2f7a67" }}
-            >
-              CREATE WEIGHT CATEGORY
-            </button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem', padding: '0.5rem 2rem'}}  type="submit"
+              disabled={send} variant="contained" >
+CREATE CATEGORY
+</Button>
+
           </div>
         </form>
       </div>

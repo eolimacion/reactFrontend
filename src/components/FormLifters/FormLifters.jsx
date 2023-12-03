@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import { useErrorCreate } from "../../hooks/useErrorCreate"
 import { createLifterService } from '../../services/lifter.service'
 import { UploadFile } from '../UploadFile/UploadFile'
+import Button from '@mui/material/Button';
 
 
 export const FormLifters = () => {
@@ -174,14 +175,11 @@ export const FormLifters = () => {
           </div>
         <UploadFile/>
           <div className="btnContainer">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? "#49c1a388" : "#2f7a67" }}
-            >
-              CREATE LIFTER
-            </button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem', padding: '0.5rem 2rem'}}  type="submit"
+              disabled={send} variant="contained" >
+CREATE LIFTER
+</Button>
+
           </div>
         </form>
       </div>

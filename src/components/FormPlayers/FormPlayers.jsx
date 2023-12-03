@@ -3,6 +3,8 @@ import { useErrorCreate } from '../../hooks/useErrorCreate';
 import { useForm } from 'react-hook-form';
 import { UploadFile } from '..';
 import { createPlayerService } from '../../services/player.service';
+import Button from '@mui/material/Button';
+
 
 export const FormPlayers = () => {
   //! ---- Destructuring ----
@@ -205,14 +207,11 @@ export const FormPlayers = () => {
             <UploadFile />
 
           <div className="btnContainer">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? "#bae4ff" : "#d8f0ff" }}
-            >
-              Create Player
-            </button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem', padding: '0.5rem 2rem'}}  type="submit"
+              disabled={send} variant="contained" >
+ CREATE PLAYER
+</Button>
+
           </div>
         </form>
       </div>

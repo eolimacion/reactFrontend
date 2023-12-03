@@ -5,7 +5,7 @@ import { getAllPlayers } from '../../../services/player.service'
 import { useErrorFinder } from '../../../hooks/useErrorFinder'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 import { GaleriaReducidaPlayers } from '../../../components/GaleriaReducidaPlayers/GaleriaReducidaPlayers'
-
+import Button from '@mui/material/Button';
 
 
 export const Players = () => {
@@ -63,12 +63,16 @@ export const Players = () => {
  </div>
           <div className="bottonButton">
 
-<button className='btn btnGallery' onClick={handleButtonClick}>
-  Create Form
-</button>
-<button className='btn btnGallery' onClick={handleGalleryButtonClick}>
-  Show Gallery
-</button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleButtonClick}>Create Form
+ 
+</Button>
+<Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleGalleryButtonClick}>Show Gallery
+ 
+</Button>
+
+
 </div>
 </div>
 </>
