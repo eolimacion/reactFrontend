@@ -16,8 +16,9 @@ export const Players = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [res, setRes] = useState(null)
   const sportPath = `/fifa/players/`
+  // const [currentPage, setCurrentPage] = useState(1)
 
-  const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
+  const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag, setCurrentPage} = usePaginacion()
 
   useEffect(() => {
     console.log(res)
@@ -45,7 +46,7 @@ export const Players = () => {
           <GaleriaReducidaPlayers galeriaItems={res?.data} />
         </div>
     )}
-    <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "players"/>
+    <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "players" />
     <section className="mainPage">
       {galleryLoading ? (
         <Loading/>

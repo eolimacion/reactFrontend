@@ -22,7 +22,6 @@ export * from './CardsById/CardFifaById/CardFifaById'
 export * from './CardsById/CardMotoById/CardMotoById'
 export * from './CardsById/CardPowerById/CardPowerById'
 export * from './CardsById/CardTeamById/CardTeamById'
-export * from "./FinderMainNav/FinderMainNav"
 export * from "./FinderChildrenNav/FinderChildrenNav"
 export * from "./CardPodiums/CardPodiums"
 export * from "./FilterSelect/FilterSelect"
