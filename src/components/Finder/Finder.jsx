@@ -194,11 +194,11 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
       <div id = "float-right-finder">
         <button id = "filter-players" onClick={() => {setMainNav("filter")}}>FILTER</button>
         <button id = "sort-players" onClick={() => {setMainNav("sort")}}>SORT</button>
-        <FinderChildrenNav action={mainNav} setFilterValue={setFilterValue} setMinValue={setMinValue} setMaxValue={setMaxValue} setSortValue={setSortValue} sortValue = {sortValue} setIsAscending = {setIsAscending} page = {page}/>
+        <FinderChildrenNav action={mainNav} setFilterValue={setFilterValue} setMinValue={setMinValue} setMaxValue={setMaxValue} setSortValue={setSortValue} sortValue = {sortValue} setIsAscending = {setIsAscending} page = {page} maxValue={maxValue} minValue={minValue}/>
         <button type="submit" id = "find-button" onClick={handleSubmit}>Find</button>
       </div>
       <div id = "left-finder">
-        <input  id = "find-name" placeholder = "enter the player's name" type="text" onChange={(e) => {setFindNameValue(e.target.value)}}/>
+        <input  id = "find-name" placeholder = "enter the player's name" type="text" value={findNameValue} onChange={(e) => {setFindNameValue(e.target.value)}}/>
       </div>
     </section>
   )
