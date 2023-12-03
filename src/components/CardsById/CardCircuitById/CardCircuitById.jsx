@@ -1,66 +1,54 @@
 import { useEffect, useState } from 'react'
 import './CardCircuitById.css'
-import { buscarCircuitId } from '../../../services/circuit.service'
+import { buscarCircuitId, buscarCircuitIdNotPopulated } from '../../../services/circuit.service'
 import { useNavigate, useParams } from 'react-router-dom'
 import { addFavCircuits, getUsersFavCircuits } from '../../../services/user.service'
 import { Loading } from '../../Loading/Loading'
 import { useAuth } from '../../../context/authContext'
+import { ErrorFetch } from '../../ErrorFetch/ErrorFetch'
 
 export const CardCircuitById = () => {
     const navigate = useNavigate();
+
     const {id} = useParams();
-  const {user} = useAuth();
-  const idUser = user._id;
   const idCircuit = id;
 
-  const [userLikedCircuits, setUserLikedCircuits] = useState([]);
+  const {user} = useAuth();
+  const idUser = user._id;
+
   const [updatedLikes, setUpdatedLikes] = useState();
   const [resCircuit, setResCircuit] = useState();
   const [ok, setOk] = useState();
   const [dataCircuit, setDataCircuit] = useState(null);
+  const [likesArray, setLikesArray] = useState([])
+
 
   const fetchCircuits = async () => {
-    setResCircuit(await buscarCircuitId(idCircuit));
+    const data = await buscarCircuitId(idCircuit);
+    setDataCircuit(data.data);
     setOk(true);
   }
 
-  const addToLikes = async () => {
-    console.log(idCircuit)
+  const addToLikes = async (idCircuit) => {
     const response = await addFavCircuits(idCircuit);
-    console.log('response addToLikes', response.data.userUpdate.favCircuits);
     setUpdatedLikes(!updatedLikes)
   }
 
   const getLikes = async () => {
-    console.log('ENTROOOOOOO');
-    const likedCircuitsRes = await getUsersFavCircuits(idCircuit);
-    console.log(likedCircuitsRes.data);
+    const likesArray =await buscarCircuitIdNotPopulated(idCircuit);
+    setLikesArray(likesArray.data.likes)
   }
+  console.log(likesArray)
 
-  console.log('resCircuits', resCircuit)
-  console.log('userLikedCircuits', userLikedCircuits)
 
   useEffect(() => {
     fetchCircuits();
-  }, [updatedLikes]);
-
-  useEffect(() => {
-    resCircuit?.status == 200 && setDataCircuit(resCircuit.data)
-  }, [resCircuit])
-
-  useEffect(() => {
     getLikes();
   }, [updatedLikes]);
 
-  if(resCircuit?.response?.status == 404 || resCircuit?.response?.status == 500) {
+  if(dataCircuit?.response?.status == 404 || dataCircuit?.response?.status == 500) {
     return (
-        <>
-        <div className='errorDiv'>
-          <h1>ERROR</h1>
-          <h2>{resCircuit?.response?.status}</h2>
-          <h2>{resCircuit?.response?.data}</h2>
-        </div>
-        </>
+        <ErrorFetch/>
       )
   }
 
@@ -69,7 +57,7 @@ export const CardCircuitById = () => {
   }
 
   if (dataCircuit) {
-    const isLiked = dataCircuit?.likes?.includes(idUser)
+    const isLiked = likesArray.includes(idUser)
 
     const {
         name,
@@ -80,7 +68,6 @@ export const CardCircuitById = () => {
         image,
         likes,
     } = dataCircuit
-  
 
   return (
     <>

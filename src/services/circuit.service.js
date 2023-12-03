@@ -26,6 +26,14 @@ const APIGeneral = extraConfig();
       .then((res) => res)
       .catch((error) => error);}
 
+      //! ------------------ BUSCAR CIRCUIT id SIN POPULAR---------------------------------
+
+export const buscarCircuitIdNotPopulated = async (id) => {
+   const APIGeneral = extraConfig();
+      return APIGeneral.get(`/circuit/notPopulated/${id}`)
+         .then((res) => res)
+         .catch((error) => error);}
+   
 
 //!  ------------------------------- BUSCAR TODOS -------------------------------
 
