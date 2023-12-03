@@ -4,6 +4,11 @@ import { CardInTheGallery, CardRider, Finder, FormRiders, GaleriaReducida, Loadi
 import { buscarAllRider } from '../../../services/rider.service';
 import { PodiumContainer } from '../../../components/PodiumContainer/PodiumContainer';
 import { usePaginacion } from '../../../hooks/usePaginacion';
+import Button from '@mui/material/Button';
+
+import SendIcon from '@mui/icons-material/Send';
+
+
 
 export const Riders = () => {
   const [galleryLoading, setGalleryLoading] = useState(false);
@@ -86,14 +91,21 @@ export const Riders = () => {
           </div>
             <div className="bottonButton">
 
-                <button className='btn btnGallery' onClick={handlebuttonPodiumClick}>Show Podiums</button>
+            <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handlebuttonPodiumClick}>Show Podiums
+ 
+</Button>
+                
+<Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleButtonClick}>Create Form
+ 
+</Button>
+<Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleButtonGallery}>Show Gallery
+ 
+</Button>
 
-                <button className='btn btnGallery' onClick={handleButtonClick}>
-                  Create Form
-                </button>
-                <button className='btn btnGallery' onClick={handleButtonGallery}>
-                  Show Gallery
-                </button>
+
             </div>
             </div>
           </>

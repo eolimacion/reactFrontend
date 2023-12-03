@@ -6,6 +6,11 @@ import { useAuth } from "../../context/authContext"
 import { Link, Navigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useErrorCreate } from "../../hooks/useErrorCreate"
+import Button from '@mui/material/Button';
+
+import SendIcon from '@mui/icons-material/Send';
+
+
 
 export const FormRiders = () => {
 
@@ -46,7 +51,7 @@ export const FormRiders = () => {
   return (
     <div className="allForm">
       <div className="formMain">
-        <h1 className="formTitle">CREATE A RIDER</h1>
+        <h1 className="titleFormH1">CREATE A RIDER</h1>
         <form className="form" onSubmit={handleSubmit(formSubmit)}>
           <div className="riderInfo formGroup">
             <label htmlFor="name" className="customPlaceholder">
@@ -219,14 +224,11 @@ export const FormRiders = () => {
           <UploadFile/>
 
           <div className="btnContainer">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? "#49c1a388" : "#2f7a67" }}
-            >
-              CREATE RIDER
-            </button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem', padding: '0.5rem 2rem'}}  type="submit"
+              disabled={send} variant="contained" >
+ CREATE RIDER
+</Button>
+
           </div>
         </form>
       </div>

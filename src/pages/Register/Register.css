@@ -45,13 +45,15 @@ margin: 30px 0 20px 0 ;
     text-align: center;
     flex-direction: column;
     width: 50vw;
+    min-width: 350px;
   }
   .titleFormH1{
 
     font-family: 'Work Sans', sans-serif;
     font-weight: 700;
     font-size: 40px;
-    color: var(--color-boton-motogp)
+    color: var(--color-boton-motogp);
+    margin: 1rem;
   }
   .formGroup {
     display: flex;

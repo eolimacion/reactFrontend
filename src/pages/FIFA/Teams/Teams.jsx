@@ -4,7 +4,7 @@ import { CardTeam, ElevenContainer, Finder, FormTeams, Loading } from '../../../
 import { buscarAllTeam } from '../../../services/team.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 import { GaleriaReducidaTeams } from '../../../components/GaleriaReducidaTeams/GaleriaReducidaTeams'
-
+import Button from '@mui/material/Button';
 
 
 
@@ -88,14 +88,21 @@ export const Teams = () => {
           </div>
             <div className="bottonButton">
 
-                <button className='btn btnGallery' onClick={handleButtonClickEleven}>Show Elevens</button>
+            <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleButtonClickEleven}>SHOW ELEVEN
+ 
+</Button>
+                
+<Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleButtonClick}>CREATE FORM
+ 
+</Button>
+<Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleButtonClickGallery}>SHOW GALLERY
+ 
+</Button>
 
-                <button className='btn btnGallery' onClick={handleButtonClick}>
-                  Create Form
-                </button>
-                <button className='btn btnGallery' onClick={handleButtonClickGallery}>
-                  Show Gallery
-                </button>
+
             </div>
             </div>
           </>

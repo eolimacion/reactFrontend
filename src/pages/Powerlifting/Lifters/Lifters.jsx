@@ -4,7 +4,7 @@ import {  CardInTheGallery, CardLifter, Finder, FormLifters, Loading } from '../
 import { getAllLifters } from '../../../services/lifter.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 import { GaleriaReducidaLifters } from '../../../components/GaleriaReducidaLifters/GaleriaReducidaLifters'
-
+import Button from '@mui/material/Button';
 
 export const Lifters = () => {
   const [data, setData] = useState(null);
@@ -68,12 +68,15 @@ export const Lifters = () => {
           </div>
           <div className="bottonButton">
 
-<button className='btn btnGallery' onClick={handleButtonClick}>
-  Create Form
-</button>
-<button className='btn btnGallery' onClick={handleGalleryButtonClick}>
-  Show Gallery
-</button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleButtonClick}>Create Form
+ 
+</Button>
+<Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleGalleryButtonClick}>Show Gallery
+ 
+</Button>
+
 </div>
 </div>
 </>

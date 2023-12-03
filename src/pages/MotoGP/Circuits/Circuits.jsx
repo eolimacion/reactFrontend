@@ -4,6 +4,7 @@ import { CardCircuit, CardInTheGallery, Finder, FormCircuits, GaleriaReducida, L
 import { buscarAllCircuit } from '../../../services/circuit.service';
 import { usePaginacion } from '../../../hooks/usePaginacion';
 import { GaleriaReducidaCircuits } from '../../../components/GaleriaReducidaCircuits/GaleriaReducidaCircuits';
+import Button from '@mui/material/Button';
 
 
 export const Circuits = () => {
@@ -71,12 +72,16 @@ export const Circuits = () => {
           </div>
           <div className="bottonButton">
 
-<button className='btn btnGallery' onClick={handleButtonClick}>
-  Create Form
-</button>
-<button className='btn btnGallery' onClick={handleGalleryButtonClick}>
-  Show Gallery
-</button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleButtonClick}>Create Form
+ 
+</Button>
+<Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
+              variant="contained" onClick={handleGalleryButtonClick}>Show Gallery
+ 
+</Button>
+
+
 </div>
 </div>
         </>

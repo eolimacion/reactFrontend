@@ -6,6 +6,8 @@ import { Link, Navigate } from 'react-router-dom'
 import { useAuth } from '../../context/authContext'
 import { useEffect, useState } from "react";
 import { useErrorCreate } from '../../hooks/useErrorCreate'
+import Button from '@mui/material/Button';
+
 
 export const FormCircuits = () => {
 //llamar a la funcion createCircuit
@@ -124,14 +126,11 @@ export const FormCircuits = () => {
           <UploadFile/>
 
           <div className="btnContainer">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? "#49c1a388" : "#2f7a67" }}
-            >
-              CREATE CIRCUIT
-            </button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem', padding: '0.5rem 2rem'}}  type="submit"
+              disabled={send} variant="contained" >
+CREATE CIRCUIT
+</Button>
+
           </div>
         </form>
       </div>
