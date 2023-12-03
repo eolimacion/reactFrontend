@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import './Teams.css'
-import { CardTeam, ElevenContainer, Finder, FormTeams, Loading } from '../../../components'
+import { CardTeam, ElevenContainer, Finder, FormTeams, GaleriaReducida, Loading } from '../../../components'
 import { buscarAllTeam } from '../../../services/team.service'
 import { usePaginacion } from '../../../hooks/usePaginacion'
 import { GaleriaReducidaTeams } from '../../../components/GaleriaReducidaTeams/GaleriaReducidaTeams'
 import Button from '@mui/material/Button';
+import { getAllPlayers } from '../../../services/player.service'
 
 
 
@@ -14,6 +15,7 @@ export const Teams = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [res, setRes] = useState(null);
   const [allTeams, setAllTeams] = useState();
+  const [allPlayers, setAllPlayers] = useState();
   const [showEleven, setShowEleven] = useState(false);
 
 
@@ -26,10 +28,16 @@ export const Teams = () => {
     setAllTeams(teamsData || []);
     setGalleryLoading(false);
   }
+  const GetAllPlayers = async () => {
+    const playersData = await getAllPlayers();
+    setAllPlayers(playersData || []);
+    setGalleryLoading(false);
+  }
 
 
   useEffect(() => {
     allTeam();
+    GetAllPlayers()
     console.log(allTeams)
   }, [])
  
@@ -67,11 +75,11 @@ export const Teams = () => {
         <Loading />
       ) : (
         <div className="galeriaPreview">
-          {/* <GaleriaReducida galeriaItems={allRiders?.data} /> */}
+          <GaleriaReducida galeriaItems={allPlayers?.data} tipoCarta={"redPlayers"} sportPathRED="/fifa/players/"/>
         </div>
       )}
       <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "teams"/>
-      <section className="mainPage">
+      <section className={`mainPage ${showEleven ? 'elevenVerde' : ''}`}>
         {galleryLoading ? (
           <Loading />
         ) : (

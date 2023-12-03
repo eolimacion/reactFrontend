@@ -25,6 +25,7 @@ export const PodiumContainer = () => {
   const{galeriaItems,ComponentPaginacion,setGaleriaItems,dataPag}=usePaginacion(1)
 
   //!!Referente a comentarios sobre el podium-----------------------
+  //?Este handle maneja el estado que setea
   const handleComment = (id) => {
     setButtonComment(id);
   };

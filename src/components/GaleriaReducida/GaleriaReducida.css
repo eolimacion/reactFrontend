@@ -3,6 +3,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  width: 60vw;
+  min-width: 350px;
+  height: 10vh;
 }
 
 
@@ -10,6 +13,7 @@
   background-color: white;
   border: var(--boder);
   border-radius: 10px;
+  min-width: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,66 +57,33 @@
 
 .noSe {
   padding: 0 0 0 10px;
+  min-width: 270px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.galeriaPreview .singleItemImg {
-  max-width: 8vw;
-  /* max-height: 100px;
-  max-width: 100px; */
+.redRiders{
+  width: 4vw;
+  min-width: 48px;
+
 }
-.galeriaPreview .noSe {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-  gap: 5px;
-  width: 40vw;
+.redCircuits{
+  width: 6vw;
+  min-width: 48px;
+  background-color: #D90042;
+
+}
+.redTeams{
+  width: 6vw;
+  min-width: 48px;
+}
+.redPlayers{
+  width: 4vw;
+  min-width: 48px;
+  
+
 }
 
 
-.galeriaPreview .singleItemName {
-  display: none;
-}
-
-.galeriaPreview .singleItemCard {
-  width: 15vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.slide-in {
-  animation: slideIn 0.5s ease-in-out;
-}
-
-.slide-out {
-  animation: slideOut 0.5s ease-in-out;
-}
-@media only screen and (max-width: 600px) {
-  .galeriaPreview .noSe {
-   
-    width: 75vw;
-  }
-}

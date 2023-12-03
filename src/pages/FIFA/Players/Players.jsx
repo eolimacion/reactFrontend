@@ -4,8 +4,8 @@ import { CardInTheGallery, CardPlayer, ElevenContainer, Finder, FormPlayers, Gal
 import { getAllPlayers } from '../../../services/player.service'
 import { useErrorFinder } from '../../../hooks/useErrorFinder'
 import { usePaginacion } from '../../../hooks/usePaginacion'
-import { GaleriaReducidaPlayers } from '../../../components/GaleriaReducidaPlayers/GaleriaReducidaPlayers'
 import Button from '@mui/material/Button';
+import { buscarAllTeam } from '../../../services/team.service'
 
 
 export const Players = () => {
@@ -16,6 +16,7 @@ export const Players = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [res, setRes] = useState(null)
   const sportPath = `/fifa/players/`
+  const [allTeams, setAllTeams] = useState();
 
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
 
@@ -23,8 +24,14 @@ export const Players = () => {
     console.log(res)
     if(res?.status == 200){
       setGaleriaItems(res?.data)
+      allTeam()
     }
   }, [res]); 
+  const allTeam = async () => {
+    const teamsData = await buscarAllTeam();
+    setAllTeams(teamsData || []);
+    setGalleryLoading(false);
+  }
 
   const handleButtonClick = () => {
     // Cambia el estado para mostrar u ocultar el formulario al hacer clic en el botón
@@ -49,7 +56,7 @@ export const Players = () => {
       <Loading/>
     ) : (
       <div className="galeriaPreview">
-          <GaleriaReducidaPlayers galeriaItems={res?.data} />
+          <GaleriaReducida galeriaItems={allTeams?.data} tipoCarta={"redTeams"} sportPathRED="/fifa/teams/" />
         </div>
     )}
     <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "players"/>

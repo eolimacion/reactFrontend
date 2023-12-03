@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { CardInTheGallery } from "../CardInTheGallery/CardInTheGallery";
 import "./GaleriaReducida.css";
 import { CardRider } from "../CardRider/CardRider";
+import { Link } from "react-router-dom";
 
-export const GaleriaReducida = ({ galeriaItems }) => {
-  const itemsPerPage = 6;
+export const GaleriaReducida = ({ galeriaItems,tipoCarta,id,sportPathRED }) => {
+  const path = `${sportPathRED}`
+  const itemsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const sportPath = `/motogp/riders/`
   const currentItems = galeriaItems?.slice(
@@ -39,16 +41,12 @@ arrow_back
         </button>
       <div className="noSe">
         {currentItems?.map((item) => (
-          <CardRider
-            image={item?.image}
-            name={item?.name}
-            key={item?._id}
-            id={item?._id} sportPath={sportPath}
-          />
+            <Link to={path}>
+          <img className={tipoCarta} src={item.image} alt={item.name} id={item._id}/>
+          </Link>
         ))}
       </div>
-
-        <button
+      <button
           className={`previewButton ${
             currentPage === totalPages ? "disabled" : ""
           }`}
@@ -59,6 +57,7 @@ arrow_back
 arrow_forward
 </span>
         </button>
+     
       </div>
     </>
   );

@@ -7,6 +7,7 @@ import { usePaginacion } from '../../../hooks/usePaginacion';
 import Button from '@mui/material/Button';
 
 import SendIcon from '@mui/icons-material/Send';
+import { buscarAllCircuit } from '../../../services/circuit.service';
 
 
 
@@ -17,8 +18,14 @@ export const Riders = () => {
   const [allRiders, setAllRiders] = useState([]);
   const [showPodium, setShowPodium] = useState(false);
   const [res, setRes] = useState(null)
+  const [allCircuits, setAllCircuits] = useState([]);
 
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
+  const getAllCircuits = async () => {
+    const circuitsData = await buscarAllCircuit();
+    setAllCircuits(circuitsData || []);
+    setGalleryLoading(false);
+  }
 
   const sportPath = `/motogp/riders/`
 
@@ -36,6 +43,7 @@ export const Riders = () => {
 
   useEffect(() => {
     getAllRiders();
+    getAllCircuits()
   }, []);
 
   useEffect(() => {
@@ -70,7 +78,7 @@ export const Riders = () => {
         <Loading />
       ) : (
         <div className="galeriaPreview">
-          {/* <GaleriaReducida galeriaItems={allRiders?.data} /> */}
+          <GaleriaReducida galeriaItems={allCircuits?.data} tipoCarta={"redCircuits"} sportPathRED="/motogp/circuits/"/>
         </div>
       )}
       <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "riders"/>
