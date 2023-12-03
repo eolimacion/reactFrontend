@@ -16,6 +16,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 
+
 export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
   const {user} = useAuth()
 
@@ -192,14 +193,39 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
   return (
     <section id = "finder">
       <div id = "float-right-finder">
-        <button id = "filter-players" onClick={() => {setMainNav("filter")}}>FILTER</button>
-        <button id = "sort-players" onClick={() => {setMainNav("sort")}}>SORT</button>
-        <FinderChildrenNav action={mainNav} setFilterValue={setFilterValue} setMinValue={setMinValue} setMaxValue={setMaxValue} setSortValue={setSortValue} sortValue = {sortValue} setIsAscending = {setIsAscending} page = {page} maxValue={maxValue} minValue={minValue}/>
-        <button type="submit" id = "find-button" onClick={handleSubmit}>Find</button>
+        {/* <button id = "filter-players" onClick={() => {setMainNav("filter")}}>FILTER</button>
+        <button id = "sort-players" onClick={() => {setMainNav("sort")}}>SORT</button> */}
+      <Button size="large" style= {{backgroundColor: 'var(--color-boton-search)', padding: '0.4rem 2rem', color: 'white', fontWeight: '600'}} 
+              variant="contained" onClick={() => {setMainNav("filter")}}>FILTER</Button>
+               <Button size="large" style= {{backgroundColor: 'var(--color-boton-search)', padding: '0.4rem 2rem', color: 'white', fontWeight: '600'}} 
+              variant="contained" onClick={() => {setMainNav("sort")}}>SORT</Button>
+        {/* <button id = "filter-players" onClick={() => {setMainNav("filter")}}>FILTER</button>
+        <button id = "sort-players" onClick={() => {setMainNav("sort")}}>SORT</button> */}
+        <FinderChildrenNav action={mainNav} setFilterValue={setFilterValue} setMinValue={setMinValue} minValue={minValue} setMaxValue={setMaxValue} maxValue={maxValue} setSortValue={setSortValue} sortValue = {sortValue} setIsAscending = {setIsAscending} page = {page}/>
+        {/* <button type="submit" id = "find-button" onClick={handleSubmit}>Find</button> */}
+
+        {/* <Button   size="large" style= {{color: 'var(--color-boton-search)', fontWeight: '600', width: '20px'}}  onClick={handleSubmit} endIcon={<SearchIcon size="large"  style={{width: '50px'}}/>}>
+</Button> */}
+<Button  style= {{color: 'var(--color-boton-search)', width: '60px'}}  onClick={handleSubmit} >
+<SearchIcon size="large"  style={{width: '50px'}}/>
+</Button>
+        {/* <button type="submit" id = "find-button" onClick={handleSubmit}>Find</button> */}
       </div>
       <div id = "left-finder">
-        <input  id = "find-name" placeholder = "enter the player's name" type="text" value={findNameValue} onChange={(e) => {setFindNameValue(e.target.value)}}/>
+        {/* <input  id = "find-name" placeholder = "enter the player's name" type="text" onChange={(e) => {setFindNameValue(e.target.value)}}/> */}
+
+      <Box
+      sx={{
+
+        width: '50vw',
+        maxWidth: '100%',
+      }}
+    >
+      <TextField size="small" fullWidth label="Search" value ={findNameValue} style= {{backgroundColor: 'white', borderRadius: '5px'}} type="text" onChange={(e) => {setFindNameValue(e.target.value)}}/>
+    </Box>
+        {/* <input  id = "find-name" value ={findNameValue} placeholder = "enter the player's name" type="text" onChange={(e) => {setFindNameValue(e.target.value)}}/> */}
       </div>
     </section>
   )
 }
+
