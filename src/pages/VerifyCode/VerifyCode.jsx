@@ -100,7 +100,7 @@ export const VerifyCode = () => {
      useAutoLogin(allUser);
     } else {
       console.log("Voy al dashboard")
-      return <Navigate to="/home" />;
+      return <Navigate to="/" />;
   }
 }
 

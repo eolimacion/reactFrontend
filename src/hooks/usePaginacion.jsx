@@ -27,36 +27,42 @@ export const usePaginacion = (num) => {
   };
 
   return {
-    ComponentPaginacion: () => (
+    ComponentPaginacion: ({ handleComment }) => (
       <>
         <div className="botonesPaginacion">
           <button
             className={`previewButton ${currentPage === 1 ? "disabled" : ""}`}
             id={`${currentPage === 1 ? "disabled" : "active"}`}
-            onClick={prevPage}
+            onClick={() => {
+              prevPage();
+              handleComment(); // Llama a la función proporcionada por la prop
+            }}
             disabled={currentPage === 1}
           >
-<span className="material-symbols-outlined arrow">
-arrow_back
-</span>
+            <span className="material-symbols-outlined arrow">
+              arrow_back
+            </span>
           </button>
           <p>{currentPage}</p>
           <button
             className={`previewButton ${
               currentPage === totalPages ? "disabled" : ""
             }`}
-            id={`${currentPage ===  totalPages ? "disabled" : "active"}`}
-            onClick={nextPage}
+            id={`${currentPage === totalPages ? "disabled" : "active"}`}
+            onClick={() => {
+              nextPage();
+              handleComment(); // Llama a la función proporcionada por la prop
+            }}
             disabled={currentPage === totalPages}
           >
-          <span className="material-symbols-outlined arrow">
-arrow_forward
-</span>
+            <span className="material-symbols-outlined arrow">
+              arrow_forward
+            </span>
           </button>
         </div>
       </>
     ),
     dataPag: currentItems,
-    setGaleriaItems,itemsPerPage
-  };
-};
+    setGaleriaItems,
+    itemsPerPage
+  };}

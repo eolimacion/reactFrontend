@@ -28,6 +28,10 @@ export const PodiumContainer = () => {
 
   //!!Referente a comentarios sobre el podium-----------------------
   //?Este handle maneja el estado que setea
+  useEffect(() => {
+   handleComment("656cbe372003401787681e37")
+  }, [])
+  
   const handleComment = (id) => {
     setButtonComment(id);
   };
@@ -100,12 +104,13 @@ export const PodiumContainer = () => {
               <div className="podiumCardContainer" key={item?._id}>
                 <div className="nombreYComentario">
                   <h3 className="podiumCard">{item?.name}</h3>
-                  {console.log(item)}
+                  {console.log(buttonComment)}
                   <Link to={`/users/${item?.owner?._id}`}>
                   <p className="byAlguienP">By: {item?.owner?.name}</p>
                   </Link>
+                  <ComponentPaginacion handleComment={()=>handleComment(item?._id)} />
                 </div>
-
+<ComponentPaginacion handleComment={()=>handleComment(item?._id)} />
                 <div className="podiumCartas">
                 
                   <CardPodiums
@@ -124,6 +129,7 @@ export const PodiumContainer = () => {
                     image={item?.thirdPlace?.image}
                   />
                 </div>
+                
                 {buttonComment !== "" ? (
                   <div className="allForm">
                     <div className="formMain">
@@ -170,7 +176,7 @@ export const PodiumContainer = () => {
                           </button>
                         </div>
                       </form>
-                      { buttonComment !== ""&&<button   className="btn" onClick={() => handleComment("")}>Volver</button>}
+
                      
                     </div>
                   </div>
@@ -178,31 +184,44 @@ export const PodiumContainer = () => {
                   <button    className="btn" onClick={() => handleComment(item._id)}>
                     Comments
                   </button>
+                  
                 )}
               </div>
             )
         )}
 
- {buttonComment=="" &&
-  <ComponentPaginacion/>}
+ 
+
       
       <div className="cajonCommentsGeneral">
-    {allComments?.data?.comments
+    {allComments?.data?.comments?.length>0 ?
+      
+    allComments?.data?.comments
       .slice()
       .reverse()
-      .map((comment, index) => (
+      .map((comment,index) => (
         <div className="miniCommentComponent" key={index}>
-          <img className="miniCommentComponentImage" src={comment.image} alt={`User ${index + 1}`} />
+          <img className="miniCommentComponentImage" src={comment?.image} alt={`User ${index + 1}`} />
           <div className="miniCommentComponentText">
           <Link to={`/users/${comment?.creator}`}>
-            <h2>{comment.creatorName}</h2>
+            <h2>{comment?.creatorName}</h2>
             </Link>
-            <h3>{comment.createdAt.slice(0, 10)}</h3>
-            <p>{comment.comment}</p>
+            <h3>{comment?.createdAt?.slice(0, 10)}</h3>
+            <p>{comment?.comment}</p>
           </div>
-          <Rating name="read-only" value={comment.rating} readOnly />
+          <Rating name="read-only" value={comment?.rating} readOnly />
         </div>
-      ))}
+      )): <div className="miniCommentComponent" key={"aaaaa"}>
+      <img className="miniCommentComponentImage" src={"https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"} alt="imagen por defecto" />
+      <div className="miniCommentComponentText">
+    
+        <h2>No comments yet</h2>
+      
+       
+        <p>This podium has no comments yet, be the first to comment.</p>
+      </div>
+     
+    </div>}
   </div>  
     </div>
   );

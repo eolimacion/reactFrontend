@@ -12,7 +12,7 @@ export const createPodium = async (formData) => {
 //!------------------------GET ALL PODIUMS------------------------
 
 export const getAllPodiums = async () => {
-  console.log("entro al service de getAllPodiums");
+
   const APIGeneral = extraConfig();
   return APIGeneral.get("/podium/", {})
     .then((res) => res)

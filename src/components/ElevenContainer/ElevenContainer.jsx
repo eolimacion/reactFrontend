@@ -27,9 +27,13 @@ export const ElevenContainer = () => {
     usePaginacion(1);
 
   //!!Referente a comentarios sobre el eleven-----------------------
+
+
+
   const handleComment = (id) => {
     setButtonComment(id);
   };
+  
   const formSubmit = async (formData) => {
     const customFormData = {
       ...formData,
@@ -53,7 +57,7 @@ export const ElevenContainer = () => {
   useEffect(() => {
     getEleven();
    
-    console.log(allComments)
+    console.log(allElevens)
   }, []);
   //cuando es 200 envia al estado de la paginacion
   useEffect(() => {
@@ -184,10 +188,13 @@ export const ElevenContainer = () => {
                 />
                  <h4 className="playerElevenName">{item.forward3.name}</h4>
               </div>
-             
-                
+            
+            
             </div>
-            {buttonComment !== "" ? (
+            <Link to={`/users/${item?.owner?._id}`}>
+              <p className="byAlguienn">By {item?.owner?.name}</p>
+              </Link>
+            <ComponentPaginacion handleComment={()=>handleComment(item?._id)} />
               <div className="allForm">
                 <div className="formMain">
                   <h1 className="formTitle">CREAR COMENTARIO</h1>
@@ -234,40 +241,45 @@ export const ElevenContainer = () => {
                   )}
                 </div>
               </div>
-            ) : (
-              <div className="divconcoca">
-                <Link to={`/users/${item?.owner?._id}`}>
-              <p className="byAlguienn">By {item?.owner?.name}</p>
-              </Link>
-              <button className="btn" onClick={() => handleComment(item._id)}>
-                Comments
-              </button>
-              </div>
+            
               
-            )}
+              
+            
           </div>
         ))}
 
-      {buttonComment == "" && <ComponentPaginacion />}
+  
 
-      <div className="cajonCommentsGeneral">
-    {allComments?.data?.comments
+<div className="cajonCommentsGeneral">
+    {allComments?.data?.comments?.length>0 ?
+      
+    allComments?.data?.comments
       .slice()
       .reverse()
-      .map((comment, index) => (
+      .map((comment,index) => (
         <div className="miniCommentComponent" key={index}>
-          <img className="miniCommentComponentImage" src={comment.image} alt={`User ${index + 1}`} />
+          <img className="miniCommentComponentImage" src={comment?.image} alt={`User ${index + 1}`} />
           <div className="miniCommentComponentText">
           <Link to={`/users/${comment?.creator}`}>
-            <h2>{comment.creatorName}</h2>
+            <h2>{comment?.creatorName}</h2>
             </Link>
-            <h3>{comment.createdAt.slice(0, 10)}</h3>
-            <p>{comment.comment}</p>
+            <h3>{comment?.createdAt?.slice(0, 10)}</h3>
+            <p>{comment?.comment}</p>
           </div>
-          <Rating name="read-only" value={comment.rating} readOnly />
+          <Rating name="read-only" value={comment?.rating} readOnly />
         </div>
-      ))}
-  </div>  
+      )): <div className="miniCommentComponent" key={"aaaaa"}>
+      <img className="miniCommentComponentImage" src={"https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"} alt="imagen por defecto" />
+      <div className="miniCommentComponentText">
+    
+        <h2>No comments yet</h2>
+      
+       
+        <p>This podium has no comments yet, be the first to comment.</p>
+      </div>
+     
+    </div>}
+  </div> 
     </div>
     </div>
   );

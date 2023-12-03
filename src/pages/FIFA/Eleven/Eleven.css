@@ -140,6 +140,10 @@
         align-items: center; 
         margin-left: 30px;
     }
+    .contenedorEleven {
+        width: 500px;
+        background-size: 80% 80%
+    }
 
   
 
