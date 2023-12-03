@@ -5,3 +5,9 @@
     border-radius: 15px;
     margin: 1rem ;
 }
+
+#deletePlayerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

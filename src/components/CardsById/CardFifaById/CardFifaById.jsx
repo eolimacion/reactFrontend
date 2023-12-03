@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { addFavPlayers, getUsersFavPlayers } from '../../../services/user.service'
 import { Loading } from '../../Loading/Loading'
 import { useAuth } from '../../../context/authContext'
+import { DeletePlayer } from '../../DeletePlayer/DeletePlayer'
 
 
 export const CardFifaById = () => {
@@ -157,6 +158,9 @@ arrow_back_ios
               >favorite</span>
               </div>
             
+          </div>
+          <div id = "deletePlayerContainer">
+            {/*userData.rol === "admin" && */ <DeletePlayer  id = "DeletePlayer" playerId = {idPlayer} playerName = {name}/>}
           </div>
         </figure>
       </div>
