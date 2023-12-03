@@ -7,6 +7,7 @@ import { CardInTheGallery, NavFavChildren } from "../../components";
 import { usePaginacion } from "../../hooks/usePaginacion";
 import { pathWithId } from "../../utils/pathWithId";
 import { ProfileFavsCard } from "../../components/ProfileFavsCard/ProfileFavsCard";
+import { NothingHereComponent } from "../../components/NothingHereComponent/NothingHereComponent";
 
 export const FavGallery = ({ id, page}) => {
   const { user } = useAuth();
@@ -38,6 +39,7 @@ export const FavGallery = ({ id, page}) => {
 
   useEffect(() => {
     setGaleriaItems(res?.data[childrenFav]);
+    
   }, [childrenFav]);
 
 
@@ -52,18 +54,20 @@ export const FavGallery = ({ id, page}) => {
         <section className="favGallery">
           {galleryLoading ? (
             <h1> Loading...</h1>
-          ) : (
-            dataPag?.map((item) => (
-              <ProfileFavsCard
-                path={pathWithId(item._id, childrenFav) 
-                  // esto es un switch que juzga el children fav para ver que tipo de 
-                  //favorito es, y les asigna una ruta que le vamos a pasar para crearlo link
-                }
-                key={JSON.stringify(item)}
-                data={item}
-              />
-            ))
-          )}
+          ) : dataPag?.length > 0 ?
+            
+              dataPag?.map((item) => (
+                <ProfileFavsCard
+                  path={pathWithId(item._id, childrenFav) 
+                    // esto es un switch que juzga el children fav para ver que tipo de 
+                    //favorito es, y les asigna una ruta que le vamos a pasar para crearlo link
+                  }
+                  key={JSON.stringify(item)}
+                  data={item}
+                />
+              ))
+            : <NothingHereComponent/>
+          }
         </section>
       </div>
     </>
