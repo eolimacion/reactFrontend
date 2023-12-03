@@ -166,7 +166,7 @@ export const Eleven = () => {
                 disabled={send}
                 style={{ background: send ? "#49c1a388" : "#2f7a67" }}
               >
-                CREATE ELEVEN
+                CREATE ELEVE
               </button>
             </div>
           </form>
