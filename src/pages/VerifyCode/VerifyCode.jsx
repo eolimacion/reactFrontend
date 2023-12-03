@@ -14,7 +14,8 @@ import { Navigate, useNavigate } from "react-router";
 import { useVerifyCodeError } from "../../hooks/useVerifyCodeError";
 import { resendConfirmationCode, verifyConfirmationCode } from "../../services/user.service";
 import { useAutoLogin } from "../../hooks/useAutoLogin";
-
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 
 export const VerifyCode = () => {
   const navigate = useNavigate();
@@ -117,11 +118,16 @@ return <Navigate to="/login"/>
   return (
     <>
       <div className="allForm">
-        <div className="form">
-        <h1 className="formTitle">Verify your code 👌</h1>
+        <div className="formMain">
+        <div className="formTitle">
+        <h1 className="titleFormH1">Verify your code</h1>
         <p>Write the code sent to your email</p>
-        <form onSubmit={handleSubmit(formSubmit)}>
-          <div className="formGroup">
+        </div>
+        <form className="form" onSubmit={handleSubmit(formSubmit)}>
+          <div className="inputPlaceHolderForm">
+          <label htmlFor="custom-input" className="customPlaceholder">
+              Registration code
+            </label>
             <input
               className="inputForm"
               type="text"
@@ -130,13 +136,16 @@ return <Navigate to="/login"/>
               autoComplete="false"
               {...register("confirmationCode", { required: false })}
             />
-            <label htmlFor="custom-input" className="customPlaceholder">
-              Registration code
-            </label>
+           
           </div>
 <div className="botonesResend">
-<div >
-            <button 
+
+
+<Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)'}}  type="submit"
+              disabled={send} variant="contained" >
+ Verify Code
+</Button>
+            {/* <button 
               id="btnCheck"
               className={send ? "btn btnSent" : "btn btnNotsent"}
               type="submit"
@@ -144,10 +153,13 @@ return <Navigate to="/login"/>
               style={{ background: send ? "#49c1a388" : "#49c1a2" }}
             >
               Verify Code
-            </button>
-          </div>
-          <div >
-            <button
+            </button> */}
+  
+          <Button size="large" style= {{color: 'var(--color-boton-motogp)', backgroundColor: 'white', margin: '1rem'}}
+              disabled={send} onClick={() => handleReSend()} variant="contained" endIcon={<SendIcon />}>
+ Resend Code
+</Button>
+            {/* <button
               id="btnResend"
               className={send ? "btn btnSent" : "btn btnNotsent"}
               disabled={send}
@@ -155,14 +167,14 @@ return <Navigate to="/login"/>
               onClick={() => handleReSend()}
             >
               Resend Code
-            </button>
-          </div>
+            </button> */}
+         
 </div>
           
 
           <p className="bottom-text">
             <small>
-              If the code is not correct ❌, your user will be deleted from the
+            If the code is not correct, your user will be deleted from the
               database and you will need to register again.{" "}
             </small>
           </p>

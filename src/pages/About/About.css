@@ -12,3 +12,77 @@
   .titleDiscover {
     margin-top: 50px; 
   }
+
+
+  #mainAbout{
+    width: 100vw;
+    height: 95vh;
+
+
+  }
+  
+
+  .btnAbout{
+  margin: 2rem;
+}
+  .cardAbout{
+    top: 30%;
+    left: 8%;
+    position: absolute;
+    background-color: rgb(252, 252, 252);
+    border: 2px solid rgb(221, 218, 216);
+    -webkit-box-shadow: 7px 7px 0px 1px rgba(122,116,122,0.38);
+    -moz-box-shadow: 7px 7px 0px 1px rgba(122,116,122,0.38);
+    box-shadow: 7px 7px 0px 1px rgba(122,116,122,0.38);
+    border-radius: 10px;
+    width: 600px;
+    height: 450px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .pAboutfirst{
+    font-weight: 500;
+    color: black;
+  }
+
+  .pAbout{
+    color: black;
+  }
+
+  .secondCardAbout{
+    color: black;
+    left: 45%;
+    position: absolute;
+ 
+    width: 550px;
+    height: 90vh;
+  }
+
+  .iaImage{
+    object-fit: cover;
+    width: 450px;
+    height: 95vh;
+  }
+
+  .firstAbout{
+    margin: 0 0 4rem 0;
+  }
+
+  .outletAbout{
+    min-width: 250px;
+    min-height: 300px;
+    font-size: 22px;
+    padding: 2rem;
+
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    flex-direction: column;
+    text-align: justify;
+  }

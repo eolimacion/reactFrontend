@@ -6,7 +6,7 @@ export const ProtectedCheckChildren = ({children}) => {
     console.log(allUser)
     
     if (allUser?.data?.user?.check == true || user?.check == true){
-        return <Navigate to="/dashboard"/>;
+        return <Navigate to="/home"/>;
     }
     if (user == null && allUser?.data?.confirmationCode === ""){ //si no hay usuario o esta en el estado inicial por haber recargado la pag de checkCode pues lo llevamos al login
         return <Navigate to="/login"/>
