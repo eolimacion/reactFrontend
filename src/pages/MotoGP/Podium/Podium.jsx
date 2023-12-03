@@ -5,6 +5,7 @@ import { SelectRiders } from "../../../components/SelectRiders/SelectRiders";
 import { useErrorCreate } from "../../../hooks/useErrorCreate";
 import { CardInTheGallery } from "../../../components";
 import "./Podium.css";
+import { Navigate } from "react-router-dom";
 
 export const Podium = () => {
   const { register, handleSubmit } = useForm();
@@ -30,6 +31,12 @@ export const Podium = () => {
     console.log(res);
     useErrorCreate(res, setRegisterOk, setRes);
   }, [res]);
+ 
+ 
+  if (okRegister) {
+      //si todo esta ok navega a la pagina del codigo
+      return <Navigate to="/motogp/riders" />;
+    }
 
   return (
     <>

@@ -11,6 +11,7 @@ import {
 } from "../../services/eleven.service";
 import { Loading } from "../Loading/Loading";
 import { Link } from "react-router-dom";
+import { useCommentError } from "../../hooks/useCommentError";
 export const ElevenContainer = () => {
   const [elevenLoading, setElevenLoading] = useState(false);
   const [allElevens, setAllElevens] = useState([]);
@@ -77,7 +78,7 @@ export const ElevenContainer = () => {
   }, [buttonComment, res]);
 
   useEffect(() => {
-    useErrorRegister(res, setRegisterOk, setRes);
+    useCommentError(res, setRegisterOk, setRes);
   }, [res]);
 
   return (
@@ -247,7 +248,7 @@ export const ElevenContainer = () => {
           </div>
         ))}
 
-      {buttonComment != "" && <ComponentPaginacion />}
+      {buttonComment == "" && <ComponentPaginacion />}
 
       <div className="cajonCommentsGeneral">
     {allComments?.data?.comments

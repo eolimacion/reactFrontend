@@ -11,6 +11,7 @@ import { Rating } from "@mui/material";
 import { useErrorRegister } from "../../hooks/useErrorRegister";
 import { usePaginacion } from "../../hooks/usePaginacion";
 import { Link } from "react-router-dom";
+import { useCommentError } from "../../hooks/useCommentError";
 
 export const PodiumContainer = () => {
   const [podiumLoading, setPodiumLoading] = useState(false);
@@ -84,8 +85,8 @@ export const PodiumContainer = () => {
 
   useEffect(() => {
   
-    useErrorRegister(res, setRegisterOk, setRes);
-    
+    useCommentError(res, setRegisterOk, setRes);
+  
   }, [res]);
 
 

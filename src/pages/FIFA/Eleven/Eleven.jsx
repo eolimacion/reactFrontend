@@ -6,6 +6,8 @@ import { SelectPlayers } from "../../../components";
 import { createEleven } from "../../../services/eleven.service";
 import"./Eleven.css"
 import { useErrorRegister } from "../../../hooks/useErrorRegister";
+import { useErrorCreate } from "../../../hooks/useErrorCreate";
+import { Navigate } from "react-router-dom";
 
 export const Eleven = () => {
   //! ---- Destructuring ----
@@ -16,7 +18,7 @@ export const Eleven = () => {
   const [res, setRes] = useState({});
   const [userData, setUserData] = useState({});
   const [send, setSend] = useState(false);
-  const [registerOk,setRegisterOk] = useState(false);
+  const [okRegister,setRegisterOk] = useState(false);
 
   const fetchData = async () => {
     setUserData(await getById(user._id));
@@ -26,9 +28,14 @@ export const Eleven = () => {
   }, []);
   useEffect(() => {
   
-    useErrorRegister(res, setRegisterOk, setRes);
+    useErrorCreate(res, setRegisterOk, setRes);
     
   }, [res]);
+
+  if (okRegister) {
+    //si todo esta ok navega a la pagina del codigo
+    return <Navigate to="/fifa/players" />;
+  }
   
 
   //! 1. ---- Función que gestiona la asincronía
@@ -44,6 +51,7 @@ export const Eleven = () => {
       setSend(false);
       console.log("soy la reeeeeeeeeees", res);
     }
+    
   };
 
   return (

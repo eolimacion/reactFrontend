@@ -16,7 +16,7 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
            if (res?.response?.data?.includes("Este usuario ya tiene un podium")) {
             Swal.fire({
                 icon: "error",
-                title: "You already have a podium",
+                title: "You already have one",
                 text: "Please, try updating it",
                 showConfirmButton: false,
                 timer: 3000,
@@ -24,16 +24,7 @@ export const useErrorCreate = (res, setRegisterOk, setRes) => {
             setRes({});
         }
 
-    if (res?.response?.status == 404) {
-        Swal.fire({
-            icon: "error",
-            title: "Error filling out the form",
-            text: "Please, try again",
-            showConfirmButton: false,
-            timer: 3000,
-          });
-          setRes({});
-    }
+
 
     if (res?.response?.status == 500) {
         Swal.fire({

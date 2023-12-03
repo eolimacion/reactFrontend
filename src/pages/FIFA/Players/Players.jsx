@@ -14,6 +14,7 @@ export const Players = () => {
   const [mainLoading, setMainLoading] = useState(false);
   const [showForm, setShowForm] = useState(false); // Nuevo estado para controlar la visualización del formulario
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
+  const [showEleven, setShowEleven] = useState(false);
   const [res, setRes] = useState(null)
   const sportPath = `/fifa/players/`
   const [allTeams, setAllTeams] = useState()
@@ -60,7 +61,7 @@ export const Players = () => {
         </div>
     )}
     <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "players" />
-    <section className="mainPage">
+    <section className={`mainPage ${showEleven ? 'elevenVerde' : ''}`}>
       {galleryLoading ? (
         <Loading/>
       ) : (
