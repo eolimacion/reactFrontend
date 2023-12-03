@@ -64,3 +64,4 @@ export const GaleriaReducidaLifters = ({galeriaItems}) => {
     );
 }
 
+//hola
