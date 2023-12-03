@@ -58,13 +58,13 @@ export const FollowedComponent = ({ followed }) => {
             Forward
           </button>
         </div>
-      </div>
+      
       <div className="bottomProfileInfo">
         {dataPerPage &&
           dataPerPage?.map((item) =>
           <MiniUserComponent data={item} key={item._id} />
           )}
-
+</div>
       </div>
     </>
   );

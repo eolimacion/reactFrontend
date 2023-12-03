@@ -47,8 +47,7 @@ export const FollowersComponent = ({ followers }) => {
           >
             Backward
           </button>
-
-          {/* Forward Button */}
+{/* Forward Button */}
           <button
             className="profileButton"
             onClick={() => changePagination(currentPage + 1)}
@@ -58,13 +57,15 @@ export const FollowersComponent = ({ followers }) => {
           >
             Forward
           </button>
-        </div>
-      </div>
+          </div>
+      
       <div className="bottomProfileInfo">
         {dataPerPage &&
           dataPerPage?.map((item) => (
               <MiniUserComponent data={item} key={item._id} />
           ))}
+      {/* </div> */}
+      </div>
       </div>
     </>
   );

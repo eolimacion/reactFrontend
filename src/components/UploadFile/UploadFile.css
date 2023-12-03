@@ -26,12 +26,14 @@
     float: left;
     clear: both;
     width: 100%;
+    
   }
   #start.hidden {
     display: none;
   }
   
   i.fa {
+    color: grey;
     font-size: 50px;
     transition: all 0.2s ease-in-out;
   }
@@ -125,5 +127,6 @@
   
   .divSelect {
     margin: 8px;
+    color: black;
   }
   

@@ -5,6 +5,9 @@ import { getById } from "../../services/user.service";
 import { FollowedComponent } from "../../components/ProfileInfoSections/FollowingComponent";
 import { CommentsComponent } from "../../components/ProfileInfoSections/CommentsComponent";
 import { FollowersComponent } from "../../components/ProfileInfoSections/FollowersComponent";
+import Button from '@mui/material/Button';
+
+
 
 export const UserProfileData = () => {
   const { user } = useAuth();
@@ -49,14 +52,26 @@ export const UserProfileData = () => {
             className="profilePictureUser"
           />
           <div>
-            <p>{user?.name}</p>
+            <p className="nameUserCardProfile">{user?.name}</p>
             <p>I'm here for {user?.interestedIn}</p>
             {/* <p> {(user?.yourteam !== undefined) && `Your team ${user.yourteam}`}</p>
           <p> {(user?.yourPodium !== undefined) && `Your podium ${user.yourPodium}`}</p> */}
           </div>
         </figure>
         <div className="profileButtonsContainer">
-          <button
+        <Button onClick={() => setDisplaySection("followers")} autoFocus variant="contained"  style= {{backgroundColor: 'white', color: 'var(--color-boton-motogp)', fontWeight: '600', fontSize: '15px', margin: '2px', width: '180px'}} >
+        {data?.data?.followers?.length} followers
+</Button>
+<Button onClick={() => setDisplaySection("followed")} autoFocus variant="contained"  style= {{backgroundColor: 'white', color: 'var(--color-boton-motogp)', fontWeight: '600', fontSize: '15px', margin: '2px', width: '180px'}} >
+{data?.data?.followed?.length} following
+</Button>
+<Button onClick={() => setDisplaySection("comments")} autoFocus variant="contained"  style= {{backgroundColor: 'white', color: 'var(--color-boton-motogp)', fontWeight: '600', fontSize: '15px', margin: '2px', width: '180px'}} >
+{data?.data?.comments?.length} comments
+</Button>
+
+
+
+          {/* <button
             className="profileButton"
             autoFocus
             onClick={() => setDisplaySection("followers")}
@@ -75,7 +90,7 @@ export const UserProfileData = () => {
             onClick={() => setDisplaySection("comments")}
           >
             {data?.data?.comments?.length} comments
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="followProfileGallery">
