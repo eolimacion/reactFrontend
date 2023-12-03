@@ -1,6 +1,6 @@
 .miniCommentComponent {
     width: 100%;
-    max-width: 800px;
+    max-width: 500px;
     max-height: 15vh;
     display: flex;
     flex-direction: row;
