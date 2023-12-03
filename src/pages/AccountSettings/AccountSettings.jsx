@@ -8,6 +8,8 @@ import Swal from "sweetalert2/dist/sweetalert2.all.js";
 import { useErrorChangePassword } from "../../hooks/useErrorChangePassword";
 import { useDeleteUser } from "../../hooks/useDeleteUser";
 import { changePasswordAuth, updateUser } from "../../services/user.service";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const AccountSettings = () => {
   //! ---- estados
@@ -65,12 +67,12 @@ export const AccountSettings = () => {
   return (
     <>
 
-      <div className="profileSettingsForm">
-        <div className="profileSettingsFormWrap">
-          <h3>Change your password</h3>
+      <div className="allForm">
+        <div className="formMain">
+          <h3 className="titleFormH1">Change your password</h3>
           <form onSubmit={handleSubmit(changePasswordFormSubmit)}>
             <div className="profileSettingsContainerDiv profileSettingsFormDiv">
-              <label htmlFor="custom-input" className="profileSettingsCustomPlaceholder">
+              <label htmlFor="custom-input" className="customPlaceholder">
                 Current password
               </label>
               <input
@@ -83,7 +85,7 @@ export const AccountSettings = () => {
               />
             </div>
             <div className="profileSettingsContainerDiv profileSettingsFormDiv">
-              <label htmlFor="custom-input" className="profileSettingsCustomPlaceholder">
+              <label htmlFor="custom-input" className="customPlaceholder">
                 New password
               </label>
               <input
@@ -96,7 +98,7 @@ export const AccountSettings = () => {
               />
             </div>
             <div className="profileSettingsContainerDiv profileSettingsFormDiv">
-              <label htmlFor="custom-input" className="profileSettingsCustomPlaceholder">
+              <label htmlFor="custom-input" className="customPlaceholder">
                 Confirm new password
               </label>
               <input
@@ -109,24 +111,19 @@ export const AccountSettings = () => {
               />
             </div>
             <div className="profileSettingsButtonContainer">
-              <button
-                className="profileSettingsBtn"
-                type="submit"
-                disabled={sendPassword}
-                style={{ background: sendPassword ? "#bf3a62" : "#EE5684" }}
-              >
-                Change Password
-              </button>
+            <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem'}}  type="submit"
+              variant="contained" disabled={sendPassword} >
+Change Password
+</Button>
+
             </div>
           </form>
         </div>
         <div>
-          <button
-            className="btn btn-delete"
-            onClick={() => useDeleteUser(setUser, setIsDeletedUser)}
-          >
-            Delete account
-          </button>
+        <Button startIcon={<DeleteIcon />} variant="contained" color="error" onClick={() => useDeleteUser(setUser, setIsDeletedUser)}>
+        Delete account
+      </Button>
+
         </div>
       </div>
     </>

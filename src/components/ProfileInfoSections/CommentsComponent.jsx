@@ -56,14 +56,15 @@ export const CommentsComponent = ({ comments }) => {
           >
             Forward
           </button>
-          </div>
+          
+         </div>
          </div>
          <div className="bottomProfileInfo">
          {dataPerPage && dataPerPage?.map((item) => (
           <MiniCommentComponent data={item} key={item._id}/>
         ))}
-        
-      </div>
+        </div>
+      
       </>
     )
   }

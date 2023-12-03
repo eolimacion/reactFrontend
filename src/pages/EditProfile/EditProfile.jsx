@@ -12,6 +12,9 @@ import { useErrorUpdate } from "../../hooks/useErrorUpdate";
 import { useDeleteUser } from "../../hooks/useDeleteUser";
 import { changePasswordAuth, updateUser } from "../../services/user.service";
 import { ErrorFetch } from "../../components/ErrorFetch/ErrorFetch";
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+
 
 export const EditProfile = () => {
   //! ---- estados
@@ -124,7 +127,7 @@ export const EditProfile = () => {
         <form onSubmit={handleSubmit(editProfileFormSubmit)}>
           <div className="profileEditContainerColumns">
             <div className="profileEditLeft">
-              <label htmlFor="custom-input" className="label name">
+              <label htmlFor="custom-input" className="customPlaceholder">
                 Name
               </label>
               <input
@@ -154,13 +157,7 @@ export const EditProfile = () => {
                   htmlFor="futbol"
                   className="labelRadio"
                   onClick={() => setInterestedIn("fifa")}
-                  style={{
-                    background:
-                      interestedIn === "fifa"
-                        ? "var(--color-background-nightmode)"
-                        : "var(--color-primario)",
-                    border: "solid 3px #0a334e",
-                  }}
+                  
                 >
                   FIFA
                 </label>
@@ -176,13 +173,7 @@ export const EditProfile = () => {
                   htmlFor="motogp"
                   className="labelRadio"
                   onClick={() => setInterestedIn("motogp")}
-                  style={{
-                    background:
-                      interestedIn === "motogp"
-                        ? "var(--color-background-nightmode)"
-                        : "var(--color-primario)",
-                    border: "solid 3px #0a334e",
-                  }}
+                  
                 >
                   Moto GP
                 </label>
@@ -198,13 +189,7 @@ export const EditProfile = () => {
                   htmlFor="powerlifting"
                   className="labelRadio"
                   onClick={() => setInterestedIn("powerlifting")}
-                  style={{
-                    background:
-                      interestedIn === "powerlifting"
-                        ? "var(--color-background-nightmode)"
-                        : "var(--color-primario)",
-                    border: "solid 3px #0a334e",
-                  }}
+                  
                 >
                   Powerlifting
                 </label>
@@ -222,13 +207,7 @@ export const EditProfile = () => {
                   htmlFor="male"
                   className="labelRadio male profileLabel"
                   onClick={() => setGender("hombre")}
-                  style={{
-                    background:
-                      gender === "hombre"
-                        ? "var(--color-background-nightmode)"
-                        : "var(--color-primario)",
-                    border: "solid 3px #0a334e",
-                  }}
+                  
                 >
                   Male
                 </label>
@@ -244,13 +223,7 @@ export const EditProfile = () => {
                   htmlFor="female"
                   onClick={() => setGender("mujer")}
                   className="labelRadio female profileLabel"
-                  style={{
-                    background:
-                      gender === "mujer"
-                        ? "var(--color-background-nightmode)"
-                        : "var(--color-primario)",
-                    border: "solid 3px #0a334e",
-                  }}
+                  
                 >
                   Female
                 </label>
@@ -266,13 +239,7 @@ export const EditProfile = () => {
                   htmlFor="otros"
                   className="labelRadio otros profileLabel"
                   onClick={() => setGender("otros")}
-                  style={{
-                    background:
-                      gender === "otros"
-                        ? "var(--color-background-nightmode)"
-                        : "var(--color-primario)",
-                    border: "solid 3px #0a334e",
-                  }}
+                 
                 >
                   Others
                 </label>
@@ -280,14 +247,11 @@ export const EditProfile = () => {
             </div>
           </div>
           <div className="btn-div container-div">
-            <button
-              className="btn"
-              type="submit"
-              disabled={sendEdit}
-              style={{ background: sendEdit ? "#bf3a62" : "#EE5684" }}
-            >
-              Save changes
-            </button>
+          <Button size="large" style= {{backgroundColor: 'var(--color-boton-motogp)', margin: '1.5rem'}}  type="submit"
+              variant="contained" endIcon={<SendIcon />}>
+Save changes
+</Button>
+
           </div>
         </form>
       </div>

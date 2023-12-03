@@ -54,42 +54,43 @@ export const UserPage = () => {
     fetchDataUser()
   }
 
+  console.log("soyresdata", res)
   return (
     <>
       {!ok && <Loading/>}
       {ok && (
         <div id = "userPagePage">
           <section id = "userPageTopContainer">
-            <img src={res.data.image} alt={res.data.name} id="userPageImage"/>
+            <img src={res?.data?.image} alt={res?.data?.name} id="userPageImage"/>
             <div id = "userPageMainInfoNav">
               <div id = "topInfoUser">
                 <div id = "containerNameandFollow">
-                  <h1 id="userPageName">{res.data.name}</h1>
+                  <h1 id="userPageName">{res?.data?.name}</h1>
                   <button id = "followUserButton" onClick={handleFollow}>
                     {isFollowing ? "Unfollow" : "Follow"}
                   </button>
                   <div id = "followCount">
-                    <h5>{res.data.followed.length} following</h5>
-                    <h5>{res.data.followers.length} followers</h5>
+                    <h5>{res?.data?.followed?.length} following</h5>
+                    <h5>{res?.data?.followers?.length} followers</h5>
                   </div>
                 </div>
                 <div id = "containerInterestInfo">
-                  <p id="userPageInterest">Is here for <span>{res.data.interestedIn}</span></p>
+                  <p id="userPageInterest">Is here for <span>{res?.data?.interestedIn}</span></p>
                 </div>
               </div>
             </div>
           </section>
           <nav id = "userPageNav">
-            <button onClick={() => setRenderContent("eleven")}>{res.data.name}'s Eleven</button>
-            <button onClick={() => setRenderContent("podium")} style={{"--c":"#89a194"}}>{res.data.name}'s Podium</button>
-            <button onClick={() => setRenderContent("favorites")} style={{"--c":"#aa1f2f"}}>{res.data.name}'s Favorites</button>
+            <button onClick={() => setRenderContent("eleven")}>{res?.data?.name}'s Eleven</button>
+            <button onClick={() => setRenderContent("podium")} style={{"--c":"#89a194"}}>{res?.data?.name}'s Podium</button>
+            <button onClick={() => setRenderContent("favorites")} style={{"--c":"#aa1f2f"}}>{res?.data?.name}'s Favorites</button>
           </nav>
           <section id = "userPageInfo">
             {((renderContent == "eleven") || (renderContent == "")) &&
-              <UserEleven elevenId = {res.data.yourteam[0]._id}/>
+              <UserEleven elevenId = {res?.data?.yourteam[0]?._id}/>
             }
             {renderContent == "podium" &&
-              <UserPodium page = "userPage" podiumId = {res.data.yourPodium[0]._id}/>
+              <UserPodium page = "userPage" podiumId = {res?.data?.yourPodium[0]?._id}/>
             }
             {renderContent == "favorites" &&
               <FavGallery id = {id} page = "userpage"/>

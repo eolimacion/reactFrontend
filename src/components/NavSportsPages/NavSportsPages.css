@@ -43,7 +43,7 @@
 
 .imageContainer {
 min-width: 550px;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
     padding: 40px;
    display: flex;

@@ -45,7 +45,7 @@ export const FavGallery = ({ id, page}) => {
     <>
       <div className="favsTab">
         <div className="favNavTop">
-          <NavFav setFav={setMainFav} setFavChildren={setChildrenFav} />
+          <NavFav setFav={setMainFav} setFavChildren={setChildrenFav} favChildren={childrenFav}/>
           <NavFavChildren fav={mainFav} setFavChildren={setChildrenFav} />
           <div>{!galleryLoading && <ComponentPaginacion />}</div>
         </div>

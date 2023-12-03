@@ -5,6 +5,7 @@ import { buscarAllCircuit } from '../../../services/circuit.service';
 import { usePaginacion } from '../../../hooks/usePaginacion';
 import { GaleriaReducidaCircuits } from '../../../components/GaleriaReducidaCircuits/GaleriaReducidaCircuits';
 import Button from '@mui/material/Button';
+import { buscarAllRider } from '../../../services/rider.service';
 
 
 export const Circuits = () => {
@@ -13,6 +14,7 @@ export const Circuits = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [allCircuits, setAllCircuits] = useState([]);
   const [res, setRes] = useState(null)
+  const [allRiders, setAllRiders] = useState([]);
 
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag} = usePaginacion()
 
@@ -23,9 +25,21 @@ export const Circuits = () => {
     setAllCircuits(circuitsData || []);
     setGalleryLoading(false);
   }
+  const getAllRiders = async () => {
+    try {
+      setGalleryLoading(true);
+      const ridersData = await buscarAllRider();
+      setAllRiders(ridersData || []);
+    } catch (error) {
+      console.error('Error al obtener datos de riders:', error);
+    } finally {
+      setGalleryLoading(false);
+    }
+  };
 
   useEffect(() => {
     getAllCircuits();
+    getAllRiders()
     console.log(allCircuits)
   }, []);
 
@@ -51,7 +65,7 @@ export const Circuits = () => {
       <Loading/>
     ) : (
       <div className="galeriaPreview">
-        <GaleriaReducidaCircuits galeriaItems={allCircuits?.data}/>
+        <GaleriaReducida galeriaItems={allRiders?.data} tipoCarta={"redRiders"} sportPathRED="/motogp/riders/"/>
       </div>
     )}
     <Finder setShowGallery={setShowGallery} setShowForm={setShowForm} setRes={setRes} res={res} page = "circuits"/>
@@ -65,7 +79,7 @@ export const Circuits = () => {
           <div className="displayImage">
             {showForm ? <FormCircuits /> : showGallery && 
             (res && dataPag?.map((circuit) => (
-              <div className='singleCardItem'>
+              <div className='singleCardItem' key={circuit._id}>
               <CardCircuit image={circuit.image} name={circuit.name} key={circuit._id} id={circuit._id} sportPath={sportPath}/>
               </div>
             )))}
@@ -73,11 +87,11 @@ export const Circuits = () => {
           <div className="bottonButton">
 
           <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
-              variant="contained" onClick={handleButtonClick}>Create Form
+              variant="contained" onClick={handleButtonClick}>CREATE FORM
  
 </Button>
 <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
-              variant="contained" onClick={handleGalleryButtonClick}>Show Gallery
+              variant="contained" onClick={handleGalleryButtonClick}>SHOW GALLERY
  
 </Button>
 
