@@ -1,38 +1,55 @@
- .navProfileProfile{
+
+    
+/* NavProfile.css */
+.navProfileProfile {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    background-color: --primary;
-}
+    justify-content: space-around;
+    background-color: var(--color-primary); /* Use the appropriate variable */
+    padding: 1rem;
 
-.navProfileProfile > a {
-    text-decoration:solid;
-    color: rgb(6, 25, 42);
 
     &:active > div.titleNavProfile {
-        background-color: rgb(168, 185, 200);
+        background-color: rgb(168, 185, 200); 
     }
-}
-
-
-
-
-
-.titleNavProfile{
-    width: 20vw;
+  }
+  
+  .navProfileProfile a {
+    text-decoration: none;
+    color: var(--color-text); /* Use the appropriate variable */
+  }
+  
+  .titleNavProfile {
+    flex: 1;
     padding: 1.5rem;
     margin: 1rem;
     background-color: rgba(215, 236, 255, 0.8);
     border-radius: 50px;
     transition: background-color 0.3s ease, color 0.3s ease;
     font-size: 1.5rem;
-
-
+  
     &:hover {
-        background-color: #e0e0e0; /* Change background on hover */
-        color: #333; /* Change text color on hover */
+      background-color: #e0e0e0;
+      color: #333;
     }
-
-}
-    
+  }
+  
+  @media (max-width: 768px) {
+    .navProfileProfile {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .titleNavProfile {
+        flex: 1;
+        height: 70;
+        padding: 1rem;
+        margin: 0.5rem;
+        background-color: rgba(215, 236, 255, 0.8);
+        border-radius: 50px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 1.5rem;
+        width:100%
+    }
+  }
+  

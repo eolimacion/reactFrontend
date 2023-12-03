@@ -137,140 +137,145 @@ export const EditProfile = () => {
                 defaultValue={user?.name}
                 {...register("name")}
               />
+              <img src={user.image} alt={user.name}/>
               <UploadFile />
             </div>
             <div className="profileEditRight">
               <p>Interest</p>
-              <div className="formGroup">
-                <div className="interest">
-                  <input
-                    type="radio"
-                    name="interest"
-                    id="futbol"
-                    value="fifa"
-                    {...register("interestedIn", { required: true })}
-                  />
-                  <label
-                    htmlFor="futbol"
-                    className="labelRadio"
-                    onClick={() => setInterestedIn("fifa")}
-                    style={{
-                      background:
-                        interestedIn === "fifa"
-                          ? "var(--color-secundario)"
-                          : "var(--color-primario)",
-                    }}
-                  >
-                    FIFA
-                  </label>
+              <div className="interest">
+                <input
+                  type="radio"
+                  name="interest"
+                  id="futbol"
+                  value="fifa"
+                  {...register("interestedIn", { required: true })}
+                />
+                <label
+                  htmlFor="futbol"
+                  className="labelRadio"
+                  onClick={() => setInterestedIn("fifa")}
+                  style={{
+                    background:
+                      interestedIn === "fifa"
+                        ? "var(--color-background-nightmode)"
+                        : "var(--color-primario)",
+                    border: "solid 3px #0a334e",
+                  }}
+                >
+                  FIFA
+                </label>
 
-                  <input
-                    type="radio"
-                    name="interest"
-                    id="motogp"
-                    value="motogp"
-                    {...register("interestedIn", { required: true })}
-                  />
-                  <label
-                    htmlFor="motogp"
-                    className="labelRadio"
-                    onClick={() => setInterestedIn("motogp")}
-                    style={{
-                      background:
-                        interestedIn === "motogp"
-                          ? "var(--color-secundario)"
-                          : "var(--color-primario)",
-                    }}
-                  >
-                    Moto GP
-                  </label>
+                <input
+                  type="radio"
+                  name="interest"
+                  id="motogp"
+                  value="motogp"
+                  {...register("interestedIn", { required: true })}
+                />
+                <label
+                  htmlFor="motogp"
+                  className="labelRadio"
+                  onClick={() => setInterestedIn("motogp")}
+                  style={{
+                    background:
+                      interestedIn === "motogp"
+                        ? "var(--color-background-nightmode)"
+                        : "var(--color-primario)",
+                    border: "solid 3px #0a334e",
+                  }}
+                >
+                  Moto GP
+                </label>
 
-                  <input
-                    type="radio"
-                    name="interest"
-                    id="powerlifting"
-                    value="powerlifting"
-                    {...register("interestedIn", { required: true })}
-                  />
-                  <label
-                    htmlFor="powerlifting"
-                    className="labelRadio"
-                    onClick={() => setInterestedIn("powerlifting")}
-                    style={{
-                      background:
-                        interestedIn === "powerlifting"
-                          ? "var(--color-secundario)"
-                          : "var(--color-primario)",
-                    }}
-                  >
-                    Powerlifting
-                  </label>
-                </div>
+                <input
+                  type="radio"
+                  name="interest"
+                  id="powerlifting"
+                  value="powerlifting"
+                  {...register("interestedIn", { required: true })}
+                />
+                <label
+                  htmlFor="powerlifting"
+                  className="labelRadio"
+                  onClick={() => setInterestedIn("powerlifting")}
+                  style={{
+                    background:
+                      interestedIn === "powerlifting"
+                        ? "var(--color-background-nightmode)"
+                        : "var(--color-primario)",
+                    border: "solid 3px #0a334e",
+                  }}
+                >
+                  Powerlifting
+                </label>
+              </div>
+              <p>Gender</p>
+              <div className="gender">
+                <input
+                  type="radio"
+                  name="gender"
+                  id="male"
+                  value="hombre"
+                  {...register("gender", { required: true })}
+                />
+                <label
+                  htmlFor="male"
+                  className="labelRadio male profileLabel"
+                  onClick={() => setGender("hombre")}
+                  style={{
+                    background:
+                      gender === "hombre"
+                        ? "var(--color-background-nightmode)"
+                        : "var(--color-primario)",
+                    border: "solid 3px #0a334e",
+                  }}
+                >
+                  Male
+                </label>
 
-                <div className="gender">
-                  <input
-                    type="radio"
-                    name="gender"
-                    id="male"
-                    value="hombre"
-                    {...register("gender", { required: true })}
-                  />
-                  <label
-                    htmlFor="male"
-                    className="labelRadio male"
-                    onClick={() => setGender("hombre")}
-                    style={{
-                      background:
-                        gender === "hombre"
-                          ? "var(--color-secundario)"
-                          : "var(--color-primario)",
-                    }}
-                  >
-                    Male
-                  </label>
+                <input
+                  type="radio"
+                  name="gender"
+                  id="female"
+                  value="mujer"
+                  {...register("gender", { required: true })}
+                />
+                <label
+                  htmlFor="female"
+                  onClick={() => setGender("mujer")}
+                  className="labelRadio female profileLabel"
+                  style={{
+                    background:
+                      gender === "mujer"
+                        ? "var(--color-background-nightmode)"
+                        : "var(--color-primario)",
+                    border: "solid 3px #0a334e",
+                  }}
+                >
+                  Female
+                </label>
 
-                  <input
-                    type="radio"
-                    name="gender"
-                    id="female"
-                    value="mujer"
-                    {...register("gender", { required: true })}
-                  />
-                  <label
-                    htmlFor="female"
-                    onClick={() => setGender("mujer")}
-                    className="labelRadio female"
-                    style={{
-                      background:
-                        gender === "mujer"
-                          ? "var(--color-secundario)"
-                          : "var(--color-primario)",
-                    }}
-                  >
-                    Female
-                  </label>
-
-                  <input
-                    type="radio"
-                    name="gender"
-                    id="otros"
-                    value="otros"
-                    {...register("gender", { required: true })}
-                  />
-                  <label
-                    htmlFor="otros"
-                    className="labelRadio otros"
-                    onClick={() => setGender("otros")}
-                    style={{
-                      background:
-                        gender === "otros"
-                          ? "var(--color-secundario)"
-                          : "var(--color-primario)",
-                    }}
-                  >
-                    Others
-                  </label>
-                </div>
+                <input
+                  type="radio"
+                  name="gender"
+                  id="otros"
+                  value="otros"
+                  {...register("gender", { required: true })}
+                />
+                <label
+                  htmlFor="otros"
+                  className="labelRadio otros profileLabel"
+                  onClick={() => setGender("otros")}
+                  style={{
+                    background:
+                      gender === "otros"
+                        ? "var(--color-background-nightmode)"
+                        : "var(--color-primario)",
+                    border: "solid 3px #0a334e",
+                  }}
+                >
+                  Others
+                </label>
               </div>
             </div>
           </div>
@@ -285,7 +290,6 @@ export const EditProfile = () => {
             </button>
           </div>
         </form>
-        <div className="btn_container"></div>
       </div>
     </>
   );

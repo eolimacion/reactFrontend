@@ -1,4 +1,4 @@
-import "./AccountSettings";
+import "./AccountSettings.css";
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -65,16 +65,16 @@ export const AccountSettings = () => {
   return (
     <>
 
-      <div className="form-login form">
-        <div className="form-wrap">
+      <div className="profileSettingsForm">
+        <div className="profileSettingsFormWrap">
           <h3>Change your password</h3>
           <form onSubmit={handleSubmit(changePasswordFormSubmit)}>
-            <div className="container-div form-div">
-              <label htmlFor="custom-input" className="custom-placeholder">
+            <div className="profileSettingsContainerDiv profileSettingsFormDiv">
+              <label htmlFor="custom-input" className="profileSettingsCustomPlaceholder">
                 Current password
               </label>
               <input
-                className="input_user"
+                className="profileSettingsInputUser"
                 type="password"
                 id="password"
                 name="password"
@@ -82,12 +82,12 @@ export const AccountSettings = () => {
                 {...register("password", { required: true })}
               />
             </div>
-            <div className="container-div form-div">
-              <label htmlFor="custom-input" className="custom-placeholder">
+            <div className="profileSettingsContainerDiv profileSettingsFormDiv">
+              <label htmlFor="custom-input" className="profileSettingsCustomPlaceholder">
                 New password
               </label>
               <input
-                className="input_user"
+                className="profileSettingsInputUser"
                 type="password"
                 id="newPassword"
                 name="newPassword"
@@ -95,12 +95,12 @@ export const AccountSettings = () => {
                 {...register("newPassword", { required: true })}
               />
             </div>
-            <div className="container-div form-div">
-              <label htmlFor="custom-input" className="custom-placeholder">
+            <div className="profileSettingsContainerDiv profileSettingsFormDiv">
+              <label htmlFor="custom-input" className="profileSettingsCustomPlaceholder">
                 Confirm new password
               </label>
               <input
-                className="input_user"
+                className="profileSettingsInputUser"
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
@@ -108,9 +108,9 @@ export const AccountSettings = () => {
                 {...register("confirmPassword", { required: true })}
               />
             </div>
-            <div className="btn_container">
+            <div className="profileSettingsButtonContainer">
               <button
-                className="btn"
+                className="profileSettingsBtn"
                 type="submit"
                 disabled={sendPassword}
                 style={{ background: sendPassword ? "#bf3a62" : "#EE5684" }}
