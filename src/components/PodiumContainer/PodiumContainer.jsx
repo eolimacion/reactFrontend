@@ -96,7 +96,7 @@ export const PodiumContainer = () => {
       dataPag?.map(
           (item) =>
             (
-              <div className="podiumCardContainer" key={item._id}>
+              <div className="podiumCardContainer" key={item?._id}>
                 <div className="nombreYComentario">
                   <h3 className="podiumCard">{item?.name}</h3>
                   {console.log(item)}

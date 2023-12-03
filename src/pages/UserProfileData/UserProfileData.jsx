@@ -66,6 +66,7 @@ export const UserProfileData = () => {
               fontSize: "15px",
               margin: "2px",
               width: "100%",
+              
             }}
           >
             {data?.data?.followers?.length} followers

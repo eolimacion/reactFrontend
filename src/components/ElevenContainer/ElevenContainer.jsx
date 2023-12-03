@@ -179,13 +179,12 @@ export const ElevenContainer = () => {
                   className="imagenEleven"
                   src={item?.forward3.image}
                   alt={name}
+                  
                 />
                  <h4 className="playerElevenName">{item.forward3.name}</h4>
-                 <Link to={`/users/${item?.owner?._id}`}>
-                  <p className="byAlguien">By {item?.owner?.name}</p>
-                  </Link>
-                
               </div>
+             
+                
             </div>
             {buttonComment !== "" ? (
               <div className="allForm">
@@ -235,9 +234,15 @@ export const ElevenContainer = () => {
                 </div>
               </div>
             ) : (
+              <div className="divconcoca">
+                <Link to={`/users/${item?.owner?._id}`}>
+              <p className="byAlguienn">By {item?.owner?.name}</p>
+              </Link>
               <button className="btn" onClick={() => handleComment(item._id)}>
                 Comments
               </button>
+              </div>
+              
             )}
           </div>
         ))}

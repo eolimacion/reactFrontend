@@ -26,7 +26,7 @@ export const NavProfile = () => {
 <>
 
 
-    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange} style={{backgroundColor: 'var(--color-enhance)', borderRadius: '10px'}}>
+    <BottomNavigation sx={{ minWidth: 350 }} value={value} onChange={handleChange} style={{backgroundColor: 'var(--color-enhance)', borderRadius: '10px'}}>
     <BottomNavigationAction
     style={{color: 'var(--color-h)'}}
       label="Profile"
