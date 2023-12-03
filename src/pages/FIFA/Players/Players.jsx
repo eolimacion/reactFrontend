@@ -57,7 +57,7 @@ export const Players = () => {
             {showForm ? <FormPlayers /> : showGallery && 
             (res && dataPag?.map((player) => (
               <div className='singleCardItem'>
-              <CardPlayer image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
+              <CardInTheGallery image={player.image} name={player.name} key={player._id} id={player._id} sportPath={sportPath}/>
               </div>
             )))}
  </div>
