@@ -62,7 +62,7 @@ export const UserEleven = ({ elevenId }) => {
   }, [res]);
 
   return (
-    <div className="todoElEleven">
+    <div className="todoElEleven" style={{justifyContent: 'center'}}>
     <div className=" formMainDataDos">
         <div className="espacio"></div>
       {allElevens &&

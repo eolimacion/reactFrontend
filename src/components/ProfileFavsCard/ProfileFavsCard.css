@@ -3,18 +3,20 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #1e293b; /* Darker shade of blue */
+    background-color: var(--color-boton-motogp); /* Darker shade of blue */
     color: #ffffff; /* White text */
     text-decoration: none;
     border-radius: 8px;
     overflow: hidden;
     margin: 8px;
-    width: calc(100% / 7); /* Display 6 cards horizontally */
+    width: 15% /* Display 6 cards horizontally */
   }
   
   .favImageContainer {
-    height: 100%;
-    overflow: hidden;
+      width: 15vw;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
   }
   
   .favCardImag {

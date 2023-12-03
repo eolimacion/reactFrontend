@@ -4,11 +4,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 #userPageTopContainer{
   height: 20vh;
-  width: 100vw;
+  width: 100%;
   padding-left: 5vw;
   gap: 3rem;
   border: 1px solid black;
@@ -126,5 +127,7 @@
 
 #userPageInfo{
   min-height: 46vh;
+  width: 100%;
+  justify-content: center;
 }
 

@@ -29,6 +29,7 @@ export const UserProfileData = () => {
       case "followers":
         return <FollowersComponent followers={data?.data?.followers} />;
       case "followed":
+        console.log(data?.data?.followed);
         return <FollowedComponent followed={data?.data?.followed} />;
       case "comments":
         return <CommentsComponent comments={data?.data?.comments} />;
@@ -64,7 +65,7 @@ export const UserProfileData = () => {
               fontWeight: "600",
               fontSize: "15px",
               margin: "2px",
-              width: "180px",
+              width: "100%",
             }}
           >
             {data?.data?.followers?.length} followers
@@ -79,7 +80,8 @@ export const UserProfileData = () => {
               fontWeight: "600",
               fontSize: "15px",
               margin: "2px",
-              width: "180px",
+              width: "100%",
+              
             }}
           >
             {data?.data?.followed?.length} following
@@ -94,7 +96,8 @@ export const UserProfileData = () => {
               fontWeight: "600",
               fontSize: "15px",
               margin: "2px",
-              width: "180px",
+              width: "100%",
+
             }}
           >
             {data?.data?.comments?.length} comments
