@@ -99,10 +99,23 @@ min-width: 550px;
     flex-wrap: wrap ;
     justify-content: center;
     align-items: center;
+    /* opacity: .7; */
 /* display: grid;
 grid-template-columns: 1fr 1fr;
 grid-template-rows: 1fr; */
 }
+& .imageCircuitsDiv, .imageMotoDiv{
+    opacity: .6;
+}
+
+& .imageCircuitsDiv:hover, .imageMotoDiv:hover{
+    opacity: 1
+}
+
+/* .imageNavCircuits:hover{
+    opacity: 1
+} */
+
 
 .positionAbsolute{
     position: absolute;

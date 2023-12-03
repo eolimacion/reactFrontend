@@ -1,6 +1,4 @@
-.profilePictureUser {
-  width: 20vh;
-}
+
 
 .infoUser {
   margin: 0.5rem 2rem 0.5rem 1rem;
@@ -22,6 +20,7 @@
 }
 
 .profilePictureUser{
+  width: 80%;
   border-radius: 10px;
   width: 22vw;
   border: 2px solid rgb(129, 111, 111);
@@ -57,13 +56,13 @@
   flex-direction: column;
   padding: 0.4rem;
   margin: 0.4rem;
-  min-height: 50vh;
+  min-height: 55vh;
 }
 
 .forwardBackward {
   display: flex;
-  flex-direction: row;
-  justify-content: baseline;
+  flex-direction: column;
+  justify-content: center;
   gap: 10rem;
 }
 
