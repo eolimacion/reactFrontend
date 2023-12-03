@@ -16,6 +16,7 @@ export const Players = () => {
   const [showGallery, setShowGallery] = useState(true); // Cambiado a false para no mostrar Gallery por defecto
   const [res, setRes] = useState(null)
   const sportPath = `/fifa/players/`
+  const [allTeams, setAllTeams] = useState()
 
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag, setCurrentPage} = usePaginacion()
 
