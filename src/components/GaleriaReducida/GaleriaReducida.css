@@ -67,21 +67,29 @@
 .redRiders{
   width: 4vw;
   min-width: 48px;
+  max-height: 75px;
+  max-width: 75px;
+ 
 
 }
 .redCircuits{
   width: 6vw;
   min-width: 48px;
   background-color: #D90042;
+  max-height: 70px;
+  max-width: 70px;
 
 }
 .redTeams{
   width: 6vw;
   min-width: 48px;
+  max-height: 70px;
+  max-width: 70px;
 }
 .redPlayers{
   width: 4vw;
   min-width: 48px;
+  max-height: 75px;
   
 
 }

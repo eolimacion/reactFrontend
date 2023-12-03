@@ -10,6 +10,7 @@ import {
   getelevenByID,
 } from "../../services/eleven.service";
 import { Loading } from "../Loading/Loading";
+import { Link } from "react-router-dom";
 export const ElevenContainer = () => {
   const [elevenLoading, setElevenLoading] = useState(false);
   const [allElevens, setAllElevens] = useState([]);
@@ -180,6 +181,10 @@ export const ElevenContainer = () => {
                   alt={name}
                 />
                  <h4 className="playerElevenName">{item.forward3.name}</h4>
+                 <Link to={`/users/${item?.owner?._id}`}>
+                  <p className="byAlguien">By {item?.owner?.name}</p>
+                  </Link>
+                
               </div>
             </div>
             {buttonComment !== "" ? (
@@ -237,23 +242,26 @@ export const ElevenContainer = () => {
           </div>
         ))}
 
-      {buttonComment == "" && <ComponentPaginacion />}
+      {buttonComment != "" && <ComponentPaginacion />}
 
-      {allComments &&
-        buttonComment !== "" &&
-        allComments?.data?.comments
-          .slice()
-          .reverse()
-          .map((comment, index) => (
-            <div className="comentarioCaja" key={comment._id}>
-              <div className="comentarioHeader">
-                <img className="comentarioImagen" src={comment.image} alt="" />
-                <h3 className="comentarioCreador">{comment.creatorName}</h3>
-                <Rating name="read-only" value={comment.rating} readOnly />
-              </div>
-              <p>{comment.comment}</p>
-            </div>
-          ))}
+      <div className="cajonCommentsGeneral">
+    {allComments?.data?.comments
+      .slice()
+      .reverse()
+      .map((comment, index) => (
+        <div className="miniCommentComponent" key={index}>
+          <img className="miniCommentComponentImage" src={comment.image} alt={`User ${index + 1}`} />
+          <div className="miniCommentComponentText">
+          <Link to={`/users/${comment?.creator}`}>
+            <h2>{comment.creatorName}</h2>
+            </Link>
+            <h3>{comment.createdAt.slice(0, 10)}</h3>
+            <p>{comment.comment}</p>
+          </div>
+          <Rating name="read-only" value={comment.rating} readOnly />
+        </div>
+      ))}
+  </div>  
     </div>
     </div>
   );

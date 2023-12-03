@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { Rating } from "@mui/material";
 import { useErrorRegister } from "../../hooks/useErrorRegister";
 import { usePaginacion } from "../../hooks/usePaginacion";
+import { Link } from "react-router-dom";
 
 export const PodiumContainer = () => {
   const [podiumLoading, setPodiumLoading] = useState(false);
@@ -98,6 +99,10 @@ export const PodiumContainer = () => {
               <div className="podiumCardContainer" key={item._id}>
                 <div className="nombreYComentario">
                   <h3 className="podiumCard">{item?.name}</h3>
+                  {console.log(item)}
+                  <Link to={`/users/${item?.owner?._id}`}>
+                  <p className="byAlguienP">By: {item?.owner?.name}</p>
+                  </Link>
                 </div>
 
                 <div className="podiumCartas">
@@ -180,26 +185,24 @@ export const PodiumContainer = () => {
  {buttonComment=="" &&
   <ComponentPaginacion/>}
       
-      {allComments && buttonComment !== "" &&
-  allComments?.data?.comments
-    .slice() 
-    .reverse() 
-    .map((comment, index) => (
-      <div className="miniCommentComponent">
-
-      <img className="miniCommentComponentImage" src={comment.image} />
-    
-    
-    <div className="miniCommentComponentText">
-      <h2>{comment.creatorName}</h2>
-      <h3>{comment.createdAt.slice(0, 10)}</h3>
-      <p>{comment.comment}</p>
-    </div>
-    <Rating name="read-only" value={comment.rating} readOnly />
-    </div>
-    ))
-}
-      
+      <div className="cajonCommentsGeneral">
+    {allComments?.data?.comments
+      .slice()
+      .reverse()
+      .map((comment, index) => (
+        <div className="miniCommentComponent" key={index}>
+          <img className="miniCommentComponentImage" src={comment.image} alt={`User ${index + 1}`} />
+          <div className="miniCommentComponentText">
+          <Link to={`/users/${comment?.creator}`}>
+            <h2>{comment.creatorName}</h2>
+            </Link>
+            <h3>{comment.createdAt.slice(0, 10)}</h3>
+            <p>{comment.comment}</p>
+          </div>
+          <Rating name="read-only" value={comment.rating} readOnly />
+        </div>
+      ))}
+  </div>  
     </div>
   );
 };

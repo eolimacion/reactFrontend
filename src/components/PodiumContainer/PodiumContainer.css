@@ -5,7 +5,8 @@
     width: 340px;
    border: 2px solid black;
    margin: 10px;
-  
+   max-height: 200px;
+
    
 }
 .comentarioImagen{
@@ -27,6 +28,7 @@
     
     padding: 10px;
     background-color: rgb(153, 142, 142);
+   
 }
 .podiumAbel{
     width: 100%;
@@ -35,4 +37,14 @@
     align-items: center;
     flex-direction: column;
 }
-
+.nombreYComentario{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+}
+.cajonCommentsGeneral{
+    overflow: scroll;
+    max-height: 500px;
+    padding: 0 20px;
+}

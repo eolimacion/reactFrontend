@@ -21,3 +21,12 @@
     padding: 0 3px;
     max-height: 12px;
 }
+.byAlguien{
+    color: black;
+    z-index: 100;
+   
+    position: relative;
+    top: 560%;
+    left: 10%;
+    font-weight: bold;
+}
