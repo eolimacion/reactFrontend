@@ -18,7 +18,7 @@ export const NavFav = ({ setFav , setFavChildren }) => {
         setFavChildren('favRiders')}}>MotoGP</button> */}
 
 <Button variant="contained" size= 'large' style= {{backgroundColor: 'white', color: 'var(--color-boton-motogp)', fontWeight: '600', fontSize: '15px', margin: '0.5rem', width: '150px'}} onClick={() => {setFav("powerlifting") 
-      setFavChildren('favLifters')}}>MotoGP</Button>
+      setFavChildren('favLifters')}}>Powerlifting</Button>
 
 
 {/* 

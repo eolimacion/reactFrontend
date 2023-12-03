@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getById } from "../../services/user.service";
 import { NavFav } from "../../components/Nav/NavFav/NavFav";
 import "./FavGallery.css";
-import { CardInTheGallery, NavFavChildren } from "../../components";
+import { CardInTheGallery, Loading, NavFavChildren } from "../../components";
 import { usePaginacion } from "../../hooks/usePaginacion";
 import { pathWithId } from "../../utils/pathWithId";
 import { ProfileFavsCard } from "../../components/ProfileFavsCard/ProfileFavsCard";
@@ -53,7 +53,7 @@ export const FavGallery = ({ id, page}) => {
         </div>
         <section className="favGallery">
           {galleryLoading ? (
-            <h1> Loading...</h1>
+            <Loading/>
           ) : dataPag?.length > 0 ?
             
               dataPag?.map((item) => (
