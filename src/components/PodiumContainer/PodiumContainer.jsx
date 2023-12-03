@@ -184,14 +184,18 @@ export const PodiumContainer = () => {
     .slice() 
     .reverse() 
     .map((comment, index) => (
-      <div className="comentarioCaja" key={comment._id}>
-        <div className="comentarioHeader">
-          <img className="comentarioImagen" src={comment.image} alt="" />
-          <h3 className="comentarioCreador">{comment.creatorName}</h3>
-          <Rating name="read-only" value={comment.rating} readOnly />
-        </div>
-        <p>{comment.comment}</p>
-      </div>
+      <div className="miniCommentComponent">
+
+      <img className="miniCommentComponentImage" src={comment.image} />
+    
+    
+    <div className="miniCommentComponentText">
+      <h2>{comment.creatorName}</h2>
+      <h3>{comment.createdAt.slice(0, 10)}</h3>
+      <p>{comment.comment}</p>
+    </div>
+    <Rating name="read-only" value={comment.rating} readOnly />
+    </div>
     ))
 }
       
