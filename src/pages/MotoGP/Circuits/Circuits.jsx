@@ -73,11 +73,11 @@ export const Circuits = () => {
           <div className="bottonButton">
 
           <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
-              variant="contained" onClick={handleButtonClick}>Create Form
+              variant="contained" onClick={handleButtonClick}>CREATE FORM
  
 </Button>
 <Button size="large" style= {{backgroundColor: 'var(--color-background)', margin: '1.5rem', color: ' var(--color-h)', fontWeight: '600'}} 
-              variant="contained" onClick={handleGalleryButtonClick}>Show Gallery
+              variant="contained" onClick={handleGalleryButtonClick}>SHOW GALLERY
  
 </Button>
 
