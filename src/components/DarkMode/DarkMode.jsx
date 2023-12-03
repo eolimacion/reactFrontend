@@ -66,11 +66,11 @@ const handleChange = (event) => {
 //!--------------- DARK MODE --------------------
 if(darkMode){
     let root = document.documentElement
-    root.style.setProperty("--color-background", "#252424")
-    root.style.setProperty("--color-enhance", "#121212")
+    root.style.setProperty("--color-background", "#35363A")
+    root.style.setProperty("--color-enhance", "#1c191d")
     root.style.setProperty("--boder", "2px solid #252424")
     root.style.setProperty("--color-h", "white")
-    root.style.setProperty("--color-form", "black")
+    root.style.setProperty("--color-form", "#202124")
 }
 
 

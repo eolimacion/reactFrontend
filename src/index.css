@@ -15,11 +15,12 @@
   --color-background: #f3edeb;
   --color-enhance: #Fafafa;
 
-  --color-background-nightmode: #121212;
-  --color-enhance-nightmode: #252424;
+  --color-background-nightmode: #35363A;
+  --color-enhance-nightmode: #1c191d;
+  --color-almost-black: rgb(13, 6, 9);
 
   --color-form: #Fafafa;
-  --color-form-nightmode: black;
+  --color-form-nightmode: #202124;
 
   --boder: 2px solid #ebe1de ;
   --boder--nightmode: 2px solid #252424;
