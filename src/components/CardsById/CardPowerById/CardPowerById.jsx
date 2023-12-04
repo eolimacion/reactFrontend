@@ -104,45 +104,55 @@ if(dataLifter){
       />
       <div className="IdContainer">
       <div>
-        <button id='btnReturn' onClick={() => navigate("/powerlifting/lifters")}>
+      
+
+      </div>
+
+      <div className="pageByidLifter pageByid">
+        <div className="imageIdDiv">
+      <button id='btnReturn' onClick={() => navigate("/powerlifting/lifters")}>
           <span 
            className="material-symbols-outlined logoId">
 arrow_back_ios
 </span><p>All Lifters</p>
 </button>
 
-      </div>
-      <div className="cardByIdContainer">
-      <div className="pageByidLifter pageByid">
-        <figure id="figureidLifter">
-          <img className='imageById imageLifter' src={image} alt={name} />
+          <img className='imageLifter' src={image} alt={name} />
+
+          </div>
+
+          <div className="infoIdDiv">
+
           <div className="divName">
-          <h1 className="nameByidLifter">{name}</h1>
-          <h3 className="H3ById">
+         
+          <h1 className="hClass nameByidLifter">{name}</h1>
+          <h3 className=" hClass H3ById">
             {gender}, {birthYear}
           </h3>
-          <h2 className="H2ById"> <span className="SBDspan">{GLPoints}</span>{" "}GL points</h2>
+          <h2 className=" hClass H2ById"> <span className="SBDspan">{GLPoints}</span>{" "}GL points</h2>
+         
+          
           </div>
-          <div>
+          <div className="restInfoCardId">
             <h2 className="H2ById">MAX STATS IN CHAMPIONSHIPS</h2>
             <h4>updated 2022</h4>
             { weightCategory[0] &&  <h3>Category: -{weightCategory[0].weight} {weightCategory[0].age}</h3> }
             
             <div className="powerStats">
-              <h3 className="stats H3ById">SQ {" "}
+              <h3 className="stats hClass H3ById">SQ {" "}
                 <span className="SBDspan">{squat}</span> 
               </h3>
-              <h3 className="stats H3ById">BP {" "}
+              <h3 className="stats hClass H3ById">BP {" "}
                 <span className="SBDspan">{benchPress}</span> 
               </h3>
-              <h3 className="stats H3ById">DL{" "}
+              <h3 className="stats hClass H3ById">DL{" "}
                 <span className="SBDspan">{deadlift}</span> 
               </h3>
-              </div>
-              <h3 className="H3ById">TOTAL {" "}
+              
+              <h3 className="H3ById hClass ">TOTAL {" "}
                 <span className="SBDspan">{total}</span> kg
               </h3>
-            
+              </div>
           </div>
           <div>
 
@@ -162,8 +172,9 @@ arrow_back_ios
           <div id = "deletePlayerContainer">
             {user.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idLifter} playerName = {name}/>}
           </div>
-        </figure>
-      </div>
+
+          </div>
+  
       </div>
       </div>
     </>

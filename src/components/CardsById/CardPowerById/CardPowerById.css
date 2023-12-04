@@ -7,9 +7,20 @@
   'opsz' 24
 }
 
+.imageLifter{
+    max-width: 450px;
+    max-height: 450px;
+    width: 41vw;
+    height: 70vh;
+    object-fit: contain;
+    border-radius: 15px;
+    margin: 1rem 1rem 2rem 1rem;
+}
+
+
 .imageById{
-    width: 250px;
-    height: 200px;
+    width: 40vw;
+    height: 400px;
     object-fit: contain;
     border-radius: 15px;
     margin: 1rem ;
@@ -40,6 +51,17 @@
     cursor:pointer;
 }
 
+
+.infoIdDiv{
+    background-color: var(--color-formById);
+    border: var(--boder);
+    width: 600px;
+    height: 500px;
+    border-radius: 15px;
+    margin: 1rem ;
+}
+
+
 .IdContainer{
     display: flex;
     align-items: center;
@@ -49,10 +71,17 @@
 }
 
 .powerStats{
+  width: 25vw;
+  height: 25vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: var(--color-form);
+    border: var(--boder);
+    border-radius: 15px;
+    font-size: 20px;
+    margin: 1rem;
 }
 
 .stats{
@@ -64,27 +93,48 @@
 }
 
 .SBDspan{
-    color:rgb(175, 5, 5);
+    color:rgb(172, 23, 23);
     margin: 2px;
 }
 
+.H3ById{
+    font-size: 100%;
+}
 
-.cardByIdContainer{
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.divName{
+    font-size: 100%;
+    margin: 2rem;
 
 }
 
-.pageByid{
-    border: 1px solid #edeaea ;
-    background-color: #ffffff;
-    padding: 20px 40px;
-    min-height: 65vh;
+.hClass{
+    margin:4px;
+}
+
+.restInfoCardId{
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
+    flex-direction: column;
+}
+
+.nameByidLifter{
+    background-color: var(--color-form);
+    border-radius: 10px;
+    border: var(--boder)
+}
+
+
+.pageByid{
+
+    /* background-color: #ffffff; */
+
+    min-height: 95vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
 }
 
