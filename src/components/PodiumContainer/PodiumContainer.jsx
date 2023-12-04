@@ -61,7 +61,6 @@ export const PodiumContainer = () => {
 //este use effect gestiona los datos de la llamada
   useEffect(() => {
     getPodium();
-       console.log(res);
   }, []); 
   //cuando es 200 envia al estado de la paginacion
   useEffect(() => {if(allPodiums?.status==200){
@@ -81,9 +80,7 @@ export const PodiumContainer = () => {
 
   useEffect(() => {
     if (buttonComment) {
-      getAllComments(buttonComment);
-      console.log(allComments)
-      console.log(buttonComment) 
+      getAllComments(buttonComment); 
     }
   }, [buttonComment,res]);
 
@@ -104,7 +101,6 @@ export const PodiumContainer = () => {
               <div className="podiumCardContainer" key={item?._id}>
                 <div className="nombreYComentario">
                   <h3 className="podiumCard">{item?.name}</h3>
-                  {console.log(buttonComment)}
                   <Link to={`/users/${item?.owner?._id}`}>
                   <p className="byAlguienP">By: {item?.owner?.name}</p>
                   </Link>

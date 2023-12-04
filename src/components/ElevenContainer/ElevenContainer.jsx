@@ -56,8 +56,6 @@ export const ElevenContainer = () => {
   //este use effect gestiona los datos de la llamada
   useEffect(() => {
     getEleven();
-   
-    console.log(allElevens)
   }, []);
   //cuando es 200 envia al estado de la paginacion
   useEffect(() => {
@@ -76,8 +74,6 @@ export const ElevenContainer = () => {
   useEffect(() => {
     if (buttonComment) {
       getAllComments(buttonComment);
-     
-      console.log(allComments)
     }
   }, [buttonComment, res]);
 

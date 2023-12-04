@@ -1,7 +1,6 @@
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 
 export const useErrorChangePassword = (res, setRes, setUser) => {
-console.log(res)
   //!----------------- 200: updateUser: true,
   if (res?.data?.updateUser?.toString() == "true") {
     setUser(() => null);
@@ -28,7 +27,6 @@ console.log(res)
 
   //! -----------------404: 'password dont match'
   if (res?.response?.data?.includes("password does not match")) {
-    console.log("password");
     setRes(() => ({}));
     return Swal.fire({
       icon: "error",

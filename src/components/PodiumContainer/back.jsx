@@ -79,9 +79,6 @@ export const PodiumContainer = () => {
   }, [buttonComment]);
 
   useEffect(() => {
-    console.log(buttonComment);
-    console.log(allComments?.data);
-    console.log(res)
   }, [buttonComment, allComments]);
 
   return (

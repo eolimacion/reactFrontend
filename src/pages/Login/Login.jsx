@@ -26,7 +26,6 @@ export const Login = () => {
   };
 
   useEffect(() => {
-    console.log("res en el primer useEffect", res);
     useErrorLogin(res, setRes, login, setSuccessfulLogin);
   }, [res]);
 
@@ -36,24 +35,17 @@ export const Login = () => {
   }, []);
 
   if (successfulLogin) {
-    console.log("succesfullogin", res);
     if (res?.data?.user.check == false) {
       return <Navigate to="/verifyCode" />;
     } else {
-      console.log(res.data.user);
-      console.log(res?.data?.user?.interestedIn);
       switch (res?.data?.user?.interestedIn) {
         case "motogp":
-          console.log("Vrumm vrumm");
           return <Navigate to="/motogp" />;
         case "powerlifting":
-          console.log("Me gusta la proteina");
           return <Navigate to="/powerlifting" />;
         case "fifa":
-          console.log("Soy un fifote");
           return <Navigate to="/fifa" />;
         default:
-          console.log("Default");
           return <Navigate to="/" />;
       }
     }

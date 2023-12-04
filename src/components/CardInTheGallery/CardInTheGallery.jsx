@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import './CardInTheGallery.css'
 
 export const CardInTheGallery = ({ name, image, id, sportPath }) => {
-// console.log(id, sportPath)
 const path = `${sportPath}${id}`   //sportPath es por ej '/powerlifting/lifters/'
 
     return (

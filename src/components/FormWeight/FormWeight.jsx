@@ -17,7 +17,6 @@ export const FormWeight = () => {
       const customFormData = {
         ...formData,
       };
-      console.log("soy custom form dataaaaa", customFormData)
 
       setSend(true);
       setRes(await createweightCategory(customFormData));
@@ -26,7 +25,6 @@ export const FormWeight = () => {
 
   useEffect(() => {
     useErrorCreate(res, setRegisterOk, setRes)
-    console.log(res)
   }, [res]);
 
   return (

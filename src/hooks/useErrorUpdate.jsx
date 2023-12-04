@@ -11,7 +11,6 @@ if(res?.data){
         for (let key in item){
             if (item[key] == false){ //en el backend metemos un false cada vez que la informacion no se ha guardado bien
                 acc++
-                console.log(key, item[key])
             }
         }
     })

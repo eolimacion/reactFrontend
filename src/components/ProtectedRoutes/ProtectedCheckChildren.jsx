@@ -3,7 +3,6 @@ import { useAuth } from "../../context/authContext";
 
 export const ProtectedCheckChildren = ({children}) => {
     const {allUser, user} = useAuth(); //nos traemos el estado del usuario tanto si ha entrado por el register(allUser) como por el login(user)
-    console.log(allUser)
     
     if (allUser?.data?.user?.check == true || user?.check == true){
         return <Navigate to="/home"/>;

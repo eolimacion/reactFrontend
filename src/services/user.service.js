@@ -62,8 +62,6 @@ export const getUsersFavCircuits = async (id) => {
 //! -------------------> Get User Eleven [User]
 export const getUsersEleven = async (elevenId) => {
   const APIGeneral = extraConfig();
-
-  console.log("estoy en service eleven");
   return APIGeneral.get(`/eleven/${elevenId}`)
     .then((res) => res)
     .catch((error) => error);

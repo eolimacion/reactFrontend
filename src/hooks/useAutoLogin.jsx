@@ -5,7 +5,6 @@ import { useAuth } from "../context/authContext";
 export const useAutoLogin = async (allUser) => {
 const {login} = useAuth(); //lo traigo asi porque me gusta mas desde el mismo componente equipo
   try {
-    console.log(allUser, "complete user info")
     const customFormData = {
       email: allUser?.data?.user?.email,
       password: allUser?.data?.user?.password
@@ -13,11 +12,10 @@ const {login} = useAuth(); //lo traigo asi porque me gusta mas desde el mismo co
 
 //ex Vamos a recibir toda la info del usuario por allUser, que se
 //ex settea en el register, y no pasa por el
-console.log("hola!", customFormData)
+
     const sentAutoLoginData = await autoLoginUser(customFormData);
     if (sentAutoLoginData?.status == 200) {
       const { name, email, image, isVerified, gender, interestedIn } = sentAutoLoginData.data.user;
-      console.log("Es un 200", sentAutoLoginData?.data)
         
       const customUser = {
         token: sentAutoLoginData.data.token,

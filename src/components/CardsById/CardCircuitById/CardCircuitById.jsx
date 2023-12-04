@@ -39,7 +39,6 @@ export const CardCircuitById = () => {
     const likesArray =await buscarCircuitIdNotPopulated(idCircuit);
     setLikesArray(likesArray.data.likes)
   }
-  console.log(likesArray)
 
 
   useEffect(() => {

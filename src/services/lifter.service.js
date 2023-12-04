@@ -28,7 +28,6 @@ export const getByGL = async (stat) => {
 //!!---------------------->get my ID
 export const lifterByID = async (id) => {
   const APIGeneral = extraConfig();
-  console.log(id);
   return APIGeneral.get(`/lifter/${id}`)
     .then((res) => res)
     .catch((error) => error);

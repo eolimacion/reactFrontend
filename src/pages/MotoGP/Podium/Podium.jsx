@@ -18,17 +18,14 @@ export const Podium = () => {
       const customFormData = {
         ...formData,
       };
-      console.log(customFormData)
 
       setSend(true);
       setRes(await createPodium(customFormData));
       setSend(false);
-      console.log("soy la reeeeeeeeeees", res);
     }
   };
 
   useEffect(() => {
-    console.log(res);
     useErrorCreate(res, setRegisterOk, setRes);
   }, [res]);
  

@@ -45,7 +45,6 @@ export const UserPodium = ({ page, podiumId }) => {
   //!!----------Traer y pintar el podium--------------------------------------------
   const getPodium = async () => {
     let podiumsData = await getPodiumById(podiumId)
-      console.log(podiumsData)
       setAllPodiums(podiumsData)
       setAllComments(podiumsData);
       setPodiumLoading(false);

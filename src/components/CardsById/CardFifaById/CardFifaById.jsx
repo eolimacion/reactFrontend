@@ -28,20 +28,13 @@ export const CardFifaById = () => {
   }
 
   const addToLikes = async () => {
-    console.log(idPlayer)
     const response = await addFavPlayers(idPlayer);
-    console.log('response addToLikes', response.data.userUpdate.favPlayers);
     setUpdatedLikes(!updatedLikes)
   }
 
   const getLikes = async () => {
-    console.log('ENTROOOOOOOOOO');
     const likedPlayersRes = await getUsersFavPlayers(idPlayer);
-    console.log(likedPlayersRes.data);
   }
-
-  console.log('resPlayers', resPlayer)
-  console.log('userLikedPlayers', userLikedPlayers)
 
   useEffect(() => {
     fetchPlayers();
@@ -89,8 +82,6 @@ export const CardFifaById = () => {
       likes,
       comments,
     } = dataPlayer
-
-    console.log('team',team)
 
     return (
       <>

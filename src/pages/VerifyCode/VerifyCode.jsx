@@ -100,7 +100,6 @@ export const VerifyCode = () => {
    if (!localStorage.getItem("user")) {
      useAutoLogin(allUser);
     } else {
-      console.log("Voy al dashboard")
       return <Navigate to="/" />;
   }
 }

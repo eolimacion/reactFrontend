@@ -26,7 +26,6 @@ export const CardTeamById = () => {
   const fetchTeams = async () => {
     const resTeamHCD = await buscarTeamId(idTeam); //hcd significa hardcodded
     setResTeam(resTeamHCD)
-    console.log(resTeam)
     resTeamHCD?.status == 200 && setOk(true);
   };
 

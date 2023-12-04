@@ -21,7 +21,6 @@ export const UserProfileData = () => {
 
   useEffect(() => {
     fetchData();
-    console.log(data);
   }, [isDataReady]);
 
   const renderSection = () => {
@@ -29,7 +28,6 @@ export const UserProfileData = () => {
       case "followers":
         return <FollowersComponent followers={data?.data?.followers} />;
       case "followed":
-        console.log(data?.data?.followed);
         return <FollowedComponent followed={data?.data?.followed} />;
       case "comments":
         return <CommentsComponent comments={data?.data?.comments} />;
