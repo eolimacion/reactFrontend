@@ -60,7 +60,8 @@
   min-width: 270px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap:30px;
+  justify-content: center;
   width: 100%;
 }
 
