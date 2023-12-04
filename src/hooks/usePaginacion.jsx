@@ -27,7 +27,7 @@ export const usePaginacion = (num) => {
   };
 
   return {
-    ComponentPaginacion: ({ handleComment }) => (
+    ComponentPaginacion: () => (
       <>
         <div className="botonesPaginacion">
           <button
@@ -35,7 +35,7 @@ export const usePaginacion = (num) => {
             id={`${currentPage === 1 ? "disabled" : "active"}`}
             onClick={() => {
               prevPage();
-              handleComment(); // Llama a la función proporcionada por la prop
+              // Llama a la función proporcionada por la prop
             }}
             disabled={currentPage === 1}
           >
@@ -51,7 +51,7 @@ export const usePaginacion = (num) => {
             id={`${currentPage === totalPages ? "disabled" : "active"}`}
             onClick={() => {
               nextPage();
-              handleComment(); // Llama a la función proporcionada por la prop
+             
             }}
             disabled={currentPage === totalPages}
           >
