@@ -38,3 +38,5 @@ export * from "./UserEleven/UserEleven"
 export * from "./UserPodium/UserPodium"
 export * from './CardLifter/CardLifter'
 export * from './Nav/NavAbout/NavAbout'
+
+export * from './Delete/DeleteComment/DeleteComment'
