@@ -34,6 +34,7 @@
 .contenedorEleven{
     background-image:url("https://res.cloudinary.com/djfkchzyq/image/upload/v1701527637/ykcrr3rpdya2a0lfhwg5.png");
    width: 650px;
+   background-size: 110% 110%;
   background-position: center;
   background-repeat: no-repeat;
   top: 50vh;

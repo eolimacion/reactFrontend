@@ -24,12 +24,13 @@ export const PodiumContainer = () => {
   const [valueStar, setValueStar] = useState(0);
 
   const [registerOk, setRegisterOk] = useState(false);
+  //!incializar esta variable para luego poder setear 
   let idCurrent = "";
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag } =
     usePaginacion(1);
 
   //!!Referente a comentarios sobre el podium-----------------------
-  //?Este handle maneja el estado que setea
+ 
   const handleCurrentPodium = (id) => (idCurrent = id);
 
   const formSubmit = async (formData) => {
@@ -53,18 +54,21 @@ export const PodiumContainer = () => {
   //este use effect gestiona los datos de la llamada
   useEffect(() => {
     getPodium();
+  
     console.log(res);
   }, []);
   //cuando es 200 envia al estado de la paginacion
   useEffect(() => {
     if (allPodiums?.status == 200) {
       setGaleriaItems(allPodiums?.data);
+    
     }
   }, [allPodiums]);
   //!!---------------------------------------
 
   useEffect(() => {
     useCommentError(res, setRegisterOk, setRes);
+    console.log(allPodiums)
     getPodium();
   }, [res]);
 

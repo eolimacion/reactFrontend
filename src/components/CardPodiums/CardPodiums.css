@@ -53,5 +53,5 @@ gap: 20px;
 
   .nombreYComentario{
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
   }

@@ -24,6 +24,10 @@ export const UserProfileData = () => {
     fetchData();
     console.log(isDeleted)
   }, [isDataReady, isDeleted]);
+  useEffect(() => {
+    fetchData();
+ 
+  }, [ data]);
 
   const renderSection = () => {
     switch (displaySection) {
