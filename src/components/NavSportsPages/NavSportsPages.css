@@ -153,4 +153,64 @@ display: none;
     width: 48vw;
     margin: 5px;
     object-fit: cover;
+    cursor: pointer;
+}
+@media only screen and (max-width: 767px) {
+    .dashboardTitle {
+        font-size: 1.8em; /* Ajusta el tamaño de fuente para dispositivos móviles */
+        margin: 0.5rem; /* Ajusta el margen para dispositivos móviles */
+        transform: translateY(0); /* Restablece la transformación en dispositivos móviles */
+        animation: none; /* Desactiva la animación en dispositivos móviles */
+    }
+
+    .videoCircuit {
+        width: 100%; /* Haz que el video ocupe el 100% del ancho en dispositivos móviles */
+        height: auto; /* Ajusta la altura automáticamente */
+    }
+
+    .navProfile {
+        height: auto; /* Ajusta la altura automáticamente en dispositivos móviles */
+    }
+
+    .imageContainer {
+        min-width: auto; /* Ajusta el ancho mínimo automáticamente en dispositivos móviles */
+        padding: 20px; /* Ajusta el relleno para dispositivos móviles */
+    }
+
+    .imageNav {
+        width: 50%; /* Ajusta el ancho de la imagen de navegación en dispositivos móviles */
+        max-width: none; /* Restablece el ancho máximo en dispositivos móviles */
+        min-width: auto; /* Restablece el ancho mínimo en dispositivos móviles */
+        margin-top: 0; /* Restablece el margen superior en dispositivos móviles */
+        margin-left: 0; /* Restablece el margen izquierdo en dispositivos móviles */
+    }
+
+    .der:hover {
+        transform: none; /* Restablece la transformación al hacer clic en dispositivos móviles */
+        z-index: 1; /* Restablece el índice z al hacer clic en dispositivos móviles */
+    }
+
+    .imageNav:hover {
+        animation: none; /* Desactiva la animación al hacer clic en dispositivos móviles */
+    }
+
+    .imageNavDiv {
+        flex-direction: column; /* Ajusta la dirección del flex container en dispositivos móviles */
+    }
+
+    .imageCircuitsDiv,
+    .imageMotoDiv {
+        opacity: 1; /* Restablece la opacidad en dispositivos móviles */
+    }
+
+    .displayNone:hover {
+        display: initial; /* Restablece la visualización al hacer clic en dispositivos móviles */
+    }
+    
+    .blackCoverImg,
+    .imageMotoNav,
+    .singleImageNavContainer {
+        width: 95%; /* Ajusta el ancho al 100% en dispositivos móviles */
+        height: auto; /* Ajusta la altura automáticamente en dispositivos móviles */
+    }
 }

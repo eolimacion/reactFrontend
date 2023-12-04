@@ -108,7 +108,7 @@ export const PodiumContainer = () => {
                   <Link to={`/users/${item?.owner?._id}`}>
                   <p className="byAlguienP">By: {item?.owner?.name}</p>
                   </Link>
-                  <ComponentPaginacion handleComment={()=>handleComment(item?._id)} />
+                
                 </div>
 <ComponentPaginacion handleComment={()=>handleComment(item?._id)} />
                 <div className="podiumCartas">

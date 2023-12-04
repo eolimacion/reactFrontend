@@ -67,7 +67,7 @@ export const Players = () => {
       ) : (
         <>
         <div className='galleryDiv'>
-         {!showForm && <ComponentPaginacion/>}
+         {showGallery && <ComponentPaginacion/>}
           <div className="displayImage">
             {showForm ? <FormPlayers /> : showGallery ? 
             (res && dataPag?.map((player) => (
