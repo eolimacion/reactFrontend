@@ -11,7 +11,7 @@ console.log(res, "Respuesta en useLoginError")
           image: res.data.user.image,
           check: res.data.user.check,
           _id: res.data.user._id,
-          role: res.data.user.role,
+          role: res.data.user.rol,
           interestedIn: res.data.user.interestedIn, 
           gender: res.data.user.gender,
           

@@ -147,7 +147,7 @@ export const CardTeamById = () => {
                   </div>
                 </div>
                 <div id = "deletePlayerContainer">
-            {/*userData.rol === "admin" && */ <DeletePlayer  id = "DeletePlayer" playerId = {idTeam} playerName = {name}/>}
+            {user.role === "admin" && <DeletePlayer  id = "DeletePlayer" playerId = {idTeam} playerName = {name}/>}
           </div>
               </figure>
             </div>

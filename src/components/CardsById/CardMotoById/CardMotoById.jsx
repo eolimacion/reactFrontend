@@ -164,7 +164,7 @@ arrow_back_ios
             {console.log(isLiked)}
           </div>
           <div id = "deletePlayerContainer">
-            {/*userData.rol === "admin" && */ <DeletePlayer  id = "DeletePlayer" playerId = {idRider} playerName = {name}/>}
+            {user.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idRider} playerName = {name}/>}
           </div>
         </figure>
         
