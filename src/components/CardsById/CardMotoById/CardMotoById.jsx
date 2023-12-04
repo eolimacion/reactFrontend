@@ -26,20 +26,14 @@ export const CardMotoById = () => {
   }
 
   const addToLikes = async () => {
-    console.log(idRider)
     const response = await addFavRiders(idRider);
-    console.log('response addToLikes', response.data.userUpdate.favRiders);
     setUpdatedLikes(!updatedLikes)
   }
 
   const getLikes = async () => {
-    console.log('ENTROOOOOOO');
     const likedRidersRes = await getUsersFavRiders(idRider);
-    console.log(likedRidersRes.data);
   }
 
-  console.log('resRiders', resRider)
-  console.log('userLikedPlayers', userLikedRiders)
 
   useEffect(() => {
     fetchRiders();
@@ -71,7 +65,6 @@ export const CardMotoById = () => {
 
   if (dataRider) {
     const isLiked = dataRider?.likes?.includes(idUser)
-    console.log(dataRider)
 
     const {
       name,
@@ -161,7 +154,6 @@ arrow_back_ios
               onClick={() => addToLikes(idRider)}
               >favorite</span>
               </div>
-            {console.log(isLiked)}
           </div>
           <div id = "deletePlayerContainer">
             {user.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idRider} playerName = {name}/>}

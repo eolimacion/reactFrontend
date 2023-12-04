@@ -19,7 +19,6 @@ export const SelectRiders = ({ registerForm,position,classEspecial}) => {
   
     useEffect(() => {
       getAllRiders();
-         console.log(allRiders);
     }, []); 
     const [selectedRider, setSelectedRider] = useState(null);
 

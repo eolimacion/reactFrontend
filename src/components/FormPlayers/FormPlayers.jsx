@@ -17,7 +17,6 @@ export const FormPlayers = () => {
 
   //! 1. ---- Función que gestiona la asincronía
   const formSubmit = async (createPlayer) => {
-  console.log("he entrado")
   const inputFile = document.getElementById("file-upload").files
   if (inputFile.length > 0) { 
     const customCreatePlayer = {
@@ -41,7 +40,6 @@ export const FormPlayers = () => {
 
   //! 2. ---- Función que gestiona los errores
   useEffect(() => {
-    console.log(res)
     useErrorCreate(res, setOkCreatePlayer, setRes) //? le pasamos para que utilice como param estas variables/funciones/estados
   }, [res])
 

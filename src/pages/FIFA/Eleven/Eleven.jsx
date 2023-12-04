@@ -45,11 +45,9 @@ export const Eleven = () => {
       const customFormData = {
         ...formData,
       };
-      console.log(formData);
       setSend(true);
       setRes(await createEleven(customFormData));
       setSend(false);
-      console.log("soy la reeeeeeeeeees", res);
     }
     
   };

@@ -77,7 +77,6 @@ export const EditProfile = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const inputFile = document.getElementById("file-upload").files;
-        console.log(inputFile, inputFile[0], "holaaaaa");
         //!FIX ------------------------------------------------------- NO COGE LA IMAGEN
         if (inputFile.length != 0) {
           // mismo customFormData que en el login
@@ -86,8 +85,6 @@ export const EditProfile = () => {
             ...formData,
             image: inputFile[0],
           };
-
-          console.log("entrooooo foto nueva", customFormData);
 
           setSendEdit(true);
           setResEdit(await updateUser(customFormData));
@@ -106,19 +103,14 @@ export const EditProfile = () => {
   };
   //! ----- useEffect
 
-  console.log(user);
   useEffect(() => {
-    console.log("resPassword", resPassword);
     useErrorChangePassword(resPassword, setResPassword, setUser);
   }, [resPassword]);
 
   useEffect(() => {
-    console.log("resEdit", resEdit);
     useErrorUpdate(resEdit, setResEdit, logout);
   }, [resEdit]);
 
-  console.log(gender);
-  console.log(interestedIn);
   return (
     <>
       {/* <div className='editProfile-div'> */}

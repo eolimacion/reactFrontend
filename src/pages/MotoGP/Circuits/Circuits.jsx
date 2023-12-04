@@ -40,7 +40,6 @@ export const Circuits = () => {
   useEffect(() => {
     getAllCircuits();
     getAllRiders()
-    console.log(allCircuits)
   }, []);
 
   useEffect(() => {

@@ -1,7 +1,6 @@
 export const SortSelect = ({ setIsAscending, setSortValue, page }) => {
 
   const handleSortChange = (e) => {
-    console.log(" me estoy ejecutandooooooo")
     for (let option of e.target) {
       if (option.selected) {
         setSortValue(() => option.value)

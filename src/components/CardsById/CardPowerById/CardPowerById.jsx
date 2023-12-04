@@ -25,29 +25,19 @@ export const CardPowerById = () => {
 
   const fetchLifters = async () => {
     setresLifter(await lifterByID(idLifter));
-    console.log('resLifter',resLifter)
     setOk(true);
   };
 
   const addToLikes = async () => {
-    console.log(idLifter)
     const response = await addFavLifter(idLifter);
-    console.log('response addToLikes', response.data.userUpdate.favLifters);
     setUpdatedLikes(!updatedLikes);
   };
 
 
   const getLikes = async () => {
-    console.log('ENTROOOOOO');
     const likedLiftersRes = await getUsersFavLifters(idUser); 
-    console.log('liked', likedLiftersRes)
     setUserLikedLifters(likedLiftersRes.data); //array de objetos ------ LIKES DEL USUARIO 
   };
-
-
-
-console.log('resLifter',resLifter)
-  console.log('userLikedLifters', userLikedLifters) //array de objetos ------ LIKES DEL USUARIO 
 
 
   useEffect(() => {
@@ -87,7 +77,6 @@ if (resLifter?.response?.status == 404 || resLifter?.response?.status == 500){
 if(dataLifter){
 
   const isLiked = dataLifter?.likes?.includes(idUser)
-  console.log(dataLifter)
 
   const {
     name,
@@ -103,9 +92,6 @@ if(dataLifter){
     likes,
     comments,
   } = dataLifter
-
- 
-console.log('weight', weightCategory[0])
 
   return (
 
@@ -174,7 +160,7 @@ arrow_back_ios
             
           </div>
           <div id = "deletePlayerContainer">
-            {userData.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idLifter} playerName = {name}/>}
+            {user.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idLifter} playerName = {name}/>}
           </div>
         </figure>
       </div>

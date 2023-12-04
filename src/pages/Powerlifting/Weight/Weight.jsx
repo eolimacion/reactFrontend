@@ -23,7 +23,6 @@ export const Weight = () => {
 
   useEffect(() => {
     getAllWeights();
-       console.log(allWeights);
   }, []); 
 
   const handleButtonClick = () => {

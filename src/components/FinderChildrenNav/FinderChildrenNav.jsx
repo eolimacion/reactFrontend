@@ -3,7 +3,6 @@ import "./FinderChildrenNav.css"
 export const FinderChildrenNav = ({ action, setFilterValue, setMinValue, setMaxValue, setSortValue, setIsAscending, page, minValue, maxValue }) => {
 
   const handleSortChange = (e) => {
-    console.log(" me estoy ejecutandooooooo")
     for (let option of e.target) {
       if (option.selected) {
         setSortValue(() => option.value)

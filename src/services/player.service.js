@@ -3,7 +3,6 @@ import { extraConfig } from "./serviceApiGeneral.config";
 //!!----------------------> Get All Players
 export const getAllPlayers = async () => {
   const APIGeneral = extraConfig();
-  console.log("entro al service de getAllPlayers");
   return APIGeneral.get("/players/", {
     headers: { "Content-Type": "multipart/form-data" },
   })
@@ -15,7 +14,6 @@ export const getAllPlayers = async () => {
 
 export const getByID = async (id) => {
   const APIGeneral = extraConfig();
-  console.log(id);
   return APIGeneral.get(`/players/${id}`)
     .then((res) => res)
     .catch((error) => error);
@@ -24,8 +22,6 @@ export const getByID = async (id) => {
 //!!----------------------> Get By Name
 export const getNamePlayers = async (playerName) => {
   const APIGeneral = extraConfig();
-  console.log("entro al service de getNamePlayers");
-  console.log(playerName);
   return APIGeneral.get(`/players/byName/${playerName}`, {
     headers: { "Content-Type": "multipart/form-data" },
   })

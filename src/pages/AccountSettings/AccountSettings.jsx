@@ -57,7 +57,6 @@ export const AccountSettings = () => {
   //! ----- useEffect
 
   useEffect(() => {
-    console.log("resPassword", resPassword);
     useErrorChangePassword(resPassword, setResPassword, setUser);
   }, [resPassword]);
 

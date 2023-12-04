@@ -22,7 +22,6 @@ export const Players = () => {
   const { galeriaItems, ComponentPaginacion, setGaleriaItems, dataPag, setCurrentPage} = usePaginacion()
 
   useEffect(() => {
-    console.log(res)
     if(res?.status == 200){
       setGaleriaItems(res?.data)
       allTeam()

@@ -23,7 +23,6 @@ export const Lifters = () => {
  
 
   useEffect(() => {
-    console.log(res)
     if(res?.status == 200){
       setGaleriaItems(res?.data)
     }

@@ -11,11 +11,9 @@ export const useDeleteUser = (setUser, setIsDeletedUser) => {
           cancelButtonColor: "#8E8F91",
           confirmButtonText: "Delete account",
         }).then(async (result) => {
-          console.log("result", result);
       
           if (result.isConfirmed) {
             const res = await deleteUser();
-           console.log(res)
             switch (res.status) {
               case 200:
                 Swal.fire({

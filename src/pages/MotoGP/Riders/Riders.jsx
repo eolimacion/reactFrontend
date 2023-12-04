@@ -47,8 +47,6 @@ export const Riders = () => {
   }, []);
 
   useEffect(() => {
-    console.log(allRiders);
-    console.log(res)
     if(res?.status == 200){
       setGaleriaItems(res?.data)
     }

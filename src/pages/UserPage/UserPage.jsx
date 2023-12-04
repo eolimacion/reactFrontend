@@ -23,7 +23,6 @@ export const UserPage = () => {
   //! 1. al cargar => TRAEMOS TODA LA INFO DEL USER LOGEADO (para estado del follow)
   const fetchDataUser = async () => {
     let resDataUser = await getUserById(user._id)
-    // console.log(resDataUser)
     setUserData(resDataUser)
   }
 
@@ -54,7 +53,6 @@ export const UserPage = () => {
     fetchDataUser()
   }
 
-  console.log("soyresdata", res)
   return (
     <>
       {!ok && <Loading/>}

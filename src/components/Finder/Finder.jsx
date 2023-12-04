@@ -36,16 +36,9 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
 
   //todo ----- función gestionadora controladores -------
   const handleSubmit = async () => {
-    console.log("filter value", filterValue)
-    console.log("min value", minValue)
-    console.log("max value", maxValue)
-    console.log("sort value", sortValue)
-    console.log("metodo", isAscending)
-    console.log("name value", findNameValue)
 
     //! ------- CASO 1: Todos los inputs vacíos =====> GET ALL PLAYERS
     if (findNameValue == "" && (filterValue == "" || minValue == 0 || maxValue == 0) && sortValue == "") {
-      console.log("entro al condicional GET ALL")
       setSend(true)
       let resAll
       if (page == "players") {
@@ -67,8 +60,6 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
 
     //! ------- CASO 2: Buscador por nombre contiene algo =====> GET BY NAME
     if (findNameValue != "") {
-      console.log("entro al condicional GET BY NAME")
-      console.log(findNameValue)
       setSend(true)
       let resByName
       if (page == "players") {
@@ -187,7 +178,6 @@ export const Finder = ({ setShowGallery, setShowForm, setRes, res, page}) => {
   //! 2. ---- Función que gestiona los errores
   useEffect(() => {
     useErrorFinder(res, setOkFindPlayer, setRes)
-    console.log(`you will print: ${controller} => ${res}`)
   }, [res])
 
   return (

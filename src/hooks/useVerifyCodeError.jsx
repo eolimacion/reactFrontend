@@ -10,7 +10,6 @@ export const useVerifyCodeError = (
   userlogin,
   setUserNotFound
 ) => {
-  console.log(res)
 
   // ------------------------- 200 test todo correcto
 //convertir a string por seguridad

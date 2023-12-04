@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import "./MiniCommentComponent.css";
+import { DeleteComment } from "../Delete/DeleteComment/DeleteComment";
+import { useState } from "react";
 
-export const MiniCommentComponent = ({ data }) => {
+
+
+export const MiniCommentComponent = ({ data, setIsDeleted }) => {
+
+
+
+
+
   return (
     <div className="miniCommentComponent">
       <Link to={`/users/${data.creator}`}>
@@ -15,6 +24,10 @@ export const MiniCommentComponent = ({ data }) => {
       </div>
       <div className="miniCommentComponentLikes">
         Liked by {data.likes.length}
+      </div>
+      <div className="deleteComment">
+      <DeleteComment  commentId={data._id} setIsDeleted={setIsDeleted} />
+
       </div>
     </div>
   );

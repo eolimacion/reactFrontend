@@ -15,7 +15,6 @@ export const FindUsers = () => {
 
   useEffect(() => {
     if (res?.status == 200) {
-      console.log(res)
     }
   }, [res])
 

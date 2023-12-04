@@ -24,7 +24,6 @@ export const Lifters = () => {
 
   useEffect(() => {
     getLifters();
-       console.log(allLifters);
   }, []); 
   useEffect(() => {if(liftersData?.status==200){
     setAllLifters(liftersData );

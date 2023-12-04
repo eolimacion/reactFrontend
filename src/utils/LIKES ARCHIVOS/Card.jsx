@@ -7,7 +7,6 @@
 export const Card = ({ name, src, id, initialLikes, year, isLiked, className, addToLikes }) => {
   let path = `/dashboard/${id}`;
   const [likes, setLikes] = useState(initialLikes);
-    console.log(isLiked)
 
 
   return (

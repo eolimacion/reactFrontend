@@ -26,7 +26,6 @@ export const DeletePlayer = ({ playerId, playerName }) => {
   }
 
   useEffect(() => {
-    console.log(res);
     useDeletePlayerError(res, setRes);
   }, [res]);
   return (

@@ -38,7 +38,6 @@ export const FormTeams = () => {
       setSend(true);
       setRes(await createCircuit(customFormData));
       setSend(false);
-      console.log("soy la reeeeeeeeeees", res)
     }
   };
 
