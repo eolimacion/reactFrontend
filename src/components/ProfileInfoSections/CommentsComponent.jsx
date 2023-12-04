@@ -9,11 +9,10 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 
 
-export const CommentsComponent = ({ comments }) => {
+export const CommentsComponent = ({ comments, setIsDeleted }) => {
   const [galleryLoading, setGalleryLoading] = useState(true);
   const [noItems, setNoItems] = useState(false);
   const [res, setRes] = useState(null);
-  const [isDeleted, setIsDeleted] = useState(false)
 
 const navigate = useNavigate()
 
@@ -26,15 +25,9 @@ const navigate = useNavigate()
     setGalleryLoading(false);
     setNoItems(false);
     } else setNoItems(true)
-    console.log(isDeleted)
-  }, [comments, isDeleted]);
+  }, [comments]);
 
 
-
-if(isDeleted){
-  // return <Navigate to="/profile/user" />;
-
-}
 
 
 

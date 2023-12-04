@@ -12,6 +12,7 @@ export const UserProfileData = () => {
   const [data, setData] = useState(null);
   const [isDataReady, setIsDataReady] = useState(false);
   const [displaySection, setDisplaySection] = useState("followed"); // 'profile', 'followers', 'following', etc.
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const fetchData = async () => {
     const dataForState = await getById(user._id);
@@ -21,7 +22,8 @@ export const UserProfileData = () => {
 
   useEffect(() => {
     fetchData();
-  }, [isDataReady]);
+    console.log(isDeleted)
+  }, [isDataReady, isDeleted]);
 
   const renderSection = () => {
     switch (displaySection) {
@@ -30,7 +32,7 @@ export const UserProfileData = () => {
       case "followed":
         return <FollowedComponent followed={data?.data?.followed} />;
       case "comments":
-        return <CommentsComponent comments={data?.data?.comments} />;
+        return <CommentsComponent comments={data?.data?.comments} setIsDeleted={setIsDeleted} />;
       default:
         return <div className="info-user"></div>;
     }

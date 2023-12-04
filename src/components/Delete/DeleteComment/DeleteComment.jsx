@@ -22,7 +22,6 @@ export const DeleteComment = ({ commentId, setIsDeleted }) => {
         if (result.isConfirmed) {
         setSend(true)
         setResDeleteComment(await deleteComment(commentId))
-        setIsDeleted(true)
         setSend(false)
         
         }
@@ -30,7 +29,7 @@ export const DeleteComment = ({ commentId, setIsDeleted }) => {
     }
   
     useEffect(() => {
-        useDeleteError(resDeleteComment, setResDeleteComment);
+        useDeleteError(resDeleteComment, setResDeleteComment, setIsDeleted);
     }, [resDeleteComment]);
 
 
