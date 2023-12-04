@@ -52,16 +52,12 @@ export const ElevenContainer = () => {
     setAllElevens(elevensData);
     setElevenLoading(false);
   };
-  useEffect(() => {
-    if (allElevens?.status == 200){
-      handleComment(allElevens.data[0]._id)
-
-    }
-  }, [allElevens]); 
 
   //este use effect gestiona los datos de la llamada
   useEffect(() => {
     getEleven();
+   
+    console.log(allElevens)
   }, []);
   //cuando es 200 envia al estado de la paginacion
   useEffect(() => {
@@ -80,6 +76,8 @@ export const ElevenContainer = () => {
   useEffect(() => {
     if (buttonComment) {
       getAllComments(buttonComment);
+     
+      console.log(allComments)
     }
   }, [buttonComment, res]);
 
@@ -256,7 +254,7 @@ export const ElevenContainer = () => {
     {allComments?.data?.comments?.length>0 ?
       
     allComments?.data?.comments
-      
+      .slice()
       .reverse()
       .map((comment,index) => (
         <div className="miniCommentComponent" key={index}>
