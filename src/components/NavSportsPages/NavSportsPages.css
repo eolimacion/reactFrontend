@@ -40,7 +40,18 @@
     align-items: center;
     height: 80vh;
     background-color: var(--color-background);
+    position: relative;
 }
+
+.imageText {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255); /* Color del texto */
+    font-size: 58px; /* Tamaño de la fuente */
+    font-weight: bold; /* Peso de la fuente */
+  }
 
 .imageContainer {
 min-width: 550px;
@@ -100,6 +111,7 @@ min-width: 550px;
     flex-wrap: wrap ;
     justify-content: center;
     align-items: center;
+    position: relative;
     /* opacity: .7; */
 /* display: grid;
 grid-template-columns: 1fr 1fr;
@@ -144,6 +156,7 @@ display: none;
     width: 48vw;
     border-radius: 10px;
     object-fit: cover;
+    position: relative;
     
 }
 

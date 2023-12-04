@@ -16,6 +16,7 @@ export const NavSportsPages = ({ sport }) => {
                 alt="foto moto portada"
                 className="imageMotoNav imageNavMotoGP"
               ></img>
+              <h1 className="imageText">LIFTERS</h1>
               </div>
 
 
@@ -29,6 +30,7 @@ export const NavSportsPages = ({ sport }) => {
                 alt="foto circuito portada"
                 className="imageMotoNav imageNavCircuits"
               ></img>
+              <h1 className="imageText">LIFTERS</h1>
               </div>
 
             </NavLink>
@@ -49,6 +51,7 @@ export const NavSportsPages = ({ sport }) => {
                 alt="foto moto portada"
                 className="imageMotoNav imageNavMotoGP"
               ></img>
+              <h1 className="imageText">RIDERS</h1>
               </div>
 
 
@@ -62,6 +65,7 @@ export const NavSportsPages = ({ sport }) => {
                 alt="foto circuito portada"
                 className="imageMotoNav imageNavCircuits"
               ></img>
+              <h1 className="imageText">CIRCUITS</h1>
               </div>
 
             </NavLink>
@@ -83,6 +87,7 @@ export const NavSportsPages = ({ sport }) => {
               alt="foto cristiano ronaldo"
               className="imageMotoNav imageNavMotoGP"
             ></img>
+            <h1 className="imageText">PLAYERS</h1>
             </div>
 
 
@@ -96,6 +101,7 @@ export const NavSportsPages = ({ sport }) => {
               alt="foto equipos fifa"
               className="imageMotoNav imageNavCircuits"
             ></img>
+            <h1 className="imageText">TEAMS</h1>
             </div>
 
           </NavLink>
