@@ -27,7 +27,7 @@ export const CardTeamById = () => {
     const resTeamHCD = await buscarTeamId(idTeam); //hcd significa hardcodded
     setResTeam(resTeamHCD)
     console.log(resTeam)
-    resTeamHCD.status == 200 && setOk(true);
+    resTeamHCD?.status == 200 && setOk(true);
   };
 
   const addToLikes = async () => {
@@ -37,7 +37,7 @@ export const CardTeamById = () => {
 
   const getLikes = async () => {
     const data = await buscarTeamIdNotPopulated(idTeam);
-    setLikesArray(data.data.likes);
+    setLikesArray(data?.data?.likes);
   };
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export const CardTeamById = () => {
   }
 
   if (dataTeam) {
-    const isLiked = likesArray.includes(idUser);
+    const isLiked = likesArray?.includes(idUser);
 
     const {
       name,
