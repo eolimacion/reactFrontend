@@ -93,54 +93,72 @@ export const CardFifaById = () => {
       />
       <div className="IdContainer">
       <div>
-        <button id='btnReturn' onClick={() => navigate("/fifa/players")}>
+       
+
+      </div>
+      
+      <div className="pageByidPlayer pageByid">
+      <div className="imageIdDiv">
+       
+      <button id='btnReturn' onClick={() => navigate("/fifa/players")}>
           <span 
            className="material-symbols-outlined">
 arrow_back_ios
 </span><p>All Players</p>
 </button>
-
-      </div>
-      <div className="cardByIdContainer">
-      <div className="pageByidPlayer pageByid">
-        <figure id="figureidPlayer">
           <img className='imagePlayer' src={image} alt={name} />
-          <h1 className="nameByidPlayer">{name}</h1>
+          
+          
+          
+          </div>
+          
+          <div className="infoIdDiv">
+
+<div className="divName">
+
+          
+          <h1 className="hClass nameByidLifter">{name}</h1>
           {team[0] && <h3>Team: {team[0]}</h3>}
-          <h3>
-            <span className="SBDspan">Position:</span> {position}
+          <h3 className=" hClass H3ById">
+             {position}
           </h3>
-          <h3>
-            <span className="SBDspan">Number:</span>{number}
+          <h3 className=" hClass H3ById">Nº
+            <span className="SBDspan">{number}</span>
+            </h3 >
+            <h3 className=" hClass H3ById">
+              <span className="SBDspan">{age}</span>years old
             </h3>
-            <h3>
-              <span className="SBDspan">Age:</span>{age}
-            </h3>
-          <div>
-            <div className="playerStats">
-              <h3>
+
+            </div>
+
+
+          <div className="restInfoCardId">
+
+         
+            <div className="powerStats">
+              <h3 className="stats hClass H3ById">
                 <span className="SBDspan">Market value:</span> {marketvalue} Mill.
               </h3>
-              <h3>
+              <h3 className="stats hClass H3ById">
                 <span className="SBDspan">Rating:</span> {rating}
-              </h3>
-              <h3>
+              </h3 >
+              <h3 className="stats hClass H3ById">
                 <span className="SBDspan">Goals:</span> {goals}
               </h3>
-              <h3>
+              <h3 className="stats hClass H3ById">
                 <span className="SBDspan">Assists:</span> {assists}
               </h3>
-              <h3>
+              <h3 className="stats hClass H3ById">
                 <span className="SBDspan">Preferred foot:</span> {preferredfoot}
               </h3>
-            </div>
+        
           </div>
           <div>
 
             
-            <h4>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
+            <h3 className="H3ById likeh3">{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
               
-              </h4>
+              </h3>
               <div className="like">
               <span className="material-symbols-outlined"
               id={ isLiked ? "btnLiked" : "btnNotLiked" }
@@ -153,11 +171,13 @@ arrow_back_ios
           <div id = "deletePlayerContainer">
             {user.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idPlayer} playerName = {name}/>}
           </div>
-        </figure>
+       
       </div>
       </div>
       </div>
-    </>
+     
+      </div>
+      </>
 
     )
   }

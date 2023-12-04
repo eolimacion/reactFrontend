@@ -91,15 +91,25 @@ export const CardTeamById = () => {
         />
         <div className="IdContainer">
           <div>
+    
+          </div>
+
+
+    
+            <div className="pageByidTeam pageByidLifter pageByid">
+            <div className="imageIdDiv">
             <button id="btnReturn" onClick={() => navigate("/fifa/teams")}>
               <span className="material-symbols-outlined">arrow_back_ios</span>
               <p>All Teams</p>
             </button>
-          </div>
-          <div className="cardByIdContainer">
-            <div className="pageByidTeam pageByid">
-              <figure id="figureidTeam">
                 <img className="imageById imageTeam" src={image} alt={name} />
+                
+                
+                </div> 
+
+                <div className="infoIdDiv">
+
+          <div className="divName">
                 <h1 className="nameByidTeam">{name}</h1>
                 <h3>
                   <span className="SBDspan">League:</span> {league}
@@ -108,27 +118,35 @@ export const CardTeamById = () => {
                   <span className="SBDspan">Ranking:</span>
                   {ranking}
                 </h3>
-                <h3>
-                  <span className="SBDspan">Points:</span>
-                  {points}
+
+                </div>
+                <div className="restInfoCardId">
+                <h2>{stadium}
+                  
+                  
+                </h2>
+                <div className="powerStats">
+                <h3 className="stats hClass H3ById">
+                  <span className="SBDspan">{points}</span>{" "}points
+                  
                 </h3>
-                <h3>
-                  <span className="SBDspan">Overall Trhopies:</span>
-                  {overalltrophies}
+                <h3 className="stats hClass H3ById">Overall Thropies:
+                  <span className="SBDspan">{overalltrophies}</span>
+                  
                 </h3>
-                <h3>
-                  <span className="SBDspan">Season Trhopies:</span>
-                  {seasontrophies}
+                <h3 className="stats hClass H3ById">Season Thropies:
+                  <span className="SBDspan">{seasontrophies}</span>
+                  
                 </h3>
-                <h3>
-                  <span className="SBDspan">Networth:</span>
-                  {networth} Bill.
+                <h3 className="stats hClass H3ById">Networth:
+                  <span className="SBDspan">{networth} </span>
+                  Bill.
                 </h3>
-                <h3>
-                  <span className="SBDspan">Stadium:</span>
-                  {stadium}
-                </h3>
-                <div></div>
+                
+                </div>
+                </div>
+
+
                 <div>
                   <h4>
                     {likes.length == 1
@@ -148,7 +166,7 @@ export const CardTeamById = () => {
                 <div id = "deletePlayerContainer">
             {user.role === "admin" && <DeletePlayer  id = "DeletePlayer" playerId = {idTeam} playerName = {name}/>}
           </div>
-              </figure>
+            
             </div>
           </div>
         </div>

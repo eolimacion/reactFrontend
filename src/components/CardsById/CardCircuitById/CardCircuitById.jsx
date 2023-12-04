@@ -78,20 +78,31 @@ export const CardCircuitById = () => {
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
       />
       <div className="IdContainer">
-      <div>
-        <button id='btnReturn' onClick={() => navigate("/motogp/circuits")}>
+     
+
+
+ 
+      <div className="pageByidCircuit pageByid">
+      <div className="imageIdDiv">
+      <button id='btnReturn' onClick={() => navigate("/motogp/circuits")}>
           <span 
            className="material-symbols-outlined">
 arrow_back_ios
 </span><p>All Circuits</p>
 </button>
-
-      </div>
-      <div className="cardByIdContainer">
-      <div className="pageByidCircuit pageByid">
-        <figure id="figureidCircuit">
           <img className='imageById imageCircuit' src={image} alt={name} />
+          
+          </div>
+          
+
+          <div className="infoIdDiv">
+
+<div className="divName">
+
           <h1 className="nameByidCircuit">{name}</h1>
+          </div>
+          <div className="restInfoCardId">
+          <div className="powerStats">
           <h3>
             <span className="SBDspan">Location:</span> {location}
           </h3>
@@ -104,12 +115,12 @@ arrow_back_ios
           <h3>
             <span className="SBDspan">Top speed:</span>{topSpeed} km/h
           </h3>
-          <div>
+          </div>
           </div>
           <div>
-            <h4>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
+            <h3>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
               
-              </h4>
+              </h3>
               <div className="like">
               <span className="material-symbols-outlined"
               id={ isLiked ? "btnLiked" : "btnNotLiked" }
@@ -122,7 +133,7 @@ arrow_back_ios
           <div id = "deletePlayerContainer">
             {user.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idCircuit} playerName = {name}/>}
           </div>
-        </figure>
+       
       </div>
       </div>
       </div>

@@ -55,8 +55,8 @@
 .infoIdDiv{
     background-color: var(--color-formById);
     border: var(--boder);
-    width: 600px;
-    height: 500px;
+    width: 48vw;
+    height: 75vh;
     border-radius: 15px;
     margin: 1rem ;
 }
@@ -167,3 +167,45 @@
     width: 100px;
     cursor: pointer;
 }
+
+.logoId{
+    margin: 4px 0 0 0;
+}
+
+
+@media (min-width: 300px) and (max-width: 767px) {
+  
+    .pageByid{
+
+        /* background-color: #ffffff; */
+    
+        min-height: 95vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    
+    }
+    .infoIdDiv{
+
+        width: 90vw;
+        height: 90vh;
+
+    }
+
+    .powerStats{
+        width: 50vw;
+        height: 30vh;
+
+      }
+
+      .imageLifter{
+        width: 70vw;
+        height: 40vh;
+        object-fit: contain;
+        border-radius: 15px;
+        margin: 1rem 1rem 2rem 1rem;
+    }
+    
+    
+  }

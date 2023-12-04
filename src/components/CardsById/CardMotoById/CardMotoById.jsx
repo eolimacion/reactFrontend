@@ -93,7 +93,11 @@ export const CardMotoById = () => {
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
       />
       <div className="IdContainer">
-      <div>
+  
+      
+      <div className="pageByidRider pageByid">
+      <div className="imageIdDiv">
+
         <button id='btnReturn' onClick={() => navigate("/motogp/riders")}>
           <span 
            className="material-symbols-outlined">
@@ -101,52 +105,53 @@ arrow_back_ios
 </span><p>All Riders</p>
 </button>
 
-      </div>
-      <div className="cardByIdContainer">
-      <div className="pageByidRider pageByid">
-        <figure id="figureidRider">
           <img className='imageById imageRider' src={image} alt={name} />
+
+          </div>
+          <div className="infoIdDiv">
+
+<div className="divName">
+
           <h1 className="nameByidRider">{name}</h1>
           <h3>
-            <span className="SBDspan">Nationality:</span> {nationality}
+             {nationality}
           </h3>
-          <h3>
-            <span className="SBDspan">Number:</span>{number}
+          <h3>#
+            <span className="SBDspan">{number}</span>
             </h3>
-            <h3>
-              <span className="SBDspan">Age:</span>{age}
-            </h3>
+  
           <h3>
-            <span className="SBDspan">Team:</span>{team} 
+            <span className="SBDspan">{team}</span> 
           </h3>
-          <div>
-            <div className="playerStats">
-              <h3>
-                <span className="SBDspan">Points:</span> {points}
-              </h3>
-              <h3>
-                <span className="SBDspan">Rating:</span> {rating}
-              </h3>
-              <h3>
-                <span className="SBDspan">Victories season:</span> {victoriesSeason}
-              </h3>
-              <h3>
-                <span className="SBDspan">Victories carrer:</span> {victoriesCarrer}
-              </h3>
-              <h3>
-                <span className="SBDspan">Championships carrer:</span> {championshipsCarrer}
-              </h3>
-              <h3>
-                <span className="SBDspan">Poles season:</span> {polesSeason}
-              </h3>
-            </div>
           </div>
-          <div>
+
+          <div className="restInfoCardId">
+          <h2 >
+                <span className="SBDspan">{points}</span> points
+              </h2>
+            <div className="powerStats">
+           
+              <h3 className="H3ById hClass ">
+                <span className="SBDspan">{victoriesSeason}</span>  victories this season
+              </h3>
+              <h3 className="H3ById hClass ">
+                <span className="SBDspan">{victoriesCarrer}</span> victories on his entire career
+              </h3>
+              <h3 className="H3ById hClass ">
+                <span className="SBDspan">{championshipsCarrer}</span> championships
+              </h3>
+              <h3 className="H3ById hClass ">
+                <span className="SBDspan">{polesSeason}</span> poles season
+              </h3>
+              </div>
+            </div>
+          
+          
 
             
-            <h4>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
+            <h3>{ likes.length == 1 ? `${likes.length} like` : `${likes.length} likes` }
               
-              </h4>
+              </h3>
               <div className="like">
               <span className="material-symbols-outlined"
               id={ isLiked ? "btnLiked" : "btnNotLiked" }
@@ -158,12 +163,12 @@ arrow_back_ios
           <div id = "deletePlayerContainer">
             {user.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idRider} playerName = {name}/>}
           </div>
-        </figure>
-        
+     
+          </div>
       </div>
-      </div>
-      </div>
-    </>
+      
+      </>
+    
     ) 
   }
 }
