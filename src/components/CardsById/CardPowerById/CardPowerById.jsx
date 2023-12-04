@@ -160,7 +160,7 @@ arrow_back_ios
             
           </div>
           <div id = "deletePlayerContainer">
-            {userData.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idLifter} playerName = {name}/>}
+            {user.role === "admin" &&  <DeletePlayer  id = "DeletePlayer" playerId = {idLifter} playerName = {name}/>}
           </div>
         </figure>
       </div>
