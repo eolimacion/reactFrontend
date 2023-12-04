@@ -132,7 +132,7 @@ export const EditProfile = () => {
                 defaultValue={user?.name}
                 {...register("name")}
               />
-              <img src={user.image} alt={user.name}/>
+              <img className="profilePictureUser" style={{padding: '0'}} src={user.image} alt={user.name}/>
               <UploadFile />
             </div>
             <div className="profileEditRight">

@@ -212,3 +212,18 @@ margin: 30px 0 20px 0 ;
   .terms{
     margin: 0 0 1rem 0;
   }
+
+  @media (max-width: 500px) {
+    .formMain {
+      width: 80vw;
+      min-width: 100%;
+    }
+
+    .profileSettingsContainerDiv.profileSettingsFormDiv {
+      margin-bottom: 0;
+  }
+
+    .allForm {
+      margin-bottom: 1rem;
+    }
+  }
