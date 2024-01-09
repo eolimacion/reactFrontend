@@ -1,0 +1,35 @@
+{
+    "routes": [
+        { "src": "/", "dest": "/" },
+        { "src": "/users", "dest": "/" },
+        { "src": "/users/:id", "dest": "/" },
+        { "src": "/about", "dest": "/" },
+        { "src": "/register", "dest": "/" },
+        { "src": "/login", "dest": "/" },
+        { "src": "/verifyCode", "dest": "/" },
+        { "src": "/forgotPassword", "dest": "/" },
+        { "src": "/motogp", "dest": "/" },
+        { "src": "/motogp/riders", "dest": "/" },
+        { "src": "/motogp/riders/:id", "dest": "/" },
+        { "src": "/motogp/circuits", "dest": "/" },
+        { "src": "/motogp/circuits/:id", "dest": "/" },
+        { "src": "/podium", "dest": "/" },
+        { "src": "/eleven", "dest": "/" },
+        { "src": "/fifa", "dest": "/" },
+        { "src": "/fifa/players", "dest": "/" },
+        { "src": "/fifa/players/:id", "dest": "/" },
+        { "src": "/fifa/teams", "dest": "/" },
+        { "src": "/fifa/teams/:id", "dest": "/" },
+        { "src": "/powerlifting", "dest": "/" },
+        { "src": "/powerlifting/lifters", "dest": "/" },
+        { "src": "/powerlifting/lifters/:id", "dest": "/" },
+        { "src": "/dashboard", "dest": "/" },
+        { "src": "/profile/user", "dest": "/" },
+        { "src": "/profile", "dest": "/" },
+        { "src": "/profile/favourites", "dest": "/" },
+        { "src": "/profile/edit", "dest": "/" },
+        { "src": "/profile/settings", "dest": "/" },
+        { "src": "/[^.]+", "dest": "/", "status": 200 }
+
+    ]
+  }
